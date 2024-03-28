@@ -158,4 +158,4 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc src/../inc/DTInfoEstudiante.h \
  src/../inc/Informacion.h src/../inc/Libro.h src/../inc/DTFecha.h \
- src/../inc/ChatGPT.h src/../inc/PaginaWeb.h src/../inc/Estudiante.h
+ src/../inc/chatGPT.h src/../inc/PaginaWeb.h src/../inc/Estudiante.h
