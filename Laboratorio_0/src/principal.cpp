@@ -8,7 +8,8 @@
 #include "../inc/Estudiante.h"
 #include <set>
 
-int main(){
+int main()
+{
 	// Parte A
 
 	DTFecha fecha1(7, 3, 2024);
@@ -54,9 +55,8 @@ int main(){
 
 	// Parte E
 
-	Estudiante estudiante1("Alex García", 52365899,"ag5678@gmail.com");
-	Estudiante estudiante2 ("Betina Gonzalez" , 49891239 , "beg999@gmail.com");
-	
+	Estudiante estudiante1("Alex García", 52365899, "ag5678@gmail.com");
+	Estudiante estudiante2("Betina Gonzalez", 49891239, "beg999@gmail.com");
 
 	// Fin de Parte E
 
@@ -70,18 +70,19 @@ int main(){
 	estudiante2.guardarInformacion(&Informacion5);
 
 	set<string> infoStrings = estudiante1.listarInfo(fecha3);
-	for(const string& info : infoStrings){
+	for (const string &info : infoStrings)
+	{
 		cout << info << endl;
-	}	
+	}
 
 	set<string> infoStrings2 = estudiante2.listarInfo(fecha3);
-	for(const string& info : infoStrings){
+	for (const string &info : infoStrings)
+	{
 		cout << info << endl;
 	}
 	estudiante1.eliminarLinkInformacion(Informacion1.getIdentificador());
 	estudiante1.eliminarLinkInformacion(Informacion2.getIdentificador());
 	estudiante1.eliminarLinkInformacion(Informacion3.getIdentificador());
-
 
 	/* DTInfoEstudiante Estudiante1(52365899, 1 , 2 , 3 , "Alex García");
 	Informacion *Registro1 = Guardado(Informacion1, Informacion2, Informacion3);
@@ -90,11 +91,16 @@ int main(){
 	Informacion *Registro2 = Guardado(Informacion3, Informacion4, Informacion5);
 	 */
 	// Fin Parte F
-
+	// Test commit Cyn
 	// Parte G
 
-	// corran el make clean sucios
+	DTFecha fecha(08, 3, 2024);
+	estudiante1.listarInfo(fecha);
+	estudiante2.listarInfo(fecha);
 
-	// Test commit Cyn
+	// Fin Parte G
+
+	// Parte H
+
 	return 0;
 }
