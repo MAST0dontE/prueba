@@ -22,6 +22,7 @@ public:
     int getIdentificador();
     DTFecha getFecha();
     virtual string toString() = 0;
+    virtual ~Informacion();
 };
 
 #endif

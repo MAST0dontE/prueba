@@ -23,3 +23,7 @@ string PaginaWeb::getLink(){
 string PaginaWeb::getText(){
     return this->Text;
 }
+
+PaginaWeb :: ~PaginaWeb(){
+
+}

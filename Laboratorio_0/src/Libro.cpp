@@ -29,3 +29,7 @@ string Libro::toString(){
 
 	return "Libro: " + to_string(getIdentificador()) + "," + getFecha().toString() + "," + this->titulo + "," + autoresStr + "," + this->resumen;
 }
+
+Libro :: ~Libro(){
+	
+}

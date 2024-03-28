@@ -19,5 +19,6 @@ class PaginaWeb: public Informacion{
     string getTitulo();
     string getLink();
     string getText();
+    ~PaginaWeb();
 };
 #endif

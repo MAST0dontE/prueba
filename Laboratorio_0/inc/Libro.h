@@ -22,6 +22,7 @@ public:
     set<string> getAutores();
     string getResumen();
     string toString();
+    ~Libro();
 };
 
 #endif
