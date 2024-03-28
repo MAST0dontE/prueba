@@ -69,7 +69,6 @@ int main(){
 	estudiante2.guardarInformacion(&Informacion4);
 	estudiante2.guardarInformacion(&Informacion5);
 
-	cout << "\n hola sucios" << endl;
 	set<string> infoStrings = estudiante1.listarInfo(fecha3);
 	for(const string& info : infoStrings){
 		cout << info << endl;
