@@ -10,7 +10,8 @@ OBJS    = $(OBJ_DIR)/Estudiante.o \
 		  $(OBJ_DIR)/chatGPT.o \
 		  $(OBJ_DIR)/Libro.o \
 		  $(OBJ_DIR)/PaginaWeb.o \
-		  $(OBJ_DIR)/utils.o
+		  $(OBJ_DIR)/principal.o \
+		  $(OBJ_DIR)/utils.o 
 
 CPP = g++
 CPPFLAGS = -Wall -I$(INC_DIR)

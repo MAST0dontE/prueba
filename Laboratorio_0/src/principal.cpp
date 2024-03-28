@@ -1,11 +1,11 @@
 #include <iostream>
 #include <stdlib.h>
-#include "inc/Informacion.h"
-#include "inc/Libro.h"
-#include "inc/DTFecha.h"
-#include "inc/ChatGPT.h"
-#include "inc/PaginaWeb.h"
-#include "inc/Estudiante.h"
+#include "../inc/Informacion.h"
+#include "../inc/Libro.h"
+#include "../inc/DTFecha.h"
+#include "../inc/ChatGPT.h"
+#include "../inc/PaginaWeb.h"
+#include "../inc/Estudiante.h"
 #include <set>
 
 int main(){
