@@ -16,6 +16,6 @@ DTFecha Informacion::getFecha(){
     return this->Fecha;
 }
 
-void Informacion::guardadoPor(Estudiante* est){
+/* void Informacion::guardadoPor(Estudiante* est){
 	InformacionGuardadaPor.push_back(info);
-}
+} */

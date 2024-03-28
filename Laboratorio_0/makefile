@@ -1,8 +1,8 @@
 TARGET = principal
-OBJ_DIR = ../obj
-BIN_DIR = ../bin
-INC_DIR = ../inc
-SRC_DIR = ../src
+OBJ_DIR = obj
+BIN_DIR = bin
+INC_DIR = inc
+SRC_DIR = src
 OBJS    = $(OBJ_DIR)/Estudiante.o \
 		  $(OBJ_DIR)/Informacion.o \
 		  $(OBJ_DIR)/DTInfoEstudiante.o \
@@ -17,9 +17,9 @@ CPPFLAGS = -Wall -I$(INC_DIR)
 
 $(TARGET) : $(OBJS)
 	mkdir -p $(BIN_DIR)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(TARGET)
+	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(BIN_DIR)/$(TARGET)
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp
 	mkdir -p $(OBJ_DIR)
 	$(CPP) -c -MD $(CPPFLAGS) $< -o $@
 
