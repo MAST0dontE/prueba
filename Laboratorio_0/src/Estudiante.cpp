@@ -6,6 +6,9 @@ Estudiante::Estudiante(string nombre, int ci, string email){
 	this->email = email;
 }
 
+Estudiante::~Estudiante(){
+
+}
 string Estudiante::getNombre(){
 	return this->nombre;
 }
@@ -36,6 +39,7 @@ string Estudiante::toString(){
 
 void Estudiante::guardarInformacion(Informacion *info){
 	InformacionGuardada.push_back(info);
+	info->guardadoPor(this);
 }
 
 void Estudiante::eliminarLinkInformacion(int id){

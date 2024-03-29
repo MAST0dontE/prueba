@@ -19,6 +19,10 @@ DTFecha Informacion::getFecha(){
 Informacion :: ~Informacion(){
     
 }
-/* void Informacion::guardadoPor(Estudiante* est){
-	InformacionGuardadaPor.push_back(info);
+ void Informacion::guardadoPor(Estudiante *est){
+	InformacionGuardadaPor.push_back(est);
+} 
+
+/* void Informacion::eliminarLinkEstudiante(){
+
 } */

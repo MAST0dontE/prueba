@@ -4,21 +4,24 @@
 #include <iostream>
 #include <stdlib.h>
 #include <set>
+#include <vector>
 #include <string>
 #include "DTFecha.h"
 #include "Estudiante.h"
+
 using namespace std;
+
+class Estudiante;
 
 class Informacion{
 protected:
     int Identificador;
     DTFecha Fecha;
-    //vector<Estudiante*> InformacionGuardadaPor;
+    vector<Estudiante*> InformacionGuardadaPor;
 public:
     Informacion(int id, const DTFecha& fecha);
-    //virtual ~Informacion();
-    //void guardadoPor(Estudiante* est);
-    //void eliminarLinkEstudiante()
+    void guardadoPor(Estudiante* est);
+    //void eliminarLinkEstudiante();
     int getIdentificador();
     DTFecha getFecha();
     virtual string toString() = 0;

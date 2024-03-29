@@ -153,8 +153,7 @@ obj/DTInfoEstudiante.o: src/DTInfoEstudiante.cpp \
  /usr/include/c++/11/bits/stl_multiset.h \
  /usr/include/c++/11/bits/erase_if.h src/../inc/DTFecha.h \
  src/../inc/DTInfoEstudiante.h src/../inc/Informacion.h \
- src/../inc/Estudiante.h /usr/include/c++/11/vector \
- /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc
+ /usr/include/c++/11/bits/vector.tcc src/../inc/Estudiante.h

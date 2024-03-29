@@ -40,16 +40,11 @@ int main()
 
 	// Parte D
 
-	cout << Informacion1.toString() + "\n"
-		 << endl;
-	cout << Informacion2.toString() + "\n"
-		 << endl;
-	cout << Informacion3.toString() + "\n"
-		 << endl;
-	cout << Informacion4.toString() + "\n"
-		 << endl;
-	cout << Informacion5.toString() + "\n"
-		 << endl;
+	cout << Informacion1.toString() + "\n" << endl;
+	cout << Informacion2.toString() + "\n" << endl;
+	cout << Informacion3.toString() + "\n" << endl;
+	cout << Informacion4.toString() + "\n" << endl;
+	cout << Informacion5.toString() + "\n" << endl;
 
 	// Fin parte D
 
@@ -69,34 +64,23 @@ int main()
 	estudiante2.guardarInformacion(&Informacion4);
 	estudiante2.guardarInformacion(&Informacion5);
 
+
+ 	estudiante1.eliminarLinkInformacion(Informacion1.getIdentificador());
+/* 	estudiante1.eliminarLinkInformacion(Informacion2.getIdentificador());
+	estudiante1.eliminarLinkInformacion(Informacion3.getIdentificador());
+ */
+	// Fin Parte F
+	// Test commit Cyn
+	// Parte G
 	set<string> infoStrings = estudiante1.listarInfo(fecha3);
-	for (const string &info : infoStrings)
-	{
+	for (const string &info : infoStrings){
 		cout << info << endl;
 	}
 
 	set<string> infoStrings2 = estudiante2.listarInfo(fecha3);
-	for (const string &info : infoStrings)
-	{
+	for (const string &info : infoStrings){
 		cout << info << endl;
 	}
-	estudiante1.eliminarLinkInformacion(Informacion1.getIdentificador());
-	estudiante1.eliminarLinkInformacion(Informacion2.getIdentificador());
-	estudiante1.eliminarLinkInformacion(Informacion3.getIdentificador());
-
-	/* DTInfoEstudiante Estudiante1(52365899, 1 , 2 , 3 , "Alex García");
-	Informacion *Registro1 = Guardado(Informacion1, Informacion2, Informacion3);
-
-	DTInfoEstudiante Estudiante2(49891239 , 3 , 4 , 5 ,"Betina Gonzalez");
-	Informacion *Registro2 = Guardado(Informacion3, Informacion4, Informacion5);
-	 */
-	// Fin Parte F
-	// Test commit Cyn
-	// Parte G
-
-	DTFecha fecha(08, 3, 2024);
-	estudiante1.listarInfo(fecha);
-	estudiante2.listarInfo(fecha);
 
 	// Fin Parte G
 
