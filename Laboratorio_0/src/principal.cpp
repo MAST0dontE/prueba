@@ -116,7 +116,7 @@ int main()
 		{
 			string infoString = info.toString();
 			// Verificamos si la información contiene el término "polimorfismo"
-			if (infoString.find("polimorfismo" != string::npos))
+			if (infoString.find("polimorfismo") != string::npos)
 			{
 				// Recorremos los estudiantes relacionados con este objeto Informacion (relacionados mediante guardadorPor)
 				for (const Estudiante *est : info.guardadoPor())
@@ -129,6 +129,9 @@ int main()
 		}
 		return result;
 	}
+
+	// Parte I
+
 	// OBS: se necesitaría un getEstudiantes
 	return 0;
 }
