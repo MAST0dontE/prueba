@@ -18,7 +18,7 @@ CPPFLAGS = -Wall -I$(INC_DIR)
 
 $(TARGET) : $(OBJS)
 	mkdir -p $(BIN_DIR)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(BIN_DIR)/$(TARGET)
+	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(TARGET)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp
 	mkdir -p $(OBJ_DIR)

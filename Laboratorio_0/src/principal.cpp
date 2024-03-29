@@ -40,16 +40,11 @@ int main()
 
 	// Parte D
 
-	cout << Informacion1.toString() + "\n"
-		 << endl;
-	cout << Informacion2.toString() + "\n"
-		 << endl;
-	cout << Informacion3.toString() + "\n"
-		 << endl;
-	cout << Informacion4.toString() + "\n"
-		 << endl;
-	cout << Informacion5.toString() + "\n"
-		 << endl;
+	cout << Informacion1.toString() + "\n" << endl;
+	cout << Informacion2.toString() + "\n" << endl;
+	cout << Informacion3.toString() + "\n" << endl;
+	cout << Informacion4.toString() + "\n" << endl;
+	cout << Informacion5.toString() + "\n" << endl;
 
 	// Fin parte D
 
@@ -69,17 +64,25 @@ int main()
 	estudiante2.guardarInformacion(&Informacion4);
 	estudiante2.guardarInformacion(&Informacion5);
 
+
+ 	estudiante1.eliminarLinkInformacion(Informacion1.getIdentificador());
+/* 	estudiante1.eliminarLinkInformacion(Informacion2.getIdentificador());
+	estudiante1.eliminarLinkInformacion(Informacion3.getIdentificador());
+ */
+	// Fin Parte F
+	// Test commit Cyn
+	// Parte G
 	set<string> infoStrings = estudiante1.listarInfo(fecha3);
-	for (const string &info : infoStrings)
-	{
+	for (const string &info : infoStrings){
 		cout << info << endl;
 	}
 
 	set<string> infoStrings2 = estudiante2.listarInfo(fecha3);
-	for (const string &info : infoStrings)
-	{
+	for (const string &info : infoStrings){
 		cout << info << endl;
 	}
+<<<<<<< HEAD
+=======
 	estudiante1.eliminarLinkInformacion(Informacion1.getIdentificador());
 	estudiante1.eliminarLinkInformacion(Informacion2.getIdentificador());
 	estudiante1.eliminarLinkInformacion(Informacion3.getIdentificador());
@@ -91,16 +94,33 @@ int main()
 	Informacion *Registro2 = Guardado(Informacion3, Informacion4, Informacion5);
 	 */
 	// Fin Parte F
-	// Test commit Cyn
+	
 	// Parte G
-
-	DTFecha fecha(08, 3, 2024);
-	estudiante1.listarInfo(fecha);
-	estudiante2.listarInfo(fecha);
+>>>>>>> 49a2215941b0df75a83c89feeff9784d6d66c9eb
 
 	// Fin Parte G
+	
 
 	// Parte H
 
+/*set<DTInfoEstudiante> public buscarPolimorfismo(const set<Informacion>& informacionSet) {
+    set<DTInfoEstudiante> result = new set<DTInfoEstudiante>();
+
+    // Recorremos cada objeto Informacion en el conjunto
+    for (const Informacion& info : informacionSet) {
+		string infoString = info.toString();
+        // Verificamos si la información contiene el término "polimorfismo"
+        if (infoString.contains("polimorfismo")) {
+            // Recorremos los estudiantes relacionados con este objeto Informacion
+            for (const Estudiante& estudiante : infoString.getEstudiantes()) {
+                // Creamos una instancia de DTInfoEstudiante y la agregamos al conjunto
+                DTInfoEstudiante DTInfoEstudiante(estudiante.getCedula(), info.getIdentificador(), estudiante.getNombre());
+                estudiantesConPolimorfismo.insert(dtInfoEstudiante);
+            }
+        }
+    }
+    return result;
+}*/
+// OBS: se necesitaría un getEstudiantes
 	return 0;
 }

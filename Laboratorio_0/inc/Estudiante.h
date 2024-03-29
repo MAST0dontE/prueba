@@ -20,7 +20,7 @@ class Estudiante{
 		vector<Informacion*> InformacionGuardada;
 	public:
 		Estudiante(string nombre, int ci, string email);
-		//~Estudiante();
+		~Estudiante();
 		string getNombre();
 		void setNombre(string nombre);
 		int getCi();
