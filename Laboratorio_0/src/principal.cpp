@@ -9,9 +9,8 @@
 #include "../inc/Biblioteca.h"
 #include <set>
 
-int main()
-{
-	Biblioteca Biblioteca1 = Biblioteca Biblioteca();
+int main(){
+	Biblioteca Biblioteca1;
 
 	// Parte A
 
