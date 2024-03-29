@@ -31,7 +31,7 @@ void Informacion::eliminarLinkEstudiante(int ci)
 {
 	for (auto it = InformacionGuardada.begin(); it != InformacionGuardada.end(); it++)
 	{
-		if ((*it)->getCi() == id)
+		if ((*it)->getCi() == ci)
 		{
 			delete *it;
 			InformacionGuardada.erase(it);
