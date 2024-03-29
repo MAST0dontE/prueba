@@ -13,8 +13,7 @@ using namespace std;
 
 class Estudiante;
 
-class Informacion
-{
+class Informacion{
 protected:
     int Identificador;
     DTFecha Fecha;
@@ -25,7 +24,7 @@ public:
     void guardadoPor(Estudiante *est);
 
     vector<Estudiante*> getInformacionGuardadaPor();
-
+    bool operator<(const Informacion &info) const;
     void eliminarLinkEstudiante(int ci);
     int getIdentificador();
     DTFecha getFecha();

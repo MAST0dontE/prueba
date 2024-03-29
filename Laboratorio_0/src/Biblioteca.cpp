@@ -1,11 +1,11 @@
 #include "../inc/Biblioteca.h"
 
 Biblioteca :: Biblioteca(){
-   // set<Informacion*> infos;
-    //this->InformacionesGuardadas = infos;
+    set<Informacion*> infos;
+    this->InformacionesGuardadas = infos;
 }
 
-set<Informacion*> getInformacionesGuardadas(){
+set<Informacion*> Biblioteca:: getInformacionesGuardadas(){
     return this->InformacionesGuardadas;
 }
 
@@ -23,7 +23,7 @@ void Biblioteca :: eliminarInformacion(int id){
     }
 }
 
-set<DTInfoEstudiante> Biblioteca :: buscarTermino(string clave){
+/* set<DTInfoEstudiante> Biblioteca :: buscarTermino(string clave){
     set<DTInfoEstudiante> result;
     auto it=getInformacionesGuardadas().find(clave);
     if(it != this->getInformacionesGuardadas().end()){
@@ -33,7 +33,7 @@ set<DTInfoEstudiante> Biblioteca :: buscarTermino(string clave){
         }
     }
     return result;
-}
+} */
 
 Biblioteca :: ~Biblioteca(){
 

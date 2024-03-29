@@ -97,15 +97,23 @@ int main()
 
 	// Parte H
 
-	Biblioteca1.buscarTermino("polimorfismo");
+	//Biblioteca1.buscarTermino("polimorfismo");
 
 	// Fin Parte H
 
 	// Parte I
 
 	Biblioteca1.eliminarInformacion(3);
-	Biblioteca1.buscarTermino("polimorfismo");
+	//Biblioteca1.buscarTermino("polimorfismo");
 
 	// Fin Parte I
+
+
+/* 	friend ostream &operator<<(ostream &os, const DTInfoEstudiante &estudiante)
+	{
+		os << estudiante.ci << ", " << estudiante.identificadorInfo << ", " << estudiante.NombreEst;
+		return os;
+	} */
+
 	return 0;
 }
