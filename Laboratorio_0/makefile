@@ -3,11 +3,12 @@ OBJ_DIR = obj
 BIN_DIR = bin
 INC_DIR = inc
 SRC_DIR = src
-OBJS    = $(OBJ_DIR)/Estudiante.o \
-		  $(OBJ_DIR)/Informacion.o \
-		  $(OBJ_DIR)/DTInfoEstudiante.o \
-		  $(OBJ_DIR)/DTFecha.o \
+OBJS    = $(OBJ_DIR)/Biblioteca.o \
 		  $(OBJ_DIR)/chatGPT.o \
+		  $(OBJ_DIR)/DTFecha.o \
+		  $(OBJ_DIR)/DTInfoEstudiante.o \
+		  $(OBJ_DIR)/Estudiante.o \
+		  $(OBJ_DIR)/Informacion.o \
 		  $(OBJ_DIR)/Libro.o \
 		  $(OBJ_DIR)/PaginaWeb.o \
 		  $(OBJ_DIR)/principal.o \
