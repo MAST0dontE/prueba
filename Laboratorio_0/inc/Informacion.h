@@ -21,10 +21,10 @@ protected:
     vector<Estudiante *> InformacionGuardadaPor;
 
 public:
-    Informacion(int id, const DTFecha& fecha);
-    void guardadoPor(Estudiante* est);
+    Informacion(int id, const DTFecha &fecha);
+    void guardadoPor(Estudiante *est);
     std::vector getGuardadoPor(Informacion info);
-    //void eliminarLinkEstudiante();
+    void eliminarLinkEstudiante();
     int getIdentificador();
     DTFecha getFecha();
     virtual string toString() = 0;

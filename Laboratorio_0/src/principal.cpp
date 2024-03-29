@@ -82,12 +82,14 @@ int main()
 
 	// Parte G
 	set<string> infoStrings = estudiante1.listarInfo(fecha3);
-	for (const string &info : infoStrings){
+	for (const string &info : infoStrings)
+	{
 		cout << info << endl;
 	}
 
 	set<string> infoStrings2 = estudiante2.listarInfo(fecha3);
-	for (const string &info : infoStrings){
+	for (const string &info : infoStrings)
+	{
 		cout << info << endl;
 	}
 
@@ -96,31 +98,11 @@ int main()
 	// Parte H
 
 	Biblioteca1.buscarTermino("polimorfismo");
-	
-	/* set<DTInfoEstudiante> public buscarPolimorfismo(const set<Informacion> &informacionSet)
-	{
-		set<DTInfoEstudiante> result = new set<DTInfoEstudiante>();
-		// Recorremos cada objeto Informacion en el conjunto
-		for (const Informacion &info : informacionSet)
-		{
-			string infoString = info.toString();
-			// Verificamos si la información contiene el término "polimorfismo"
-			if (infoString.find("polimorfismo") != string::npos)
-			{
-				// Recorremos los estudiantes relacionados con este objeto Informacion (relacionados mediante guardadorPor)
-				for (const Estudiante *est : info.guardadoPor())
-				{
-					// Creamos una instancia de DTInfoEstudiante y la agregamos al conjunto
-					DTInfoEstudiante DTInfoEstudiante(est->getCedula(), est->getNombre(), infoString->getIdentificador());
-					result.insert(dtInfoEstudiante);
-				}
-			}
-		}
-		return result;
-	} */
+
+	// Fin Parte H
 
 	// Parte I
 
-	// OBS: se necesitaría un getEstudiantes
+	// Fin Parte I
 	return 0;
 }
