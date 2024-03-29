@@ -38,3 +38,4 @@ void Informacion::eliminarLinkEstudiante(int ci)
 			break;
 		}
 	}
+}
