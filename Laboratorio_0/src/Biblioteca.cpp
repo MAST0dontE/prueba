@@ -21,11 +21,11 @@ void Biblioteca :: eliminarInformacion(int id){
     }
 }
 
-set<DTInfoEstudiante> Biblioteca ::buscarTermino(Biblioteca biblio, string clave){
+set<DTInfoEstudiante> Biblioteca ::buscarTermino(string clave){
     set<DTInfoEstudiante> result = set<DTInfoEstudiante>;
     auto it=this->infos.find(clave);
     if(it != this->infos.end()){
-        for(const Estudiante est* : biblio->infos.guardadoPor()){
+        for(const Estudiante est* : this->infos.guardadoPor()){
         DTInfoEstudiante estu = DTInfoEstudiante::DTInfoEstudiante(est->getCedula(), est->getNombre(), infoString->getIdentificador());
         result.insert(estu);
         }

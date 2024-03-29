@@ -17,7 +17,7 @@ class Biblioteca{
     set<Informacion*> getInformacionesGuardadas();
     void insertarInformacion();
     void eliminarInformacion();
-    set<DTInfoEstudiante> buscarTermino(Biblioteca Biblioteca);
+    set<DTInfoEstudiante> buscarTermino(Biblioteca Biblioteca, string clave);
     ~Biblioteca();
 }
 
