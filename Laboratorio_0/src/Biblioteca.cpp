@@ -15,21 +15,19 @@ void Biblioteca :: insertarInformacion(Informacion &Informacion){
 }
 
 void Biblioteca :: eliminarInformacion(int id){
-    auto it = this->informacionesGuardadas.find(id);
-    if (it != this->informacionesGuardadas.end()) {
-        for(auto it2 = it.getGuardadoPor.begin(); it2 != it.getGuardadoPor.end(); it2++){
-		    it.eliminarLinkEstudiante(it2.getCi());
-			it2.eliminarLinkInformacion(id);
+    for(auto it = InformacionesGuardadas.begin(); it != InformacionesGuardadas.end(); it++){
+		if((*it)->getIdentificador() == id){
+			InformacionesGuardadas.erase(it);
+			break;
 		}
-        this->informacionesGuardadas.erase(it);
     }
 }
 
-set<DTInfoEstudiante> Biblioteca ::buscarTermino(string clave){
-    set<DTInfoEstudiante> result = set<DTInfoEstudiante>;
-    auto it=this->infos.find(clave);
-    if(it != this->infos.end()){
-        for(const Estudiante est* : this->infos.guardadoPor()){
+set<DTInfoEstudiante> Biblioteca :: buscarTermino(string clave){
+    set<DTInfoEstudiante> result;
+    auto it=getInformacionesGuardadas().find(clave);
+    if(it != this->getInformacionesGuardadas().end()){
+        for(const Estudiante est* : this->getInformacionGuardadaPor()){
         DTInfoEstudiante estu = DTInfoEstudiante::DTInfoEstudiante(est->getCedula(), est->getNombre(), infoString->getIdentificador());
         result.insert(estu);
         }
