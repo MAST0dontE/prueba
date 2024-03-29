@@ -96,7 +96,12 @@ int main(){
 
 	// Parte H
 
-	//Biblioteca1.buscarTermino("polimorfismo");
+	vector<DTInfoEstudiante> vectorEstudiantes = Biblioteca1.buscarTermino("polimorfismo");
+	for (const auto& Estudiante : vectorEstudiantes){
+		cout << Estudiante << endl;
+	}
+	
+
 
 	// Fin Parte H
 
@@ -106,13 +111,6 @@ int main(){
 	//Biblioteca1.buscarTermino("polimorfismo");
 
 	// Fin Parte I
-
-
-/* 	friend ostream &operator<<(ostream &os, const DTInfoEstudiante &estudiante)
-	{
-		os << estudiante.ci << ", " << estudiante.identificadorInfo << ", " << estudiante.NombreEst;
-		return os;
-	} */
 
 	return 0;
 }

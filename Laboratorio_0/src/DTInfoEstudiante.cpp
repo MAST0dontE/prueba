@@ -5,3 +5,8 @@ DTInfoEstudiante::DTInfoEstudiante(int ci, int identificadorInfo, string NombreE
 	this->identificadorInfo = identificadorInfo;
 	this->NombreEst = NombreEst;
 }
+
+ostream &operator<<(ostream &os, const DTInfoEstudiante &estudiante){
+	os << estudiante.ci << ", " << estudiante.identificadorInfo << ", " << estudiante.NombreEst;
+	return os;
+} 

@@ -13,5 +13,6 @@ class DTInfoEstudiante{
         int ci, identificadorInfo;
         string NombreEst;
         DTInfoEstudiante(int ci, int identificadorInfo, string NombreEst);
+        friend ostream &operator<<(ostream &os, const DTInfoEstudiante &estudiante);
 };
 #endif
