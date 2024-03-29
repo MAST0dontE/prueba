@@ -81,10 +81,46 @@ int main()
 	for (const string &info : infoStrings){
 		cout << info << endl;
 	}
+<<<<<<< HEAD
+=======
+	estudiante1.eliminarLinkInformacion(Informacion1.getIdentificador());
+	estudiante1.eliminarLinkInformacion(Informacion2.getIdentificador());
+	estudiante1.eliminarLinkInformacion(Informacion3.getIdentificador());
+
+	/* DTInfoEstudiante Estudiante1(52365899, 1 , 2 , 3 , "Alex García");
+	Informacion *Registro1 = Guardado(Informacion1, Informacion2, Informacion3);
+
+	DTInfoEstudiante Estudiante2(49891239 , 3 , 4 , 5 ,"Betina Gonzalez");
+	Informacion *Registro2 = Guardado(Informacion3, Informacion4, Informacion5);
+	 */
+	// Fin Parte F
+	
+	// Parte G
+>>>>>>> 49a2215941b0df75a83c89feeff9784d6d66c9eb
 
 	// Fin Parte G
+	
 
 	// Parte H
 
+/*set<DTInfoEstudiante> public buscarPolimorfismo(const set<Informacion>& informacionSet) {
+    set<DTInfoEstudiante> result = new set<DTInfoEstudiante>();
+
+    // Recorremos cada objeto Informacion en el conjunto
+    for (const Informacion& info : informacionSet) {
+		string infoString = info.toString();
+        // Verificamos si la información contiene el término "polimorfismo"
+        if (infoString.contains("polimorfismo")) {
+            // Recorremos los estudiantes relacionados con este objeto Informacion
+            for (const Estudiante& estudiante : infoString.getEstudiantes()) {
+                // Creamos una instancia de DTInfoEstudiante y la agregamos al conjunto
+                DTInfoEstudiante DTInfoEstudiante(estudiante.getCedula(), info.getIdentificador(), estudiante.getNombre());
+                estudiantesConPolimorfismo.insert(dtInfoEstudiante);
+            }
+        }
+    }
+    return result;
+}*/
+// OBS: se necesitaría un getEstudiantes
 	return 0;
 }
