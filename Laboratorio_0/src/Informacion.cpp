@@ -33,14 +33,18 @@ void Informacion::guardadoPor(Estudiante est *)
 	InformacionGuardadaPor.push_back(est);
 }
 
+vector<Estudiante *> Informacion::getInformacionGuardadaPor()
+{
+	return InformacionGuardadaPor;
+}
+
 void Informacion::eliminarLinkEstudiante(int ci)
 {
-	for (auto it = InformacionGuardada.begin(); it != InformacionGuardada.end(); it++)
+	for (auto it = InformacionGuardadaPor.begin(); it != InformacionGuardadaPor.end(); it++)
 	{
 		if ((*it)->getCi() == ci)
 		{
-			delete *it;
-			InformacionGuardada.erase(it);
+			InformacionGuardadaPor.erase(it);
 			break;
 		}
 	}

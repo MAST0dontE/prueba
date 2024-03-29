@@ -15,10 +15,10 @@ class Biblioteca{
     public: 
     Biblioteca();
     set<Informacion*> getInformacionesGuardadas();
-    void insertarInformacion();
-    void eliminarInformacion();
-    set<DTInfoEstudiante> buscarTermino(Biblioteca Biblioteca, string clave);
+    void insertarInformacion(Informacion &Informacion);
+    void eliminarInformacion(int id);
+    set<DTInfoEstudiante> buscarTermino(string clave);
     ~Biblioteca();
-}
+};
 
 #endif
