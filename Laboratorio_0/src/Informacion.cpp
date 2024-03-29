@@ -9,9 +9,10 @@ Informacion::Informacion(int id, const DTFecha &fecha) : Fecha(fecha.dia, fecha.
 	this->Identificador = id;
 }
 
- bool operator<(const Informacion& info) const {
+bool operator<(const Informacion &info) const
+{
 	return Identificador < info.Identificador;
- }
+}
 
 int Informacion::getIdentificador()
 {
@@ -23,13 +24,14 @@ DTFecha Informacion::getFecha()
 	return this->Fecha;
 }
 
-Informacion :: ~Informacion()
+Informacion ::~Informacion()
 {
 }
 
-void Informacion::guardadoPor(Estudiante est*){
+void Informacion::guardadoPor(Estudiante est *)
+{
 	InformacionGuardadaPor.push_back(est);
-} 
+}
 
 void Informacion::eliminarLinkEstudiante(int ci)
 {
