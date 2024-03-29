@@ -10,7 +10,7 @@ set<Informacion*> getInformacionesGuardadas(){
 }
 
 
-void Biblioteca :: insertarInformacion(Informacion &Informacion){
+void Biblioteca :: insertarInformacion(Informacion *Informacion){
     this->InformacionesGuardadas.insert(Informacion);
 }
 
