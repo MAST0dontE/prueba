@@ -3,7 +3,7 @@
 #include "../inc/Informacion.h"
 #include "../inc/Libro.h"
 #include "../inc/DTFecha.h"
-#include "../inc/chatGPT.h"
+#include "../inc/ChatGPT.h"
 #include "../inc/PaginaWeb.h"
 #include "../inc/Estudiante.h"
 #include <set>
@@ -91,16 +91,32 @@ int main()
 	Informacion *Registro2 = Guardado(Informacion3, Informacion4, Informacion5);
 	 */
 	// Fin Parte F
-	// Test commit Cyn
+	
 	// Parte G
 
-	DTFecha fecha(08, 3, 2024);
-	estudiante1.listarInfo(fecha);
-	estudiante2.listarInfo(fecha);
-
 	// Fin Parte G
+	
 
 	// Parte H
 
+/*set<DTInfoEstudiante> public buscarPolimorfismo(const set<Informacion>& informacionSet) {
+    set<DTInfoEstudiante> result = new set<DTInfoEstudiante>();
+
+    // Recorremos cada objeto Informacion en el conjunto
+    for (const Informacion& info : informacionSet) {
+		string infoString = info.toString();
+        // Verificamos si la información contiene el término "polimorfismo"
+        if (infoString.contains("polimorfismo")) {
+            // Recorremos los estudiantes relacionados con este objeto Informacion
+            for (const Estudiante& estudiante : infoString.getEstudiantes()) {
+                // Creamos una instancia de DTInfoEstudiante y la agregamos al conjunto
+                DTInfoEstudiante DTInfoEstudiante(estudiante.getCedula(), info.getIdentificador(), estudiante.getNombre());
+                estudiantesConPolimorfismo.insert(dtInfoEstudiante);
+            }
+        }
+    }
+    return result;
+}*/
+// OBS: se necesitaría un getEstudiantes
 	return 0;
 }
