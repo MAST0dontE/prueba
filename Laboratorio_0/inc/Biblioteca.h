@@ -20,4 +20,5 @@ class Biblioteca{
     set<DTInfoEstudiante> buscarTermino(Biblioteca Biblioteca);
     ~Biblioteca();
 }
+
 #endif
