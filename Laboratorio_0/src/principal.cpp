@@ -69,46 +69,24 @@ int main()
 	estudiante2.guardarInformacion(&Informacion4);
 	estudiante2.guardarInformacion(&Informacion5);
 
-	estudiante1.eliminarLinkInformacion(Informacion1.getIdentificador());
-	/* 	estudiante1.eliminarLinkInformacion(Informacion2.getIdentificador());
-		estudiante1.eliminarLinkInformacion(Informacion3.getIdentificador());
-	 */
 	// Fin Parte F
-	// Test commit Cyn
+
 	// Parte G
 	set<string> infoStrings = estudiante1.listarInfo(fecha3);
-	for (const string &info : infoStrings)
-	{
+	for (const string &info : infoStrings){
 		cout << info << endl;
 	}
 
 	set<string> infoStrings2 = estudiante2.listarInfo(fecha3);
-	for (const string &info : infoStrings)
-	{
+	for (const string &info : infoStrings){
 		cout << info << endl;
 	}
-<<<<<<< HEAD
-	== == == =
-				 estudiante1.eliminarLinkInformacion(Informacion1.getIdentificador());
-	estudiante1.eliminarLinkInformacion(Informacion2.getIdentificador());
-	estudiante1.eliminarLinkInformacion(Informacion3.getIdentificador());
-
-	/* DTInfoEstudiante Estudiante1(52365899, 1 , 2 , 3 , "Alex García");
-	Informacion *Registro1 = Guardado(Informacion1, Informacion2, Informacion3);
-
-	DTInfoEstudiante Estudiante2(49891239 , 3 , 4 , 5 ,"Betina Gonzalez");
-	Informacion *Registro2 = Guardado(Informacion3, Informacion4, Informacion5);
-	 */
-	// Fin Parte F
-
-	// Parte G
->>>>>>> 49a2215941b0df75a83c89feeff9784d6d66c9eb
 
 	// Fin Parte G
 
 	// Parte H
 
-	set<DTInfoEstudiante> public buscarPolimorfismo(const set<Informacion> &informacionSet)
+	/* set<DTInfoEstudiante> public buscarPolimorfismo(const set<Informacion> &informacionSet)
 	{
 		set<DTInfoEstudiante> result = new set<DTInfoEstudiante>();
 		// Recorremos cada objeto Informacion en el conjunto
@@ -128,7 +106,7 @@ int main()
 			}
 		}
 		return result;
-	}
+	} */
 
 	// Parte I
 
