@@ -17,6 +17,10 @@ void Biblioteca :: insertarInformacion(Informacion &Informacion){
 void Biblioteca :: eliminarInformacion(int id){
     auto it = this->informacionesGuardadas.find(id);
     if (it != this->informacionesGuardadas.end()) {
+        for(auto it2 = it.getGuardadoPor.begin(); it2 != it.getGuardadoPor.end(); it2++){
+		    it.eliminarLinkEstudiante(it2.getCi());
+			it2.eliminarLinkInformacion(id);
+		}
         this->informacionesGuardadas.erase(it);
     }
 }
