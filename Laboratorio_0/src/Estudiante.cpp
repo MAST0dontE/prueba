@@ -45,6 +45,7 @@ void Estudiante::guardarInformacion(Informacion *info){
 void Estudiante::eliminarLinkInformacion(int id){
 	for(auto it = InformacionGuardada.begin(); it != InformacionGuardada.end(); it++){
 		if((*it)->getIdentificador() == id){
+			delete *it;
 			InformacionGuardada.erase(it);
 			break;
 		}

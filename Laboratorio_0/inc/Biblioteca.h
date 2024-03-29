@@ -19,6 +19,6 @@ class Biblioteca{
     void eliminarInformacion(int id);
     set<DTInfoEstudiante> buscarTermino(string clave);
     ~Biblioteca();
-};
+}
 
 #endif
