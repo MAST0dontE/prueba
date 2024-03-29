@@ -100,7 +100,7 @@ int main()
 				for (const Estudiante *est : info.guardadoPor())
 				{
 					// Creamos una instancia de DTInfoEstudiante y la agregamos al conjunto
-					DTInfoEstudiante DTInfoEstudiante(est.getCedula(), est.getNombre(), infoString.getIdentificador());
+					DTInfoEstudiante DTInfoEstudiante(est->getCedula(), est->getNombre(), infoString->getIdentificador());
 					result.insert(dtInfoEstudiante);
 				}
 			}
