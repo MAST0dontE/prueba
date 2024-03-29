@@ -13,19 +13,22 @@ using namespace std;
 
 class Estudiante;
 
-class Informacion{
+class Informacion
+{
 protected:
     int Identificador;
     DTFecha Fecha;
-    vector<Estudiante*> InformacionGuardadaPor;
+    vector<Estudiante *> InformacionGuardadaPor;
+
 public:
-    Informacion(int id, const DTFecha& fecha);
-    void guardadoPor(Estudiante* est);
-    //void eliminarLinkEstudiante();
+    Informacion(int id, const DTFecha &fecha);
+    void guardadoPor(Estudiante *est);
+    // void eliminarLinkEstudiante();
     int getIdentificador();
     DTFecha getFecha();
     virtual string toString() = 0;
     virtual ~Informacion();
+    void Informacion::eliminarLinkEstudiante(int ci);
 };
 
 #endif

@@ -22,10 +22,19 @@ DTFecha Informacion::getFecha()
 Informacion ::~Informacion()
 {
 }
- void Informacion::guardadoPor(Estudiante *est){
+void Informacion::guardadoPor(Estudiante *est)
+{
 	InformacionGuardadaPor.push_back(est);
-} 
+}
 
-/* void Informacion::eliminarLinkEstudiante(){
-
-} */
+void Informacion::eliminarLinkEstudiante(int ci)
+{
+	for (auto it = InformacionGuardada.begin(); it != InformacionGuardada.end(); it++)
+	{
+		if ((*it)->getCi() == id)
+		{
+			delete *it;
+			InformacionGuardada.erase(it);
+			break;
+		}
+	}
