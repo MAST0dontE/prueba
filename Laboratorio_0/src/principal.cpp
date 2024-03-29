@@ -6,10 +6,13 @@
 #include "../inc/chatGPT.h"
 #include "../inc/PaginaWeb.h"
 #include "../inc/Estudiante.h"
+#include "../inc/Biblioteca.h"
 #include <set>
 
 int main()
 {
+	Biblioteca Biblioteca1 = Biblioteca Biblioteca();
+
 	// Parte A
 
 	DTFecha fecha1(7, 3, 2024);
@@ -62,12 +65,18 @@ int main()
 
 	// Parte F
 	estudiante1.guardarInformacion(&Informacion1);
+	Biblioteca1.insertarInformacion(&Informacion1);
 	estudiante1.guardarInformacion(&Informacion2);
+	Biblioteca1.insertarInformacion(&Informacion2);
 	estudiante1.guardarInformacion(&Informacion3);
+	Biblioteca1.insertarInformacion(&Informacion3);
 
 	estudiante2.guardarInformacion(&Informacion3);
+	Biblioteca1.insertarInformacion(&Informacion3);
 	estudiante2.guardarInformacion(&Informacion4);
+	Biblioteca1.insertarInformacion(&Informacion4);
 	estudiante2.guardarInformacion(&Informacion5);
+	Biblioteca1.insertarInformacion(&Informacion5);
 
 	// Fin Parte F
 
@@ -86,6 +95,8 @@ int main()
 
 	// Parte H
 
+	Biblioteca1.buscarTermino("polimorfismo");
+	
 	/* set<DTInfoEstudiante> public buscarPolimorfismo(const set<Informacion> &informacionSet)
 	{
 		set<DTInfoEstudiante> result = new set<DTInfoEstudiante>();
