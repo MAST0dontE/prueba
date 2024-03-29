@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Santiago/Documents/GitHub/prueba/Laboratorio_0",
-      "program": "c:/Users/Santiago/Documents/GitHub/prueba/Laboratorio_0/build/Debug/outDebug",
+      "cwd": "c:/Users/Santiago/Documents/GitHub/prueba/Laboratorio_0/src",
+      "program": "c:/Users/Santiago/Documents/GitHub/prueba/Laboratorio_0/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
