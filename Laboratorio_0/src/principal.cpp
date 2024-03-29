@@ -103,6 +103,14 @@ int main()
 
 	// Parte I
 
+	Informacion3.eliminarLinkEstudiante(getCi(estudiante1));
+	Informacion3.eliminarLinkEstudiante(getCi(estudiante2));
+	estudiante1.eliminarLinkInformacion(3);
+	estudiante2.eliminarLinkInformacion(3);
+	Biblioteca1.eliminarInformacion(3);
+	Informacion3.~Informacion;
+	Biblioteca1.buscarTermino("polimorfismo");
+
 	// Fin Parte I
 	return 0;
 }
