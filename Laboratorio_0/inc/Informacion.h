@@ -23,13 +23,12 @@ protected:
 public:
     Informacion(int id, const DTFecha &fecha);
     void guardadoPor(Estudiante *est);
-    std::vector getGuardadoPor(Informacion info);
-    void eliminarLinkEstudiante();
+    vector<Estudiante*> getGuardadoPor();
+    void eliminarLinkEstudiante(int ci);
     int getIdentificador();
     DTFecha getFecha();
     virtual string toString() = 0;
     virtual ~Informacion();
-    void Informacion::eliminarLinkEstudiante(int ci);
 };
 
 #endif

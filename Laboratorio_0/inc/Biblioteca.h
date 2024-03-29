@@ -8,6 +8,7 @@
 #include "Informacion.h"
 using namespace std;
 
+class Informacion;
 class Biblioteca{
     private:
     set<Informacion*> InformacionesGuardadas;
@@ -19,6 +20,6 @@ class Biblioteca{
     void eliminarInformacion(int id);
     set<DTInfoEstudiante> buscarTermino(string clave);
     ~Biblioteca();
-}
+};
 
 #endif
