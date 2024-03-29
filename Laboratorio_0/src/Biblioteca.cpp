@@ -1,8 +1,8 @@
 #include "../inc/Biblioteca.h"
 
 Biblioteca :: Biblioteca(){
-    std::set<Informacion*> infos;
-    this->InformacionesGuardadas = infos;
+   // set<Informacion*> infos;
+    //this->InformacionesGuardadas = infos;
 }
 
 set<Informacion*> getInformacionesGuardadas(){
