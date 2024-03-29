@@ -23,17 +23,27 @@ void Biblioteca :: eliminarInformacion(int id){
     }
 }
 
-/* set<DTInfoEstudiante> Biblioteca :: buscarTermino(string clave){
-    set<DTInfoEstudiante> result;
-    auto it=getInformacionesGuardadas().find(clave);
-    if(it != this->getInformacionesGuardadas().end()){
-        for(const Estudiante est* : this->getInformacionGuardadaPor()){
-        DTInfoEstudiante estu = DTInfoEstudiante::DTInfoEstudiante(est->getCedula(), est->getNombre(), infoString->getIdentificador());
-        result.insert(estu);
+vector<DTInfoEstudiante> Biblioteca :: buscarTermino(string clave){
+    vector<DTInfoEstudiante> estudiantesConTermino;
+    vector<Informacion*>aux;
+
+    for (const auto& info : InformacionesGuardadas) {
+        string infoString = info->toString();
+        if (infoString.find(clave) != string::npos) {
+                aux.push_back(info);
         }
     }
-    return result;
-} */
+
+    for (const auto& info : aux) {
+        vector<Estudiante*> est = info->getInformacionGuardadaPor();
+        for (const auto& e : est) {
+            DTInfoEstudiante estu = DTInfoEstudiante(e->getCi(), info->getIdentificador(), e->getNombre());
+            estudiantesConTermino.push_back(estu);
+        }
+    }    
+
+    return estudiantesConTermino;
+}
 
 Biblioteca :: ~Biblioteca(){
 
