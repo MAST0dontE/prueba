@@ -23,13 +23,14 @@ protected:
 public:
     Informacion(int id, const DTFecha &fecha);
     void guardadoPor(Estudiante *est);
-    vector<Estudiante*> getGuardadoPor();
+
+    vector<Estudiante*> getInformacionGuardadaPor();
+
     void eliminarLinkEstudiante(int ci);
     int getIdentificador();
     DTFecha getFecha();
     virtual string toString() = 0;
     virtual ~Informacion();
-    void eliminarLinkEstudiante(int ci);
 };
 
 #endif
