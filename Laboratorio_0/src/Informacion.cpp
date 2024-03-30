@@ -13,18 +13,16 @@ Informacion::Informacion(int id, const DTFecha &fecha) : Fecha(fecha.dia, fecha.
 	return Identificador < info.Identificador;
 }
  */
-int Informacion::getIdentificador()
-{
+int Informacion::getIdentificador() {
 	return this->Identificador;
 }
 
-DTFecha Informacion::getFecha()
-{
+DTFecha Informacion::getFecha() {
 	return this->Fecha;
 }
 
-Informacion ::~Informacion()
-{
+Informacion ::~Informacion() {
+		
 }
 
 void Informacion::guardadoPor(Estudiante* est){
