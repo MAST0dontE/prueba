@@ -14,12 +14,26 @@ void Biblioteca :: insertarInformacion(Informacion *Informacion){
     this->InformacionesGuardadas.insert(Informacion);
 }
 
-void Biblioteca :: eliminarInformacion(int id){
-    for(auto it = InformacionesGuardadas.begin(); it != InformacionesGuardadas.end(); it++){
-		if((*it)->getIdentificador() == id){
-			InformacionesGuardadas.erase(it);
-			break;
-		}
+void Biblioteca::eliminarInformacion(int id) {
+    for (auto it = InformacionesGuardadas.begin(); it != InformacionesGuardadas.end(); it++) {
+        if ((*it)->getIdentificador() == id) { // Se llega a la info con identificador id
+            vector<int> C_I;
+            for (auto e : (*it)->getInformacionGuardadaPor()) {
+                C_I.push_back(e->getCi()); // Se guarda la cedula de cada estudiante enlazado a esa info
+                /*cout << e->getCi()<< endl;
+                cout << "sdfnsdlkjfshdflkjsd" << endl;*/
+                e->eliminarLinkInformacion(id); // Se elimina cada link
+            }
+            int i=0;
+            for (auto a : (*it)->getInformacionGuardadaPor()) {
+                (*it)->eliminarLinkEstudiante(C_I[i]); // Elimino cada enlace del set de estudiantes que guardaba info
+                i=i+1;
+            }
+            (*it)->getInformacionGuardadaPor().clear();
+            
+            InformacionesGuardadas.erase(it);
+            break;
+        }
     }
 }
 
