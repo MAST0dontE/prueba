@@ -15,7 +15,6 @@ class Libro: public Informacion{
 private:
     string titulo,resumen;
     set<string> autores;
-    //Estudiante *GuardadoPor_Libro;
 public:
     Libro(int id, const DTFecha& fecha, string titulo, set<string>& autores, string resumen);
     string getTitulo();

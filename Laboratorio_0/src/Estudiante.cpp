@@ -61,7 +61,3 @@ set<string> Estudiante::listarInfo(DTFecha Desde){
         }
     return infoStrings;
 }
-
-/* set<DTInfoEstudiante> Estudiante::buscarTermino(const string &termino){
-    return set<DTInfoEstudiante>();
-}  */

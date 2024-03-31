@@ -12,7 +12,6 @@ using namespace std;
 class PaginaWeb: public Informacion{
     private:
     string Titulo, Link, Text;
-    //Estudiante *GuardadoPor_PaginaWeb;
     public: 
     PaginaWeb(int Identificador,const DTFecha& Fecha, string Titulo, string Link, string Text);
     string toString();

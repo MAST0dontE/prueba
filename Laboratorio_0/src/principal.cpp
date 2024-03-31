@@ -50,7 +50,7 @@ int main(){
 		 << endl;
 	cout << Informacion4.toString() + "\n"
 		 << endl;
-	cout << Informacion5.toString()
+	cout << Informacion5.toString() + "\n"
 		 << endl;
 
 	// Fin parte D
@@ -99,8 +99,6 @@ int main(){
 	for (const auto& Estudiante : vectorEstudiantes){
 		cout << Estudiante << endl;
 	}
-	
-
 
 	// Fin Parte H
 

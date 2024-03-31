@@ -4,8 +4,6 @@
 #include<iostream>
 #include<stdlib.h>
 #include <string>
-//#include "Informacion.h"
-//#include "DTInfoEstudiante.h"
 using namespace std;
 class DTFecha{
     public:

@@ -24,7 +24,6 @@ public:
     void guardadoPor(Estudiante *est);
 
     vector<Estudiante*> getInformacionGuardadaPor();
-    bool operator<(const Informacion &info) const;
     void eliminarLinkEstudiante(int ci);
     int getIdentificador();
     DTFecha getFecha();

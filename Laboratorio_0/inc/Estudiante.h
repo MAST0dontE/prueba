@@ -32,6 +32,5 @@ class Estudiante{
 		void guardarInformacion(Informacion* info);
 		void eliminarLinkInformacion(int id);
 		set<string> listarInfo(DTFecha Desde);
-		//set<DTInfoEstudiante> buscarTermino(const string& termino);
 };
 #endif

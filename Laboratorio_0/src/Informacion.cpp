@@ -1,18 +1,9 @@
 #include "../inc/Informacion.h"
 
-/* Informacion::Informacion(int id, const DTFecha& fecha){
-	this->Identificador = id;
-	this->Fecha = DTFecha(fecha.dia, fecha.mes, fecha.anio);
-} */
-Informacion::Informacion(int id, const DTFecha &fecha) : Fecha(fecha.dia, fecha.mes, fecha.anio)
-{
+Informacion::Informacion(int id, const DTFecha &fecha) : Fecha(fecha.dia, fecha.mes, fecha.anio){
 	this->Identificador = id;
 }
 
-/* bool Informacion::operator<(const Informacion &info) const{
-	return Identificador < info.Identificador;
-}
- */
 int Informacion::getIdentificador() {
 	return this->Identificador;
 }

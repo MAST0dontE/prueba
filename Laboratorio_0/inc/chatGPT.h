@@ -14,14 +14,11 @@ class chatGPT : public Informacion
 {
 private:
     string pregunta, respuesta;
-    // Estudiante *GuardadoPor_chatGpt;
 public:
     chatGPT(int id, const DTFecha &fecha, string pregunta, string respuesta);
     ~chatGPT();
     string getPregunta();
     string getRespuesta();
-    // void setPregunta(string);
-    // void setRespuesta(string);
     string toString();
 };
 
