@@ -50,7 +50,7 @@ int main(){
 		 << endl;
 	cout << Informacion4.toString() + "\n"
 		 << endl;
-	cout << Informacion5.toString() + "\n"
+	cout << Informacion5.toString()
 		 << endl;
 
 	// Fin parte D
@@ -80,22 +80,21 @@ int main(){
 	// Fin Parte F
 
 	// Parte G
+	cout << "------------------" << endl;
 	set<string> infoStrings = estudiante1.listarInfo(fecha3);
-	for (const string &info : infoStrings)
-	{
+	for (const string &info : infoStrings){
 		cout << info << endl;
 	}
-
+	cout << "------------------" << endl;
 	set<string> infoStrings2 = estudiante2.listarInfo(fecha3);
-	for (const string &info : infoStrings)
-	{
+	for (const string &info : infoStrings2){
 		cout << info << endl;
 	}
 
 	// Fin Parte G
 
 	// Parte H
-
+	cout << "------------------" << endl;
 	vector<DTInfoEstudiante> vectorEstudiantes = Biblioteca1.buscarTermino("polimorfismo");
 	for (const auto& Estudiante : vectorEstudiantes){
 		cout << Estudiante << endl;
@@ -109,7 +108,11 @@ int main(){
 
 	Biblioteca1.eliminarInformacion(3);
 	//Biblioteca1.buscarTermino("polimorfismo");
-
+	cout << "------------------" << endl;
+	vector<DTInfoEstudiante> vectorEstudiantes2 = Biblioteca1.buscarTermino("polimorfismo");
+	for (const auto& Estudiante : vectorEstudiantes2){
+		cout << Estudiante << endl;
+	}
 	// Fin Parte I
 
 	return 0;
