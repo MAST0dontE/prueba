@@ -24,11 +24,8 @@ void Biblioteca::eliminarInformacion(int id) {
                 cout << "sdfnsdlkjfshdflkjsd" << endl;*/
                 e->eliminarLinkInformacion(id); // Se elimina cada link
             }
-            int i=0;
-            for (auto a : (*it)->getInformacionGuardadaPor()) {
-                (*it)->eliminarLinkEstudiante(C_I[i]); // Elimino cada enlace del set de estudiantes que guardaba info
-                i=i+1;
-            }
+
+
             (*it)->getInformacionGuardadaPor().clear();
             
             InformacionesGuardadas.erase(it);
