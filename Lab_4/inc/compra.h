@@ -6,16 +6,15 @@
 #include "DTFecha.h"
 #include "ProductoEnPromocion.h"
 
-class Compra
-{
-private:
-    DTFecha fechaDeCompra;
-    float montoTotal;
-    std::set<ProductoEnPromocion> productos;
+class Compra{
+    private:
+        DTFecha fechaDeCompra;
+        float montoTotal;
+        std::set<ProductoEnPromocion> productos;
 
-public:
-    Compra(DTFecha fechaDeCompra, float montoTotal);
-    void addProducto(ProductoEnPromocion producto);
+    public:
+        Compra(DTFecha fechaDeCompra, float montoTotal);
+        void addProducto(ProductoEnPromocion producto);
 };
 
 #endif // COMPRA_H

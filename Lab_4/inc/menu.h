@@ -3,14 +3,13 @@
 
 #include "Factoria.h"
 
-class Menu
-{
-private:
-    Factoria *factoria;
+class Menu{
+    private:
+        Factoria *factoria;
 
-public:
-    void gestionDeUsuarios();
-    void gestionDeVentas();
+    public:
+        void gestionDeUsuarios();
+        void gestionDeVentas();
 };
 
 #endif // MENU_H

@@ -4,11 +4,10 @@
 #include "ControladorUsuarios.h"
 #include "ControladorVentas.h"
 
-class Factoria
-{
-public:
-    ControladorUsuarios *getControladorUsuarios();
-    ControladorVentas *getControladorVentas();
+class Factoria{
+    public:
+        ControladorUsuarios *getControladorUsuarios();
+        ControladorVentas *getControladorVentas();
 };
 
 #endif // FACTORIA_H

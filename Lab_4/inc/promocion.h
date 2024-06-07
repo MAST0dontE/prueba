@@ -5,17 +5,16 @@
 #include "DTFecha.h"
 #include "ProductoEnPromocion.h"
 
-class Promocion
-{
-private:
-    std::string nombre;
-    std::string descripcion;
-    DTFecha fechaDeVencimiento;
-    std::set<ProductoEnPromocion> productos;
+class Promocion{
+    private:
+        std::string nombre;
+        std::string descripcion;
+        DTFecha fechaDeVencimiento;
+        std::set<ProductoEnPromocion> productos;
 
-public:
-    Promocion(std::string nombre, std::string descripcion, DTFecha fechaDeVencimiento);
-    void agregarProductoPromocion(ProductoEnPromocion producto);
+    public:
+        Promocion(std::string nombre, std::string descripcion, DTFecha fechaDeVencimiento);
+        void agregarProductoPromocion(ProductoEnPromocion producto);
 };
 
 #endif // PROMOCION_H
