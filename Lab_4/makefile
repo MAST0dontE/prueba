@@ -3,16 +3,22 @@ OBJ_DIR = obj
 BIN_DIR = bin
 INC_DIR = inc
 SRC_DIR = src
-OBJS    = $(OBJ_DIR)/Biblioteca.o \
-		  $(OBJ_DIR)/chatGPT.o \
-		  $(OBJ_DIR)/DTFecha.o \
-		  $(OBJ_DIR)/DTInfoEstudiante.o \
-		  $(OBJ_DIR)/Estudiante.o \
-		  $(OBJ_DIR)/Informacion.o \
-		  $(OBJ_DIR)/Libro.o \
-		  $(OBJ_DIR)/PaginaWeb.o \
-		  $(OBJ_DIR)/principal.o \
-		  $(OBJ_DIR)/utils.o 
+OBJS    = $(OBJ_DIR)/Cliente.o \
+		  $(OBJ_DIR)/Comentario.o \
+		  $(OBJ_DIR)/Compra.o \
+		  $(OBJ_DIR)/CompraPorProducto.o \
+		  $(OBJ_DIR)/ControladorU.o \
+		  $(OBJ_DIR)/iControladorU.o \
+		  $(OBJ_DIR)/ControladorV.o \
+		  $(OBJ_DIR)/iControladorV.o \
+		  $(OBJ_DIR)/Fabrica.o \
+		  $(OBJ_DIR)/Menu.o \
+		  $(OBJ_DIR)/Observer.o \
+		  $(OBJ_DIR)/Producto.o \
+		  $(OBJ_DIR)/ProductoEnPromocion.o \
+		  $(OBJ_DIR)/Promocion.o 
+		  $(OBJ_DIR)/Usuario.o \
+		  $(OBJ_DIR)/Vendedor.o \
 
 CPP = g++
 CPPFLAGS = -Wall -I$(INC_DIR)
