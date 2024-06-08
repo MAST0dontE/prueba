@@ -19,6 +19,7 @@ OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/Promocion.o 
 		  $(OBJ_DIR)/Usuario.o \
 		  $(OBJ_DIR)/Vendedor.o \
+		  $(OBJ_DIR)/principal.o
 
 CPP = g++
 CPPFLAGS = -Wall -I$(INC_DIR)
