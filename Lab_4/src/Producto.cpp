@@ -1,6 +1,6 @@
 #include "Producto.h"
 
-Producto::Producto(int codigo, int stock, float precio, std::string nombre, std::string descripcion, CCategoria categoria)
+Producto::Producto(int codigo, int stock, float precio, string nombre, string descripcion, Ecategoria categoria)
     : codigo(codigo), stock(stock), precio(precio), nombre(nombre), descripcion(descripcion), categoria(categoria) {}
 
 DTIdProducto Producto::getDatosProducto()

@@ -1,4 +1,14 @@
 #include "CompraPorProducto.h"
 
-CompraPorProducto::CompraPorProducto(std::string nombre, std::string descripcion, DTFecha fechaDeTransaccion, float montoTotal)
-    : nombre(nombre), descripcion(descripcion), fechaDeTransaccion(fechaDeTransaccion), montoTotal(montoTotal) {}
+CompraPorProducto::CompraPorProducto(int cantidadSolicitada, Eenvio estadoDeEnvio)
+{
+}
+
+Eenvio CompraPorProducto::getestadoDeEnvio()
+{
+    return Eenvio();
+}
+
+void CompraPorProducto::setestadoDeEnvio(Eenvio estadoDeEnvio)
+{
+}

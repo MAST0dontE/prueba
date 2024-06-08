@@ -16,7 +16,7 @@ class Compra{
         set<CompraPorProducto> productos;
 
     public:
-        //Compra(DTFecha fechaDeCompra, float montoTotal);
+        Compra(DTFecha fechaDeCompra, float montoTotal);
         void addProducto(ProductoEnPromocion producto);
 };
 

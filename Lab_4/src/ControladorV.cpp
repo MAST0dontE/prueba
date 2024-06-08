@@ -25,16 +25,16 @@ void ControladorVentas::setProducto(Producto *producto)
     // Implementación
 }
 
-std::set<std::string> ControladorVentas::altaPromocion(std::string nombre, std::string descripcion, DTFecha fechaVencimiento)
+set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento)
 {
     // Implementación
-    return std::set<std::string>();
+    return set<string>();
 }
 
-std::set<DTIdProducto> ControladorVentas::seleccionarVendedor(std::string codigoRUT)
+set<DTIdProducto> ControladorVentas::seleccionarVendedor(string codigoRUT)
 {
     // Implementación
-    return std::set<DTIdProducto>();
+    return set<DTIdProducto>();
 }
 
 void ControladorVentas::agregarProducto(int codigo, float precio)
@@ -48,16 +48,16 @@ bool ControladorVentas::ingresarPromocion()
     return true;
 }
 
-std::set<std::string> ControladorVentas::listarNicknamesClientes()
+set<string> ControladorVentas::listarNicknamesClientes()
 {
     // Implementación
-    return std::set<std::string>();
+    return set<string>();
 }
 
-std::set<DTIdProducto> ControladorVentas::seleccionarCliente(std::string nickname)
+set<DTIdProducto> ControladorVentas::seleccionarCliente(string nickname)
 {
     // Implementación
-    return std::set<DTIdProducto>();
+    return set<DTIdProducto>();
 }
 
 void ControladorVentas::mostrarDetallesCompra(DTInfoCompra infoCompra)

@@ -4,6 +4,7 @@
 #include <string>
 #include "DTIdProducto.h"
 #include "DTInfoProducto.h"
+#include "ECategoria.h"
 #include "DTProductoCompra.h"
 using namespace std;
 
@@ -14,11 +15,11 @@ class Producto{
         float precio;
         string nombre;
         string descripcion;
-        ECategoria categoria;
+        Ecategoria categoria;
 
     public:
-        Producto(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria);
-        DTIdProductoCompra getDatosProducto();
+        Producto(int codigo, int stock, float precio, string nombre, string descripcion, Ecategoria categoria);
+        DTProductoCompra getDatosProducto();
        // DTidProductoCompra getDatosCompra();
         void agregarProducto(int stock, int cantidad);
         DTidProducto getInfoProducto();

@@ -15,25 +15,25 @@ void ControladorUsuarios::setComentario(Comentario *comentario)
 	// Implementación
 }
 
-bool ControladorUsuarios::altaCliente(std::string username, std::string password, DTFecha fechaNacimiento, DTDireccion direccion, std::string ciudad, bool notificaciones)
+bool ControladorUsuarios::altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad, bool notificaciones)
 {
 	// Implementación
 	return true;
 }
 
-bool ControladorUsuarios::altaVendedor(std::string username, std::string password, DTFecha fechaNacimiento, std::string codigoRUT)
+bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT)
 {
 	// Implementación
 	return true;
 }
 
-std::set<std::string> ControladorUsuarios::listaDeUsuarios()
+set<string> ControladorUsuarios::listaDeUsuarios()
 {
 	// Implementación
-	return std::set<std::string>();
+	return set<string>();
 }
 
-Usuario *ControladorUsuarios::seleccionarUsuario(std::string username)
+Usuario *ControladorUsuarios::seleccionarUsuario(string username)
 {
 	// Implementación
 	return nullptr;
@@ -49,13 +49,13 @@ void ControladorUsuarios::eliminarComentario(DTComentario *comentario)
 	// Implementación
 }
 
-std::set<DTNotificacion> ControladorUsuarios::consultarNotificaciones()
+set<DTNotificacion> ControladorUsuarios::consultarNotificaciones()
 {
 	// Implementación
-	return std::set<DTNotificacion>();
+	return set<DTNotificacion>();
 }
 
-void ControladorUsuarios::eliminarSuscripciones(std::string username)
+void ControladorUsuarios::eliminarSuscripciones(string username)
 {
 	// Implementación
 }

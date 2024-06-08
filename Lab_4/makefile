@@ -8,6 +8,8 @@ OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/Compra.o \
 		  $(OBJ_DIR)/DTNotificacion.o \
 		  $(OBJ_DIR)/DTFecha.o \
+		  $(OBJ_DIR)/DTidProducto.o \
+		  $(OBJ_DIR)/DTDireccion.o \
 		  $(OBJ_DIR)/CompraPorProducto.o \
 		  $(OBJ_DIR)/ControladorU.o \
 		  $(OBJ_DIR)/iControladorU.o \

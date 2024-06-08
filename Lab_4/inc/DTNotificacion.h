@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include <set>
+#include "DTidProducto.h"
+
 using namespace std;
 class DTNotificacion{
 public:
@@ -11,4 +14,4 @@ public:
     DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTidProducto> productos);
 };
 
-
+#endif // DTNOTIFICACION_H

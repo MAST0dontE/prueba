@@ -1,5 +1,5 @@
-obj/Cliente.o: src/Cliente.cpp /usr/include/stdc-predef.h inc/Cliente.h \
- inc/Usuario.h /usr/include/c++/11/string \
+obj/Compra.o: src/Compra.cpp /usr/include/stdc-predef.h inc/Compra.h \
+ /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -126,11 +126,13 @@ obj/Cliente.o: src/Cliente.cpp /usr/include/stdc-predef.h inc/Cliente.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
- /usr/include/c++/11/bits/basic_string.tcc /usr/include/c++/11/vector \
- /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc inc/Comentario.h inc/DTFecha.h \
+ /usr/include/c++/11/bits/basic_string.tcc /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_tree.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/node_handle.h \
+ /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
+ /usr/include/c++/11/bits/erase_if.h inc/DTFecha.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
@@ -153,11 +155,6 @@ obj/Cliente.o: src/Cliente.cpp /usr/include/stdc-predef.h inc/Cliente.h \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
- inc/Observer.h /usr/include/c++/11/set \
- /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/ext/aligned_buffer.h \
- /usr/include/c++/11/bits/node_handle.h \
- /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/c++/11/bits/erase_if.h inc/Cliente.h inc/DTNotificacion.h \
- inc/DTidProducto.h inc/DTDireccion.h
+ inc/ProductoEnPromocion.h inc/Producto.h inc/DTIdProducto.h \
+ inc/DTInfoProducto.h inc/Ecategoria.h inc/ECategoria.h \
+ inc/DTProductoCompra.h inc/CompraPorProducto.h inc/Eenvio.h
