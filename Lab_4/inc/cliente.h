@@ -3,18 +3,19 @@
 
 #include "Usuario.h"
 #include "Observer.h"
+using namespace std;
 
 class Cliente : public Usuario, public Observer{
     private:
         DTDireccion direccion;
-        std::string ciudadResidencia;
-        std::set<DTNotificacion> notificaciones;
+        string ciudadResidencia;
+        set<DTNotificacion> notificaciones;
 
     public:
-        Cliente(std::string contrasenia, std::string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, std::string ciudadResidencia);
+        Cliente(string contrasenia, string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, std::string ciudadResidencia);
 
         void notificar(DTNotificacion notificacion);
-        std::set<DTNotificacion> getNotificaciones();
+        set<DTNotificacion> getNotificaciones();
         void borrarNotificaciones();
 };
 
