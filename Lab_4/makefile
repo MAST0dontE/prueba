@@ -6,6 +6,8 @@ SRC_DIR = src
 OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/Comentario.o \
 		  $(OBJ_DIR)/Compra.o \
+		  $(OBJ_DIR)/DTNotificacion.o \
+		  $(OBJ_DIR)/DTFecha.o \
 		  $(OBJ_DIR)/CompraPorProducto.o \
 		  $(OBJ_DIR)/ControladorU.o \
 		  $(OBJ_DIR)/iControladorU.o \
@@ -16,8 +18,8 @@ OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/Observer.o \
 		  $(OBJ_DIR)/Producto.o \
 		  $(OBJ_DIR)/ProductoEnPromocion.o \
-		  $(OBJ_DIR)/Promocion.o 
 		  $(OBJ_DIR)/Usuario.o \
+		  $(OBJ_DIR)/Promocion.o \
 		  $(OBJ_DIR)/Vendedor.o \
 		  $(OBJ_DIR)/principal.o
 
