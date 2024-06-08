@@ -6,21 +6,32 @@
 #include <vector>
 #include <set>
 #include "Cliente.h"
+#include "DTFecha.h"
 #include "Vendedor.h"
+#include "DTcomentario.h"
+#include "DTNotificacion.h"
+#include "DTDireccion.h"
 #include "Comentario.h"
 using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
 public:
-    bool altaCliente(string, string, DTfecha, DTdireccion, string);
-    bool altaVendedor(string, string, DTfecha, string);
+    //porque notificaciones es un bool?
+    void setCliente(Cliente *cliente);
+    void setVendedor(Vendedor *vendedor);
+    void setComentario(Comentario *comentario);
+    bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad, bool notificaciones);
+    bool altaVendedor(string, string, DTFecha, string);
     set<string> listaDeUsuarios();
     set<DTcomentario> seleccionarUsuario(string);
     void seleccionarComentario(DTcomentario) ;
-    void eliminarComentario(DTcomentario);
+    void eliminarComentario(DTcomentario *comentario);
     set<string> suscribirseA(string);
-    set<DTnotificacion> consultarNotificaciones(string) ;
-    set<string> eliminarSuscripciones(string);
+    set<DTNotificacion> consultarNotificaciones(string username); ;
+    void eliminarSuscripciones(string username);
+   // Usuario *seleccionarUsuario(string username);
+   void setDTComentario(DTcomentario *comentario);
 };
+
 
 #endif // CONTROLADORUSUARIOS_H

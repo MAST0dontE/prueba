@@ -8,7 +8,8 @@ void Vendedor::notificar()
     // Implementación
 }
 
-void Vendedor::setearProductosVendedor(set<DTIdProducto> productos)
+
+void Vendedor::setearProductosVendedor(set<DTidProducto> productos)
 {
     // Implementación
 }

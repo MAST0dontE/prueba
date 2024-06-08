@@ -33,23 +33,32 @@ set<string> ControladorUsuarios::listaDeUsuarios()
 	return set<string>();
 }
 
-Usuario *ControladorUsuarios::seleccionarUsuario(string username)
+/* Usuario *ControladorUsuarios::seleccionarUsuario(string username)
 {
 	// Implementación
 	return nullptr;
 }
+ */
+void ControladorUsuarios::seleccionarComentario(DTcomentario)
+{
+}
 
-void ControladorUsuarios::setDTComentario(DTComentario *comentario)
+void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
 {
 	// Implementación
 }
 
-void ControladorUsuarios::eliminarComentario(DTComentario *comentario)
+void ControladorUsuarios::eliminarComentario(DTcomentario *comentario)
 {
 	// Implementación
 }
 
-set<DTNotificacion> ControladorUsuarios::consultarNotificaciones()
+set<string> ControladorUsuarios::suscribirseA(string)
+{
+    return set<string>();
+}
+
+set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
 {
 	// Implementación
 	return set<DTNotificacion>();
