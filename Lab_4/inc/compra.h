@@ -5,12 +5,13 @@
 #include <set>
 #include "DTFecha.h"
 #include "ProductoEnPromocion.h"
+using namespace std;
 
 class Compra{
     private:
         DTFecha fechaDeCompra;
         float montoTotal;
-        std::set<ProductoEnPromocion> productos;
+        set<ProductoEnPromocion> productos;
 
     public:
         Compra(DTFecha fechaDeCompra, float montoTotal);

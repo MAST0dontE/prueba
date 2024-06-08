@@ -9,6 +9,7 @@
 #include "Promocion.h"
 #include "Compra.h"
 #include "Producto.h"
+using namespace std;
 
 class ControladorVentas : public iControladorVentas{
     public:
@@ -18,15 +19,15 @@ class ControladorVentas : public iControladorVentas{
         void setCompra(Compra *compra);
         void setProducto(Producto *producto);
 
-        std::set<std::string> altaPromocion(std::string, std::string, DTFecha);
+        set<string> altaPromocion(string, string, DTFecha);
 
-        std::set<DTIdProducto> seleccionarVendedor(std::string);
+        set<DTIdProducto> seleccionarVendedor(string);
 
         void agregarProducto(int, float);
         bool ingresarPromocion();
 
-        std::set<std::string> listarNicknamesClientes();
-        std::set<DTIdProducto> seleccionarCliente(std::string);
+        set<string> listarNicknamesClientes();
+        set<DTIdProducto> seleccionarCliente(string);
 
         void mostrarDetallesCompra(DTInfoCompra);
         void registrarCompra();

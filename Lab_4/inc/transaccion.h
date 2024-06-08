@@ -2,16 +2,16 @@
 #define TRANSACCION_H
 
 #include <string>
-
+using namespace std;
 class Transaccion{
     private:
-        std::string nombre;
-        std::string descripcion;
+        string nombre;
+        string descripcion;
         DTFecha fechaDeTransaccion;
         float montoTotal;
 
     public:
-        Transaccion(std::string nombre, std::string descripcion, DTFecha fechaDeTransaccion, float montoTotal);
+        Transaccion(string nombre, string descripcion, DTFecha fechaDeTransaccion, float montoTotal);
 };
 
 #endif // TRANSACCION_H

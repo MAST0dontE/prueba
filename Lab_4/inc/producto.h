@@ -5,18 +5,19 @@
 #include "DTIdProducto.h"
 #include "DTInfoProducto.h"
 #include "DTProductoCompra.h"
+using namespace std;
 
 class Producto{
     private:
         int codigo;
         int stock;
         float precio;
-        std::string nombre;
-        std::string descripcion;
+        string nombre;
+        string descripcion;
         CCategoria categoria;
 
     public:
-        Producto(int codigo, int stock, float precio, std::string nombre, std::string descripcion, CCategoria categoria);
+        Producto(int codigo, int stock, float precio, string nombre, string descripcion, CCategoria categoria);
         DTIdProducto getDatosProducto();
         DTProductoCompra getDatosCompra();
         void agregarProducto(int stock, int cantidad);
