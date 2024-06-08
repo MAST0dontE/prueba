@@ -7,12 +7,12 @@ using namespace std;
 
 class Cliente : public Usuario, public Observer{
     private:
-        DTDireccion direccion;
+        DTdireccion direccion;
         string ciudadResidencia;
         set<DTNotificacion> notificaciones;
 
     public:
-        Cliente(string contrasenia, string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia);
+        Cliente(string contraseña, string nickname, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
 
         void notificar(DTNotificacion notificacion);
         set<DTNotificacion> getNotificaciones();

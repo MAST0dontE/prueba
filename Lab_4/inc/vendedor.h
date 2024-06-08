@@ -11,10 +11,10 @@ class Vendedor : public Usuario{
         set<DTNotificacion> notificaciones;
 
     public:
-        Vendedor(string contrasenia, string nickname, DTFecha fechaDeNacimiento, string codigoRUT);
+        Vendedor(string contraseña, string nickname, DTFecha fecha, string codigoRUT);
 
         void notificar();
-        void setearProductosVendedor(set<DTIdProducto>);
+        set<DTIdProducto> setearProductosVendedor();
 };
 
 #endif // VENDEDOR_H

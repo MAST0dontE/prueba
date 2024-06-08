@@ -14,14 +14,14 @@ class Producto{
         float precio;
         string nombre;
         string descripcion;
-        CCategoria categoria;
+        ECategoria categoria;
 
     public:
-        Producto(int codigo, int stock, float precio, string nombre, string descripcion, CCategoria categoria);
-        DTIdProducto getDatosProducto();
-        DTProductoCompra getDatosCompra();
+        Producto(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria);
+        DTIdProductoCompra getDatosProducto();
+       // DTidProductoCompra getDatosCompra();
         void agregarProducto(int stock, int cantidad);
-        DTInfoProducto getInfoProducto();
+        DTidProducto getInfoProducto();
 };
 
 #endif // PRODUCTO_H

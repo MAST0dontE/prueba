@@ -11,22 +11,16 @@
 using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
-    public:
-        void setCliente(Cliente *cliente);
-        void setVendedor(Vendedor *vendedor);
-        void setComentario(Comentario *comentario);
-
-        bool altaCliente(string, string, DTFecha, DTDireccion, string, bool);
-        bool altaVendedor(string, string, DTFecha, string);
-
-        set<string> listaDeUsuarios();
-        Usuario *seleccionarUsuario(string);
-
-        void setDTComentario(DTComentario *comentario);
-        void eliminarComentario(DTComentario *comentario);
-
-        set<DTNotificacion> consultarNotificaciones();
-        void eliminarSuscripciones(string);
+public:
+    bool altaCliente(string, string, DTfecha, DTdireccion, string);
+    bool altaVendedor(string, string, DTfecha, string);
+    set<string> listaDeUsuarios();
+    set<DTcomentario> seleccionarUsuario(string);
+    void seleccionarComentario(DTcomentario) ;
+    void eliminarComentario(DTcomentario);
+    set<string> suscribirseA(string);
+    set<DTnotificacion> consultarNotificaciones(string) ;
+    set<string> eliminarSuscripciones(string);
 };
 
 #endif // CONTROLADORUSUARIOS_H
