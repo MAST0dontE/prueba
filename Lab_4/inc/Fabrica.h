@@ -1,13 +1,13 @@
-#ifndef FACTORIA_H
-#define FACTORIA_H
+#ifndef FABRICA_H
+#define FABRICA_H
 
 #include "ControladorUsuarios.h"
 #include "ControladorVentas.h"
 
-class Factoria{
+class Fabrica{
     public:
         ControladorUsuarios *getControladorUsuarios();
         ControladorVentas *getControladorVentas();
 };
 
-#endif // FACTORIA_H
+#endif // FABRICA_H
