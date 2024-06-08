@@ -4,18 +4,18 @@
 #include <string>
 #include <vector>
 #include "Comentario.h"
-
+using namespace std;
 class Usuario {
     protected:
-        std::string contrasenia;
-        std::string nickname;
+        string contrasenia;
+        string nickname;
         DTFecha fechaDeNacimiento;
 
     public:
-        Usuario(std::string contrasenia, std::string nickname, DTFecha fechaDeNacimiento);
+        Usuario(string contrasenia, string nickname, DTFecha fechaDeNacimiento);
         virtual ~Usuario();
 
-        virtual std::vector<Comentario> listarComentarios(std::string) = 0;
+        virtual vector<Comentario> listarComentarios(string) = 0;
 };
 
 #endif // USUARIO_H

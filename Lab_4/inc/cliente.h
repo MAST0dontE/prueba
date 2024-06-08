@@ -12,7 +12,7 @@ class Cliente : public Usuario, public Observer{
         set<DTNotificacion> notificaciones;
 
     public:
-        Cliente(string contrasenia, string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, std::string ciudadResidencia);
+        Cliente(string contrasenia, string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia);
 
         void notificar(DTNotificacion notificacion);
         set<DTNotificacion> getNotificaciones();

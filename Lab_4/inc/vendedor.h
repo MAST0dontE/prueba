@@ -4,17 +4,17 @@
 #include "Usuario.h"
 #include <string>
 #include <set>
-
+using namespace std;
 class Vendedor : public Usuario{
     private:
-        std::string codigoRUT;
-        std::set<DTNotificacion> notificaciones;
+        string codigoRUT;
+        set<DTNotificacion> notificaciones;
 
     public:
-        Vendedor(std::string contrasenia, std::string nickname, DTFecha fechaDeNacimiento, std::string codigoRUT);
+        Vendedor(string contrasenia, string nickname, DTFecha fechaDeNacimiento, string codigoRUT);
 
         void notificar();
-        void setearProductosVendedor(std::set<DTIdProducto>);
+        void setearProductosVendedor(set<DTIdProducto>);
 };
 
 #endif // VENDEDOR_H

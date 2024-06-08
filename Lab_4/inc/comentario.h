@@ -3,14 +3,15 @@
 
 #include <string>
 #include "DTFecha.h"
+using namespace std;
 
 class Comentario{
     private:
-        std::string comentario;
+        string comentario;
         DTFecha fechaDeComentario;
 
     public:
-        Comentario(std::string comentario, DTFecha fechaDeComentario);
+        Comentario(string comentario, DTFecha fechaDeComentario);
 };
 
 #endif // COMENTARIO_H

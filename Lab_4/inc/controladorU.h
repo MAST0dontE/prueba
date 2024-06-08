@@ -8,6 +8,7 @@
 #include "Cliente.h"
 #include "Vendedor.h"
 #include "Comentario.h"
+using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
     public:
@@ -15,17 +16,17 @@ class ControladorUsuarios : public iControladorUsuarios{
         void setVendedor(Vendedor *vendedor);
         void setComentario(Comentario *comentario);
 
-        bool altaCliente(std::string, std::string, DTFecha, DTDireccion, std::string, bool);
-        bool altaVendedor(std::string, std::string, DTFecha, std::string);
+        bool altaCliente(string, string, DTFecha, DTDireccion, string, bool);
+        bool altaVendedor(string, string, DTFecha, string);
 
-        std::set<std::string> listaDeUsuarios();
-        Usuario *seleccionarUsuario(std::string);
+        set<string> listaDeUsuarios();
+        Usuario *seleccionarUsuario(string);
 
         void setDTComentario(DTComentario *comentario);
         void eliminarComentario(DTComentario *comentario);
 
-        std::set<DTNotificacion> consultarNotificaciones();
-        void eliminarSuscripciones(std::string);
+        set<DTNotificacion> consultarNotificaciones();
+        void eliminarSuscripciones(string);
 };
 
 #endif // CONTROLADORUSUARIOS_H

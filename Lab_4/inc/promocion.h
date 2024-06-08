@@ -4,16 +4,18 @@
 #include <string>
 #include "DTFecha.h"
 #include "ProductoEnPromocion.h"
+#include <set>
+using namespace std;
 
 class Promocion{
     private:
-        std::string nombre;
-        std::string descripcion;
+        string nombre;
+        string descripcion;
         DTFecha fechaDeVencimiento;
-        std::set<ProductoEnPromocion> productos;
+        set<ProductoEnPromocion> productos;
 
     public:
-        Promocion(std::string nombre, std::string descripcion, DTFecha fechaDeVencimiento);
+        Promocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
         void agregarProductoPromocion(ProductoEnPromocion producto);
 };
 
