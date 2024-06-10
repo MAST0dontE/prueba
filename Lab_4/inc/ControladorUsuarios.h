@@ -16,11 +16,11 @@ using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
 public:
-    //porque notificaciones es un bool?
+    //porque notificaciones es un bool? no se
     void setCliente(Cliente *cliente);
     void setVendedor(Vendedor *vendedor);
     void setComentario(Comentario *comentario);
-    bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad, bool notificaciones);
+    bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
     bool altaVendedor(string, string, DTFecha, string);
     set<string> listaDeUsuarios();
     set<DTcomentario> seleccionarUsuario(string);
