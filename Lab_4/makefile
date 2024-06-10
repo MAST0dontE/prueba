@@ -11,10 +11,8 @@ OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/DTidProducto.o \
 		  $(OBJ_DIR)/DTDireccion.o \
 		  $(OBJ_DIR)/CompraPorProducto.o \
-		  $(OBJ_DIR)/ControladorUsuarios.o \
-		  $(OBJ_DIR)/iControladorUsuarios.o \
 		  $(OBJ_DIR)/ControladorVentas.o \
-		  $(OBJ_DIR)/iControladorVentas.o \
+		  $(OBJ_DIR)/ControladorUsuarios.o \
 		  $(OBJ_DIR)/Fabrica.o \
 		  $(OBJ_DIR)/Menu.o \
 		  $(OBJ_DIR)/Observer.o \

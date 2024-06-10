@@ -13,7 +13,7 @@ using namespace std;
 
 class ControladorVentas : public iControladorVentas{
     public:
-        set<string> altaPromocion(string, string, DTfecha);
+        set<string> altaPromocion(string, string, DTFecha);
         set<DTidProducto> seleccionarVendedor(string);
         void agregarProducto(int, int, float);
         bool ingresarPromocion();
