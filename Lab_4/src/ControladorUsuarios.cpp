@@ -15,7 +15,7 @@ void ControladorUsuarios::setComentario(Comentario *comentario)
 	// Implementación
 }
 
-bool ControladorUsuarios::altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad, bool notificaciones)
+bool ControladorUsuarios::altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
 {
 	// Implementación
 	return true;
@@ -39,7 +39,7 @@ set<string> ControladorUsuarios::listaDeUsuarios()
 	return nullptr;
 }
  */
-void ControladorUsuarios::seleccionarComentario(DTcomentario)
+void ControladorUsuarios::seleccionarComentario(DTcomentario *comentario)
 {
 }
 
