@@ -13,12 +13,12 @@ using namespace std;
 
 class ControladorVentas : public iControladorVentas{
     public:
-        set<string> altaPromocion(string, string, DTfecha);
-        set<DTidProducto> seleccionarVendedor(string);
-        void agregarProducto(int, int, float);
+        set<string> altaPromocion(string nickname, string descripcion, DTfecha fechaCreacion);
+        set<DTidProducto> seleccionarVendedor(string nickname);
+        void agregarProducto(int codigo, int cantMinima, float descuento);
         bool ingresarPromocion();
         set<string> listarNicknamesClientes() ;
-        set<DTidProducto> seleccionarCliente(string);
+        set<DTidProducto> seleccionarCliente(string nickname);
         DTinfoCompra mostrarDetallesCompra();
         void registrarCompra();
         bool ingresarPromocion();
