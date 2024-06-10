@@ -21,7 +21,7 @@ public:
     void setVendedor(Vendedor *vendedor);
     void setComentario(Comentario *comentario);
     bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
-    bool altaVendedor(string, string, DTFecha, string);
+    bool altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT);
     set<string> listaDeUsuarios();
     set<DTcomentario> seleccionarUsuario(string);
     void seleccionarComentario(DTcomentario) ;
