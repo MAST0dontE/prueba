@@ -156,5 +156,5 @@ obj/Compra.o: src/Compra.cpp /usr/include/stdc-predef.h inc/Compra.h \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/ProductoEnPromocion.h inc/Producto.h inc/DTInfoProducto.h \
- inc/Ecategoria.h inc/ECategoria.h inc/DTProductoCompra.h \
- inc/DTInfoCompra.h inc/CompraPorProducto.h inc/Eenvio.h
+ inc/ECategoria.h inc/DTProductoCompra.h inc/DTInfoCompra.h \
+ inc/CompraPorProducto.h inc/Eenvio.h

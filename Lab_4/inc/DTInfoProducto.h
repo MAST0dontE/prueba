@@ -2,7 +2,7 @@
 #define DTINFOPRODUCTO_H
 
 #include <string>
-#include "Ecategoria.h"
+#include "ECategoria.h"
 
 using namespace std;
 
@@ -12,9 +12,9 @@ class DTInfoProducto{
         int cantStock;
         string descripcion;
         float precio;
-        Ecategoria categoria;
+        ECategoria categoria;
 
-        DTInfoProducto(int codigo, string nombre, string vendedor, int cantStock, string descripcion, float precio, Ecategoria categoria);
+        DTInfoProducto(int codigo, string nombre, string vendedor, int cantStock, string descripcion, float precio, ECategoria categoria);
 
 };
 

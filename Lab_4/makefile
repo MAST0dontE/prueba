@@ -9,6 +9,10 @@ OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/DTNotificacion.o \
 		  $(OBJ_DIR)/DTFecha.o \
 		  $(OBJ_DIR)/DTDireccion.o \
+		  $(OBJ_DIR)/DTInfoCompra.o \
+		  $(OBJ_DIR)/DTInfoProducto.o \
+		  $(OBJ_DIR)/DTNotificacion.o \
+		  $(OBJ_DIR)/DTProductoCompra.o \
 		  $(OBJ_DIR)/CompraPorProducto.o \
 		  $(OBJ_DIR)/ControladorVentas.o \
 		  $(OBJ_DIR)/ControladorUsuarios.o \

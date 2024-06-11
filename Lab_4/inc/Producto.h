@@ -17,10 +17,10 @@ class Producto{
         float precio;
         string nombre;
         string descripcion;
-        Ecategoria categoria;
+        ECategoria categoria;
 
     public:
-        Producto(int codigo, int stock, float precio, string nombre, string descripcion, Ecategoria categoria);
+        Producto(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria);
         DTProductoCompra getDatosProducto();
         DTInfoCompra getDatosCompra();
         void agregarProducto(int stock, int cantidad);

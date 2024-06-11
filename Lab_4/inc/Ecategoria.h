@@ -1,7 +1,7 @@
 #ifndef ECATEGORIA_H
 #define ECATEGORIA_H
 
-enum Ecategoria{
+enum ECategoria{
     ropa,
     electrodomesticos,
     otros

@@ -150,9 +150,8 @@ obj/Promocion.o: src/Promocion.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/ProductoEnPromocion.h inc/Producto.h inc/DTInfoProducto.h \
- inc/Ecategoria.h inc/ECategoria.h inc/DTProductoCompra.h \
- inc/DTInfoCompra.h /usr/include/c++/11/set \
- /usr/include/c++/11/bits/stl_tree.h \
+ inc/ECategoria.h inc/DTProductoCompra.h inc/DTInfoCompra.h \
+ /usr/include/c++/11/set /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/ext/aligned_buffer.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_set.h \

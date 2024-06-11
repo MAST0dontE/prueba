@@ -127,10 +127,10 @@ obj/Producto.o: src/Producto.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc inc/DTInfoProducto.h \
- inc/Ecategoria.h inc/ECategoria.h inc/DTProductoCompra.h \
- inc/DTInfoCompra.h inc/DTFecha.h /usr/include/c++/11/iostream \
- /usr/include/c++/11/ostream /usr/include/c++/11/ios \
- /usr/include/c++/11/exception /usr/include/c++/11/bits/exception_ptr.h \
+ inc/ECategoria.h inc/DTProductoCompra.h inc/DTInfoCompra.h inc/DTFecha.h \
+ /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
+ /usr/include/c++/11/ios /usr/include/c++/11/exception \
+ /usr/include/c++/11/bits/exception_ptr.h \
  /usr/include/c++/11/bits/cxxabi_init_exception.h \
  /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/nested_exception.h \
  /usr/include/c++/11/bits/ios_base.h \

@@ -161,8 +161,7 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h inc/Fabrica.h \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
- inc/Ecategoria.h inc/DTDireccion.h inc/Vendedor.h inc/DTcomentario.h \
+ inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/DTcomentario.h \
  inc/ControladorVentas.h inc/iControladorVentas.h inc/Promocion.h \
- inc/ProductoEnPromocion.h inc/Producto.h inc/ECategoria.h \
- inc/DTProductoCompra.h inc/DTInfoCompra.h inc/Compra.h \
- inc/CompraPorProducto.h inc/Eenvio.h
+ inc/ProductoEnPromocion.h inc/Producto.h inc/DTProductoCompra.h \
+ inc/DTInfoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/Eenvio.h
