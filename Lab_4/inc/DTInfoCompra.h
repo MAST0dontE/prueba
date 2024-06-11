@@ -2,6 +2,7 @@
 #define DTINFOCOMPRA_H
 
 #include "DTFecha.h"
+#include <set>
 #include "DTInfoProducto.h"
 
 class DTInfoCompra{
