@@ -3,16 +3,17 @@
 
 #include <string>
 #include "EEnvio.h"
+#include "EEnvio.h"
 using namespace std;
 class CompraPorProducto{
     private:
         int cantidadSolicitada;
-        EEnvio estadoDEEnvio;
+        EEnvio estadoDeEnvio;
 
     public:
-    CompraPorProducto(int cantidadSolicitada, EEnvio estadoDEEnvio);
-    EEnvio getestadoDEEnvio();
-    void setestadoDEEnvio(EEnvio estadoDEEnvio);
+    CompraPorProducto(int cantidadSolicitada, EEnvio estadoDeEnvio);
+    EEnvio getestadoDeEnvio();
+    void setestadoDeEnvio(EEnvio estadoDeEnvio);
 };
 
 #endif // COMPRAPORPRODUCTO_H
