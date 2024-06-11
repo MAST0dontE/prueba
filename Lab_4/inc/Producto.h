@@ -25,6 +25,13 @@ class Producto{
         DTInfoCompra getDatosCompra();
         void agregarProducto(int stock, int cantidad);
         DTInfoProducto getInfoProducto();
+        //getters y setters:
+        int getCodigo();
+        int getStock();
+        float getPrecio();
+        string getNombre();
+        string getDescripcion();
+        ECategoria getCategoria();
 };
 
 #endif // PRODUCTO_H

@@ -27,6 +27,15 @@ void ControladorVentas::setProducto(Producto *producto)
 
 set<DTInfoProducto> ControladorVentas::listarProductos()
 {
+    set<DTInfoProducto> result;
+    set<Prodcuto*> productos = ControladorVentas.productos;
+    set<Productos*>::iterator it;
+    for(it=productos.begin(); it != productos.end(); ++it){
+        DTInfoProducto prod;
+        prod.cantStock = it.ca
+        
+    }
+
     return set<DTInfoProducto>();
 }
 
