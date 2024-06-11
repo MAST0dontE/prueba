@@ -14,6 +14,9 @@
 using namespace std;
 
 class ControladorVentas : public iControladorVentas{
+    private:
+        set<Producto*> productos;
+        
     public:
         set<string> altaPromocion(string nickname, string descripcion, DTFecha fechaCreacion);
         void agregarProducto(int codigo, int cantMinima, float descuento);
@@ -28,6 +31,8 @@ class ControladorVentas : public iControladorVentas{
         void setPromocion(Promocion *promocion);
         void setCompra(Compra *compra);
         void setProducto(Producto *producto);
+        //nuevos cambios
+        set<DTinfoProducto> listarProductos();
 
 };
 
