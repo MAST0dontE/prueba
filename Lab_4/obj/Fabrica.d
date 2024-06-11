@@ -1,6 +1,6 @@
-obj/ControladorUsuarios.o: src/ControladorUsuarios.cpp \
- /usr/include/stdc-predef.h inc/ControladorUsuarios.h \
- inc/iControladorUsuarios.h /usr/include/c++/11/string \
+obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h inc/Fabrica.h \
+ inc/ControladorUsuarios.h inc/iControladorUsuarios.h \
+ /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -161,4 +161,8 @@ obj/ControladorUsuarios.o: src/ControladorUsuarios.cpp \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/Observer.h inc/DTNotificacion.h inc/DTIdProducto.h inc/DTDireccion.h \
- inc/Vendedor.h inc/DTcomentario.h
+ inc/Vendedor.h inc/DTcomentario.h inc/ControladorVentas.h \
+ inc/iControladorVentas.h inc/Promocion.h inc/ProductoEnPromocion.h \
+ inc/Producto.h inc/DTInfoProducto.h inc/Ecategoria.h inc/ECategoria.h \
+ inc/DTProductoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/Eenvio.h \
+ inc/DTInfoCompra.h

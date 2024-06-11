@@ -15,7 +15,6 @@ OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/ControladorUsuarios.o \
 		  $(OBJ_DIR)/Fabrica.o \
 		  $(OBJ_DIR)/Menu.o \
-		  $(OBJ_DIR)/Observer.o \
 		  $(OBJ_DIR)/Producto.o \
 		  $(OBJ_DIR)/ProductoEnPromocion.o \
 		  $(OBJ_DIR)/Usuario.o \
