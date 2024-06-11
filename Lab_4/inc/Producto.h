@@ -20,9 +20,9 @@ class Producto{
     public:
         Producto(int codigo, int stock, float precio, string nombre, string descripcion, Ecategoria categoria);
         DTProductoCompra getDatosProducto();
-       // DTidProductoCompra getDatosCompra();
+       // DTIdProductoCompra getDatosCompra();
         void agregarProducto(int stock, int cantidad);
-        DTidProducto getInfoProducto();
+        DTIdProducto getInfoProducto();
 };
 
 #endif // PRODUCTO_H

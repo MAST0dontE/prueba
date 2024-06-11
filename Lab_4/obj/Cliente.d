@@ -160,4 +160,4 @@ obj/Cliente.o: src/Cliente.cpp /usr/include/stdc-predef.h inc/Cliente.h \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
  /usr/include/c++/11/bits/erase_if.h inc/Cliente.h inc/DTNotificacion.h \
- inc/DTidProducto.h inc/DTDireccion.h
+ inc/DTIdProducto.h inc/DTDireccion.h

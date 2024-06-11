@@ -160,8 +160,8 @@ obj/ControladorVentas.o: src/ControladorVentas.cpp \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
- inc/Observer.h inc/DTNotificacion.h inc/DTidProducto.h inc/DTDireccion.h \
+ inc/Observer.h inc/DTNotificacion.h inc/DTIdProducto.h inc/DTDireccion.h \
  inc/Vendedor.h inc/Promocion.h inc/ProductoEnPromocion.h inc/Producto.h \
- inc/DTIdProducto.h inc/DTInfoProducto.h inc/Ecategoria.h \
- inc/ECategoria.h inc/DTProductoCompra.h inc/Compra.h \
- inc/CompraPorProducto.h inc/Eenvio.h
+ inc/DTInfoProducto.h inc/Ecategoria.h inc/ECategoria.h \
+ inc/DTProductoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/Eenvio.h \
+ inc/DTInfoCompra.h

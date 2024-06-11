@@ -1,4 +1,4 @@
-#include "../inc/DTidProducto.h"
+#include "../inc/DTIdProducto.h"
 
-DTidProducto::DTidProducto(string codigo, string nombre){
+DTIdProducto::DTIdProducto(string codigo, string nombre){
 }
