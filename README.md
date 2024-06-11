@@ -1,5 +1,6 @@
 # Cambios importantes 
 avisen aca :)
+![WhatsApp Image 2024-06-11 at 12 28 20 AM|300](https://github.com/MAST0dontE/prueba/assets/70988692/fa494328-6a6b-4ff3-b37b-ca3bc61a7ad2)
 
 # Casos de uso
 ## Leo
@@ -28,4 +29,4 @@ avisen aca :)
 - [ ] Alta de usuario
 
 
-![WhatsApp Image 2024-06-11 at 12 28 20 AM](https://github.com/MAST0dontE/prueba/assets/70988692/fa494328-6a6b-4ff3-b37b-ca3bc61a7ad2)
+
