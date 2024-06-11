@@ -5,10 +5,10 @@
 #include <string>
 
 using namespace std;
-class DTidProducto{
+class DTIdProducto{
 public:
     string codigo, nombre;
-    DTidProducto(string codigo, string nombre);
+    DTIdProducto(string codigo, string nombre);
 };
 
 #endif // DTIDPRODUCTO_H

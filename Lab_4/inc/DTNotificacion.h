@@ -4,14 +4,14 @@
 #include <iostream>
 #include <string>
 #include <set>
-#include "DTidProducto.h"
+#include "DTIdProducto.h"
 
 using namespace std;
 class DTNotificacion{
 public:
     string nicknameVendedor, nombrePromo;
-    set<DTidProducto> productos;
-    DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTidProducto> productos);
+    set<DTIdProducto> productos;
+    DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTIdProducto> productos);
 };
 
 #endif // DTNOTIFICACION_H

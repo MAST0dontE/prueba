@@ -9,19 +9,25 @@
 #include "Promocion.h"
 #include "Compra.h"
 #include "Producto.h"
+#include "DTFecha.h"
+#include "DTInfoCompra.h"
 using namespace std;
 
 class ControladorVentas : public iControladorVentas{
     public:
-        set<string> altaPromocion(string nickname, string descripcion, DTfecha fechaCreacion);
-        set<DTidProducto> seleccionarVendedor(string nickname);
+        set<string> altaPromocion(string nickname, string descripcion, DTFecha fechaCreacion);
         void agregarProducto(int codigo, int cantMinima, float descuento);
         bool ingresarPromocion();
         set<string> listarNicknamesClientes() ;
-        set<DTidProducto> seleccionarCliente(string nickname);
-        DTinfoCompra mostrarDetallesCompra();
+        set<DTIdProducto> seleccionarCliente(string nickname);
+        set<DTIdProducto> seleccionarVendedor(string nickname);
+        DTInfoCompra mostrarDetallesCompra();
         void registrarCompra();
-        bool ingresarPromocion();
+        void setCliente(Cliente *cliente);
+        void setVendedor(Vendedor *vendedor);
+        void setPromocion(Promocion *promocion);
+        void setCompra(Compra *compra);
+        void setProducto(Producto *producto);
 };
 
 #endif // CONTROLADORVENTAS_H
