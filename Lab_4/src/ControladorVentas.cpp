@@ -60,9 +60,10 @@ set<DTIdProducto> ControladorVentas::seleccionarCliente(string nickname)
     return set<DTIdProducto>();
 }
 
-DTinfoCompra ControladorVentas::mostrarDetallesCompra()
+DTInfoCompra ControladorVentas::mostrarDetallesCompra()
 {
     // Implementación
+    return DTInfoCompra(DTFecha(1,1,1), 0);
 }
 
 void ControladorVentas::registrarCompra()
