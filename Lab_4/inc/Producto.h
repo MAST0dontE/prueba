@@ -8,7 +8,7 @@
 #include "DTProductoCompra.h"
 using namespace std;
 
-class Producto{
+class Producto{ 
     private:
         int codigo;
         int stock;

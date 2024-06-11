@@ -19,7 +19,7 @@ void Producto::agregarProducto(int stock, int cantidad)
 {
     // Implementación
 }
-
+   
 DTIdProducto Producto::getInfoProducto()
 {
     // Implementación
