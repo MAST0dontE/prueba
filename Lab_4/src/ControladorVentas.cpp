@@ -71,6 +71,6 @@ void ControladorVentas::registrarCompra()
     // Implementación
 }
 
-set<DTinfoProducto> listarProductos(){
+set<DTInfoProducto> listarProductos(){
     // Implementacion
 };

@@ -32,7 +32,7 @@ class ControladorVentas : public iControladorVentas{
         void setCompra(Compra *compra);
         void setProducto(Producto *producto);
         //nuevos cambios
-        set<DTinfoProducto> listarProductos();
+        set<DTInfoProducto> listarProductos();
 
 };
 
