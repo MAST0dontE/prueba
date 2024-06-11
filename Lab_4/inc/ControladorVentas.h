@@ -21,7 +21,6 @@ class ControladorVentas : public iControladorVentas{
         set<DTidProducto> seleccionarCliente(string nickname);
         DTinfoCompra mostrarDetallesCompra();
         void registrarCompra();
-        bool ingresarPromocion();
 };
 
 #endif // CONTROLADORVENTAS_H
