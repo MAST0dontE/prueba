@@ -149,4 +149,5 @@ obj/Producto.o: src/Producto.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc inc/DTInfoProducto.h \
- inc/Ecategoria.h inc/ECategoria.h inc/DTProductoCompra.h
+ inc/Ecategoria.h inc/ECategoria.h inc/DTProductoCompra.h \
+ inc/DTInfoCompra.h inc/DTFecha.h /usr/include/c++/11/stdlib.h

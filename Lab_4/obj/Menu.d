@@ -164,5 +164,5 @@ obj/Menu.o: src/Menu.cpp /usr/include/stdc-predef.h inc/Menu.h \
  inc/Vendedor.h inc/DTcomentario.h inc/ControladorVentas.h \
  inc/iControladorVentas.h inc/Promocion.h inc/ProductoEnPromocion.h \
  inc/Producto.h inc/DTInfoProducto.h inc/Ecategoria.h inc/ECategoria.h \
- inc/DTProductoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/Eenvio.h \
- inc/DTInfoCompra.h
+ inc/DTProductoCompra.h inc/DTInfoCompra.h inc/Compra.h \
+ inc/CompraPorProducto.h inc/Eenvio.h

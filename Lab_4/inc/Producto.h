@@ -6,6 +6,8 @@
 #include "DTInfoProducto.h"
 #include "ECategoria.h"
 #include "DTProductoCompra.h"
+#include "DTInfoCompra.h"
+
 using namespace std;
 
 class Producto{ 
