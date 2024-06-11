@@ -11,5 +11,5 @@ class Observer{
         virtual void notificar(DTNotificacion notificacion);
         virtual void eliminarSuscripcion();
 };
-
+//frgttkhrej
 #endif // OBSERVER_H
