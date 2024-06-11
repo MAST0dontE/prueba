@@ -1,11 +1,11 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "Factoria.h"
+#include "Fabrica.h"
 
 class Menu{
     private:
-        Factoria *factoria;
+        Fabrica *fabrica;
 
     public:
         void gestionDeUsuarios();
