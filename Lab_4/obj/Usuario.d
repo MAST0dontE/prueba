@@ -1,5 +1,4 @@
-obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h inc/Fabrica.h \
- inc/ControladorUsuarios.h inc/iControladorUsuarios.h \
+obj/Usuario.o: src/Usuario.cpp /usr/include/stdc-predef.h inc/Usuario.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -131,16 +130,10 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h inc/Fabrica.h \
  /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/set \
- /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/ext/aligned_buffer.h \
- /usr/include/c++/11/bits/node_handle.h \
- /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/c++/11/bits/erase_if.h inc/Cliente.h inc/Usuario.h \
- inc/Comentario.h inc/DTFecha.h /usr/include/c++/11/iostream \
- /usr/include/c++/11/ostream /usr/include/c++/11/ios \
- /usr/include/c++/11/exception /usr/include/c++/11/bits/exception_ptr.h \
+ /usr/include/c++/11/bits/vector.tcc inc/Comentario.h inc/DTFecha.h \
+ /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
+ /usr/include/c++/11/ios /usr/include/c++/11/exception \
+ /usr/include/c++/11/bits/exception_ptr.h \
  /usr/include/c++/11/bits/cxxabi_init_exception.h \
  /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/nested_exception.h \
  /usr/include/c++/11/bits/ios_base.h \
@@ -159,10 +152,4 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h inc/Fabrica.h \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
- inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
- inc/Ecategoria.h inc/DTDireccion.h inc/Vendedor.h inc/DTcomentario.h \
- inc/ControladorVentas.h inc/iControladorVentas.h inc/Promocion.h \
- inc/ProductoEnPromocion.h inc/Producto.h inc/ECategoria.h \
- inc/DTProductoCompra.h inc/DTInfoCompra.h inc/Compra.h \
- inc/CompraPorProducto.h inc/Eenvio.h
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h

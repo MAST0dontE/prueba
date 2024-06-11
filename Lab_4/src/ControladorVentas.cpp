@@ -31,10 +31,10 @@ set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, 
     return set<string>();
 }
 
-set<DTIdProducto> ControladorVentas::seleccionarVendedor(string nickname)
+set<DTInfoProducto> ControladorVentas::seleccionarVendedor(string nickname)
 {
     // Implementación
-    return set<DTIdProducto>();
+    return set<DTInfoProducto>();
 }
 
 void ControladorVentas::agregarProducto(int codigo,int cantMinima, float descuento)
@@ -54,10 +54,10 @@ set<string> ControladorVentas::listarNicknamesClientes()
     return set<string>();
 }
 
-set<DTIdProducto> ControladorVentas::seleccionarCliente(string nickname)
+set<DTInfoProducto> ControladorVentas::seleccionarCliente(string nickname)
 {
     // Implementación
-    return set<DTIdProducto>();
+    return set<DTInfoProducto>();
 }
 
 DTInfoCompra ControladorVentas::mostrarDetallesCompra()

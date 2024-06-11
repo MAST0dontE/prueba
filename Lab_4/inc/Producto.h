@@ -2,7 +2,7 @@
 #define PRODUCTO_H
 
 #include <string>
-#include "DTIdProducto.h"
+#include "DTInfoProducto.h"
 #include "DTInfoProducto.h"
 #include "ECategoria.h"
 #include "DTProductoCompra.h"
@@ -24,7 +24,7 @@ class Producto{
         DTProductoCompra getDatosProducto();
         DTInfoCompra getDatosCompra();
         void agregarProducto(int stock, int cantidad);
-        DTIdProducto getInfoProducto();
+        DTInfoProducto getInfoProducto();
 };
 
 #endif // PRODUCTO_H

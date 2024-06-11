@@ -18,8 +18,8 @@ class ControladorVentas : public iControladorVentas{
         set<string> altaPromocion(string nickname, string descripcion, DTFecha fechaCreacion);
         void agregarProducto(int codigo, int cantMinima, float descuento);
         set<string> listarNicknamesClientes() ;
-        set<DTIdProducto> seleccionarCliente(string nickname);
-        set<DTIdProducto> seleccionarVendedor(string nickname);
+        set<DTInfoProducto> seleccionarCliente(string nickname);
+        set<DTInfoProducto> seleccionarVendedor(string nickname);
         DTInfoCompra mostrarDetallesCompra();
         void registrarCompra();
         bool ingresarPromocion();

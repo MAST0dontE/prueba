@@ -7,12 +7,12 @@
 using namespace std;
 class Usuario {
     protected:
-        string contraseña;
+        string contrasenia;
         string nickname;
-        DTFecha fecha;
+        DTFecha fechaDeNacimiento;
 
     public:
-        Usuario(string contraseña, string nickname, DTFecha fecha);
+        Usuario(string contrasenia, string nickname, DTFecha fechaDeNacimiento);
         virtual ~Usuario();
 
         virtual vector<Comentario> listarComentarios(string) = 0;

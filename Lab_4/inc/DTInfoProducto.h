@@ -14,7 +14,7 @@ class DTInfoProducto{
         float precio;
         Ecategoria categoria;
 
-        DTInfoProducto(string vendedor, int cantStock, string descripcion, float precio, Ecategoria categoria);
+        DTInfoProducto(int codigo, string nombre, string vendedor, int cantStock, string descripcion, float precio, Ecategoria categoria);
 
 };
 

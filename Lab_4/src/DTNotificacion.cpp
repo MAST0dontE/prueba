@@ -1,4 +1,4 @@
 #include "../inc/DTNotificacion.h"
 
-DTNotificacion::DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTIdProducto> productos){
+DTNotificacion::DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTInfoProducto> productos){
 }

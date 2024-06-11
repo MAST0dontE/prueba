@@ -150,4 +150,5 @@ obj/DTNotificacion.o: src/DTNotificacion.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/c++/11/bits/erase_if.h src/../inc/DTIdProducto.h
+ /usr/include/c++/11/bits/erase_if.h src/../inc/DTInfoProducto.h \
+ src/../inc/Ecategoria.h
