@@ -7,9 +7,10 @@
 
 class Observer{
     public:
-        virtual void agregarSuscripcion();
-        virtual void notificar(DTNotificacion notificacion);
-        virtual void eliminarSuscripcion();
+    
+        virtual void agregarSuscripcion() = 0 ;
+        virtual void notificar(DTNotificacion notificacion) = 0;
+        virtual void eliminarSuscripcion() = 0;
 };
-//frgttkhrej
+
 #endif // OBSERVER_H

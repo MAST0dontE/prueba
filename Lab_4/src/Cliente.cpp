@@ -22,3 +22,8 @@ void Cliente::borrarNotificaciones()
 {
     // Implementación
 }
+
+void Cliente::eliminarSuscripcion()
+{
+    // Implementación
+}

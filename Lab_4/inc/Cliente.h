@@ -14,9 +14,9 @@ class Cliente : public Usuario, public Observer{
 
     public:
         Cliente(string contraseña, string nickname, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
-        void agregarSuscripcion();
-        void eliminarSuscripcion();
-        void notificar(DTNotificacion notificacion);
+        void agregarSuscripcion() override;
+        void eliminarSuscripcion() override;
+        void notificar(DTNotificacion notificacion) override;
         set<DTNotificacion> getNotificaciones();
         void borrarNotificaciones();
 };

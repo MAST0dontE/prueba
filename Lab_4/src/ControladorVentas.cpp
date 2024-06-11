@@ -25,6 +25,11 @@ void ControladorVentas::setProducto(Producto *producto)
     // Implementación
 }
 
+set<DTInfoProducto> ControladorVentas::listarProductos()
+{
+    return set<DTInfoProducto>();
+}
+
 set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento)
 {
     // Implementación
@@ -70,7 +75,3 @@ void ControladorVentas::registrarCompra()
 {
     // Implementación
 }
-
-set<DTInfoProducto> listarProductos(){
-    // Implementacion
-};
