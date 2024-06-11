@@ -2,17 +2,17 @@
 #define COMPRAPORPRODUCTO_H
 
 #include <string>
-#include "Eenvio.h"
+#include "EEnvio.h"
 using namespace std;
 class CompraPorProducto{
     private:
         int cantidadSolicitada;
-        Eenvio estadoDeEnvio;
+        EEnvio estadoDEEnvio;
 
     public:
-    CompraPorProducto(int cantidadSolicitada, Eenvio estadoDeEnvio);
-    Eenvio getestadoDeEnvio();
-    void setestadoDeEnvio(Eenvio estadoDeEnvio);
+    CompraPorProducto(int cantidadSolicitada, EEnvio estadoDEEnvio);
+    EEnvio getestadoDEEnvio();
+    void setestadoDEEnvio(EEnvio estadoDEEnvio);
 };
 
 #endif // COMPRAPORPRODUCTO_H

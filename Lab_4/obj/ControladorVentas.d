@@ -163,4 +163,4 @@ obj/ControladorVentas.o: src/ControladorVentas.cpp \
  inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
  inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/Promocion.h \
  inc/ProductoEnPromocion.h inc/Producto.h inc/DTProductoCompra.h \
- inc/DTInfoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/Eenvio.h
+ inc/DTInfoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/EEnvio.h

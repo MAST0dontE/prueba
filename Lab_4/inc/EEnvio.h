@@ -1,9 +1,9 @@
-#ifndef EENVIO_H
-#define EENVIO_H
+#ifndef EEnvio_H
+#define EEnvio_H
 
 enum EEnvio{
     pendiente,
     enviado
 };
 
-#endif // EENVIO_H
+#endif // EEnvio_H

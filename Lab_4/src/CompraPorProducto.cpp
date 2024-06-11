@@ -1,14 +1,14 @@
 #include "CompraPorProducto.h"
 
-CompraPorProducto::CompraPorProducto(int cantidadSolicitada, Eenvio estadoDeEnvio)
+CompraPorProducto::CompraPorProducto(int cantidadSolicitada, EEnvio estadoDEEnvio)
 {
 }
 
-Eenvio CompraPorProducto::getestadoDeEnvio()
+EEnvio CompraPorProducto::getestadoDEEnvio()
 {
-    return Eenvio();
+    return EEnvio();
 }
 
-void CompraPorProducto::setestadoDeEnvio(Eenvio estadoDeEnvio)
+void CompraPorProducto::setestadoDEEnvio(EEnvio estadoDEEnvio)
 {
 }
