@@ -3,13 +3,13 @@
 Producto::Producto(int codigo, int stock, float precio, string nombre, string descripcion, Ecategoria categoria)
     : codigo(codigo), stock(stock), precio(precio), nombre(nombre), descripcion(descripcion), categoria(categoria) {}
 
-DTIdProducto Producto::getDatosProducto()
+DTProductoCompra Producto::getDatosProducto()
 {
     // Implementación
     return DTIdProducto();
 }
 
-DTProductoCompra Producto::getDatosCompra()
+DTInfoCompra Producto::getDatosCompra()
 {
     // Implementación
     return DTProductoCompra();
@@ -20,7 +20,7 @@ void Producto::agregarProducto(int stock, int cantidad)
     // Implementación
 }
 
-DTInfoProducto Producto::getInfoProducto()
+DTIdProducto Producto::getInfoProducto()
 {
     // Implementación
     return DTInfoProducto();
