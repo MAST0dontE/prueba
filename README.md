@@ -1,3 +1,6 @@
+# Cambios importantes 
+avisen aca :)
+
 # Casos de uso
 ## Leo
 - [ ] Listado de usuarios
@@ -24,4 +27,3 @@
 - [ ] Expediente de Usuario
 - [ ] Alta de usuario
 
-# Cambios importantes 
