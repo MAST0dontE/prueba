@@ -1,7 +1,7 @@
 #ifndef EENVIO_H
 #define EENVIO_H
 
-enum Eenvio{
+enum EEnvio{
     pendiente,
     enviado
 };
