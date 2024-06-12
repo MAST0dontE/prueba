@@ -3,6 +3,14 @@
 Cliente::Cliente(string contrasenia, string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia)
     : Usuario(contrasenia, nickname, fechaDeNacimiento), direccion(direccion), ciudadResidencia(ciudadResidencia) {}
 
+DTDireccion getDireccion(){
+
+};
+
+string getCiudadResidencia(){
+    
+};
+
 void Cliente::agregarSuscripcion(){
 
 }

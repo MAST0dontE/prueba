@@ -13,6 +13,10 @@ class Cliente : public Usuario, public Observer{
         set<DTNotificacion> notificaciones;
 
     public:
+        // GETTERS
+        DTDireccion getDireccion();
+        string getCiudadResidencia();
+        
         Cliente(string contraseña, string nickname, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
         void agregarSuscripcion() override;
         void eliminarSuscripcion() override;

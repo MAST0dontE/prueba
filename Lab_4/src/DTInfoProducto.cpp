@@ -1,4 +1,5 @@
 #include "DTInfoProducto.h"
 
-DTInfoProducto::DTInfoProducto(int codigo, string nombre, string vendedor, int cantStock, string descripcion, float precio, ECategoria categoria){
-}
+DTInfoProducto::DTInfoProducto(int codigo, string nombre, float precio, int cantStock, string descripcion,  ECategoria categoria, string vendedor){
+
+};

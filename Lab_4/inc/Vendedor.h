@@ -14,8 +14,9 @@ class Vendedor : public Usuario{
         set<DTNotificacion> notificaciones;
         set<DTInfoProducto> productosVendedor;
     public:
+        //GETTERS
+        string getCodigoRUT();
         Vendedor(string contraseña, string nickname, DTFecha fecha, string codigoRUT);
-
         void notificar();
         void setearProductosVendedor(set<DTInfoProducto>);
 };
