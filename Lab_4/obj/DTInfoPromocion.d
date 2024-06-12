@@ -1,6 +1,5 @@
-obj/ControladorVentas.o: src/ControladorVentas.cpp \
- /usr/include/stdc-predef.h inc/ControladorVentas.h \
- inc/iControladorVentas.h /usr/include/c++/11/string \
+obj/DTInfoPromocion.o: src/DTInfoPromocion.cpp /usr/include/stdc-predef.h \
+ inc/DTInfoPromocion.h /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -133,35 +132,5 @@ obj/ControladorVentas.o: src/ControladorVentas.cpp \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/c++/11/bits/erase_if.h inc/Cliente.h inc/Usuario.h \
- /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc inc/Comentario.h inc/DTFecha.h \
- /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
- /usr/include/c++/11/ios /usr/include/c++/11/exception \
- /usr/include/c++/11/bits/exception_ptr.h \
- /usr/include/c++/11/bits/cxxabi_init_exception.h \
- /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/nested_exception.h \
- /usr/include/c++/11/bits/ios_base.h \
- /usr/include/c++/11/bits/locale_classes.h \
- /usr/include/c++/11/bits/locale_classes.tcc \
- /usr/include/c++/11/system_error \
- /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
- /usr/include/c++/11/stdexcept /usr/include/c++/11/streambuf \
- /usr/include/c++/11/bits/streambuf.tcc \
- /usr/include/c++/11/bits/basic_ios.h \
- /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
- /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
- /usr/include/c++/11/bits/streambuf_iterator.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
- /usr/include/c++/11/bits/locale_facets.tcc \
- /usr/include/c++/11/bits/basic_ios.tcc \
- /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
- inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
- inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/Promocion.h \
- inc/ProductoEnPromocion.h inc/Producto.h inc/DTProductoCompra.h \
- inc/DTInfoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/EEnvio.h \
- inc/DTInfoPromocion.h
+ /usr/include/c++/11/bits/erase_if.h inc/DTInfoProducto.h \
+ inc/ECategoria.h

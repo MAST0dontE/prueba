@@ -8,6 +8,7 @@
 #include "Vendedor.h"
 #include "Promocion.h"
 #include "Compra.h"
+#include "DTInfoPromocion.h"
 #include "Producto.h"
 #include "DTFecha.h"
 #include "DTInfoCompra.h"
@@ -16,6 +17,10 @@ using namespace std;
 class ControladorVentas : public iControladorVentas{
     private:
         set<Producto*> productos;
+        set<Promocion*> promociones;
+        set<Cliente*> clientes;
+        set<Vendedor*> vendedores;
+        set<Compra*> compras;
         
     public:
         set<string> altaPromocion(string nickname, string descripcion, DTFecha fechaCreacion);
@@ -33,6 +38,7 @@ class ControladorVentas : public iControladorVentas{
         void setProducto(Producto *producto);
         //nuevos cambios
         set<DTInfoProducto> listarProductos();
+        set<DTInfoPromocion> listarPromociones();
 
 };
 

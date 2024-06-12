@@ -7,3 +7,8 @@ void Promocion::agregarProductoPromocion(ProductoEnPromocion producto)
 {
     // Implementación
 }
+
+set<ProductoEnPromocion> Promocion::getProductos()
+{
+    return set<ProductoEnPromocion>();
+}
