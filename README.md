@@ -1,5 +1,6 @@
 # Cambios importantes 
-El find de un set es logN asi que podriamos volar el Vendedor de Producto
+- El find de un set es logN asi que podriamos volar el Vendedor de Producto
+- Pongo el toString en Usuario o directamente en vendedor (Cliente necesita un toString?)
 
 
 # Casos de uso
