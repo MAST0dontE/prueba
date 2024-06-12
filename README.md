@@ -5,7 +5,7 @@
   
   ![image](https://github.com/MAST0dontE/prueba/assets/70988692/f8a19a4c-eaa3-4b7d-bfbb-045780471262)
 
-
+- Vendedor no deberia tener un set de productos en lugar de un set de DTInfoProducto?
 
 # Casos de uso
 ## Leo
