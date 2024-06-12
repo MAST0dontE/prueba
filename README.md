@@ -1,7 +1,7 @@
 # Cambios importantes 
 - El find de un set es logN asi que podriamos volar el Vendedor de Producto y ponerle solo el nombre
 - Pongo el toString en Usuario o directamente en vendedor (Cliente necesita un toString?)
-- Cambie el siguiente set por un set<ProductoEnPromocion*>
+- Cambie el siguiente set de este datatype por un set<ProductoEnPromocion*>
   
   ![image](https://github.com/MAST0dontE/prueba/assets/70988692/f8a19a4c-eaa3-4b7d-bfbb-045780471262)
 
