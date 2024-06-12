@@ -8,14 +8,16 @@ using namespace std;
 
 class DTInfoProducto{
     public:
-        string vendedor;
+        int codigo;
+        string nombre;
+        float precio;
         int cantStock;
         string descripcion;
-        float precio;
         ECategoria categoria;
+        string vendedor;
 
-        DTInfoProducto(int codigo, string nombre, string vendedor, int cantStock, string descripcion, float precio, ECategoria categoria);
+        DTInfoProducto(int codigo, string nombre, float precio, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
 
 };
 
-#endif // DTINFOPRODUCTO_H
+#endif // DTINFOPRODUCTO_H 

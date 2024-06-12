@@ -18,6 +18,7 @@ class Producto{
         string nombre;
         string descripcion;
         ECategoria categoria;
+        Vendedor vendedor;
 
     public:
         Producto(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria);
@@ -32,6 +33,7 @@ class Producto{
         string getNombre();
         string getDescripcion();
         ECategoria getCategoria();
+        string getNombreVendedor();
 };
 
 #endif // PRODUCTO_H
