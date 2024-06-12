@@ -16,6 +16,7 @@ class Usuario {
         virtual ~Usuario();
 
         virtual vector<Comentario> listarComentarios(string) = 0;
+        //virtual string tostring() = 0;
 };
 
 #endif // USUARIO_H

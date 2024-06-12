@@ -12,7 +12,7 @@ class Promocion{
         string nombre;
         string descripcion;
         DTFecha fechaDeVencimiento;
-        set<ProductoEnPromocion> productos;
+        set<ProductoEnPromocion*> productos;
 
     public:
         Promocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
@@ -20,7 +20,7 @@ class Promocion{
         string getNombre();
         string getDescripcion();
         DTFecha getFechaDeVencimiento();
-        set<ProductoEnPromocion> getProductos();
+        set<ProductoEnPromocion*> getProductos();
 };
 
 #endif // PROMOCION_H

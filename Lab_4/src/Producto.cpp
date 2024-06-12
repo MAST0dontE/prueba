@@ -3,33 +3,9 @@
 Producto::Producto(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria)
     : codigo(codigo), stock(stock), precio(precio), nombre(nombre), descripcion(descripcion), categoria(categoria) {}
 
-int getCodigo(){
-    return this.codigo;
-};
 
-int getStock(){
-    return this.codigo;
-};
 
-float getPrecio(){
-    return this.precio;
-};
 
-string getNombre(){
-    return this.nombre;
-};
-
-string getDescripcion(){
-    return this.descripcion;
-};
-
-ECategoria getCategoria(){
-    return this.categoria;
-};
-
-string getNombreVendedor(){
-    return this.vendedor->getNombre();
-};
 
 DTProductoCompra Producto::getDatosProducto()
 {
@@ -50,43 +26,48 @@ void Producto::agregarProducto(int stock, int cantidad)
    
 DTInfoProducto Producto::getInfoProducto(){
     // Implementación
-    DTInfoProducto result;
+   /*  DTInfoProducto result;
     result.cantStock = this->getStock();
     result.descripcion = this->getDescripcion();
     result.precio = this->getPrecio();
     result.categoria = this->getCategoria();
-    DTInfoProducto::DTInfoProducto(this->getCodigo(), this->getNombre(), this->getPrecio(), this->getStock(), this->getDescripcion(),  this->getCategoria,this->getVendedor()){
+    DTInfoProducto::DTInfoProducto(this->getCodigo(), this->getNombre(), this->getPrecio(), this->getStock(), this->getDescripcion(),  this->getCategoria,this->getVendedor())
 
-
-    return DTInfoProducto(0, " ", " ", 0, " ", 0.0, otros);
+ */
+    return DTInfoProducto(0, " ", 0.0 , 0, " ",  otros, " ");
 }
 
 int Producto::getCodigo()
 {
-    return 0;
+    return this->codigo;
 }
 
 int Producto::getStock()
 {
-    return 0;
+    return this->stock;
 }
 
 float Producto::getPrecio()
 {
-    return 0.0f;
+    return this->precio;
 }
 
 string Producto::getNombre()
 {
-    return string();
+    return this->nombre;
 }
 
 string Producto::getDescripcion()
 {
-    return string();
+    return this->descripcion;
 }
 
 ECategoria Producto::getCategoria()
 {
-    return ECategoria();
+    return this->categoria;
+}
+
+string Producto::getNombreVendedor()
+{
+    return this->nombreVendedor;
 }

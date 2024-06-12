@@ -11,6 +11,8 @@ class ProductoEnPromocion : public Producto{
 
     public:
         ProductoEnPromocion(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria, float descuento, int cantMinima);
+       // float getDescuento();
+       // int getCantMinima();
 };
 
 #endif // PRODUCTOENPROMOCION_H

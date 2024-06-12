@@ -3,15 +3,18 @@
 
 #include <string>
 #include <set>
-#include  "DTInfoProducto.h"
+#include "ProductoEnPromocion.h"
 
 using namespace std;
 
 class DTInfoPromocion{
     public:
         string infoVendedor;
-        set<DTInfoProducto> productos;
-        DTInfoPromocion(string infoVendedor, set<DTInfoProducto> productos);
+        set<ProductoEnPromocion*> productos;
+
+        DTInfoPromocion(string infoVendedor, set<ProductoEnPromocion*> productos);
+        string toString();
+
 };
 
 #endif // DTINFOPROMOCION_H

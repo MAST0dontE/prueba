@@ -18,7 +18,7 @@ class Producto{
         string nombre;
         string descripcion;
         ECategoria categoria;
-        Vendedor vendedor;
+        string nombreVendedor;
 
     public:
         Producto(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria);

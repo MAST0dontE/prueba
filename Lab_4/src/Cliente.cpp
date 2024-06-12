@@ -1,15 +1,18 @@
 #include "Cliente.h"
 
+
 Cliente::Cliente(string contrasenia, string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia)
     : Usuario(contrasenia, nickname, fechaDeNacimiento), direccion(direccion), ciudadResidencia(ciudadResidencia) {}
 
-DTDireccion getDireccion(){
+DTDireccion Cliente::getDireccion()
+{
+    return this->direccion;
+}
 
-};
-
-string getCiudadResidencia(){
-    
-};
+string Cliente::getCiudadResidencia()
+{
+    return this->ciudadResidencia;
+}
 
 void Cliente::agregarSuscripcion(){
 

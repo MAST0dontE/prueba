@@ -39,16 +39,25 @@ set<DTInfoProducto> ControladorVentas::listarProductos()
     return set<DTInfoProducto>();
 }
 
-set<DTInfoPromocion> ControladorVentas::listarPromociones(){
-    set<*Promocion>::iterator it;
-    set<DTInfoPromocion> res;
+vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
+    set<Promocion*>::iterator it;
+    vector<DTInfoPromocion> res;
     
 
-    for(it=promociones.begin(); it != promociones.end(); it++){
-        DTInfoPromocion dtip = DTInfoPromocion();
-        res.insert(dtip);
-    }   
-    return res;
+    for(it=promociones.begin(); it != promociones.end(); ++it){
+        set<ProductoEnPromocion*> prod = (*it)->getProductos();
+
+        if(!prod.empty()){
+            set<ProductoEnPromocion*>::iterator iter = prod.begin();
+            string nombreV = (*iter)->getNombreVendedor();
+            string vendedorInfo = vendedores[nombreV]->toString();
+
+            DTInfoPromocion dtip(vendedorInfo, (*it)->getProductos());
+            res.push_back(dtip);
+        }
+    }
+    return res; 
+
 }
 
 set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento)

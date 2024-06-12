@@ -144,4 +144,31 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/vector \
+ /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/c++/11/bits/stl_vector.h \
+ /usr/include/c++/11/bits/stl_bvector.h \
+ /usr/include/c++/11/bits/vector.tcc src/../inc/ControladorUsuarios.h \
+ src/../inc/iControladorUsuarios.h /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_tree.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/node_handle.h \
+ /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
+ /usr/include/c++/11/bits/erase_if.h src/../inc/Cliente.h \
+ src/../inc/Usuario.h src/../inc/Comentario.h src/../inc/DTFecha.h \
+ /usr/include/c++/11/stdlib.h src/../inc/Observer.h \
+ src/../inc/DTNotificacion.h src/../inc/DTInfoProducto.h \
+ src/../inc/ECategoria.h src/../inc/DTDireccion.h src/../inc/Vendedor.h \
+ src/../inc/DTcomentario.h src/../inc/ControladorVentas.h \
+ src/../inc/iControladorVentas.h /usr/include/c++/11/map \
+ /usr/include/c++/11/bits/stl_map.h /usr/include/c++/11/tuple \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/invoke.h \
+ /usr/include/c++/11/bits/stl_multimap.h src/../inc/Promocion.h \
+ src/../inc/ProductoEnPromocion.h src/../inc/Producto.h \
+ src/../inc/DTProductoCompra.h src/../inc/DTInfoCompra.h \
+ src/../inc/Compra.h src/../inc/CompraPorProducto.h src/../inc/EEnvio.h \
+ src/../inc/DTInfoPromocion.h src/../inc/Producto.h \
+ src/../inc/DTInfoPromocion.h

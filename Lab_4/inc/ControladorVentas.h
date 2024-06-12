@@ -4,6 +4,8 @@
 #include "iControladorVentas.h"
 #include <string>
 #include <set>
+#include <vector>
+#include <map>
 #include "Cliente.h"
 #include "Vendedor.h"
 #include "Promocion.h"
@@ -19,7 +21,7 @@ class ControladorVentas : public iControladorVentas{
         set<Producto*> productos;
         set<Promocion*> promociones;
         set<Cliente*> clientes;
-        set<Vendedor*> vendedores;
+        map<string, Vendedor*> vendedores;
         set<Compra*> compras;
         
     public:
@@ -38,7 +40,7 @@ class ControladorVentas : public iControladorVentas{
         void setProducto(Producto *producto);
         //nuevos cambios
         set<DTInfoProducto> listarProductos();
-        set<DTInfoPromocion> listarPromociones();
+        vector<DTInfoPromocion> listarPromociones();
 
 };
 

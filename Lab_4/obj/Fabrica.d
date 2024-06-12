@@ -162,7 +162,12 @@ obj/Fabrica.o: src/Fabrica.cpp /usr/include/stdc-predef.h inc/Fabrica.h \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
  inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/DTcomentario.h \
- inc/ControladorVentas.h inc/iControladorVentas.h inc/Promocion.h \
+ inc/ControladorVentas.h inc/iControladorVentas.h /usr/include/c++/11/map \
+ /usr/include/c++/11/bits/stl_map.h /usr/include/c++/11/tuple \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/invoke.h \
+ /usr/include/c++/11/bits/stl_multimap.h inc/Promocion.h \
  inc/ProductoEnPromocion.h inc/Producto.h inc/DTProductoCompra.h \
  inc/DTInfoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/EEnvio.h \
  inc/DTInfoPromocion.h

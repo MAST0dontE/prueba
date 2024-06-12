@@ -8,7 +8,22 @@ void Promocion::agregarProductoPromocion(ProductoEnPromocion producto)
     // Implementación
 }
 
-set<ProductoEnPromocion> Promocion::getProductos()
+string Promocion::getNombre()
 {
-    return set<ProductoEnPromocion>();
+    return this->nombre;
+}
+
+string Promocion::getDescripcion()
+{
+    return this->descripcion;
+}
+
+DTFecha Promocion::getFechaDeVencimiento()
+{
+    return this->fechaDeVencimiento;
+}
+
+set<ProductoEnPromocion*> Promocion::getProductos()
+{
+    return this->productos;
 }

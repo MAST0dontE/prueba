@@ -16,9 +16,11 @@ class Vendedor : public Usuario{
     public:
         //GETTERS
         string getCodigoRUT();
-        Vendedor(string contraseña, string nickname, DTFecha fecha, string codigoRUT);
+        Vendedor(string contrasenia, string nickname, DTFecha fecha, string codigoRUT);
         void notificar();
         void setearProductosVendedor(set<DTInfoProducto>);
+        string toString();
+
 };
 
 #endif // VENDEDOR_H
