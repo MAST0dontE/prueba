@@ -34,7 +34,8 @@ DTInfoProducto Producto::getInfoProducto(){
     DTInfoProducto::DTInfoProducto(this->getCodigo(), this->getNombre(), this->getPrecio(), this->getStock(), this->getDescripcion(),  this->getCategoria,this->getVendedor())
 
  */
-    return DTInfoProducto(0, " ", 0.0 , 0, " ",  otros, " ");
+    return DTInfoProducto(this->getCodigo(), this->getNombre(), this->getPrecio(), this->getStock(), this->getDescripcion(),  this->getCategoria(),this->getNombreVendedor());
+     
 }
 
 int Producto::getCodigo()
