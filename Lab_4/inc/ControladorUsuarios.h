@@ -15,7 +15,8 @@
 using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
-private:{Vector<Usuario> Usuarios;}
+private:
+vector<Usuario> Usuarios;
 public:
     //porque notificaciones es un bool? no se
     void setCliente(Cliente *cliente);
