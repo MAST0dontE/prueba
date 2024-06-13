@@ -1,3 +1,5 @@
+# Eliminar comentario es gooood
+
 # Cambios importantes 
 - En controladorVentas cambie el set de vendedores por un map y la key es el nickname del vendedor, esto hace que la busqueda cuando tenemos el nombre del vendedor sea O(1)
 - Pongo el toString en Usuario o directamente en vendedor? (no se si Cliente necesita un toString)
