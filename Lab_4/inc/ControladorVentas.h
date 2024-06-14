@@ -40,7 +40,7 @@ class ControladorVentas : public iControladorVentas{
         void setCompra(Compra *compra);
         void setProducto(Producto *producto);
         //nuevos cambios
-        set<DTInfoProducto> listarProductos();
+        void listarProductos();
         vector<DTInfoPromocion> listarPromociones();
         DTInfoPromocion consultarPromocion(string nombre);
 };

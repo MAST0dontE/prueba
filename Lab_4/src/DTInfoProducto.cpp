@@ -8,3 +8,8 @@ string DTInfoProducto::toString(){
     return "Codigo: " + to_string(this->codigo) + " \nNombre: " + this->nombre;
 }
 ;
+
+string DTInfoProducto::imprimirInfoRestante(){
+    return "Precio: " + to_string(this->precio)+ "\nCantidad en stock: " + to_string(this->cantStock) +
+    "\nDescripcion: " + this->descripcion + "\nCategoria: " + this->nombreCategoria[static_cast<int>(this->categoria)] + "\nVendedor: " + this->vendedor;
+}
