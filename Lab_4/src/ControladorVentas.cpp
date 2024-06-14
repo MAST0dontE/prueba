@@ -25,18 +25,20 @@ void ControladorVentas::setProducto(Producto *producto)
     // Implementación
 }
 
-set<DTInfoProducto> ControladorVentas::listarProductos()
+void ControladorVentas::listarProductos()
 {
-/*     set<DTInfoProducto> result;
-    set<Prodcuto*> productos = ControladorVentas.productos;
-    set<Productos*>::iterator it;
-    for(it=productos.begin(); it != productos.end(); ++it){
-        DTInfoProducto prod;
-        prod.cantStock = it.ca
-        
-    } */
 
-    return set<DTInfoProducto>();
+/*
+DTInfoProducto DTproductoPrueba = productoPrueba.getInfoProducto();
+string resultado = DTproductoPrueba.toString();
+cout<< "Se muestran los productos: \n" << endl;
+cout << resultado << "\n"<< endl;
+string resultado2 = DTproductoPrueba.imprimirInfoRestante();
+cout<< "Se elige el producto de prueba: \n" << endl;
+cout << resultado2 <<"\n" <<endl;
+
+
+    return set<DTInfoProducto>(); */
 }
 
 vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
