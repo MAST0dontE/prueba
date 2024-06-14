@@ -63,7 +63,7 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
 DTInfoPromocion ControladorVentas::consultarPromocion(string nombre){
     vector<DTInfoPromocion> prom = this->listarPromociones();
 
-     auto it = find_if(prom.begin(), prom.end(),
+     vector<DTInfoPromocion>::iterator it = find_if(prom.begin(), prom.end(),
                            [&nombre](const DTInfoPromocion& dtip) {
                                return dtip.nombre == nombre;
                            });
