@@ -1,4 +1,5 @@
 #include "ControladorVentas.h"
+#include "../inc/Producto.h"
 
 void ControladorVentas::setCliente(Cliente *cliente)
 {
@@ -20,26 +21,39 @@ void ControladorVentas::setCompra(Compra *compra)
     // Implementación
 }
 
+set<Producto*> ControladorVentas::getProductos(){
+    return this->productos;
+};
+
 void ControladorVentas::setProducto(Producto *producto)
 {
-    // Implementación
+    /*set<Producto*> productos = this->getProductos();
+    productos.insert(producto); */
+    this->productos.insert(producto);
 }
 
-void ControladorVentas::listarProductos()
-{
+void ControladorVentas::listarProductos(){
 
-/*
-DTInfoProducto DTproductoPrueba = productoPrueba.getInfoProducto();
-string resultado = DTproductoPrueba.toString();
-cout<< "Se muestran los productos: \n" << endl;
-cout << resultado << "\n"<< endl;
-string resultado2 = DTproductoPrueba.imprimirInfoRestante();
-cout<< "Se elige el producto de prueba: \n" << endl;
-cout << resultado2 <<"\n" <<endl;
-
-
-    return set<DTInfoProducto>(); */
+    set<Producto*> productos = this->getProductos();
+        cout<< "Se muestran los productos: \n" << endl;
+        for (auto it = productos.begin(); it != productos.end(); ++it) {
+            DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
+            string resultado = DTproductoPrueba.toString();
+            cout << resultado << "\n"<< endl;
+    }; 
 }
+
+void ControladorVentas::consultarProducto(int codigo, string nombre){
+    set<Producto*> productos = this->getProductos();
+        cout<< "Producto consultado: " << nombre <<"\n" << endl;
+        for (auto it = productos.begin(); it != productos.end(); ++it) {
+            if ((*it)->getCodigo() == codigo){
+                DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
+                string resultado = DTproductoPrueba.imprimirInfoRestante();
+                cout << resultado << "\n"<< endl;
+            }
+        }
+};
 
 vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
     set<Promocion*>::iterator it;

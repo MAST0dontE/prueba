@@ -182,4 +182,4 @@ obj/ControladorVentas.o: src/ControladorVentas.cpp \
  inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/Promocion.h \
  inc/ProductoEnPromocion.h inc/Producto.h inc/DTProductoCompra.h \
  inc/DTInfoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/EEnvio.h \
- inc/DTInfoPromocion.h
+ inc/DTInfoPromocion.h src/../inc/Producto.h

@@ -19,13 +19,18 @@ using namespace std;
 
 class ControladorVentas : public iControladorVentas{
     private:
+        /*set<Producto*> productos;
+        set<Promocion*> promociones;
+        set<Cliente*> clientes;
+        map<string, Vendedor*> vendedores;
+        set<Compra*> compras;
+        */
+    public:
         set<Producto*> productos;
         set<Promocion*> promociones;
         set<Cliente*> clientes;
         map<string, Vendedor*> vendedores;
         set<Compra*> compras;
-        
-    public:
         set<string> altaPromocion(string nickname, string descripcion, DTFecha fechaCreacion);
         void agregarProducto(int codigo, int cantMinima, float descuento);
         set<string> listarNicknamesClientes() ;
@@ -39,8 +44,10 @@ class ControladorVentas : public iControladorVentas{
         void setPromocion(Promocion *promocion);
         void setCompra(Compra *compra);
         void setProducto(Producto *producto);
+        set<Producto*> getProductos();
         //nuevos cambios
         void listarProductos();
+        void consultarProducto(int codigo, string nombre);
         vector<DTInfoPromocion> listarPromociones();
         DTInfoPromocion consultarPromocion(string nombre);
 };
