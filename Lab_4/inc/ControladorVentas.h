@@ -50,8 +50,8 @@ class ControladorVentas : public iControladorVentas{
         //nuevos cambios
         void listarProductos();
         void consultarProducto(int codigo, string nombre);
-        vector<DTInfoPromocion> listarPromociones();
-        DTInfoPromocion consultarPromocion(string nombre);
+        void listarPromociones();
+        void consultarPromocion(string nombre);
 };
 
 #endif // CONTROLADORVENTAS_H

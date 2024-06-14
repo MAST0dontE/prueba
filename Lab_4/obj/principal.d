@@ -184,4 +184,4 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  src/../inc/DTProductoCompra.h src/../inc/DTInfoCompra.h \
  src/../inc/Compra.h src/../inc/CompraPorProducto.h src/../inc/EEnvio.h \
  src/../inc/DTInfoPromocion.h src/../inc/Producto.h \
- src/../inc/DTInfoPromocion.h
+ src/../inc/ProductoEnPromocion.h src/../inc/DTInfoPromocion.h

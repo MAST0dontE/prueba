@@ -6,13 +6,14 @@ using namespace std;
 
 class ProductoEnPromocion : public Producto{
     private:
+        Producto *producto;
         float descuento;
         int cantMinima;
 
     public:
-        ProductoEnPromocion(int codigo, int stock, float precio, string nombre, string descripcion,string vendedor, ECategoria categoria, float descuento, int cantMinima);
-       // float getDescuento();
-       // int getCantMinima();
+        ProductoEnPromocion(Producto *producto, float descuento, int cantMinima);
+        float getDescuento();
+        int getCantMinima();
 };
 
 #endif // PRODUCTOENPROMOCION_H

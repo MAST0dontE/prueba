@@ -11,15 +11,15 @@ void ControladorVentas::setVendedor(Vendedor *vendedor)
     // Implementación
 }
 
-void ControladorVentas::setPromocion(Promocion *promocion)
-{
-    // Implementación
+void ControladorVentas::setPromocion(Promocion *promocion){
+    this->promociones.insert(promocion);
 }
 
 void ControladorVentas::setCompra(Compra *compra)
 {
     // Implementación
 }
+
 
 set<Producto*> ControladorVentas::getProductos(){
     return this->productos;
@@ -61,8 +61,8 @@ void ControladorVentas::consultarProducto(int codigo, string nombre){
     }
 };
 
-vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
-    set<Promocion*>::iterator it;
+void ControladorVentas::listarPromociones(){
+/*     set<Promocion*>::iterator it;
     vector<DTInfoPromocion> res;
     
 
@@ -79,22 +79,42 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
         }
     }
     return res; 
+ */
+    
+/*     for (auto it = this->promociones.begin(); it != this->promociones.end(); ++it) {
+     vector<ProductoEnPromocion*> productos = (*it)->getProductos();
+     cout << "Promocion: " << (*it)->getNombre() << endl;
+    auto prodIt = productos.front();
+
+    string nombreV = (*prodIt)->getNombreVendedor();
+    cout << "Nombre vendedor: " << nombreV << endl;
+    string vendedorInfo = vendedores[nombreV]->toString();
+
+    DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
+
+    cout<< dtip.toString() << endl;
+
+    }
+ */
+
 
 }
 
-DTInfoPromocion ControladorVentas::consultarPromocion(string nombre){
-    vector<DTInfoPromocion> prom = this->listarPromociones();
+void ControladorVentas::consultarPromocion(string nombre){
 
-     vector<DTInfoPromocion>::iterator it = find_if(prom.begin(), prom.end(),
-                           [&nombre](const DTInfoPromocion& dtip) {
-                               return dtip.nombre == nombre;
-                           });
+/*     vector<DTInfoPromocion> prom = this->listarPromociones();
+     vector<DTInfoPromocion>::iterator it = find_if(prom.begin(), prom.end(),
+                                         [&nombre](const DTInfoPromocion& dtip) {
+        return dtip.nombre == nombre;
 
-    if (it != prom.end()) {
-        return *it;
-    } else {
-        throw runtime_error("Promoción no encontrada");
-    } 
+                           });
+  
+    if (it != prom.end()) {
+        return *it;
+    } else {
+        throw runtime_error("Promoción no encontrada");
+    }  */
+
 }
 
 set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento)

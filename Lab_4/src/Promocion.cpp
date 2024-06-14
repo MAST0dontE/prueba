@@ -3,9 +3,9 @@
 Promocion::Promocion(string nombre, string descripcion, DTFecha fechaDeVencimiento)
     : nombre(nombre), descripcion(descripcion), fechaDeVencimiento(fechaDeVencimiento) {}
 
-void Promocion::agregarProductoPromocion(ProductoEnPromocion producto)
+void Promocion::agregarProductoPromocion(ProductoEnPromocion* producto)
 {
-    // Implementación
+    //this->productos.insert(producto);
 }
 
 string Promocion::getNombre()
@@ -23,7 +23,7 @@ DTFecha Promocion::getFechaDeVencimiento()
     return this->fechaDeVencimiento;
 }
 
-set<ProductoEnPromocion*> Promocion::getProductos()
+vector<ProductoEnPromocion*> Promocion::getProductos()
 {
     return this->productos;
 }

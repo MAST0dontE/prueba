@@ -1,4 +1,12 @@
 #include "ProductoEnPromocion.h"
 
-ProductoEnPromocion::ProductoEnPromocion(int codigo, int stock, float precio, string nombre, string descripcion,string vendedor, ECategoria categoria, float descuento, int cantMinima)
-    : Producto(codigo, stock, precio, nombre, descripcion, vendedor, categoria), descuento(descuento), cantMinima(cantMinima) {}
+ProductoEnPromocion::ProductoEnPromocion(Producto *producto ,float descuento, int cantMinima)
+    : Producto(*producto), descuento(descuento), cantMinima(cantMinima) {}
+
+float ProductoEnPromocion::getDescuento(){
+    return this->descuento;
+}
+
+int ProductoEnPromocion::getCantMinima(){
+    return this->cantMinima;
+}
