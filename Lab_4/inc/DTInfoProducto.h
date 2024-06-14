@@ -15,7 +15,8 @@ class DTInfoProducto{
         string descripcion;
         ECategoria categoria;
         string vendedor;
-
+        // friend ostream& operator << (std::ostream& os,DTInfoProducto& producto);   
+        string toString();     
         DTInfoProducto(int codigo, string nombre, float precio, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
 
 };

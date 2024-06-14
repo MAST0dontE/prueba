@@ -1,7 +1,7 @@
 #include "Producto.h"
 
-Producto::Producto(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria)
-    : codigo(codigo), stock(stock), precio(precio), nombre(nombre), descripcion(descripcion), categoria(categoria) {}
+Producto::Producto(int codigo, int stock, float precio, string nombre, string descripcion, string vendedor, ECategoria categoria): 
+codigo(codigo), stock(stock), precio(precio), nombre(nombre), descripcion(descripcion), vendedor(vendedor), categoria(categoria) {}
 
 
 
@@ -70,5 +70,5 @@ ECategoria Producto::getCategoria()
 
 string Producto::getNombreVendedor()
 {
-    return this->nombreVendedor;
+    return this->vendedor;
 }

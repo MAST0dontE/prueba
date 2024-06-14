@@ -10,7 +10,7 @@ class ProductoEnPromocion : public Producto{
         int cantMinima;
 
     public:
-        ProductoEnPromocion(int codigo, int stock, float precio, string nombre, string descripcion, ECategoria categoria, float descuento, int cantMinima);
+        ProductoEnPromocion(int codigo, int stock, float precio, string nombre, string descripcion,string vendedor, ECategoria categoria, float descuento, int cantMinima);
        // float getDescuento();
        // int getCantMinima();
 };
