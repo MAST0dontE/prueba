@@ -35,20 +35,37 @@ set<string> ControladorUsuarios::listaDeUsuarios() {
 	return listaUsuarios;
 }
 
-/* Usuario *ControladorUsuarios::seleccionarUsuario(string username)
-{
-	// Implementación
+/*Usuario *ControladorUsuarios::seleccionarUsuario(string username){
+	for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it){
+		if ((*it)->getNickname() == username){
+			Usuario *usuario = *it;
+			if (usuario->esVendedor()){
+				Vendedor *vendedor = dynamic_cast<Vendedor*>(usuario);
+				vector<DTInfoProducto> productos = vendedor->listarProductos();
+				cout << "Productos del vendedor " << username << ":\n";
+				for (vector<DTinfoProducto>::iterator prodIt = productos.begin(); prodIt != productos.end(); ++prodIt){
+					cout << prodIt->toString() << "\n";
+				}
+			}
+			else{
+				cout << "El usuario " << username << " es un cliente.\n";
+			}
+			return usuario;
+		}
+	}
+	cout << "Usuario " << username << " no encontrado.\n";
 	return nullptr;
 }
- */
+*/
+
 void ControladorUsuarios::seleccionarComentario(DTcomentario *comentario)
 {
 }
 
-void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
+/*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
 {
 	// Implementación
-}
+}*/
 
 void ControladorUsuarios::eliminarComentario(DTcomentario *comentario)
 {

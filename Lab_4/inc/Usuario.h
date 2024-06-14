@@ -15,6 +15,7 @@ class Usuario {
         Usuario(string contrasenia, string nickname, DTFecha fechaDeNacimiento);
         virtual ~Usuario();
         string getNickname() const;
+        virtual bool esVendedor() const = 0;
         virtual vector<Comentario> listarComentarios(string) = 0;
         //virtual string tostring() = 0;
 };

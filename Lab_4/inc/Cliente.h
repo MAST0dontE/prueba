@@ -21,6 +21,9 @@ class Cliente : public Usuario, public Observer{
         void agregarSuscripcion() override;
         void eliminarSuscripcion() override;
         void notificar(DTNotificacion notificacion) override;
+        bool esVendedor() const override{
+            return false;
+        }
         set<DTNotificacion> getNotificaciones();
         void borrarNotificaciones();
 };

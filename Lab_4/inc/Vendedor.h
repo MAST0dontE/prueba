@@ -20,7 +20,9 @@ class Vendedor : public Usuario{
         void notificar();
         void setearProductosVendedor(set<DTInfoProducto>);
         string toString();
-
+        bool esVendedor() const override{
+            return true; 
+        }
 };
 
 #endif // VENDEDOR_H
