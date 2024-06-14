@@ -4,6 +4,7 @@
 #include "iControladorVentas.h"
 #include <string>
 #include <set>
+#include <algorithm>
 #include <vector>
 #include <map>
 #include "Cliente.h"
@@ -41,7 +42,7 @@ class ControladorVentas : public iControladorVentas{
         //nuevos cambios
         set<DTInfoProducto> listarProductos();
         vector<DTInfoPromocion> listarPromociones();
-
+        DTInfoPromocion consultarPromocion(string nombre);
 };
 
 #endif // CONTROLADORVENTAS_H

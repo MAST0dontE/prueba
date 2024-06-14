@@ -14,5 +14,8 @@ Producto productoPrueba = Producto(1, 1, 1, "productoDePrueba" , "este es el pro
 DTInfoProducto DTproductoPrueba = productoPrueba.getInfoProducto();
 string resultado = DTproductoPrueba.toString();
 cout << resultado << endl;
+
+
+
     return 0;
 }

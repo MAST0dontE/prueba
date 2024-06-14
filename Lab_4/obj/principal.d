@@ -161,11 +161,24 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  src/../inc/DTNotificacion.h src/../inc/DTInfoProducto.h \
  src/../inc/ECategoria.h src/../inc/DTDireccion.h src/../inc/Vendedor.h \
  src/../inc/DTcomentario.h src/../inc/ControladorVentas.h \
- src/../inc/iControladorVentas.h /usr/include/c++/11/map \
- /usr/include/c++/11/bits/stl_map.h /usr/include/c++/11/tuple \
+ src/../inc/iControladorVentas.h /usr/include/c++/11/algorithm \
  /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/bits/stl_algo.h \
+ /usr/include/c++/11/bits/algorithmfwd.h \
+ /usr/include/c++/11/bits/stl_heap.h \
+ /usr/include/c++/11/bits/stl_tempbuf.h \
+ /usr/include/c++/11/bits/uniform_int_dist.h \
+ /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/11/functional /usr/include/c++/11/tuple \
  /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
- /usr/include/c++/11/bits/invoke.h \
+ /usr/include/c++/11/bits/invoke.h /usr/include/c++/11/bits/refwrap.h \
+ /usr/include/c++/11/bits/std_function.h \
+ /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable_policy.h \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/pstl/execution_defs.h /usr/include/c++/11/map \
+ /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h src/../inc/Promocion.h \
  src/../inc/ProductoEnPromocion.h src/../inc/Producto.h \
  src/../inc/DTProductoCompra.h src/../inc/DTInfoCompra.h \

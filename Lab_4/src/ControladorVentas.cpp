@@ -52,12 +52,27 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
             string nombreV = (*iter)->getNombreVendedor();
             string vendedorInfo = vendedores[nombreV]->toString();
 
-            DTInfoPromocion dtip(vendedorInfo, (*it)->getProductos());
+            DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
             res.push_back(dtip);
         }
     }
     return res; 
 
+}
+
+DTInfoPromocion ControladorVentas::consultarPromocion(string nombre){
+    vector<DTInfoPromocion> prom = this->listarPromociones();
+
+     auto it = std::find_if(prom.begin(), prom.end(),
+                           [&nombre](const DTInfoPromocion& dtip) {
+                               return dtip.nombre == nombre;
+                           });
+
+    if (it != prom.end()) {
+        return *it;
+    } else {
+        throw std::runtime_error("Promoción no encontrada");
+    } 
 }
 
 set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento)

@@ -132,9 +132,7 @@ obj/DTInfoPromocion.o: src/DTInfoPromocion.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/c++/11/bits/erase_if.h inc/ProductoEnPromocion.h \
- inc/Producto.h inc/DTInfoProducto.h inc/ECategoria.h \
- inc/DTProductoCompra.h inc/DTInfoCompra.h inc/DTFecha.h \
+ /usr/include/c++/11/bits/erase_if.h inc/DTFecha.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
@@ -156,4 +154,6 @@ obj/DTInfoPromocion.o: src/DTInfoPromocion.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
+ inc/ProductoEnPromocion.h inc/Producto.h inc/DTInfoProducto.h \
+ inc/ECategoria.h inc/DTProductoCompra.h inc/DTInfoCompra.h
