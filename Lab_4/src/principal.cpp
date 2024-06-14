@@ -24,6 +24,7 @@ controladorVentas.setProducto(productoPrueba3);
 
 controladorVentas.listarProductos();
 controladorVentas.consultarProducto(2,"productoDePrueba2");
+controladorVentas.consultarProducto(4,"productoDePrueba2");
 
 
 /*

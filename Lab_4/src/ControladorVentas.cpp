@@ -45,14 +45,20 @@ void ControladorVentas::listarProductos(){
 
 void ControladorVentas::consultarProducto(int codigo, string nombre){
     set<Producto*> productos = this->getProductos();
-        cout<< "Producto consultado: " << nombre <<"\n" << endl;
+    bool encontrado = false;
         for (auto it = productos.begin(); it != productos.end(); ++it) {
             if ((*it)->getCodigo() == codigo){
                 DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
                 string resultado = DTproductoPrueba.imprimirInfoRestante();
+                cout<< "Producto consultado: " << nombre <<"\n" << endl;
                 cout << resultado << "\n"<< endl;
+                encontrado = true;
             }
+        
         }
+    if(!encontrado){
+        cout << "No existe ningun producto registrado con el codigo consultado: " << codigo << " \n "<< endl;
+    }
 };
 
 vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
