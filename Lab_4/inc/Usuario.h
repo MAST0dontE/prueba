@@ -14,7 +14,7 @@ class Usuario {
     public:
         Usuario(string contrasenia, string nickname, DTFecha fechaDeNacimiento);
         virtual ~Usuario();
-
+        string getNickname() const;
         virtual vector<Comentario> listarComentarios(string) = 0;
         //virtual string tostring() = 0;
 };
