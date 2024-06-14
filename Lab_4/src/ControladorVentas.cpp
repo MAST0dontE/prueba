@@ -63,7 +63,7 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
 DTInfoPromocion ControladorVentas::consultarPromocion(string nombre){
     vector<DTInfoPromocion> prom = this->listarPromociones();
 
-     auto it = std::find_if(prom.begin(), prom.end(),
+     auto it = find_if(prom.begin(), prom.end(),
                            [&nombre](const DTInfoPromocion& dtip) {
                                return dtip.nombre == nombre;
                            });
@@ -71,7 +71,7 @@ DTInfoPromocion ControladorVentas::consultarPromocion(string nombre){
     if (it != prom.end()) {
         return *it;
     } else {
-        throw std::runtime_error("Promoción no encontrada");
+        throw runtime_error("Promoción no encontrada");
     } 
 }
 
