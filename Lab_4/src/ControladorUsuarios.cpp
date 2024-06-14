@@ -29,7 +29,7 @@ bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha
 
 set<string> ControladorUsuarios::listaDeUsuarios() {
 	set<string> listaUsuarios;
-	for (vector<Usuario*>::iterator it = Usuario.begin(); it != Usuario.end(); ++it) {
+	for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it) {
 		listaUsuarios.insert((*it)->getNickname());
 	}
 	return listaUsuarios;
