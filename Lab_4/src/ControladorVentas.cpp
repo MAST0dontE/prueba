@@ -1,5 +1,6 @@
 #include "ControladorVentas.h"
 #include "../inc/Producto.h"
+#include "ECategoria.h"
 
 void ControladorVentas::setCliente(Cliente *cliente)
 {
@@ -159,3 +160,5 @@ void ControladorVentas::registrarCompra()
 {
     // Implementación
 }
+void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria){}
+
