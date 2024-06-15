@@ -1,4 +1,7 @@
 # Cambios importantes 
+
+-Cambiamos username por nickname como ya lo teniamos? 
+-Dato en usuario la primer entrada es contrasenia no username, lo cambio por intuicion?
 -Cambie los vectores de ControladorUsuarios por maps
 
 - Descuento: Lo calculo o no? como me viene en porcentaje o como? yo puse float
