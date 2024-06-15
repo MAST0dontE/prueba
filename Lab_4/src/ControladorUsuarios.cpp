@@ -28,8 +28,12 @@ bool ControladorUsuarios::altaCliente(string username, string password, DTFecha 
 
 bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT)
 {
-	// Implementación
-	return true;
+	if (vendedores.find(username) != vendedores.end()) {
+        return false;
+    }
+    Vendedor* nuevoVendedor = new Vendedor(password, username, fechaNacimiento, codigoRUT);
+    setVendedor(nuevoVendedor);
+    return true; 
 }
 
 set<string> ControladorUsuarios::listaDeUsuarios() {
