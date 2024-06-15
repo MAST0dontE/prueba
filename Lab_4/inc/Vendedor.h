@@ -24,7 +24,7 @@ class Vendedor : public Usuario{
         bool esVendedor() const override{
             return true; 
         }
-        //vector<DTInfoProducto> obtenerProductos();
+        vector<DTInfoProducto> obtenerProductos()const;
         vector<Comentario> listarComentarios(string) override;
 };
 
