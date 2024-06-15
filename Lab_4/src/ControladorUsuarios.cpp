@@ -34,6 +34,11 @@ set<string> ControladorUsuarios::listaDeUsuarios() {
 	}
 	return listaUsuarios;
 }
+void ControladorUsuarios::listaDeUsuarios_(){
+	for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it) {
+		printf( "(%s)\n", (*it)->getNickname().c_str() );
+	}
+}
 
 /*Usuario *ControladorUsuarios::seleccionarUsuario(string username){
 	for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it){
