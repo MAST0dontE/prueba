@@ -36,7 +36,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void setComentario(Comentario *comentario);
         bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
         bool altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT);
-        set<string> listaDeUsuarios();
+        set<string> listaDeVendedores();
         set<DTcomentario> listarComentarios(string nickname);
         void seleccionarComentario(DTcomentario *comentario) ;
         void eliminarComentario(DTcomentario *comentario);

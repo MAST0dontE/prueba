@@ -36,12 +36,12 @@ bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha
     return true; 
 }
 
-set<string> ControladorUsuarios::listaDeUsuarios() {
-	set<string> listaUsuarios;
-	for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
-		listaUsuarios.insert(it->first);
+set<string> ControladorUsuarios::listaDeVendedores() {
+	set<string> listaVendedores;
+	for (map<string, Vendedor*>::iterator it = vendedores.begin(); it != vendedores.end(); ++it) {
+		listaVendedores.insert(it->first);
 	}
-	return listaUsuarios;
+	return listaVendedores;
 }
 
 Usuario *ControladorUsuarios::seleccionarUsuario(string username){
