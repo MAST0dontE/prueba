@@ -48,6 +48,7 @@ cout << resultado2 <<"\n" <<endl;
 
 
 // ** CASO DE USO: Consultar Producto FIN ** //
+
 ProductoEnPromocion* productoEnPromocion1 = new ProductoEnPromocion(productoPrueba1, 0.5, 2);
 ProductoEnPromocion* productoEnPromocion2 = new ProductoEnPromocion(productoPrueba2, 0.3, 4);
 ProductoEnPromocion* productoEnPromocion3 = new ProductoEnPromocion(productoPrueba3, 0.1, 3);
@@ -77,12 +78,15 @@ for (auto it = listadoPromociones.begin(); it != listadoPromociones.end(); ++it)
 controladorVentas.consultarPromocion("promocionDePrueba1");
 controladorVentas.consultarPromocion("promocionDePrueba3");
 
+// ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  
 delete productoEnPromocion2;
 delete productoEnPromocion3;
 delete promocionPrueba1;
 delete promocionPrueba2;
-
+delete productoPrueba1;
+delete productoPrueba2;
+delete productoPrueba3;
 
     return 0;
 }
