@@ -1,4 +1,6 @@
 # Cambios importantes 
+-Cambie los vectores de ControladorUsuarios por maps
+
 - Descuento: Lo calculo o no? como me viene en porcentaje o como? yo puse float
 
   
