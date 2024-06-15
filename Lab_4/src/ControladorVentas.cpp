@@ -138,7 +138,6 @@ bool ControladorVentas::ingresarPromocion()
 set<string> ControladorVentas::listarNicknamesClientes(){
     set<string> res;
     for (const auto& pair : this->clientes) {
-        cout << "Key: " << pair.first << ", Value: " << pair.second << endl;
         res.insert(pair.first);
     }
     return res;
