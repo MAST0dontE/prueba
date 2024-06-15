@@ -8,15 +8,18 @@
 #include "Cliente.h"
 #include "DTFecha.h"
 #include "Vendedor.h"
+#include "Usuario.h"
+#include "Cliente.h"
 #include "DTcomentario.h"
 #include "DTNotificacion.h"
 #include "DTDireccion.h"
 #include "Comentario.h"
 using namespace std;
-
 class ControladorUsuarios : public iControladorUsuarios{
 private:
 vector<Usuario*> Usuarios;
+vector<Vendedor*> Vendedores;
+vector<Cliente*> Clientes;
 public:
     //porque notificaciones es un bool? no se
     void setCliente(Cliente *cliente);
