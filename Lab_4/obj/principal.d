@@ -160,9 +160,11 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/stdlib.h src/../inc/Observer.h \
  src/../inc/DTNotificacion.h src/../inc/DTInfoProducto.h \
  src/../inc/ECategoria.h src/../inc/DTDireccion.h src/../inc/Vendedor.h \
- src/../inc/DTcomentario.h src/../inc/ControladorVentas.h \
- src/../inc/iControladorVentas.h /usr/include/c++/11/algorithm \
- /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ src/../inc/Producto.h src/../inc/DTProductoCompra.h \
+ src/../inc/DTInfoCompra.h src/../inc/DTcomentario.h \
+ src/../inc/ControladorVentas.h src/../inc/iControladorVentas.h \
+ /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
+ /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
@@ -180,8 +182,7 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/pstl/execution_defs.h /usr/include/c++/11/map \
  /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h src/../inc/Promocion.h \
- src/../inc/ProductoEnPromocion.h src/../inc/Producto.h \
- src/../inc/DTProductoCompra.h src/../inc/DTInfoCompra.h \
- src/../inc/Compra.h src/../inc/CompraPorProducto.h src/../inc/EEnvio.h \
- src/../inc/DTInfoPromocion.h src/../inc/Producto.h \
+ src/../inc/ProductoEnPromocion.h src/../inc/Compra.h \
+ src/../inc/CompraPorProducto.h src/../inc/EEnvio.h \
+ src/../inc/DTInfoPromocion.h src/../inc/Producto.h src/../inc/Vendedor.h \
  src/../inc/ProductoEnPromocion.h src/../inc/DTInfoPromocion.h

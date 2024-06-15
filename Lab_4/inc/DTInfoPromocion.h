@@ -2,7 +2,7 @@
 #define DTINFOPROMOCION_H
 
 #include <string>
-#include <vector>
+#include <set>
 #include "DTFecha.h"
 #include "ProductoEnPromocion.h"
 
@@ -14,9 +14,9 @@ class DTInfoPromocion{
         string descripcion;
         DTFecha fechaDeVencimiento;
         string infoVendedor;
-        vector<ProductoEnPromocion*> productos;
+        set<ProductoEnPromocion*> productos;
 
-        DTInfoPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento,string infoVendedor, vector<ProductoEnPromocion*> productos);
+        DTInfoPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento,string infoVendedor, set<ProductoEnPromocion*> productos);
         string toString();
 
 };

@@ -3,7 +3,7 @@
 
 #include "Usuario.h"
 #include "DTNotificacion.h"
-#include "DTInfoProducto.h"
+#include "Producto.h"
 #include "DTFecha.h"
 #include <string>
 #include <set>
@@ -12,13 +12,14 @@ class Vendedor : public Usuario{
     private:
         string codigoRUT;
         set<DTNotificacion> notificaciones;
-        set<DTInfoProducto> productosVendedor;
+        set<Producto*> productosVendedor;
     public:
         //GETTERS
         string getCodigoRUT();
         Vendedor(string contrasenia, string nickname, DTFecha fecha, string codigoRUT);
         void notificar();
-        void setearProductosVendedor(set<DTInfoProducto>);
+        void agregarProducto(Producto* producto);
+        void setearProductosVendedor(set<Producto*>);
         string toString();
 
 };

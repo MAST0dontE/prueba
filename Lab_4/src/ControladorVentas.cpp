@@ -6,9 +6,8 @@ void ControladorVentas::setCliente(Cliente *cliente)
     // Implementación
 }
 
-void ControladorVentas::setVendedor(Vendedor *vendedor)
-{
-    // Implementación
+void ControladorVentas::setVendedor(Vendedor *vendedor){
+    this->vendedores[vendedor->getNickname()] = vendedor;
 }
 
 void ControladorVentas::setPromocion(Promocion *promocion){
@@ -62,6 +61,21 @@ void ControladorVentas::consultarProducto(int codigo, string nombre){
 };
 
 void ControladorVentas::listarPromociones(){
+    set<Promocion*>::iterator it;
+    cout<< "Promociones: \n" << endl;
+
+    for(it=promociones.begin(); it != promociones.end(); ++it){
+        set<ProductoEnPromocion*> prod = (*it)->getProductos();
+
+        ProductoEnPromocion* producto = (*prod.begin());
+        cout << "Producto: " << (*producto).getProducto().getNombreVendedor() << endl;
+        string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
+        cout << "Promocion: " << vendedorInfo << endl;
+        DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
+            
+        
+    }
+
 /*     set<Promocion*>::iterator it;
     vector<DTInfoPromocion> res;
     

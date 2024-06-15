@@ -161,7 +161,8 @@ obj/Menu.o: src/Menu.cpp /usr/include/stdc-predef.h inc/Menu.h \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
- inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/DTcomentario.h \
+ inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/Producto.h \
+ inc/DTProductoCompra.h inc/DTInfoCompra.h inc/DTcomentario.h \
  inc/ControladorVentas.h inc/iControladorVentas.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
@@ -182,6 +183,5 @@ obj/Menu.o: src/Menu.cpp /usr/include/stdc-predef.h inc/Menu.h \
  /usr/include/c++/11/pstl/execution_defs.h /usr/include/c++/11/map \
  /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h inc/Promocion.h \
- inc/ProductoEnPromocion.h inc/Producto.h inc/DTProductoCompra.h \
- inc/DTInfoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/EEnvio.h \
- inc/DTInfoPromocion.h
+ inc/ProductoEnPromocion.h inc/Compra.h inc/CompraPorProducto.h \
+ inc/EEnvio.h inc/DTInfoPromocion.h

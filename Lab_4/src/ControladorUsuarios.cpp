@@ -28,11 +28,12 @@ bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha
 }
 
 set<string> ControladorUsuarios::listaDeUsuarios() {
-	set<string> listaUsuarios;
+/* 	set<string> listaUsuarios;
 	for (vector<Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
 		listaUsuarios.insert((*it)->getNickname());
 	}
-	return listaUsuarios;
+	return listaUsuarios; */
+	return set<string>();
 }
 
 /* Usuario *ControladorUsuarios::seleccionarUsuario(string username)

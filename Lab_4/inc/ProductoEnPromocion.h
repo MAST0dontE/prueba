@@ -4,16 +4,17 @@
 #include "Producto.h"
 using namespace std;
 
-class ProductoEnPromocion : public Producto{
+class ProductoEnPromocion{
     private:
-        Producto *producto;
+        Producto ptrProducto;
         float descuento;
         int cantMinima;
 
     public:
-        ProductoEnPromocion(Producto *producto, float descuento, int cantMinima);
+        ProductoEnPromocion(Producto* producto, float descuento, int cantMinima);
         float getDescuento();
         int getCantMinima();
+        Producto getProducto();
 };
 
 #endif // PRODUCTOENPROMOCION_H

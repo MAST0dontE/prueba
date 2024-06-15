@@ -161,4 +161,5 @@ obj/ControladorUsuarios.o: src/ControladorUsuarios.cpp \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
- inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/DTcomentario.h
+ inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/Producto.h \
+ inc/DTProductoCompra.h inc/DTInfoCompra.h inc/DTcomentario.h

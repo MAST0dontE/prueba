@@ -14,10 +14,13 @@ void Vendedor::notificar()
     // Implementación
 }
 
+void Vendedor::agregarProducto(Producto *producto){
+    this->productosVendedor.insert(producto);
+}
 
-void Vendedor::setearProductosVendedor(set<DTInfoProducto> productos)
-{
-    // Implementación
+void Vendedor::setearProductosVendedor(set<Producto*> productos){
+    this->productosVendedor = productos;
+    
 }
 
 string Vendedor::toString()

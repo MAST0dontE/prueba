@@ -179,7 +179,7 @@ obj/ControladorVentas.o: src/ControladorVentas.cpp \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
- inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/Promocion.h \
- inc/ProductoEnPromocion.h inc/Producto.h inc/DTProductoCompra.h \
- inc/DTInfoCompra.h inc/Compra.h inc/CompraPorProducto.h inc/EEnvio.h \
- inc/DTInfoPromocion.h src/../inc/Producto.h
+ inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/Producto.h \
+ inc/DTProductoCompra.h inc/DTInfoCompra.h inc/Promocion.h \
+ inc/ProductoEnPromocion.h inc/Compra.h inc/CompraPorProducto.h \
+ inc/EEnvio.h inc/DTInfoPromocion.h src/../inc/Producto.h

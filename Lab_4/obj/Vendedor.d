@@ -160,4 +160,5 @@ obj/Vendedor.o: src/Vendedor.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
  /usr/include/c++/11/bits/erase_if.h inc/DTInfoProducto.h \
- inc/ECategoria.h
+ inc/ECategoria.h inc/Producto.h inc/DTProductoCompra.h \
+ inc/DTInfoCompra.h

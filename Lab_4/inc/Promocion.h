@@ -4,7 +4,7 @@
 #include <string>
 #include "DTFecha.h"
 #include "ProductoEnPromocion.h"
-#include <vector>
+#include <set>
 using namespace std;
 
 class Promocion{
@@ -12,7 +12,7 @@ class Promocion{
         string nombre;
         string descripcion;
         DTFecha fechaDeVencimiento;
-        vector<ProductoEnPromocion*> productos;
+        set<ProductoEnPromocion*> productos;
 
     public:
         Promocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
@@ -20,7 +20,7 @@ class Promocion{
         string getNombre();
         string getDescripcion();
         DTFecha getFechaDeVencimiento();
-        vector<ProductoEnPromocion*> getProductos();
+        set<ProductoEnPromocion*> getProductos();
 };
 
 #endif // PROMOCION_H
