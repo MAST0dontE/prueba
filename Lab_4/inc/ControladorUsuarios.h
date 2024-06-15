@@ -16,7 +16,7 @@ using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
 private:
-vector<Usuario> Usuarios;
+vector<Usuario*> Usuarios;
 public:
     //porque notificaciones es un bool? no se
     void setCliente(Cliente *cliente);
@@ -31,9 +31,9 @@ public:
     set<string> suscribirseA(string nickname);
     set<DTNotificacion> consultarNotificaciones(string username); ;
     void eliminarSuscripciones(string username);
-   // Usuario *seleccionarUsuario(string username);
-   void setDTComentario(DTcomentario *comentario);
-   //void listaDeUsuarios();
+    Usuario *seleccionarUsuario(string username);
+    //void setDTComentario(DTcomentario *comentario);
+    //void listaDeUsuarios();
 };
 
 

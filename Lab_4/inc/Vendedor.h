@@ -21,7 +21,9 @@ class Vendedor : public Usuario{
         void agregarProducto(Producto* producto);
         void setearProductosVendedor(set<Producto*>);
         string toString();
-
+        bool esVendedor() const override{
+            return true; 
+        }
 };
 
 #endif // VENDEDOR_H
