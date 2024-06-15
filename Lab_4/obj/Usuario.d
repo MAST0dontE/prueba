@@ -146,6 +146,7 @@ obj/Usuario.o: src/Usuario.cpp /usr/include/stdc-predef.h inc/Usuario.h \
  /usr/include/c++/11/bits/basic_ios.h \
  /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+<<<<<<< HEAD
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
  /usr/include/c++/11/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
@@ -153,3 +154,13 @@ obj/Usuario.o: src/Usuario.cpp /usr/include/stdc-predef.h inc/Usuario.h \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h
+=======
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h \
+ /usr/include/c++/9/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_inline.h \
+ /usr/include/c++/9/bits/locale_facets.tcc \
+ /usr/include/c++/9/bits/basic_ios.tcc \
+ /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
+ /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/stdlib.h \
+ inc/DTcomentario.h
+>>>>>>> d016d839c20ca135f82ae23edac002663f567efa
