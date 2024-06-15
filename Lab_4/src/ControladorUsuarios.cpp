@@ -90,6 +90,7 @@ void ControladorUsuarios::listaDeUsuarios_(){
 	for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
 		printf( "(%s)\n", it1->first.c_str() );
 		printf( "(%s)\n", it1->second->getFecha().c_str() );
+		printf( "(%s)\n", it1->second->getCiudadResidencia().c_str() );
 	}
 	/*for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
 		printf( "(%s)\n", (*it)->getNickname().c_str() );
