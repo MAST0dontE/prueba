@@ -28,9 +28,9 @@ string Vendedor::toString()
     return "Nombre del vendedor: " + this->nickname + "\n";
 }
 
-vector<DTInfoProducto> Vendedor::obtenerProductos()
+/*vector<DTInfoProducto> Vendedor::obtenerProductos()
 {
-}
+}*/
 
 vector<Comentario> Vendedor::listarComentarios(string)
 {
