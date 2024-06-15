@@ -7,9 +7,10 @@ using namespace std;
 
 class DTcomentario{
     public:
+        int id;
         string comentario;
         DTFecha fecha;
-        DTcomentario(string comentario, DTFecha fecha);
+        DTcomentario(int id, string comentario, DTFecha fecha);
 
 };
 

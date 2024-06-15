@@ -44,6 +44,30 @@ set<string> ControladorUsuarios::listaDeVendedores() {
 	return listaVendedores;
 }
 
+Usuario *ControladorUsuarios::seleccionarVendedor(string username){
+	map<string, Usuario *>::iterator it = usuarios.find(username);
+	if (it != usuarios.end()){
+		Usuario *usuario = it->second;
+		if (usuario->esVendedor()) {
+			Vendedor *vendedor = dynamic_cast<Vendedor *>(usuario);
+				vector<DTInfoProducto> productos = vendedor->obtenerProductos();
+				cout << "Productos del vendedor " << username << ":\n";
+				for (vector<DTInfoProducto>::iterator prodIt = productos.begin(); prodIt != productos.end(); ++prodIt)
+				{
+					cout << prodIt->toString() << "\n";
+				}
+				return usuario;
+		}
+		else{
+			cout << "El usuario " << username << " es un cliente.\n";
+		}
+	}
+	else{
+		cout << "Usuario " << username << " no encontrado.\n";
+	}
+	return nullptr;
+}
+
 Usuario *ControladorUsuarios::seleccionarUsuario(string username){
     if (clientes.find(username) != clientes.end()) {
         return clientes.find(username)->second;
@@ -55,7 +79,31 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string username){
     return nullptr;  
 }
 
+/*set<DTComentario> ControladorUsuarios::seleccionarProducto(string nickname, int codigo)
+{
+	set<DTComentario> comentarios;
+	map<string, Usuario*>::iterator it = usuarios.find(nickname);
 
+	if (it != usuarios.end()){
+		Vendedor *vendedor = dynamic_cast<Vendedor*>(it->second);{
+			vector<Producto> productos = vendedor->getProductos();
+			for (vector<Producto>::iterator prodIt = productos.begin(); prodIt != productos.end(); ++prodIt){
+				if (prodIt->getCodigo() == codigo){
+					vector<Comentario> comentariosProducto = prodIt->getComentarios();
+					for (vector<Comentario>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt)
+					{
+						DTComentario dtComentario(comIt->getTexto(), comIt->getFecha());
+						comentarios.insert(dtComentario);
+					}
+					return comentarios;
+				}
+			}
+		}
+	}
+
+	cout << "Codigo o vendedor incorrectos.\n";
+	return comentarios;
+}*/
 
 void ControladorUsuarios::seleccionarComentario(DTcomentario *comentario)
 {

@@ -1,5 +1,5 @@
 #include "DTcomentario.h"
 
-DTcomentario::DTcomentario(string comentario, DTFecha fecha) : comentario(comentario), fecha(fecha)
+DTcomentario::DTcomentario(int id, string comentario, DTFecha fecha) : id(id), comentario(comentario), fecha(fecha)
 {
 }

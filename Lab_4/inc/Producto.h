@@ -7,6 +7,7 @@
 #include "ECategoria.h"
 #include "DTProductoCompra.h"
 #include "DTInfoCompra.h"
+#include "Comentario.h"
 
 using namespace std;
 

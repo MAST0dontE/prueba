@@ -1,7 +1,7 @@
 #include "Vendedor.h"
 
 
-Vendedor::Vendedor(string contrasenia, string nickname, DTFecha fechaDeNacimiento, string codigoRUT)
+Vendedor::Vendedor(string contrasenia, string nickname, DTFecha fechaDeNacimiento, string codigoRUT) \
     : Usuario(contrasenia, nickname, fechaDeNacimiento), codigoRUT(codigoRUT) {}
 
 string Vendedor::getCodigoRUT(){
@@ -26,6 +26,10 @@ void Vendedor::setearProductosVendedor(set<Producto*> productos){
 string Vendedor::toString()
 {
     return "Nombre del vendedor: " + this->nickname + "\n";
+}
+
+vector<DTInfoProducto> Vendedor::obtenerProductos()
+{
 }
 
 vector<Comentario> Vendedor::listarComentarios(string)

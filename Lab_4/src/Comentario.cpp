@@ -1,7 +1,7 @@
 #include "Comentario.h"
 
 Comentario::Comentario(int id, string comentario, DTFecha fechaDeComentario) \
-            : comentario(comentario), fechaDeComentario(fechaDeComentario) {}
+            : id(id), comentario(comentario), fechaDeComentario(fechaDeComentario) {}
             
 int Comentario::getId() const{
     return id;
