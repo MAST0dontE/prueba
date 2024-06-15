@@ -34,11 +34,6 @@ set<string> ControladorUsuarios::listaDeUsuarios() {
 	}
 	return listaUsuarios;
 }
-void ControladorUsuarios::listaDeUsuarios_(){
-	for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it) {
-		printf( "(%s)\n", (*it)->getNickname().c_str() );
-	}
-}
 
 /*Usuario *ControladorUsuarios::seleccionarUsuario(string username){
 	for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it){
@@ -91,4 +86,16 @@ set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username
 void ControladorUsuarios::eliminarSuscripciones(string username)
 {
 	// Implementación
+}
+void ControladorUsuarios::listaDeUsuarios_(){
+	for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
+		printf( "(%s)\n", (*it)->getNickname().c_str() );
+		printf( "(%s)\n", (*it)->getFecha().c_str() );
+		printf( "(%s)\n", (*it)->getCodigoRUT().c_str() );
+	}
+	for (vector<Cliente*>::iterator it = Clientes.begin(); it != Clientes.end(); ++it) {
+		printf( "(%s)\n", (*it)->getNickname().c_str() );
+		printf( "(%s)\n", (*it)->getFecha().c_str() );
+		printf( "(%s)\n", (*it)->getCiudadResidencia().c_str() );
+	}	
 }
