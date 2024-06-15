@@ -21,21 +21,14 @@ class ControladorVentas : public iControladorVentas{
     private:
         set<Producto*> productos;
         set<Promocion*> promociones;
-        set<Cliente*> clientes;
+        map<string, Cliente*> clientes;
         map<string, Vendedor*> vendedores;
         set<Compra*> compras;
         
     public:
-        /*
-        set<Producto*> productos;
-        set<Promocion*> promociones;
-        set<Cliente*> clientes;
-        map<string, Vendedor*> vendedores;
-        set<Compra*> compras;
-         */
         set<string> altaPromocion(string nickname, string descripcion, DTFecha fechaCreacion);
         void agregarProducto(int codigo, int cantMinima, float descuento);
-        set<string> listarNicknamesClientes() ;
+        set<string> listarNicknamesClientes();
         set<DTInfoProducto> seleccionarCliente(string nickname);
         set<DTInfoProducto> seleccionarVendedor(string nickname);
         DTInfoCompra mostrarDetallesCompra();
