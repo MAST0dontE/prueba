@@ -24,6 +24,7 @@ class Vendedor : public Usuario{
         bool esVendedor() const override{
             return true; 
         }
+        vector<Comentario> listarComentarios(string) override;
 };
 
 #endif // VENDEDOR_H

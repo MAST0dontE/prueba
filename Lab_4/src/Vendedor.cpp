@@ -25,5 +25,10 @@ void Vendedor::setearProductosVendedor(set<Producto*> productos){
 
 string Vendedor::toString()
 {
-    return "Vendedor: " + this->nickname + " - " + this->codigoRUT;
+    return "Nombre del vendedor: " + this->nickname + "\nCodigo RUT: " + this->codigoRUT + "\n";
+}
+
+vector<Comentario> Vendedor::listarComentarios(string)
+{
+    return vector<Comentario>();
 }

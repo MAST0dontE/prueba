@@ -66,14 +66,14 @@ void ControladorVentas::listarPromociones(){
 
     for(it=promociones.begin(); it != promociones.end(); ++it){
         set<ProductoEnPromocion*> prod = (*it)->getProductos();
-
-        ProductoEnPromocion* producto = (*prod.begin());
-        cout << "Producto: " << (*producto).getProducto().getNombreVendedor() << endl;
-        string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
-        cout << "Promocion: " << vendedorInfo << endl;
-        DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
-            
-        
+         if(!prod.empty()){
+            ProductoEnPromocion* producto = (*prod.begin());
+            cout << "Producto: " << (*producto).getProducto().getNombreVendedor() << endl;
+            string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
+            cout << "Promocion: " << vendedorInfo << endl;
+            DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
+            cout << dtip.toString() << endl;    
+         }
     }
 
 /*     set<Promocion*>::iterator it;
@@ -93,22 +93,6 @@ void ControladorVentas::listarPromociones(){
         }
     }
     return res; 
- */
-    
-/*     for (auto it = this->promociones.begin(); it != this->promociones.end(); ++it) {
-     vector<ProductoEnPromocion*> productos = (*it)->getProductos();
-     cout << "Promocion: " << (*it)->getNombre() << endl;
-    auto prodIt = productos.front();
-
-    string nombreV = (*prodIt)->getNombreVendedor();
-    cout << "Nombre vendedor: " << nombreV << endl;
-    string vendedorInfo = vendedores[nombreV]->toString();
-
-    DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
-
-    cout<< dtip.toString() << endl;
-
-    }
  */
 
 

@@ -34,6 +34,11 @@ void Cliente::borrarNotificaciones()
     // Implementación
 }
 
+vector<Comentario> Cliente::listarComentarios(string)
+{
+    return vector<Comentario>();
+}
+
 void Cliente::eliminarSuscripcion()
 {
     // Implementación

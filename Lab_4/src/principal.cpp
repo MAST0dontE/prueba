@@ -12,13 +12,13 @@
 int main() {
 
 ControladorVentas controladorVentas;
-/* Vendedor* vendedor1 = new Vendedor("y si me mato en lo del pelado", "pepito", DTFecha(1,1,1), "123456789");    
+Vendedor* vendedor1 = new Vendedor("y si me mato en lo del pelado", "pepito", DTFecha(1,1,1), "123456789");    
 Vendedor* vendedor2 = new Vendedor("y si me mato en lo del pelado2", "papito", DTFecha(1,1,1), "987654321");
-Vendedor* vendedor3 = new Vendedor("y si me mato en lo del pelado3", "putito", DTFecha(1,1,1), "123456789");
+Vendedor* vendedor3 = new Vendedor("y si me mato en lo del pelado3", "putito", DTFecha(1,1,1), "32134834");
 
 controladorVentas.setVendedor(vendedor1);
 controladorVentas.setVendedor(vendedor2);
-controladorVentas.setVendedor(vendedor3); */
+controladorVentas.setVendedor(vendedor3); 
 
 // ** CASO DE USO: Consultar Producto INICIO ** //
 
@@ -58,7 +58,7 @@ Promocion* promocionPrueba1 = new Promocion("promocionDePrueba1", "esta es la pr
 Promocion* promocionPrueba2 = new Promocion("promocionDePrueba2", "esta es la promocion de prueba 2", DTFecha(2,2,2022));
 
 controladorVentas.setPromocion(promocionPrueba1);
-//controladorVentas.setPromocion(promocionPrueba2);
+controladorVentas.setPromocion(promocionPrueba2);
 
 promocionPrueba1->agregarProductoPromocion(productoEnPromocion1);
 promocionPrueba1->agregarProductoPromocion(productoEnPromocion2);
