@@ -16,9 +16,9 @@ Vendedor* vendedor1 = new Vendedor("y si me mato en lo del pelado", "pepito", DT
 Vendedor* vendedor2 = new Vendedor("y si me mato en lo del pelado2", "papito", DTFecha(1,1,1), "987654321");
 Vendedor* vendedor3 = new Vendedor("y si me mato en lo del pelado3", "putito", DTFecha(1,1,1), "32134834");
 
-bool a=altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
+/*bool a=altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
 bool b=altaVendedor("un vendedor2", "contra",DTFecha(1,1,1), "123");
-bool c=altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");
+bool c=altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");*/
 
 controladorVentas.setVendedor(vendedor1);
 controladorVentas.setVendedor(vendedor2);
