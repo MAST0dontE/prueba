@@ -28,13 +28,10 @@ string Vendedor::toString()
     return "Nombre del vendedor: " + this->nickname + "\n";
 }
 
-vector<DTInfoProducto> Vendedor::obtenerProductos() const
-{
+vector<DTInfoProducto> Vendedor::obtenerProductos() const{
     vector<DTInfoProducto> detallesProductos;
-
-    for (set<Producto*>::iterator it = productosVendedor.begin(); it != productosVendedor.end(); ++it)
-    {
-        Producto *producto = *it;              // Desreferencia el puntero para obtener el Producto real
+    for (set<Producto*>::iterator it = productosVendedor.begin(); it != productosVendedor.end(); ++it){
+        Producto *producto = *it;
         int codigo = producto->getCodigo();    
         string nombre = producto->getNombre(); 
         float precio = producto->getPrecio();
@@ -45,7 +42,6 @@ vector<DTInfoProducto> Vendedor::obtenerProductos() const
         DTInfoProducto detalle(codigo, nombre, precio, cantStock, descripcion, categoria, vendedor);
         detallesProductos.push_back(detalle);
     }
-
     return detallesProductos;
 }
 
