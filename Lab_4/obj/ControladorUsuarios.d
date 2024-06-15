@@ -158,6 +158,10 @@ obj/ControladorUsuarios.o: src/ControladorUsuarios.cpp \
  /usr/include/c++/11/bits/basic_ios.h \
  /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a03b823b1ee5c200cbc4d7f9f2476a8e8209b858
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
  /usr/include/c++/11/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
@@ -165,6 +169,24 @@ obj/ControladorUsuarios.o: src/ControladorUsuarios.cpp \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
+<<<<<<< HEAD
  inc/DTcomentario.h inc/Observer.h inc/DTNotificacion.h \
  inc/DTInfoProducto.h inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h \
  inc/Producto.h inc/DTProductoCompra.h inc/DTInfoCompra.h
+=======
+ inc/Observer.h inc/DTNotificacion.h inc/DTInfoProducto.h \
+ inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h inc/Producto.h \
+ inc/DTProductoCompra.h inc/DTInfoCompra.h inc/DTcomentario.h
+=======
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h \
+ /usr/include/c++/9/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_inline.h \
+ /usr/include/c++/9/bits/locale_facets.tcc \
+ /usr/include/c++/9/bits/basic_ios.tcc \
+ /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
+ /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/stdlib.h \
+ inc/DTcomentario.h inc/Observer.h inc/DTNotificacion.h \
+ inc/DTInfoProducto.h inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h \
+ inc/Producto.h inc/DTProductoCompra.h inc/DTInfoCompra.h
+>>>>>>> d016d839c20ca135f82ae23edac002663f567efa
+>>>>>>> a03b823b1ee5c200cbc4d7f9f2476a8e8209b858

@@ -156,4 +156,8 @@ obj/Promocion.o: src/Promocion.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
+<<<<<<< HEAD
  /usr/include/c++/11/bits/erase_if.h inc/Comentario.h inc/DTcomentario.h
+=======
+ /usr/include/c++/11/bits/erase_if.h
+>>>>>>> a03b823b1ee5c200cbc4d7f9f2476a8e8209b858

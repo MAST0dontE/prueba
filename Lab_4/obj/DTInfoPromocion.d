@@ -157,4 +157,8 @@ obj/DTInfoPromocion.o: src/DTInfoPromocion.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  inc/Promocion.h inc/ProductoEnPromocion.h inc/Producto.h \
  inc/DTInfoProducto.h inc/ECategoria.h inc/DTProductoCompra.h \
+<<<<<<< HEAD
  inc/DTInfoCompra.h inc/Comentario.h inc/DTcomentario.h
+=======
+ inc/DTInfoCompra.h
+>>>>>>> a03b823b1ee5c200cbc4d7f9f2476a8e8209b858

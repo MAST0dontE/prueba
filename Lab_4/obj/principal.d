@@ -138,6 +138,10 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/basic_ios.h \
  /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a03b823b1ee5c200cbc4d7f9f2476a8e8209b858
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
  /usr/include/c++/11/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
@@ -162,11 +166,19 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/invoke.h \
  /usr/include/c++/11/bits/stl_multimap.h src/../inc/Cliente.h \
  src/../inc/Usuario.h src/../inc/Comentario.h src/../inc/DTFecha.h \
+<<<<<<< HEAD
  /usr/include/c++/11/stdlib.h src/../inc/DTcomentario.h \
  src/../inc/Observer.h src/../inc/DTNotificacion.h \
  src/../inc/DTInfoProducto.h src/../inc/ECategoria.h \
  src/../inc/DTDireccion.h src/../inc/Vendedor.h src/../inc/Producto.h \
  src/../inc/DTProductoCompra.h src/../inc/DTInfoCompra.h \
+=======
+ /usr/include/c++/11/stdlib.h src/../inc/Observer.h \
+ src/../inc/DTNotificacion.h src/../inc/DTInfoProducto.h \
+ src/../inc/ECategoria.h src/../inc/DTDireccion.h src/../inc/Vendedor.h \
+ src/../inc/Producto.h src/../inc/DTProductoCompra.h \
+ src/../inc/DTInfoCompra.h src/../inc/DTcomentario.h \
+>>>>>>> a03b823b1ee5c200cbc4d7f9f2476a8e8209b858
  src/../inc/ControladorVentas.h src/../inc/iControladorVentas.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
@@ -183,5 +195,44 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/pstl/execution_defs.h src/../inc/Promocion.h \
  src/../inc/ProductoEnPromocion.h src/../inc/Compra.h \
  src/../inc/CompraPorProducto.h src/../inc/EEnvio.h \
+<<<<<<< HEAD
+=======
+=======
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h \
+ /usr/include/c++/9/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_inline.h \
+ /usr/include/c++/9/bits/locale_facets.tcc \
+ /usr/include/c++/9/bits/basic_ios.tcc \
+ /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
+ /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/vector \
+ /usr/include/c++/9/bits/stl_construct.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h \
+ /usr/include/c++/9/bits/stl_vector.h \
+ /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
+ src/../inc/ControladorUsuarios.h src/../inc/iControladorUsuarios.h \
+ /usr/include/c++/9/set /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/ext/aligned_buffer.h \
+ /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
+ /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/map \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
+ /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
+ /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
+ src/../inc/Cliente.h src/../inc/Usuario.h src/../inc/Comentario.h \
+ src/../inc/DTFecha.h /usr/include/c++/9/stdlib.h \
+ src/../inc/DTcomentario.h src/../inc/Observer.h \
+ src/../inc/DTNotificacion.h src/../inc/DTInfoProducto.h \
+ src/../inc/ECategoria.h src/../inc/DTDireccion.h src/../inc/Vendedor.h \
+ src/../inc/Producto.h src/../inc/DTProductoCompra.h \
+ src/../inc/DTInfoCompra.h src/../inc/ControladorVentas.h \
+ src/../inc/iControladorVentas.h /usr/include/c++/9/algorithm \
+ /usr/include/c++/9/bits/stl_algo.h \
+ /usr/include/c++/9/bits/algorithmfwd.h \
+ /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
+ /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/limits \
+ src/../inc/Promocion.h src/../inc/ProductoEnPromocion.h \
+ src/../inc/Compra.h src/../inc/CompraPorProducto.h src/../inc/EEnvio.h \
+>>>>>>> d016d839c20ca135f82ae23edac002663f567efa
+>>>>>>> a03b823b1ee5c200cbc4d7f9f2476a8e8209b858
  src/../inc/DTInfoPromocion.h src/../inc/Producto.h src/../inc/Vendedor.h \
  src/../inc/ProductoEnPromocion.h src/../inc/DTInfoPromocion.h
