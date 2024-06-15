@@ -17,9 +17,14 @@ void ControladorUsuarios::setComentario(Comentario *comentario)
 
 bool ControladorUsuarios::altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
 {
-	// Implementación
-	return true;
+    if (clientes.find(username) != clientes.end()) {
+        return false;
+    }
+    Cliente* nuevoCliente = new Cliente(password, username, fechaNacimiento, direccion, ciudad);
+    setCliente(nuevoCliente);
+    return true; 
 }
+
 
 bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT)
 {
