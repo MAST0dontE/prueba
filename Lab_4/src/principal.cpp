@@ -16,9 +16,18 @@ Vendedor* vendedor1 = new Vendedor("y si me mato en lo del pelado", "pepito", DT
 Vendedor* vendedor2 = new Vendedor("y si me mato en lo del pelado2", "papito", DTFecha(1,1,1), "987654321");
 Vendedor* vendedor3 = new Vendedor("y si me mato en lo del pelado3", "putito", DTFecha(1,1,1), "32134834");
 
+Cliente* cliente1 = new Cliente("un cliente1", "contra", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1");
+Cliente* cliente2 = new Cliente("un cliente2", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
+Cliente* cliente3 = new Cliente("un cliente3", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad3");
+
+
 /*bool a=altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
 bool b=altaVendedor("un vendedor2", "contra",DTFecha(1,1,1), "123");
 bool c=altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");*/
+
+controladorVentas.setCliente(cliente1);
+controladorVentas.setCliente(cliente2);
+controladorVentas.setCliente(cliente3);
 
 controladorVentas.setVendedor(vendedor1);
 controladorVentas.setVendedor(vendedor2);
@@ -81,6 +90,16 @@ for (auto it = listadoPromociones.begin(); it != listadoPromociones.end(); ++it)
 
 controladorVentas.consultarPromocion("promocionDePrueba1");
 controladorVentas.consultarPromocion("promocionDePrueba3");
+
+// ** CASO DE USO: Consultar Promocion FIN ** //
+
+// ** CASO DE USO: Realizar compra INICIO ** //
+set<string> listaNicknames = controladorVentas.listarNicknamesClientes();
+
+cout<< "\nClientes: \n" << endl;
+for (auto it = listaNicknames.begin(); it != listaNicknames.end(); ++it) {
+    cout << *it << "\n" << endl;
+}
 
 // ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  

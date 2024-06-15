@@ -3,7 +3,7 @@
 
 void ControladorVentas::setCliente(Cliente *cliente)
 {
-    // Implementación
+    this->clientes[cliente->getNickname()] = cliente;
 }
 
 void ControladorVentas::setVendedor(Vendedor *vendedor){
