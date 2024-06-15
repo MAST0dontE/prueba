@@ -33,7 +33,7 @@ public:
     void eliminarSuscripciones(string username);
     Usuario *seleccionarUsuario(string username);
     //void setDTComentario(DTcomentario *comentario);
-    //void listaDeUsuarios();
+    void listaDeUsuarios_();
 };
 
 
