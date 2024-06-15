@@ -4,9 +4,12 @@
 #include <string>
 #include "EEnvio.h"
 #include "EEnvio.h"
+#include "Producto.h"
 using namespace std;
+
 class CompraPorProducto{
     private:
+        Producto* ptrProducto;
         int cantidadSolicitada;
         EEnvio estadoDeEnvio;
 
@@ -15,5 +18,4 @@ class CompraPorProducto{
     EEnvio getestadoDeEnvio();
     void setestadoDeEnvio(EEnvio estadoDeEnvio);
 };
-
 #endif // COMPRAPORPRODUCTO_H

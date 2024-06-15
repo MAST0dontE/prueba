@@ -156,3 +156,28 @@ void ControladorUsuarios::listaDeUsuarios_(){
 		printf( "(%s)\n", (*it)->getCiudadResidencia().c_str() );
 	}	*/
 }
+
+/*static string compraPorProductoAString(CompraPorProducto* compraPorProducto) {
+
+}*/
+
+/*static string compraAString(Compra* compra) {
+	for (auto itSet= productos.begin(); itSet != productos.end(); ++itSet) {
+        compraPorProductoAString
+    }
+    std::cout << std::endl;
+	
+}*/
+
+/*string ControladorUsuarios::infoCliente(string nickname) {
+	if (!esVendedor())
+		Cliente clienteInfo = clientes.find(nickname);
+		cout << "Nickname: " << getNickname(clienteInfo);
+		cout << "Fecha de nacimiento: " << getFecha(clienteInfo);
+		for ( i = 0; i < count; i++)
+		{
+			
+		}
+		
+	}
+}*/
