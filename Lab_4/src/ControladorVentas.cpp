@@ -160,5 +160,7 @@ void ControladorVentas::registrarCompra()
 {
     // Implementación
 }
-void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria){}
-
+void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria){
+    int codigo=15*stock*stock+precio*precio+2;
+    Producto P=Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor,categoria);
+}
