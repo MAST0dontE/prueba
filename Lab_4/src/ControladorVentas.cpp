@@ -112,9 +112,9 @@ void ControladorVentas::consultarPromocion(string nombre){
  
 }
 
-set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento)
-{
-    // Implementación
+set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento){
+    
+
     return set<string>();
 }
 
