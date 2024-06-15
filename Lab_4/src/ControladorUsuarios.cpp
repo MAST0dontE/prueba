@@ -32,8 +32,7 @@ set<string> ControladorUsuarios::listaDeUsuarios() {
 	for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it) {
 		listaUsuarios.insert((*it)->getNickname());
 	}
-	return listaUsuarios; */
-	return set<string>();
+	return listaUsuarios;
 }
 
 /*Usuario *ControladorUsuarios::seleccionarUsuario(string username){
