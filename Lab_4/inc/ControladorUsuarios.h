@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <set>
+#include <map>
 #include "Cliente.h"
 #include "DTFecha.h"
 #include "Vendedor.h"
@@ -15,28 +16,34 @@
 #include "DTDireccion.h"
 #include "Comentario.h"
 using namespace std;
+
 class ControladorUsuarios : public iControladorUsuarios{
-private:
-vector<Usuario*> Usuarios;
-vector<Vendedor*> Vendedores;
-vector<Cliente*> Clientes;
-public:
-    //porque notificaciones es un bool? no se
-    void setCliente(Cliente *cliente);
-    void setVendedor(Vendedor *vendedor);
-    void setComentario(Comentario *comentario);
-    bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
-    bool altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT);
-    set<string> listaDeUsuarios();
-    set<DTcomentario> listarComentarios(string nickname);
-    void seleccionarComentario(DTcomentario *comentario) ;
-    void eliminarComentario(DTcomentario *comentario);
-    set<string> suscribirseA(string nickname);
-    set<DTNotificacion> consultarNotificaciones(string username); ;
-    void eliminarSuscripciones(string username);
-    Usuario *seleccionarUsuario(string username);
-    //void setDTComentario(DTcomentario *comentario);
-    void listaDeUsuarios_();
+    private:
+    map<string, Usuario*> usuarios;
+    map<string, Cliente*> clientes;
+    map<string, Vendedor*> vendedores;
+
+    //vector<Usuario*> Usuarios;
+    //vector<Vendedor*> Vendedores;
+    //vector<Cliente*> Clientes;
+    
+    public:
+        //porque notificaciones es un bool? no se
+        void setCliente(Cliente *cliente);
+        void setVendedor(Vendedor *vendedor);
+        void setComentario(Comentario *comentario);
+        bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
+        bool altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT);
+        set<string> listaDeUsuarios();
+        set<DTcomentario> listarComentarios(string nickname);
+        void seleccionarComentario(DTcomentario *comentario) ;
+        void eliminarComentario(DTcomentario *comentario);
+        set<string> suscribirseA(string nickname);
+        set<DTNotificacion> consultarNotificaciones(string username); ;
+        void eliminarSuscripciones(string username);
+        Usuario *seleccionarUsuario(string username);
+        //void setDTComentario(DTcomentario *comentario);
+        void listaDeUsuarios_();
 };
 
 

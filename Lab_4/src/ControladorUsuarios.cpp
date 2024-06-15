@@ -2,12 +2,12 @@
 
 void ControladorUsuarios::setCliente(Cliente *cliente)
 {
-	// Implementación
+	this->clientes[cliente->getNickname()] = cliente;
 }
 
 void ControladorUsuarios::setVendedor(Vendedor *vendedor)
 {
-	// Implementación
+	this->vendedores[vendedor->getNickname()] = vendedor;
 }
 
 void ControladorUsuarios::setComentario(Comentario *comentario)
@@ -29,9 +29,9 @@ bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha
 
 set<string> ControladorUsuarios::listaDeUsuarios() {
 	set<string> listaUsuarios;
-	for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it) {
-		listaUsuarios.insert((*it)->getNickname());
-	}
+	//for (vector<Usuario*>::iterator it = Usuarios.begin(); it != Usuarios.end(); ++it) {
+		//listaUsuarios.insert((*it)->getNickname());
+	//}
 	return listaUsuarios;
 }
 
@@ -88,7 +88,7 @@ void ControladorUsuarios::eliminarSuscripciones(string username)
 	// Implementación
 }
 void ControladorUsuarios::listaDeUsuarios_(){
-	for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
+	/*for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
 		printf( "(%s)\n", (*it)->getNickname().c_str() );
 		printf( "(%s)\n", (*it)->getFecha().c_str() );
 		printf( "(%s)\n", (*it)->getCodigoRUT().c_str() );
@@ -97,5 +97,5 @@ void ControladorUsuarios::listaDeUsuarios_(){
 		printf( "(%s)\n", (*it)->getNickname().c_str() );
 		printf( "(%s)\n", (*it)->getFecha().c_str() );
 		printf( "(%s)\n", (*it)->getCiudadResidencia().c_str() );
-	}	
+	}	*/
 }
