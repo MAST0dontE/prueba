@@ -47,6 +47,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         Usuario *seleccionarUsuario(string username);
         //void setDTComentario(DTcomentario *comentario);
         void listaDeUsuarios_();
+        // void nuevaSuscripcion(string nickname);
 };
 
 

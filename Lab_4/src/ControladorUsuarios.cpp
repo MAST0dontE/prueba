@@ -156,3 +156,10 @@ void ControladorUsuarios::listaDeUsuarios_(){
 		printf( "(%s)\n", (*it)->getCiudadResidencia().c_str() );
 	}	*/
 }
+
+void nuevaSuscripcion(string nickname){
+	//** RECORDAR EL NICKNAME CUANDO SE PUEDA **/
+	//set<Vendedor*> 
+	//for (it= this->vendedores.begin(); it != this->vendedores.end())
+
+};
