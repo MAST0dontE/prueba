@@ -92,6 +92,11 @@ void ControladorUsuarios::listaDeUsuarios_(){
 		printf( "(%s)\n", it1->second->getFecha().c_str() );
 		printf( "(%s)\n", it1->second->getCiudadResidencia().c_str() );
 	}
+		for (it2= vendedores.begin(); it2!=vendedores.end(); ++it2){
+		printf( "(%s)\n", it2->first.c_str() );
+		printf( "(%s)\n", it2->second->getFecha().c_str() );
+		printf( "(%s)\n", it2->second->getCodigoRUT().c_str() );
+	}
 	/*for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
 		printf( "(%s)\n", (*it)->getNickname().c_str() );
 		printf( "(%s)\n", (*it)->getFecha().c_str() );
