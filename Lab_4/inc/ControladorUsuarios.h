@@ -20,9 +20,11 @@ using namespace std;
 class ControladorUsuarios : public iControladorUsuarios{
     private:
     map<string, Usuario*> usuarios;
+    map<string, Usuario*>::iterator it0;
     map<string, Cliente*> clientes;
+    map<string, Cliente*>::iterator it1;
     map<string, Vendedor*> vendedores;
-
+    map<string, Vendedor*>::iterator it2;
     //vector<Usuario*> Usuarios;
     //vector<Vendedor*> Vendedores;
     //vector<Cliente*> Clientes;
