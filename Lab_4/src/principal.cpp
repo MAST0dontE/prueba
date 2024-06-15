@@ -49,8 +49,8 @@ cout << resultado2 <<"\n" <<endl;
 
 // ** CASO DE USO: Consultar Producto FIN ** //
 ProductoEnPromocion* productoEnPromocion1 = new ProductoEnPromocion(productoPrueba1, 0.5, 2);
-ProductoEnPromocion* productoEnPromocion2 = new ProductoEnPromocion(productoPrueba2, 0.5, 2);
-ProductoEnPromocion* productoEnPromocion3 = new ProductoEnPromocion(productoPrueba3, 0.5, 2);
+ProductoEnPromocion* productoEnPromocion2 = new ProductoEnPromocion(productoPrueba2, 0.3, 4);
+ProductoEnPromocion* productoEnPromocion3 = new ProductoEnPromocion(productoPrueba3, 0.1, 3);
 
   
 
@@ -65,7 +65,17 @@ promocionPrueba1->agregarProductoPromocion(productoEnPromocion2);
 promocionPrueba2->agregarProductoPromocion(productoEnPromocion3);
 
 
-controladorVentas.listarPromociones();
+vector<DTInfoPromocion> listadoPromociones = controladorVentas.listarPromociones();
+cout<< "Promociones: \n" << endl;   
+
+for (auto it = listadoPromociones.begin(); it != listadoPromociones.end(); ++it) {
+    DTInfoPromocion dtip = *it;
+    cout << dtip.toStringSimple() + "------------------------------\n" << endl;   
+} 
+
+
+controladorVentas.consultarPromocion("promocionDePrueba1");
+controladorVentas.consultarPromocion("promocionDePrueba3");
 
 delete productoEnPromocion1;  
 delete productoEnPromocion2;

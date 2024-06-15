@@ -50,7 +50,7 @@ class ControladorVentas : public iControladorVentas{
         //nuevos cambios
         void listarProductos();
         void consultarProducto(int codigo, string nombre);
-        void listarPromociones();
+        vector<DTInfoPromocion> listarPromociones();
         void consultarPromocion(string nombre);
 };
 

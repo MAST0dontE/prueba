@@ -60,22 +60,21 @@ void ControladorVentas::consultarProducto(int codigo, string nombre){
     }
 };
 
-void ControladorVentas::listarPromociones(){
+vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
     set<Promocion*>::iterator it;
-    cout<< "Promociones: \n" << endl;
+    vector<DTInfoPromocion> res;
 
     for(it=promociones.begin(); it != promociones.end(); ++it){
         set<ProductoEnPromocion*> prod = (*it)->getProductos();
          if(!prod.empty()){
-            ProductoEnPromocion* producto = (*prod.begin());
-            cout << "Producto: " << (*producto).getProducto().getNombreVendedor() << endl;
+            ProductoEnPromocion* producto = (*prod.begin()); 
             string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
-            cout << "Promocion: " << vendedorInfo << endl;
             DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
-            cout << dtip.toString() << endl;    
+            
+            res.push_back(dtip); 
          }
     }
-
+    return res;
 /*     set<Promocion*>::iterator it;
     vector<DTInfoPromocion> res;
     
@@ -99,20 +98,18 @@ void ControladorVentas::listarPromociones(){
 }
 
 void ControladorVentas::consultarPromocion(string nombre){
-
-/*     vector<DTInfoPromocion> prom = this->listarPromociones();
-     vector<DTInfoPromocion>::iterator it = find_if(prom.begin(), prom.end(),
-                                         [&nombre](const DTInfoPromocion& dtip) {
+    vector<DTInfoPromocion> prom = this->listarPromociones();
+    vector<DTInfoPromocion>::iterator it = find_if(prom.begin(), prom.end(),
+                                        [&nombre](const DTInfoPromocion& dtip) {
         return dtip.nombre == nombre;
 
-                           });
-  
-    if (it != prom.end()) {
-        return *it;
-    } else {
-        throw runtime_error("Promoción no encontrada");
-    }  */
-
+        });
+    if (it != prom.end()) {
+       cout << it->toString() + "\n"<< endl;
+    } else {
+       cout<< "Promoción no encontrada"<< endl;
+    }
+ 
 }
 
 set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento)

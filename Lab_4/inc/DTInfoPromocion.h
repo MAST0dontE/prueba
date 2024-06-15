@@ -4,6 +4,7 @@
 #include <string>
 #include <set>
 #include "DTFecha.h"
+#include "Promocion.h"
 #include "ProductoEnPromocion.h"
 
 using namespace std;
@@ -18,6 +19,7 @@ class DTInfoPromocion{
 
         DTInfoPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento,string infoVendedor, set<ProductoEnPromocion*> productos);
         string toString();
+        string toStringSimple();
 
 };
 
