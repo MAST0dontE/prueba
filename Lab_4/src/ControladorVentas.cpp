@@ -1,9 +1,10 @@
 #include "ControladorVentas.h"
 #include "../inc/Producto.h"
+#include "ECategoria.h"
 
 void ControladorVentas::setCliente(Cliente *cliente)
 {
-    // Implementación
+    this->clientes[cliente->getNickname()] = cliente;
 }
 
 void ControladorVentas::setVendedor(Vendedor *vendedor){
@@ -112,9 +113,9 @@ void ControladorVentas::consultarPromocion(string nombre){
  
 }
 
-set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento)
-{
-    // Implementación
+set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento){
+    
+
     return set<string>();
 }
 
@@ -159,3 +160,5 @@ void ControladorVentas::registrarCompra()
 {
     // Implementación
 }
+void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria){}
+
