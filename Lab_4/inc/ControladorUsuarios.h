@@ -43,7 +43,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void seleccionarComentario(DTcomentario *comentario) ;
         void eliminarComentario(DTcomentario *comentario);
         set<string> suscribirseA(string nickname);
-        set<DTNotificacion> consultarNotificaciones(string username); ;
+        set<DTNotificacion> consultarNotificaciones(string username); 
         void eliminarSuscripciones(string username);
         Usuario *seleccionarVendedor(string username);
         Usuario *seleccionarUsuario(string username);

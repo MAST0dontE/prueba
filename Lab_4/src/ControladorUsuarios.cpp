@@ -134,24 +134,33 @@ void ControladorUsuarios::seleccionarProducto(int codigo){
 		return set<string>();
 	}
 
-	set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
-	{
-		// Implementación
-		return set<DTNotificacion>();
-	}
+set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
+{
+	Cliente *C=clientes[username];
+	set<DTNotificacion> Notificaciones_=C->getNotificaciones();
+	C->borrarNotificaciones();
+	return Notificaciones_;
+}
 
-	void ControladorUsuarios::eliminarSuscripciones(string username)
-	{
-		// Implementación
+void ControladorUsuarios::eliminarSuscripciones(string username)
+{
+	// Implementación
+}
+
+
+
+/*El caso de uso comienza cuando se desea consultar la información de todos
+los usuarios del sistema. Para esto, el Sistema lista los nicknames
+(pseudónimos) de todos los usuarios junto a la fecha de nacimiento. En caso
+de que el usuario sea un cliente, adicionalmente se muestra su dirección y
+ciudad de residencia, mientras que, si se trata de un vendedor, se muestra
+su código RUT*/
+void ControladorUsuarios::listaDeUsuarios_(){
+	for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
+		printf( "(%s)\n", it1->first.c_str() );
+		printf( "(%s)\n", it1->second->getFecha().c_str() );
+		printf( "(%s)\n", it1->second->getCiudadResidencia().c_str() );
 	}
-	void ControladorUsuarios::listaDeUsuarios_()
-	{
-		for (it1 = clientes.begin(); it1 != clientes.end(); ++it1)
-		{
-			printf("(%s)\n", it1->first.c_str());
-			printf("(%s)\n", it1->second->getFecha().c_str());
-			printf("(%s)\n", it1->second->getCiudadResidencia().c_str());
-		}
 		for (it2= vendedores.begin(); it2!=vendedores.end(); ++it2){
 		printf( "(%s)\n", it2->first.c_str() );
 		printf( "(%s)\n", it2->second->getFecha().c_str() );
