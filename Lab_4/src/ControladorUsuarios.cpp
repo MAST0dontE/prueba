@@ -44,7 +44,7 @@ set<string> ControladorUsuarios::listaDeVendedores() {
 	return listaVendedores;
 }
 
-/*Usuario *ControladorUsuarios::seleccionarVendedor(string username){
+Usuario *ControladorUsuarios::seleccionarVendedor(string username){
 	map<string, Usuario *>::iterator it = usuarios.find(username);
 	if (it != usuarios.end()){
 		Usuario *usuario = it->second;
@@ -66,7 +66,7 @@ set<string> ControladorUsuarios::listaDeVendedores() {
 		cout << "Usuario " << username << " no encontrado.\n";
 	}
 	return nullptr;
-}*/
+}
 
 Usuario *ControladorUsuarios::seleccionarUsuario(string username){
     if (clientes.find(username) != clientes.end()) {
