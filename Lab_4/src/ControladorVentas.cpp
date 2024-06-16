@@ -163,7 +163,7 @@ void ControladorVentas::registrarCompra()
 
 //el Sistema le asigna un código único al producto y lo da de alta en el sistema.
 void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria){
-    int codigo = 15 * stock * stock + static_cast<int>(precio * precio) % 3 + 27; //asigno código
+    int codigo = 15 * stock * stock*(stock%5) + static_cast<int>(precio * precio) % 3 + 27; //asigno código
     Producto *P=new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor,categoria); //instancio producto
     productos.insert(P);//inserto en set el producto P
     Vendedor *V=vendedores[nicknameVendedor]; //busco al vendedor que pone en venta el prod
