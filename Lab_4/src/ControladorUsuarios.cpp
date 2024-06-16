@@ -80,51 +80,66 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string username){
     return nullptr;  
 }
 
-/*set<DTcomentario> ControladorUsuarios::seleccionarProducto( int codigo){
-	set<DTcomentario> comentarios;
-	map<string,Usuario*>::iterator it = usuarios.find(vendedorSeleccionado);
-	if (it != usuarios.end()){
-		Vendedor *vendedor = dynamic_cast<Vendedor*>(it->second);
-		if (vendedor){
-			set<Producto*> productosVendedor = vendedor->getProductos();
-			for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt){
-				if ((*prodIt)->getCodigo() == codigo){
-					vector<Comentario*> comentariosProducto = (*prodIt)->getComentarios();
-					for (vector<Comentario*>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt){
-						Comentario* comentario = *comIt;
-						DTcomentario dtComentario(comentario->getId(), comentario->getTexto(), comentario->getFecha());
-						comentarios.insert(dtComentario);
+void ControladorUsuarios::listarComentarios(int codigo) {
+    set<DTcomentario> comentarios;
+    map<string, Usuario*>::iterator it = usuarios.find(vendedorSeleccionado);
+    if (it != usuarios.end()) {
+        Vendedor* vendedor = dynamic_cast<Vendedor*>(it->second);
+        if (vendedor) {
+            set<Producto*> productosVendedor = vendedor->getProductos();
+            for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt) {
+                if ((*prodIt)->getCodigo() == codigo) {
+                    vector<Comentario*> comentariosProducto = (*prodIt)->getComentarios(); //tuve que usar un vector porque no tenia modo de comparar los dt sin implementarles algo
+                    for (vector<Comentario*>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt) {
+                        Comentario* comentario = *comIt;
+						cout << "ID: " << comentario->getId() \
+							 << ", Texto: " << comentario->getTexto() \
+							 << ", Fecha: " << comentario->getFecha().toString() << "\n";
 					}
-					cout << "Comentarios del producto con código " << codigo << ":\n";
-					for (set<DTcomentario>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
-						cout << comIt->toString() << "\n";
-					}
-					return comentarios;
-				}
-			}
-			cout << "Producto no encontrado.\n";
-		}
-	}
-	else{
-		cout << "Vendedor no seleccionado o no encontrado.\n";
-	}
-	return comentarios;
-}*/
+                }
+            }
+            cout << "Producto no encontrado.\n";
+        }
+    } else {
+        cout << "Vendedor no seleccionado o no encontrado.\n";
+    }
+}
 
 void ControladorUsuarios::seleccionarProducto(int codigo){
-	codigoSeleccionado = codigo;
+	int codigoSeleccionado = codigo;
+	cout << "¿Desea realizar un comentario nuevo? (Y/N): ";
+	char respuesta;
+	cin >> respuesta;
+	if (respuesta == 'Y' || respuesta == 'y'){
+		respuestaSeleccionada = 'Y';
+	}
+	else if (respuesta == 'N' || respuesta == 'n'){
+		respuestaSeleccionada = 'N';
+	}
+	else{
+		cout << "Respuesta no válida." << endl;
+	}
 }
 
-void ControladorUsuarios::seleccionarComentario(DTcomentario * comentario)
-{
+
+
+
+void ControladorUsuarios::seleccionarComentario(int id){
+	int idSeleccionado = id;	
 }
+
+void ControladorUsuarios::nuevoComentario(DTFecha fecha, string texto){
+
+}
+
+
 
 /*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
 {
 	// Implementación
 }*/
 
-void ControladorUsuarios::eliminarComentario(DTcomentario * comentario)
+	void ControladorUsuarios::eliminarComentario(DTcomentario *comentario)
 {
 	// Implementación
 }

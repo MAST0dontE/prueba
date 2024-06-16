@@ -19,7 +19,10 @@ using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
     private:
-    int codigoSeleccionado;
+    int codigoSeleccionado = 0;
+    char respuestaSeleccionada; //deberia inicializarlo con algun valor? como es un triste char no supe hacerlo xd perdon p1 j3j3
+    int idSeleccionado;
+    int creadorIdComentario;
     string vendedorSeleccionado;
     map<string, Usuario*> usuarios;
     //map<string, Usuario*>::iterator it0;
@@ -47,7 +50,10 @@ class ControladorUsuarios : public iControladorUsuarios{
         void eliminarSuscripciones(string username);
         Usuario *seleccionarVendedor(string username);
         Usuario *seleccionarUsuario(string username);
+        void listarComentarios(int codigo);
         void seleccionarProducto(int codigo);
+        void seleccionarComentario(int id);
+        void nuevoComentario(DTFecha fecha, string texto);
         // void setDTComentario(DTcomentario *comentario);
         void listaDeUsuarios_();
         // void nuevaSuscripcion(string nickname);

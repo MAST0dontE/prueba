@@ -11,7 +11,6 @@ class DTcomentario{
         string comentario;
         DTFecha fecha;
         DTcomentario(int id, string comentario, DTFecha fecha);
-
 };
 
 #endif // DTCOMENTARIO_H
