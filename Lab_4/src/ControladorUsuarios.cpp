@@ -131,6 +131,15 @@ void ControladorUsuarios::eliminarSuscripciones(string username)
 {
 	// Implementación
 }
+
+
+
+/*El caso de uso comienza cuando se desea consultar la información de todos
+los usuarios del sistema. Para esto, el Sistema lista los nicknames
+(pseudónimos) de todos los usuarios junto a la fecha de nacimiento. En caso
+de que el usuario sea un cliente, adicionalmente se muestra su dirección y
+ciudad de residencia, mientras que, si se trata de un vendedor, se muestra
+su código RUT*/
 void ControladorUsuarios::listaDeUsuarios_(){
 	for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
 		printf( "(%s)\n", it1->first.c_str() );
