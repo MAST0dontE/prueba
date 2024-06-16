@@ -26,6 +26,7 @@ class Vendedor : public Usuario{
         }
         vector<DTInfoProducto> obtenerProductos()const;
         vector<Comentario> listarComentarios(string) override;
+        set<Producto*> getProductos();
 };
 
 #endif // VENDEDOR_H

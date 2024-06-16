@@ -2,6 +2,7 @@
 #define PRODUCTO_H
 
 #include <string>
+#include <vector>
 #include "DTInfoProducto.h"
 #include "DTInfoProducto.h"
 #include "ECategoria.h"
@@ -20,6 +21,7 @@ class Producto{
         string descripcion;
         string vendedor;
         ECategoria categoria;
+        vector<Comentario*> comentariosProducto;
 
     public:
         Producto(int codigo, int stock, float precio, string nombre, string descripcion, string vendedor, ECategoria categoria);
@@ -35,6 +37,7 @@ class Producto{
         string getDescripcion();
         ECategoria getCategoria();
         string getNombreVendedor();
+        vector<Comentario*> getComentarios();
 };
 
 #endif // PRODUCTO_H

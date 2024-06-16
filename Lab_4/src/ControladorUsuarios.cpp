@@ -45,11 +45,12 @@ set<string> ControladorUsuarios::listaDeVendedores() {
 }
 
 Usuario *ControladorUsuarios::seleccionarVendedor(string username){
-	map<string, Usuario *>::iterator it = usuarios.find(username);
+	map<string,Usuario*>::iterator it = usuarios.find(username);
 	if (it != usuarios.end()){
 		Usuario *usuario = it->second;
 		if (usuario->esVendedor()) {
-			Vendedor *vendedor = dynamic_cast<Vendedor *>(usuario);
+			string vendedorSeleccionado = username;
+			Vendedor *vendedor = dynamic_cast<Vendedor*>(usuario);
 				vector<DTInfoProducto> productos = vendedor->obtenerProductos();
 				cout << "Productos del vendedor " << username << ":\n";
 				for (vector<DTInfoProducto>::iterator prodIt = productos.begin(); prodIt != productos.end(); ++prodIt)
@@ -79,64 +80,78 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string username){
     return nullptr;  
 }
 
-/*set<DTComentario> ControladorUsuarios::seleccionarProducto(string nickname, int codigo){
+/*set<DTcomentario> ControladorUsuarios::seleccionarProducto( int codigo){
 	set<DTcomentario> comentarios;
-	map<string, Usuario*>::iterator it = usuarios.find(nickname);
+	map<string,Usuario*>::iterator it = usuarios.find(vendedorSeleccionado);
 	if (it != usuarios.end()){
-		Vendedor *vendedor = dynamic_cast<Vendedor*>(it->second);{
-			vector<Producto> productos = vendedor->getProductos();
-			for (vector<Producto>::iterator prodIt = productos.begin(); prodIt != productos.end(); ++prodIt){
-				if (prodIt->getCodigo() == codigo){
-					vector<Comentario> comentariosProducto = prodIt->getComentarios();
-					for (vector<Comentario>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt)
-					{
-						DTComentario dtComentario(comIt->getTexto(), comIt->getFecha());
-						comentarios.insert(DTcomentario);
+		Vendedor *vendedor = dynamic_cast<Vendedor*>(it->second);
+		if (vendedor){
+			set<Producto*> productosVendedor = vendedor->getProductos();
+			for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt){
+				if ((*prodIt)->getCodigo() == codigo){
+					vector<Comentario*> comentariosProducto = (*prodIt)->getComentarios();
+					for (vector<Comentario*>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt){
+						Comentario* comentario = *comIt;
+						DTcomentario dtComentario(comentario->getId(), comentario->getTexto(), comentario->getFecha());
+						comentarios.insert(dtComentario);
+					}
+					cout << "Comentarios del producto con código " << codigo << ":\n";
+					for (set<DTcomentario>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
+						cout << comIt->toString() << "\n";
 					}
 					return comentarios;
 				}
 			}
+			cout << "Producto no encontrado.\n";
 		}
 	}
-	cout << "Codigo o vendedor incorrectos.\n";
+	else{
+		cout << "Vendedor no seleccionado o no encontrado.\n";
+	}
 	return comentarios;
 }*/
 
-void ControladorUsuarios::seleccionarComentario(DTcomentario *comentario)
-{
+void ControladorUsuarios::seleccionarProducto(int codigo){
+	codigoSeleccionado = codigo;
 }
 
-/*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
-{
-	// Implementación
-}*/
-
-void ControladorUsuarios::eliminarComentario(DTcomentario *comentario)
-{
-	// Implementación
-}
-
-set<string> ControladorUsuarios::suscribirseA(string)
-{
-    return set<string>();
-}
-
-set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
-{
-	// Implementación
-	return set<DTNotificacion>();
-}
-
-void ControladorUsuarios::eliminarSuscripciones(string username)
-{
-	// Implementación
-}
-void ControladorUsuarios::listaDeUsuarios_(){
-	for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
-		printf( "(%s)\n", it1->first.c_str() );
-		printf( "(%s)\n", it1->second->getFecha().c_str() );
-		printf( "(%s)\n", it1->second->getCiudadResidencia().c_str() );
+	void ControladorUsuarios::seleccionarComentario(DTcomentario * comentario)
+	{
 	}
+
+	/*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
+	{
+		// Implementación
+	}*/
+
+	void ControladorUsuarios::eliminarComentario(DTcomentario * comentario)
+	{
+		// Implementación
+	}
+
+	set<string> ControladorUsuarios::suscribirseA(string)
+	{
+		return set<string>();
+	}
+
+	set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
+	{
+		// Implementación
+		return set<DTNotificacion>();
+	}
+
+	void ControladorUsuarios::eliminarSuscripciones(string username)
+	{
+		// Implementación
+	}
+	void ControladorUsuarios::listaDeUsuarios_()
+	{
+		for (it1 = clientes.begin(); it1 != clientes.end(); ++it1)
+		{
+			printf("(%s)\n", it1->first.c_str());
+			printf("(%s)\n", it1->second->getFecha().c_str());
+			printf("(%s)\n", it1->second->getCiudadResidencia().c_str());
+		}
 		for (it2= vendedores.begin(); it2!=vendedores.end(); ++it2){
 		printf( "(%s)\n", it2->first.c_str() );
 		printf( "(%s)\n", it2->second->getFecha().c_str() );

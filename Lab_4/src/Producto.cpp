@@ -72,3 +72,7 @@ string Producto::getNombreVendedor()
 {
     return this->vendedor;
 }
+
+vector<Comentario*> Producto::getComentarios(){
+    return comentariosProducto;
+}

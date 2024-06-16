@@ -19,6 +19,8 @@ using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
     private:
+    int codigoSeleccionado;
+    string vendedorSeleccionado;
     map<string, Usuario*> usuarios;
     //map<string, Usuario*>::iterator it0;
     map<string, Cliente*> clientes;
@@ -45,7 +47,8 @@ class ControladorUsuarios : public iControladorUsuarios{
         void eliminarSuscripciones(string username);
         Usuario *seleccionarVendedor(string username);
         Usuario *seleccionarUsuario(string username);
-        //void setDTComentario(DTcomentario *comentario);
+        void seleccionarProducto(int codigo);
+        // void setDTComentario(DTcomentario *comentario);
         void listaDeUsuarios_();
         // void nuevaSuscripcion(string nickname);
 };

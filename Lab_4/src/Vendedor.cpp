@@ -44,6 +44,9 @@ vector<DTInfoProducto> Vendedor::obtenerProductos() const{
     }
     return detallesProductos;
 }
+set<Producto*> Vendedor::getProductos() {
+    return productosVendedor;
+}
 
 vector<Comentario> Vendedor::listarComentarios(string)
 {
