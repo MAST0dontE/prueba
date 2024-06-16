@@ -20,10 +20,11 @@ Cliente* cliente1 = new Cliente("un cliente1", "contra", DTFecha(1,1,1), DTDirec
 Cliente* cliente2 = new Cliente("un cliente2", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
 Cliente* cliente3 = new Cliente("un cliente3", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad3");
 
-
-/*bool a=altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
-bool b=altaVendedor("un vendedor2", "contra",DTFecha(1,1,1), "123");
-bool c=altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");*/
+ControladorUsuarios ControladorUsuariosTrucho;
+bool a=ControladorUsuariosTrucho.altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
+bool b=ControladorUsuariosTrucho.altaVendedor("un vendedor2", "contra",DTFecha(1,1,1), "123");
+bool c=ControladorUsuariosTrucho.altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");
+ControladorUsuariosTrucho.listaDeUsuarios_();
 
 controladorVentas.setCliente(cliente1);
 controladorVentas.setCliente(cliente2);
