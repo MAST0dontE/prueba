@@ -79,8 +79,8 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string username){
     return nullptr;  
 }
 
-set<DTComentario> ControladorUsuarios::seleccionarProducto(string nickname, int codigo){
-	set<DTComentario> comentarios;
+/*set<DTComentario> ControladorUsuarios::seleccionarProducto(string nickname, int codigo){
+	set<DTcomentario> comentarios;
 	map<string, Usuario*>::iterator it = usuarios.find(nickname);
 	if (it != usuarios.end()){
 		Vendedor *vendedor = dynamic_cast<Vendedor*>(it->second);{
@@ -91,7 +91,7 @@ set<DTComentario> ControladorUsuarios::seleccionarProducto(string nickname, int 
 					for (vector<Comentario>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt)
 					{
 						DTComentario dtComentario(comIt->getTexto(), comIt->getFecha());
-						comentarios.insert(dtComentario);
+						comentarios.insert(DTcomentario);
 					}
 					return comentarios;
 				}
@@ -100,7 +100,7 @@ set<DTComentario> ControladorUsuarios::seleccionarProducto(string nickname, int 
 	}
 	cout << "Codigo o vendedor incorrectos.\n";
 	return comentarios;
-}
+}*/
 
 void ControladorUsuarios::seleccionarComentario(DTcomentario *comentario)
 {
