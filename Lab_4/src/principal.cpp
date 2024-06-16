@@ -35,6 +35,8 @@ controladorVentas.setVendedor(vendedor2);
 controladorVentas.setVendedor(vendedor3); 
 
 // ** CASO DE USO: Consultar Producto INICIO ** //
+cout<< "** CASO DE USO: Consultar Producto INICIO **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
 
 Producto* productoPrueba1 = new Producto(1, 1, 1, "productoDePrueba1" , "este es el producto de prueba 1", "pepito", ECategoria::otros);
 Producto* productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2" , "este es el producto de prueba 2", "papito", ECategoria::ropa);
@@ -60,8 +62,14 @@ cout<< "Se elige el producto de prueba: \n" << endl;
 cout << resultado2 <<"\n" <<endl;
 */
 
-
+cout<< "** CASO DE USO: Consultar Producto FIN **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Consultar Producto FIN ** //
+
+// ** CASO DE USO: Consultar Promocion INICIO ** //
+cout<< "** CASO DE USO: Consultar Promocion INICIO ** **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+
 
 ProductoEnPromocion* productoEnPromocion1 = new ProductoEnPromocion(productoPrueba1, 0.5, 2);
 ProductoEnPromocion* productoEnPromocion2 = new ProductoEnPromocion(productoPrueba2, 0.3, 4);
@@ -92,15 +100,24 @@ for (auto it = listadoPromociones.begin(); it != listadoPromociones.end(); ++it)
 controladorVentas.consultarPromocion("promocionDePrueba1");
 controladorVentas.consultarPromocion("promocionDePrueba3");
 
+cout<< "** CASO DE USO: Consultar Promocion FIN ** **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Consultar Promocion FIN ** //
 
 // ** CASO DE USO: Realizar compra INICIO ** //
+cout<< "** CASO DE USO: Realizar compra INICIO **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+
 set<string> listaNicknames = controladorVentas.listarNicknamesClientes();
 
 cout<< "\nClientes: \n" << endl;
 for (auto it = listaNicknames.begin(); it != listaNicknames.end(); ++it) {
     cout << *it << "\n" << endl;
 }
+
+cout<< "** CASO DE USO: Realizar compra FIN**"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+// ** CASO DE USO: Realizar compra FIN ** //
 
 // ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  
@@ -112,5 +129,24 @@ delete productoPrueba1;
 delete productoPrueba2;
 delete productoPrueba3;
 
+
+//**PRUEBA DE MENU INTERACTIVO**//
+
+cout << "Ingrese su nombre: " <<endl;
+string nombre;
+int edad;
+getline(cin, nombre);
+cout << "Ahroa ingrese su edad: " <<endl;
+cin >> edad;
+cout << "Hola " << edad << ", su edad es " << nombre << " :3"<< endl;
+
+
+    
+    
+    
+    
+
+    
+    
     return 0;
 }
