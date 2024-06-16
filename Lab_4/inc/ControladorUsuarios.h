@@ -43,10 +43,11 @@ class ControladorUsuarios : public iControladorUsuarios{
         set<string> suscribirseA(string nickname);
         set<DTNotificacion> consultarNotificaciones(string username); ;
         void eliminarSuscripciones(string username);
-        //Usuario *seleccionarVendedor(string username);
+        Usuario *seleccionarVendedor(string username);
         Usuario *seleccionarUsuario(string username);
         //void setDTComentario(DTcomentario *comentario);
         void listaDeUsuarios_();
+        // void nuevaSuscripcion(string nickname);
 };
 
 

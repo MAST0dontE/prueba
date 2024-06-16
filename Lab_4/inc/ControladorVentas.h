@@ -12,6 +12,7 @@
 #include "Promocion.h"
 #include "Compra.h"
 #include "DTInfoPromocion.h"
+#include "ECategoria.h"
 #include "Producto.h"
 #include "DTFecha.h"
 #include "DTInfoCompra.h"
@@ -45,6 +46,8 @@ class ControladorVentas : public iControladorVentas{
         void consultarProducto(int codigo, string nombre);
         vector<DTInfoPromocion> listarPromociones();
         void consultarPromocion(string nombre);
+        void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria);
+       
 };
 
 #endif // CONTROLADORVENTAS_H
