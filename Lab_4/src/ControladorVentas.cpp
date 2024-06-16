@@ -161,7 +161,7 @@ void ControladorVentas::registrarCompra()
     // Implementación
 }
 void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria){
-    int codigo = 15 * stock * stock + static_cast<int>(precio * precio) % 3 + 2;
+    int codigo = 15 * stock * stock + static_cast<int>(precio * precio) % 3 + 27;
     Producto *P=new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor,categoria);
     Vendedor *V=vendedores[nicknameVendedor];
     V->agregarProducto(P);
