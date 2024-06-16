@@ -123,8 +123,10 @@ set<string> ControladorUsuarios::suscribirseA(string)
 
 set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
 {
-	// Implementación
-	return set<DTNotificacion>();
+	Cliente *C=clientes[username];
+	set<DTNotificacion> Notificaciones_=C->getNotificaciones();
+	C->borrarNotificaciones();
+	return Notificaciones_;
 }
 
 void ControladorUsuarios::eliminarSuscripciones(string username)
