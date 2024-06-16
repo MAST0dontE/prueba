@@ -115,24 +115,24 @@ void ControladorUsuarios::seleccionarProducto(int codigo){
 	codigoSeleccionado = codigo;
 }
 
-	void ControladorUsuarios::seleccionarComentario(DTcomentario * comentario)
-	{
-	}
+void ControladorUsuarios::seleccionarComentario(DTcomentario * comentario)
+{
+}
 
-	/*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
-	{
-		// Implementación
-	}*/
+/*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
+{
+	// Implementación
+}*/
 
-	void ControladorUsuarios::eliminarComentario(DTcomentario * comentario)
-	{
-		// Implementación
-	}
+void ControladorUsuarios::eliminarComentario(DTcomentario * comentario)
+{
+	// Implementación
+}
 
-	set<string> ControladorUsuarios::suscribirseA(string)
-	{
-		return set<string>();
-	}
+set<string> ControladorUsuarios::suscribirseA(string)
+{
+	return set<string>();
+}
 
 set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
 {
