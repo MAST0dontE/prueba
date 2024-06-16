@@ -143,5 +143,9 @@ obj/DTInfoPromocion.o: src/DTInfoPromocion.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
  /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/stdlib.h \
  inc/Promocion.h inc/ProductoEnPromocion.h inc/Producto.h \
+ /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h \
+ /usr/include/c++/9/bits/stl_vector.h \
+ /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
  inc/DTInfoProducto.h inc/ECategoria.h inc/DTProductoCompra.h \
  inc/DTInfoCompra.h inc/Comentario.h inc/DTcomentario.h

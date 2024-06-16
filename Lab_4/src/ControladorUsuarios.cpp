@@ -165,6 +165,7 @@ void ControladorUsuarios::listaDeUsuarios_(){
 		printf( "(%s)\n", it2->first.c_str() );
 		printf( "(%s)\n", it2->second->getFecha().c_str() );
 		printf( "(%s)\n", it2->second->getCodigoRUT().c_str() );
+		printf("aaaaaaaaaaaaaaaaaaa\n");
 	}
 	/*for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
 		printf( "(%s)\n", (*it)->getNickname().c_str() );

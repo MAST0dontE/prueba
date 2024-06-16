@@ -142,6 +142,11 @@ obj/Compra.o: src/Compra.cpp /usr/include/stdc-predef.h inc/Compra.h \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
  /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/stdlib.h \
- inc/ProductoEnPromocion.h inc/Producto.h inc/DTInfoProducto.h \
- inc/ECategoria.h inc/DTProductoCompra.h inc/DTInfoCompra.h \
- inc/Comentario.h inc/DTcomentario.h inc/CompraPorProducto.h inc/EEnvio.h
+ inc/ProductoEnPromocion.h inc/Producto.h /usr/include/c++/9/vector \
+ /usr/include/c++/9/bits/stl_construct.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h \
+ /usr/include/c++/9/bits/stl_vector.h \
+ /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
+ inc/DTInfoProducto.h inc/ECategoria.h inc/DTProductoCompra.h \
+ inc/DTInfoCompra.h inc/Comentario.h inc/DTcomentario.h \
+ inc/CompraPorProducto.h inc/EEnvio.h

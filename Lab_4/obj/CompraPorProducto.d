@@ -121,6 +121,10 @@ obj/CompraPorProducto.o: src/CompraPorProducto.cpp \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/9/bits/functional_hash.h \
  /usr/include/c++/9/bits/basic_string.tcc inc/EEnvio.h inc/Producto.h \
+ /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h \
+ /usr/include/c++/9/bits/stl_vector.h \
+ /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
  inc/DTInfoProducto.h inc/ECategoria.h inc/DTProductoCompra.h \
  inc/DTInfoCompra.h inc/DTFecha.h /usr/include/c++/9/iostream \
  /usr/include/c++/9/ostream /usr/include/c++/9/ios \
