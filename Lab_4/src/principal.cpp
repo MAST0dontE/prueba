@@ -167,7 +167,7 @@ while (entradaConsola != "/exit"){
                 string ciudad;
                 getline(cin,ciudad);
                 bool a=ControladorUsuariosTrucho.altaCliente(NombreCliente, contra,DTFecha(1,1,1),DTDireccion("calle1", 123), ciudad);
-                cout <<"Su cliente fue creado"<<endl;
+                if (a) {cout <<"Su cliente fue creado"<<endl;}
             }}
         default:
             cout <<"Opción no válida." <<endl;
