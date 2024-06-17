@@ -145,7 +145,7 @@ comandos["/Listado de usuarios"] = 3;
 comandos["/Alta producto"] = 4;
 comandos["/Consulta notificaciones"] = 5;
 comandos["/Dejar comentario"] = 6; //Ver con Santi
-comandos["/Enviar producto"] = 7;
+comandos["/Enviar producto"] = 7; //Falta terminar Enviar Producto
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
