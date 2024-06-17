@@ -230,6 +230,9 @@ while (entradaConsola != "/exit"){
             }
             cout <<SuperMegaStringFaseDios<<endl;
         }
+        case 6:{
+            ControladorUsuariosTrucho.listaDeUsuarios_();
+        }
         default:
             cout <<"Opción no válida." <<endl;
             break;
