@@ -20,11 +20,11 @@ Cliente* cliente1 = new Cliente("un cliente1", "contra", DTFecha(1,1,1), DTDirec
 Cliente* cliente2 = new Cliente("un cliente2", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
 Cliente* cliente3 = new Cliente("un cliente3", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad3");
 
-ControladorUsuarios ControladorUsuariosTrucho;
+/*ControladorUsuarios ControladorUsuariosTrucho;
 bool a=ControladorUsuariosTrucho.altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
 bool b=ControladorUsuariosTrucho.altaVendedor("un vendedor2", "contra",DTFecha(1,1,1), "123");
 bool c=ControladorUsuariosTrucho.altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");
-ControladorUsuariosTrucho.listaDeUsuarios_();
+ControladorUsuariosTrucho.listaDeUsuarios_();*/
 
 controladorVentas.setCliente(cliente1);
 controladorVentas.setCliente(cliente2);
@@ -131,7 +131,7 @@ cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
 //mapeo de comandos para el switch
 map<string, int> comandos;
 comandos["/consultarProducto"] = 1; //futuramente caso de uso numero 4 //
-
+comandos["/Alta usuario"] = 2;
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
@@ -153,12 +153,11 @@ while (entradaConsola != "/exit"){
                 cin>> codigo;
                 controladorVentas.consultarProducto(codigo,"productoDePrueba2");
             }
-            
-        
-        break;
+            break;
     
         default:
-        break;
+            cout << "Opción no válida." << endl;
+            break;
     }
     }
     
