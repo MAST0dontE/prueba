@@ -195,6 +195,19 @@ while (entradaConsola != "/exit"){
         case 4:{
             cout <<"elija el nombre de un vendedor de los siguientes"<<endl;
             ControladorUsuariosTrucho.listaDeVendedores();
+            string NombreVendedor;
+            getline(cin,NombreVendedor);
+            string NombreProducto;
+            cout<<"Indique el nombre del producto"<<endl;
+            getline(cin,NombreProducto);
+            float precio; 
+            cin>>precio;
+            int stock;
+            cin>>stock;
+            string Descripcion;
+            cout<<"Indique la descripcion del producto"<<endl;
+            getline(cin,Descripcion);            
+            //ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria)
         }
         default:
             cout <<"Opción no válida." <<endl;
