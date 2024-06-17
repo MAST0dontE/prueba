@@ -145,16 +145,25 @@ while (entradaConsola != "/exit"){
         case 1:
             controladorVentas.listarProductos();
             cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
-            char respuesta;
-            cin>> respuesta;
-            if (respuesta == 'Y' || respuesta == 'y' ){
+            char respuesta1;
+            cin>> respuesta1;
+            if (respuesta1 == 'Y' || respuesta1 == 'y' ){
                 cout << "Indique el codigo del producto que desea consultar:" <<endl;
                 int codigo;
                 cin>> codigo;
                 controladorVentas.consultarProducto(codigo,"productoDePrueba2");
             }
             break;
-    
+        case 2:
+            cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
+            char respuesta2;
+            cin>> respuesta2;
+            if (respuesta2 == 'C' || respuesta2 == 'c' ){
+                cout << "Indique Nombre del cliente"<<endl;
+                char NombreCliente;
+                cin>> NombreCliente;
+                //"un cliente1", "contra", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1"
+            }
         default:
             cout << "Opción no válida." << endl;
             break;
@@ -162,7 +171,6 @@ while (entradaConsola != "/exit"){
     }
     
 };
-
 
 
 
