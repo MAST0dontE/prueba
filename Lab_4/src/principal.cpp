@@ -189,7 +189,7 @@ while (entradaConsola != "/exit"){
             break;
             }
         case 3:{
-            
+            ControladorUsuariosTrucho.listaDeUsuarios_();
         }
         default:
             cout <<"Opción no válida." <<endl;
