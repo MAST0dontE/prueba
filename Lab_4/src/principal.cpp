@@ -174,6 +174,7 @@ while (entradaConsola != "/exit"){
             cout << "Indique dia de insercion al ambito satanico del cliente"<<endl;
             cin>>dia;
             cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             string respuesta2;
             getline(cin,respuesta2);
             if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
@@ -187,7 +188,8 @@ while (entradaConsola != "/exit"){
                 cout << "Indique codigo Rut del vendedor"<<endl;
                 getline(cin,codigoRut);
                 if (ControladorUsuariosTrucho.altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado y es un hijo de remil puta"<<endl;}
-            } else { break;}
+            } else { 
+                break;}
             break;
             }
         case 3:{
