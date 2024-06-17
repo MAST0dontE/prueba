@@ -22,7 +22,7 @@ class DTInfoProducto{
         string toString(); 
         string imprimirInfoRestante();    
         DTInfoProducto(int codigo, string nombre, float precio, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
-
+        string getDTInfoProducto();
 };
 
 #endif // DTINFOPRODUCTO_H 
