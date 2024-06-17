@@ -144,7 +144,8 @@ comandos["/Alta usuario"] = 2;
 comandos["/Listado de usuarios"] = 3;
 comandos["/Alta producto"] = 4;
 comandos["/Consulta notificaciones"] = 5;
-comandos["/Dejar comentario"] = 6;
+comandos["/Dejar comentario"] = 6; //Ver con Santi
+comandos["/Enviar producto"] = 7;
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
@@ -266,6 +267,9 @@ while (entradaConsola != "/exit"){
                 cin>>id;
                 //ControladorUsuariosTrucho.seleccionarComentario(int id);
             }
+        }
+        case 7:{
+            
         }
         default:
             cout <<"Opción no válida." <<endl;
