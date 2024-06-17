@@ -10,8 +10,8 @@ using namespace std;
 class Promocion{
     private:
         string nombre;
-        string descripcion;
-        DTFecha fechaDeVencimiento;
+        string descripcion;DTFecha fechaDeVencimiento
+        ;
         set<ProductoEnPromocion*> productos;
 
     public:
