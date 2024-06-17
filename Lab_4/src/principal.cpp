@@ -270,6 +270,10 @@ while (entradaConsola != "/exit"){
         }
         case 7:{
             set<string> ListaVend=ControladorUsuariosTrucho.listaDeVendedores();
+            set<string>::iterator it;
+            for (it=ListaVend.begin(); it !=ListaVend.end(); it++){
+                cout<<*it<<endl;
+            }
             string NombreUsuario;
             cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
             getline(cin,NombreUsuario);
