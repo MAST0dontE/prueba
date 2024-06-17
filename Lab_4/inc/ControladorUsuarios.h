@@ -58,6 +58,8 @@ class ControladorUsuarios : public iControladorUsuarios{
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         // void setDTComentario(DTcomentario *comentario);
         void listaDeUsuarios_();
+        void infoCliente(string nickname);
+        void infoVendedor(string nickname);
         // void nuevaSuscripcion(string nickname);
 };
 

@@ -8,6 +8,12 @@ Usuario::~Usuario() {}
 string Usuario::getNickname() const{
     return this->nickname;
 }
-string Usuario::getFecha(){
+string Usuario::getFecha() 
+{
     return this->fechaDeNacimiento.toString();
+
 }
+/*string Usuario::getFecha()
+{
+    return this->fechaDeNacimiento.toString();
+}*/

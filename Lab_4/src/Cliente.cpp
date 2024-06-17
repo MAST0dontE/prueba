@@ -14,6 +14,11 @@ string Cliente::getCiudadResidencia()
     return this->ciudadResidencia;
 }
 
+const set<Compra *> &Cliente::getComprasRealizadas() const
+{
+    return this->comprasRealizadas;
+}
+
 void Cliente::agregarSuscripcion(){
 
 }
