@@ -15,6 +15,7 @@ void ControladorUsuarios::setComentario(Comentario *comentario)
 	// Implementación
 }
 
+
 bool ControladorUsuarios::altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
 {
     if (clientes.find(username) != clientes.end()) {
@@ -22,6 +23,8 @@ bool ControladorUsuarios::altaCliente(string username, string password, DTFecha 
     }
     Cliente* nuevoCliente = new Cliente(password, username, fechaNacimiento, direccion, ciudad);
     setCliente(nuevoCliente);
+	ControladorVentas controladorVentas;
+	controladorVentas.setCliente(nuevoCliente);
     return true; 
 }
 
@@ -33,9 +36,10 @@ bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha
     }
     Vendedor* nuevoVendedor = new Vendedor(password, username, fechaNacimiento, codigoRUT);
     setVendedor(nuevoVendedor);
+	ControladorVentas controladorVentas;
+	controladorVentas.setVendedor(nuevoVendedor);
     return true; 
 }
-
 set<string> ControladorUsuarios::listaDeVendedores() {
 	set<string> listaVendedores;
 	for (map<string, Vendedor*>::iterator it = vendedores.begin(); it != vendedores.end(); ++it) {

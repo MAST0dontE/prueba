@@ -13,6 +13,7 @@
 #include "Cliente.h"
 #include "DTcomentario.h"
 #include "DTNotificacion.h"
+#include "ControladorVentas.h"
 #include "DTDireccion.h"
 #include "Comentario.h"
 using namespace std;

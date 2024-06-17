@@ -162,5 +162,6 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
  /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/limits \
  src/../inc/Promocion.h src/../inc/DTInfoPromocion.h \
- src/../inc/Producto.h src/../inc/Vendedor.h \
- src/../inc/ProductoEnPromocion.h src/../inc/DTInfoPromocion.h
+ src/../inc/ControladorVentas.h src/../inc/Producto.h \
+ src/../inc/Vendedor.h src/../inc/ProductoEnPromocion.h \
+ src/../inc/DTInfoPromocion.h
