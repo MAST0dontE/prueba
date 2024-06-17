@@ -155,31 +155,32 @@ while (entradaConsola != "/exit"){
             }}
             break;
         case 2:{
+            string NombreUsuario;
+            cout << "Indique Nombre del Usuario nuevo"<<endl;
+            getline(cin,NombreUsuario);
+            string contra;
+            cout << "Indique contra del Usuario nuevo"<<endl;
+            getline(cin,contra);
+            int ano;
+            cout << "Indique anio de insercion al ambito satanico del cliente"<<endl;
+            cin>>ano;
+            int mes;
+            cout << "Indique mes de insercion al ambito satanico del cliente"<<endl;
+            cin>>mes;
+            int dia;
+            cout << "Indique dia de insercion al ambito satanico del cliente"<<endl;
+            cin>>dia;
             cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
             string respuesta2;
             getline(cin,respuesta2);
             if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
-                string NombreCliente;
-                cout << "Indique Nombre del cliente"<<endl;
-                getline(cin,NombreCliente);
-                string contra;
-                cout << "Indique contra del cliente"<<endl;
-                getline(cin,contra);
                 cout << "Indique ciudad del cliente"<<endl;
                 string ciudad;
                 getline(cin,ciudad);
-                int ano;
-                cout << "Indique anio de insercion al ambito satanico del cliente"<<endl;
-                cin>>ano;
-                int mes;
-                cout << "Indique mes de insercion al ambito satanico del cliente"<<endl;
-                cin>>mes;
-                int dia;
-                cout << "Indique dia de insercion al ambito satanico del cliente"<<endl;
-                cin>>dia;
-                bool a=ControladorUsuariosTrucho.altaCliente(NombreCliente, contra,DTFecha(dia,mes,ano),DTDireccion("calle1", 123), ciudad);
+                bool a=ControladorUsuariosTrucho.altaCliente(NombreUsuario, contra,DTFecha(dia,mes,ano),DTDireccion("calle1", 123), ciudad);
                 if (a) {cout <<"Su cliente fue creado"<<endl;}
-            }}
+            } else if(respuesta2 == "Vendedor" || respuesta2 == "vendedor" ){}
+            }
         default:
             cout <<"Opción no válida." <<endl;
             break;
