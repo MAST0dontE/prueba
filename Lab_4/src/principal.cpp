@@ -134,6 +134,7 @@ comandos["/consultarProducto"] = 1; //futuramente caso de uso numero 4 //
 comandos["/Alta usuario"] = 2;
 comandos["/Listado de usuarios"] = 3;
 comandos["/Alta producto"] = 4;
+comandos["/Consulta notificaciones"] = 4;
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
