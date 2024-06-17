@@ -16,6 +16,7 @@
 #include "ControladorVentas.h"
 #include "DTDireccion.h"
 #include "Comentario.h"
+#include "DTInfoProducto.h"
 using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
