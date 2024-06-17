@@ -215,7 +215,11 @@ while (entradaConsola != "/exit"){
             controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum);
         }
         case 5:{
-            
+            cout<<"Indique el nombre del cliente"<<endl;
+            string NombreCliente;
+            getline(cin,NombreCliente);
+            set<DTNotificacion> Notificaciones=ControladorUsuariosTrucho.consultarNotificaciones(NombreCliente);
+
         }
         default:
             cout <<"Opción no válida." <<endl;
