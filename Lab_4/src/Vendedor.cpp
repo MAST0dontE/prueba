@@ -52,3 +52,5 @@ vector<Comentario> Vendedor::listarComentarios(string)
 {
     return vector<Comentario>();
 }
+
+

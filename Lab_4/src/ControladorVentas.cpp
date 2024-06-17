@@ -20,6 +20,9 @@ void ControladorVentas::setCompra(Compra *compra)
     // Implementación
 }
 
+void ControladorVentas::setFechaPromo(DTFecha fechaPromocion){
+    this->fechaVencimientoPromo = fechaPromocion;
+}
 
 set<Producto*> ControladorVentas::getProductos(){
     return this->productos;
@@ -27,8 +30,6 @@ set<Producto*> ControladorVentas::getProductos(){
 
 void ControladorVentas::setProducto(Producto *producto)
 {
-    /*set<Producto*> productos = this->getProductos();
-    productos.insert(producto); */
     this->productos.insert(producto);
 }
 
@@ -113,12 +114,6 @@ void ControladorVentas::consultarPromocion(string nombre){
  
 }
 
-set<string> ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaVencimiento){
-    
-
-    return set<string>();
-}
-
 set<DTInfoProducto> ControladorVentas::seleccionarVendedor(string nickname)
 {
     // Implementación
@@ -169,3 +164,14 @@ void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nomb
     Vendedor *V=vendedores[nicknameVendedor]; //busco al vendedor que pone en venta el prod
     V->agregarProducto(P); //lo vinculo
 }
+
+void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento){
+    this->nombrePromo = nombre;
+    this->descripcionPromo = descripcion;
+    this->fechaVencimientoPromo = fechaDeVencimiento;
+    cout << "Seleccione un vendedor: " << endl;
+    for(it=vendedores.begin(); it != vendedores.end(); ++it){
+        Vendedor* vendedor = it->second;
+        cout<< vendedor->getNickname() << endl;
+    }
+};

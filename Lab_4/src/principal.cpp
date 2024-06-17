@@ -119,6 +119,15 @@ cout<< "** CASO DE USO: Realizar compra FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Realizar compra FIN ** //
 
+// ** CASO DE USO: Crear Promocion INICIO ** //
+cout<< "** CASO DE USO: Crear Promocion INICIO **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+
+controladorVentas.altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3));
+
+cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+// ** CASO DE USO: Crear Promocion FIN ** //
 
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;
@@ -134,7 +143,9 @@ comandos["/consultarProducto"] = 1; //futuramente caso de uso numero 4 //
 comandos["/Alta usuario"] = 2;
 comandos["/Listado de usuarios"] = 3;
 comandos["/Alta producto"] = 4;
-comandos["/Consulta notificaciones"] = 4;
+comandos["/Consulta notificaciones"] = 5;
+comandos["/Dejar comentario"] = 6; //Ver con Santi
+comandos["/Enviar producto"] = 7; //Falta terminar Enviar Producto
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
@@ -174,6 +185,7 @@ while (entradaConsola != "/exit"){
             cout << "Indique dia de insercion al ambito satanico del cliente"<<endl;
             cin>>dia;
             cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
+            //cin.ignore(numeric_limits<streamsize>::max(), '\n');
             string respuesta2;
             getline(cin,respuesta2);
             if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
@@ -187,7 +199,8 @@ while (entradaConsola != "/exit"){
                 cout << "Indique codigo Rut del vendedor"<<endl;
                 getline(cin,codigoRut);
                 if (ControladorUsuariosTrucho.altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado y es un hijo de remil puta"<<endl;}
-            } else { break;}
+            } else { 
+                break;}
             break;
             }
         case 3:{
@@ -219,7 +232,51 @@ while (entradaConsola != "/exit"){
             string NombreCliente;
             getline(cin,NombreCliente);
             set<DTNotificacion> Notificaciones=ControladorUsuariosTrucho.consultarNotificaciones(NombreCliente);
-
+            string SuperMegaStringFaseDios;
+            for (auto notif:Notificaciones){
+                SuperMegaStringFaseDios += notif.getnicknameVendedor() + "\n";
+                SuperMegaStringFaseDios += notif.getnombrePromo() + "\n";
+                SuperMegaStringFaseDios += notif.getDTInfoProducto() + "\n";
+            }
+            cout <<SuperMegaStringFaseDios<<endl;
+        }
+        case 6:{
+            ControladorUsuariosTrucho.listaDeUsuarios_();
+            string NombreUsuario;
+            cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
+            getline(cin,NombreUsuario);
+            controladorVentas.listarProductos();
+            string NombreProducto;
+            cout<<"Escriba el nombre del producto al que desea ingresar un comentario"<<endl;
+            getline(cin,NombreProducto);
+            string codigo;
+            cout<<"Escriba el codigo del producto al que desea ingresar un comentario"<<endl;
+            getline(cin,codigo);
+            string respuesta;
+            cout<<"¿Desea dejar un comentario nuevo o uno existente?"<<endl;
+            getline(cin,respuesta);
+            if(respuesta=="Dejar un comentario"){
+                string comentario;
+                cout<<"Escriba el comentario de una"<<endl;
+                getline(cin,comentario);
+                //La fecha la agrega el usuario?
+                ControladorUsuariosTrucho.nuevoComentario(comentario, DTFecha(1,1,1) );
+                cout<<"el comentario fue agregado"<<endl;
+            }else if (respuesta=="Responder un comentario"){
+                int id;
+                cin>>id;
+                //ControladorUsuariosTrucho.seleccionarComentario(int id);
+            }
+        }
+        case 7:{
+            set<string> ListaVend=ControladorUsuariosTrucho.listaDeVendedores();
+            set<string>::iterator it;
+            for (it=ListaVend.begin(); it !=ListaVend.end(); it++){
+                cout<<*it<<endl;
+            }
+            string NombreVendedor;
+            cout << "Indique Nombre del vendedor"<<endl;
+            getline(cin,NombreVendedor);
         }
         default:
             cout <<"Opción no válida." <<endl;
@@ -233,7 +290,7 @@ while (entradaConsola != "/exit"){
 
 
     
-    
+
     
 
     

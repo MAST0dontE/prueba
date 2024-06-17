@@ -13,8 +13,10 @@
 #include "Cliente.h"
 #include "DTcomentario.h"
 #include "DTNotificacion.h"
+#include "ControladorVentas.h"
 #include "DTDireccion.h"
 #include "Comentario.h"
+#include "DTInfoProducto.h"
 using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
@@ -59,6 +61,8 @@ class ControladorUsuarios : public iControladorUsuarios{
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         // void setDTComentario(DTcomentario *comentario);
         void listaDeUsuarios_();
+        void infoCliente(string nickname);
+        void infoVendedor(string nickname);
         // void nuevaSuscripcion(string nickname);
 };
 

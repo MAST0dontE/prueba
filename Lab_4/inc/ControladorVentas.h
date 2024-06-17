@@ -26,9 +26,18 @@ class ControladorVentas : public iControladorVentas{
         map<string, Vendedor*> vendedores;
         map<string, Vendedor*>::iterator it;
         set<Compra*> compras;
+        //atributos para los datos de promocion
+        string nombrePromo;
+        string descripcionPromo;
+        DTFecha fechaVencimientoPromo = DTFecha(0,0,0);
+        string nicknameVendedorPromo;
+        struct datosProducto{
+            int codigo;
+            int cantMin;
+        };
+        set<datosProducto> datosProductosPromo;
         
     public:
-        set<string> altaPromocion(string nickname, string descripcion, DTFecha fechaCreacion);
         void agregarProducto(int codigo, int cantMinima, float descuento);
         set<string> listarNicknamesClientes();
         set<DTInfoProducto> seleccionarCliente(string nickname);
@@ -36,19 +45,21 @@ class ControladorVentas : public iControladorVentas{
         DTInfoCompra mostrarDetallesCompra();
         void registrarCompra();
         bool ingresarPromocion();
+        //setters y getters INICIO
         void setCliente(Cliente *cliente);
         void setVendedor(Vendedor *vendedor);
         void setPromocion(Promocion *promocion);
         void setCompra(Compra *compra);
         void setProducto(Producto *producto);
         set<Producto*> getProductos();
-        //nuevos cambios
+        void setFechaPromo(DTFecha fechaPromocion);
+        //setters y getters FIN
         void listarProductos();
         void consultarProducto(int codigo, string nombre);
         vector<DTInfoPromocion> listarPromociones();
         void consultarPromocion(string nombre);
         void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria);
-       
+        void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
 };
 
 #endif // CONTROLADORVENTAS_H

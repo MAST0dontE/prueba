@@ -15,7 +15,11 @@ class CompraPorProducto{
 
     public:
     CompraPorProducto(int cantidadSolicitada, EEnvio estadoDeEnvio);
+    //GETTERS
     EEnvio getestadoDeEnvio();
+    int getCantidadSolicitada();
+    int getCodigoProducto();
+    string getVendedor();
     void setestadoDeEnvio(EEnvio estadoDeEnvio);
 };
 #endif // COMPRAPORPRODUCTO_H

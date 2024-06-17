@@ -5,9 +5,15 @@ Usuario::Usuario(string contrasenia, string nickname, DTFecha fechaDeNacimiento)
 
 Usuario::~Usuario() {}
 
-string Usuario::getNickname() const{
+string Usuario::getNickname(){
     return this->nickname;
 }
-string Usuario::getFecha(){
+string Usuario::getFecha() 
+{
     return this->fechaDeNacimiento.toString();
+
 }
+/*string Usuario::getFecha()
+{
+    return this->fechaDeNacimiento.toString();
+}*/

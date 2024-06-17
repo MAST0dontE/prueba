@@ -15,10 +15,30 @@ string DTInfoProducto::imprimirInfoRestante(){
 }
 string DTInfoProducto::getDTInfoProducto(){
     string SuperDTInfoProducto;
-    SuperDTInfoProducto += "Código: " + to_string(codigo) + "\n";
-    SuperDTInfoProducto += "Nombre: " + nombre + "\n";
-    SuperDTInfoProducto += "Precio: " + to_string(precio) + "\n";
-    SuperDTInfoProducto += "Cantidad en stock: " + to_string(cantStock) + "\n";
-    SuperDTInfoProducto += "Descripción: " + descripcion + "\n";
+    if (categoria==ropa){
+        SuperDTInfoProducto += "Nombre: " + nombre + "\n";
+        SuperDTInfoProducto += "Precio: " + to_string(precio) + "\n";
+        SuperDTInfoProducto += "Descripción: " + descripcion + "\n";
+        SuperDTInfoProducto += "Categoria: ropa\n";
+        SuperDTInfoProducto += "Cantidad en stock: " + to_string(cantStock) + "\n";
+        SuperDTInfoProducto += "Código: " + to_string(codigo) + "\n";
+    }
+    if (categoria==electrodomesticos){
+        SuperDTInfoProducto += "Nombre: " + nombre + "\n";
+        SuperDTInfoProducto += "Precio: " + to_string(precio) + "\n";
+        SuperDTInfoProducto += "Descripción: " + descripcion + "\n";
+        SuperDTInfoProducto += "Categoria: electrodomesticos\n";
+        SuperDTInfoProducto += "Cantidad en stock: " + to_string(cantStock) + "\n";
+        SuperDTInfoProducto += "Código: " + to_string(codigo) + "\n";
+    }
+    if (categoria==otros){
+        SuperDTInfoProducto += "Nombre: " + nombre + "\n";
+        SuperDTInfoProducto += "Precio: " + to_string(precio) + "\n";
+        SuperDTInfoProducto += "Descripción: " + descripcion + "\n";
+        SuperDTInfoProducto += "Categoria: otros\n";
+        SuperDTInfoProducto += "Cantidad en stock: " + to_string(cantStock) + "\n";
+        SuperDTInfoProducto += "Código: " + to_string(codigo) + "\n";
+    }
+
     return SuperDTInfoProducto;
 }
