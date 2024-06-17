@@ -251,6 +251,7 @@ while (entradaConsola != "/exit"){
                 getline(cin,comentario);
                 //La fecha la agrega el usuario?
                 ControladorUsuariosTrucho.nuevoComentario(comentario, DTFecha(1,1,1) );
+                cout<<"el comentario fue agregado"<<endl;
             }
         }
         default:
