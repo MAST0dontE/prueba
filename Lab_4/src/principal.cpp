@@ -184,7 +184,8 @@ while (entradaConsola != "/exit"){
                 cout << "Indique codigo Rut del vendedor"<<endl;
                 getline(cin,codigoRut);
                 if (ControladorUsuariosTrucho.altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado y es un hijo de remil puta"<<endl;}
-            }
+            } else { break;}
+            break;
             }
         default:
             cout <<"Opción no válida." <<endl;
