@@ -128,7 +128,7 @@ controladorVentas.altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3));
 cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Crear Promocion FIN ** //
-/*
+
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
@@ -261,7 +261,7 @@ while (entradaConsola != "/exit"){
                 //La fecha la agrega el usuario?
                 ControladorUsuariosTrucho.nuevoComentario(comentario, DTFecha(1,1,1) );
                 cout<<"el comentario fue agregado"<<endl;
-            }
+            }else if (respuesta=="Responder un comentario"){}
         }
         default:
             cout <<"Opción no válida." <<endl;
@@ -275,7 +275,7 @@ while (entradaConsola != "/exit"){
 
 
     
-*/
+
     
 
     
