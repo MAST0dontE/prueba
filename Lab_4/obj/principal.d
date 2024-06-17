@@ -152,15 +152,15 @@ obj/principal.o: src/principal.cpp /usr/include/stdc-predef.h \
  src/../inc/DTFecha.h /usr/include/c++/9/stdlib.h \
  src/../inc/DTcomentario.h src/../inc/Observer.h \
  src/../inc/DTNotificacion.h src/../inc/DTInfoProducto.h \
- src/../inc/ECategoria.h src/../inc/DTDireccion.h src/../inc/Vendedor.h \
- src/../inc/Producto.h src/../inc/DTProductoCompra.h \
- src/../inc/DTInfoCompra.h src/../inc/ControladorVentas.h \
- src/../inc/iControladorVentas.h /usr/include/c++/9/algorithm \
- /usr/include/c++/9/bits/stl_algo.h \
+ src/../inc/ECategoria.h src/../inc/DTDireccion.h src/../inc/Compra.h \
+ src/../inc/ProductoEnPromocion.h src/../inc/Producto.h \
+ src/../inc/DTProductoCompra.h src/../inc/DTInfoCompra.h \
+ src/../inc/CompraPorProducto.h src/../inc/EEnvio.h src/../inc/Vendedor.h \
+ src/../inc/ControladorVentas.h src/../inc/iControladorVentas.h \
+ /usr/include/c++/9/algorithm /usr/include/c++/9/bits/stl_algo.h \
  /usr/include/c++/9/bits/algorithmfwd.h \
  /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
  /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/limits \
- src/../inc/Promocion.h src/../inc/ProductoEnPromocion.h \
- src/../inc/Compra.h src/../inc/CompraPorProducto.h src/../inc/EEnvio.h \
- src/../inc/DTInfoPromocion.h src/../inc/Producto.h src/../inc/Vendedor.h \
+ src/../inc/Promocion.h src/../inc/DTInfoPromocion.h \
+ src/../inc/Producto.h src/../inc/Vendedor.h \
  src/../inc/ProductoEnPromocion.h src/../inc/DTInfoPromocion.h

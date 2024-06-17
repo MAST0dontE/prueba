@@ -153,4 +153,6 @@ obj/Cliente.o: src/Cliente.cpp /usr/include/stdc-predef.h inc/Cliente.h \
  inc/DTcomentario.h inc/Observer.h /usr/include/c++/9/set \
  /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
  inc/Cliente.h inc/DTNotificacion.h inc/DTInfoProducto.h inc/ECategoria.h \
- inc/DTDireccion.h
+ inc/DTDireccion.h inc/Compra.h inc/ProductoEnPromocion.h inc/Producto.h \
+ inc/DTProductoCompra.h inc/DTInfoCompra.h inc/CompraPorProducto.h \
+ inc/EEnvio.h

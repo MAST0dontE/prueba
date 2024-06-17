@@ -153,12 +153,12 @@ obj/Menu.o: src/Menu.cpp /usr/include/stdc-predef.h inc/Menu.h \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
  /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/stdlib.h \
  inc/DTcomentario.h inc/Observer.h inc/DTNotificacion.h \
- inc/DTInfoProducto.h inc/ECategoria.h inc/DTDireccion.h inc/Vendedor.h \
- inc/Producto.h inc/DTProductoCompra.h inc/DTInfoCompra.h \
+ inc/DTInfoProducto.h inc/ECategoria.h inc/DTDireccion.h inc/Compra.h \
+ inc/ProductoEnPromocion.h inc/Producto.h inc/DTProductoCompra.h \
+ inc/DTInfoCompra.h inc/CompraPorProducto.h inc/EEnvio.h inc/Vendedor.h \
  inc/ControladorVentas.h inc/iControladorVentas.h \
  /usr/include/c++/9/algorithm /usr/include/c++/9/bits/stl_algo.h \
  /usr/include/c++/9/bits/algorithmfwd.h \
  /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
  /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/limits \
- inc/Promocion.h inc/ProductoEnPromocion.h inc/Compra.h \
- inc/CompraPorProducto.h inc/EEnvio.h inc/DTInfoPromocion.h
+ inc/Promocion.h inc/DTInfoPromocion.h
