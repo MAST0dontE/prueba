@@ -119,7 +119,16 @@ cout<< "** CASO DE USO: Realizar compra FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Realizar compra FIN ** //
 
+// ** CASO DE USO: Crear Promocion INICIO ** //
+cout<< "** CASO DE USO: Crear Promocion INICIO **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
 
+controladorVentas.altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3));
+
+cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+// ** CASO DE USO: Crear Promocion FIN ** //
+/*
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
@@ -266,7 +275,7 @@ while (entradaConsola != "/exit"){
 
 
     
-    
+*/
     
 
     
