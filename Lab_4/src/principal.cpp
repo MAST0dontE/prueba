@@ -20,11 +20,11 @@ Cliente* cliente1 = new Cliente("un cliente1", "contra", DTFecha(1,1,1), DTDirec
 Cliente* cliente2 = new Cliente("un cliente2", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
 Cliente* cliente3 = new Cliente("un cliente3", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad3");
 
-ControladorUsuarios ControladorUsuariosTrucho;
+/*ControladorUsuarios ControladorUsuariosTrucho;
 bool a=ControladorUsuariosTrucho.altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
 bool b=ControladorUsuariosTrucho.altaVendedor("un vendedor2", "contra",DTFecha(1,1,1), "123");
 bool c=ControladorUsuariosTrucho.altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");
-ControladorUsuariosTrucho.listaDeUsuarios_();
+ControladorUsuariosTrucho.listaDeUsuarios_();*/
 
 controladorVentas.setCliente(cliente1);
 controladorVentas.setCliente(cliente2);
@@ -35,6 +35,8 @@ controladorVentas.setVendedor(vendedor2);
 controladorVentas.setVendedor(vendedor3); 
 
 // ** CASO DE USO: Consultar Producto INICIO ** //
+cout<< "** CASO DE USO: Consultar Producto INICIO **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
 
 Producto* productoPrueba1 = new Producto(1, 1, 1, "productoDePrueba1" , "este es el producto de prueba 1", "pepito", ECategoria::otros);
 Producto* productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2" , "este es el producto de prueba 2", "papito", ECategoria::ropa);
@@ -60,8 +62,14 @@ cout<< "Se elige el producto de prueba: \n" << endl;
 cout << resultado2 <<"\n" <<endl;
 */
 
-
+cout<< "** CASO DE USO: Consultar Producto FIN **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Consultar Producto FIN ** //
+
+// ** CASO DE USO: Consultar Promocion INICIO ** //
+cout<< "** CASO DE USO: Consultar Promocion INICIO ** **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+
 
 ProductoEnPromocion* productoEnPromocion1 = new ProductoEnPromocion(productoPrueba1, 0.5, 2);
 ProductoEnPromocion* productoEnPromocion2 = new ProductoEnPromocion(productoPrueba2, 0.3, 4);
@@ -92,9 +100,14 @@ for (auto it = listadoPromociones.begin(); it != listadoPromociones.end(); ++it)
 controladorVentas.consultarPromocion("promocionDePrueba1");
 controladorVentas.consultarPromocion("promocionDePrueba3");
 
+cout<< "** CASO DE USO: Consultar Promocion FIN ** **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Consultar Promocion FIN ** //
 
 // ** CASO DE USO: Realizar compra INICIO ** //
+cout<< "** CASO DE USO: Realizar compra INICIO **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+
 set<string> listaNicknames = controladorVentas.listarNicknamesClientes();
 
 cout<< "\nClientes: \n" << endl;
@@ -102,7 +115,64 @@ for (auto it = listaNicknames.begin(); it != listaNicknames.end(); ++it) {
     cout << *it << "\n" << endl;
 }
 
-// ** SE LIBERA LA MEMORIA ** //
+cout<< "** CASO DE USO: Realizar compra FIN**"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+// ** CASO DE USO: Realizar compra FIN ** //
+
+
+//----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
+
+cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
+    <<" "<<endl
+    <<"¿En que lo podemos asistir?"<< endl 
+    <<"Recuerde usar el comando /help para ver el resto de comandos disponibles" <<endl
+    <<"y el comando /exit para salir."<<endl; 
+
+//mapeo de comandos para el switch
+map<string, int> comandos;
+comandos["/consultarProducto"] = 1; //futuramente caso de uso numero 4 //
+comandos["/Alta usuario"] = 2;
+
+// cargar comandos casos de uso//
+cout << "Comandos para los casos de uso xd " <<endl;
+string entradaConsola;
+getline(cin, entradaConsola);
+while (entradaConsola != "/exit"){
+    getline(cin, entradaConsola);
+    if(comandos.find(entradaConsola)!= comandos.end()){
+    int valorEntrada = comandos[entradaConsola];
+    switch (valorEntrada){
+        case 1:
+            controladorVentas.listarProductos();
+            cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
+            char respuesta;
+            cin>> respuesta;
+            if (respuesta == 'Y' || respuesta == 'y' ){
+                cout << "Indique el codigo del producto que desea consultar:" <<endl;
+                int codigo;
+                cin>> codigo;
+                controladorVentas.consultarProducto(codigo,"productoDePrueba2");
+            }
+            break;
+    
+        default:
+            cout << "Opción no válida." << endl;
+            break;
+    }
+    }
+    
+};
+
+
+
+
+
+    
+    
+    
+
+    
+    // ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  
 delete productoEnPromocion2;
 delete productoEnPromocion3;
