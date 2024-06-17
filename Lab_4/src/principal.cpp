@@ -121,7 +121,7 @@ cout<< "-----------------------------------------------------"<< endl;
 
 
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
-
+ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
     <<" "<<endl
     <<"¿En que lo podemos asistir?"<< endl 
@@ -164,6 +164,9 @@ while (entradaConsola != "/exit"){
                 getline(cin,NombreCliente);
                 string contra;
                 getline(cin,contra);
+                string ciudad;
+                getline(cin,ciudad);
+                bool a=ControladorUsuariosTrucho.altaCliente(NombreCliente, contra,DTFecha(1,1,1),DTDireccion("calle1", 123), ciudad);
                 //"un cliente1", "contra", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1"
             }}
         default:
