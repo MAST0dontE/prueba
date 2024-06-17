@@ -10,5 +10,9 @@ string DTNotificacion:: getnombrePromo(){
     return nombrePromo;
 }
 string DTNotificacion:: getDTInfoProducto(){
-return "aaaa";
+    string MegaSuperInfoProducto;
+    for(auto producto:productos){
+        MegaSuperInfoProducto +=producto.getDTInfoProducto() + "\n";
+    }
+    return "aaaa";
 }
