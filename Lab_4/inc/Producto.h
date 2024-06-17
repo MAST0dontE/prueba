@@ -21,7 +21,7 @@ class Producto{
         string descripcion;
         string vendedor;
         ECategoria categoria;
-        vector<Comentario*> comentariosProducto;
+        map<int, Comentario*> comentarios;
 
     public:
         Producto(int codigo, int stock, float precio, string nombre, string descripcion, string vendedor, ECategoria categoria);
@@ -37,7 +37,8 @@ class Producto{
         string getDescripcion();
         ECategoria getCategoria();
         string getNombreVendedor();
-        vector<Comentario*> getComentarios();
+        map<int, Comentario*> getComentarios();
+        void agregarComentario(Comentario* comentario);
 };
 
 #endif // PRODUCTO_H

@@ -73,6 +73,10 @@ string Producto::getNombreVendedor()
     return this->vendedor;
 }
 
-vector<Comentario*> Producto::getComentarios(){
-    return comentariosProducto;
+map<int, Comentario*> Producto::getComentarios(){
+    return comentarios;
+}
+
+void Producto::agregarComentario(Comentario* comentario){
+   comentarios[comentario->getId()] = comentario;
 }

@@ -53,7 +53,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void listarComentarios(int codigo);
         void seleccionarProducto(int codigo);
         void seleccionarComentario(int id);
-        void nuevoComentario(DTFecha fecha, string texto);
+        void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         // void setDTComentario(DTcomentario *comentario);
         void listaDeUsuarios_();
         // void nuevaSuscripcion(string nickname);

@@ -88,17 +88,21 @@ void ControladorUsuarios::listarComentarios(int codigo) {
         if (vendedor) {
             set<Producto*> productosVendedor = vendedor->getProductos();
             for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt) {
-                if ((*prodIt)->getCodigo() == codigo) {
-                    vector<Comentario*> comentariosProducto = (*prodIt)->getComentarios(); //tuve que usar un vector porque no tenia modo de comparar los dt sin implementarles algo
-                    for (vector<Comentario*>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt) {
-                        Comentario* comentario = *comIt;
-						cout << "ID: " << comentario->getId() \
-							 << ", Texto: " << comentario->getTexto() \
-							 << ", Fecha: " << comentario->getFecha().toString() << "\n";
+				if (prodIt != productosVendedor.end()){
+					if ((*prodIt)->getCodigo() == codigo){
+						map<int, Comentario *> comentarios = (*prodIt)->getComentarios();
+						for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt)
+						{
+							Comentario *comentario = comIt->second;
+							cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto()
+								 << ", Fecha: " << comentario->getFecha().toString() << "\n";
+						}
 					}
-                }
+				else {
+					cout << "Prodcuto no encontrado.\n" ;
+				}
+				}
             }
-            cout << "Producto no encontrado.\n";
         }
     } else {
         cout << "Vendedor no seleccionado o no encontrado.\n";
@@ -128,11 +132,52 @@ void ControladorUsuarios::seleccionarComentario(int id){
 	int idSeleccionado = id;	
 }
 
-void ControladorUsuarios::nuevoComentario(DTFecha fecha, string texto){
-
+void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeComentario){
+	map<string, Usuario *>::iterator it = usuarios.find(vendedorSeleccionado);
+    if (it == usuarios.end()) {
+        cout << "Vendedor no seleccionado o no encontrado.\n";
+        return;
+    }
+    Vendedor* vendedor = dynamic_cast<Vendedor*>(it->second);
+    if (!vendedor) {
+        cout << "Vendedor no encontrado o no es un vendedor válido.\n";
+        return;
+    }
+    set<Producto*> productosVendedor = vendedor->getProductos();
+    Producto* productoSeleccionado = nullptr;
+    for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt) {
+        if ((*prodIt)->getCodigo() == codigoSeleccionado) {
+            productoSeleccionado = *prodIt;
+            break;
+        }
+    }
+    if (!productoSeleccionado) {
+        cout << "Producto no encontrado.\n";
+        return;
+    }
+	int idComentario = creadorIdComentario++;
+	Comentario* nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
+    if (respuestaSeleccionada == 'Y' || respuestaSeleccionada == 'y') {
+        productoSeleccionado->agregarComentario(nuevoComentario);
+    } /*else if (respuestaSeleccionada == 'N' || respuestaSeleccionada == 'n') {
+        // Buscar el comentario con el ID seleccionado para responder
+        map<int, Comentario*>  = productoSeleccionado->getComentarios();
+        Comentario* comentarioParaResponder = nullptr;
+        for (map<int, Comentario*>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt) {
+            if ((*comIt)->getId() == idSeleccionado) {
+                comentarioParaResponder = *comIt;
+                break;
+            }
+        }
+        if (comentarioParaResponder) {
+            // Agregar la respuesta al comentario encontrado
+            comentarioParaResponder->agregarRespuesta(nuevoComentario);
+        } else {
+            cout << "Comentario con ID " << idSeleccionado << " no encontrado.\n";
+            delete nuevoComentario; // Limpiar el comentario creado si no se usó
+        }
+    }*/
 }
-
-
 
 /*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
 {
