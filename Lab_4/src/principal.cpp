@@ -179,7 +179,10 @@ while (entradaConsola != "/exit"){
                 getline(cin,ciudad);
                 bool a=ControladorUsuariosTrucho.altaCliente(NombreUsuario, contra,DTFecha(dia,mes,ano),DTDireccion("calle1", 123), ciudad);
                 if (a) {cout <<"Su cliente fue creado"<<endl;}
-            } else if(respuesta2 == "Vendedor" || respuesta2 == "vendedor" ){}
+            } else if(respuesta2 == "Vendedor" || respuesta2 == "vendedor" ){
+                string codigoRut;
+                cout << "Indique codigo Rut del vendedor"<<endl;
+            }
             }
         default:
             cout <<"Opción no válida." <<endl;
