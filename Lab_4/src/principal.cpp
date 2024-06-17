@@ -221,10 +221,11 @@ while (entradaConsola != "/exit"){
             set<DTNotificacion> Notificaciones=ControladorUsuariosTrucho.consultarNotificaciones(NombreCliente);
             string SuperMegaStringFaseDios;
             for (auto notif:Notificaciones){
-                SuperMegaStringFaseDios += notif.getnicknameVendedor();
-                SuperMegaStringFaseDios += notif.getnombrePromo();
-                SuperMegaStringFaseDios += notif.getDTInfoProducto();
+                SuperMegaStringFaseDios += notif.getnicknameVendedor() + "\n";
+                SuperMegaStringFaseDios += notif.getnombrePromo() + "\n";
+                SuperMegaStringFaseDios += notif.getDTInfoProducto() + "\n";
             }
+            cout <<SuperMegaStringFaseDios<<endl;
         }
         default:
             cout <<"Opción no válida." <<endl;
