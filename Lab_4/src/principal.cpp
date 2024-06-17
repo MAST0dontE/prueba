@@ -239,6 +239,7 @@ while (entradaConsola != "/exit"){
             string NombreProducto;
             cout<<"Escriba el nombre del producto al que desea ingresar un comentario"<<endl;
             getline(cin,NombreProducto);
+            cout<<"¿Desea dejar un comentario nuevo o uno existente?"<<endl;
         }
         default:
             cout <<"Opción no válida." <<endl;
