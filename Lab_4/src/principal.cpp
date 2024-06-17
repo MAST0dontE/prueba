@@ -236,8 +236,9 @@ while (entradaConsola != "/exit"){
             cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
             getline(cin,NombreUsuario);
             controladorVentas.listarProductos();
+            string NombreProducto;
             cout<<"Escriba el nombre del producto al que desea ingresar un comentario"<<endl;
-
+            getline(cin,NombreProducto);
         }
         default:
             cout <<"Opción no válida." <<endl;
