@@ -249,6 +249,7 @@ while (entradaConsola != "/exit"){
                 string comentario;
                 cout<<"Escriba el comentario de una"<<endl;
                 getline(cin,comentario);
+                //gftkj
 
             }
         }
