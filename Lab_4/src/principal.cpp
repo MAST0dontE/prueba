@@ -274,9 +274,9 @@ while (entradaConsola != "/exit"){
             for (it=ListaVend.begin(); it !=ListaVend.end(); it++){
                 cout<<*it<<endl;
             }
-            string NombreUsuario;
-            cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
-            getline(cin,NombreUsuario);
+            string NombreVendedor;
+            cout << "Indique Nombre del vendedor"<<endl;
+            getline(cin,NombreVendedor);
         }
         default:
             cout <<"Opción no válida." <<endl;
