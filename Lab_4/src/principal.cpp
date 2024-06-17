@@ -154,7 +154,8 @@ while (entradaConsola != "/exit"){
                 controladorVentas.consultarProducto(codigo,"productoDePrueba2");
             }
             break;
-    
+        case 2:
+            cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
         default:
             cout << "Opción no válida." << endl;
             break;
