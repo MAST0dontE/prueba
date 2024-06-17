@@ -269,7 +269,10 @@ while (entradaConsola != "/exit"){
             }
         }
         case 7:{
-            
+            set<string> ListaVend=ControladorUsuariosTrucho.listaDeVendedores();
+            string NombreUsuario;
+            cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
+            getline(cin,NombreUsuario);
         }
         default:
             cout <<"Opción no válida." <<endl;
