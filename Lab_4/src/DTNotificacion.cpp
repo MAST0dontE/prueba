@@ -14,5 +14,5 @@ string DTNotificacion:: getDTInfoProducto(){
     for(auto producto:productos){
         MegaSuperInfoProducto +=producto.getDTInfoProducto() + "\n";
     }
-    return "aaaa";
+    return MegaSuperInfoProducto ;
 }
