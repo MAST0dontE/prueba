@@ -20,7 +20,7 @@ using namespace std;
 class ControladorUsuarios : public iControladorUsuarios{
     private:
     int codigoSeleccionado = 0;
-    char respuestaSeleccionada; //deberia inicializarlo con algun valor? como es un triste char no supe hacerlo xd perdon p1 j3j3
+    bool respuestaSeleccionada; //deberia inicializarlo con algun valor? como es un triste char no supe hacerlo xd perdon p1 j3j3
     int idSeleccionado;
     int creadorIdComentario;
     string vendedorSeleccionado;
@@ -52,6 +52,8 @@ class ControladorUsuarios : public iControladorUsuarios{
         Usuario *seleccionarUsuario(string username);
         void listarComentarios(int codigo);
         void seleccionarProducto(int codigo);
+        void tipoComentario();
+        void deseaRespuestas();
         void seleccionarComentario(int id);
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         // void setDTComentario(DTcomentario *comentario);

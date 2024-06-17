@@ -26,7 +26,7 @@ OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/principal.o
 
 CPP = g++
-CPPFLAGS = -Wall -I$(INC_DIR)
+CPPFLAGS = -Wall -I$(INC_DIR) -Wno-unused-variable -Wno-unused-parameter
 
 $(TARGET) : $(OBJS)
 	mkdir -p $(BIN_DIR)

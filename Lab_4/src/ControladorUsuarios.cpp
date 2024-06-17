@@ -109,28 +109,42 @@ void ControladorUsuarios::listarComentarios(int codigo) {
     }
 }
 
+void ControladorUsuarios::seleccionarComentario(int id)
+{
+	int idSeleccionado = id;
+}
+
+void ControladorUsuarios::deseaRespuestas(){
+	cout << "¿Desea desplegar respuestas a un comentario? (Y/N): ";
+	char respuesta;
+	cin >> respuesta;
+	if (respuesta == 'Y' || respuesta == 'y'){
+		cout << "Ingrese ID de comentario a desplegar: ";
+		int comentario;
+		cin >> comentario;
+		idSeleccionado = comentario;
+	}
+}
+
 void ControladorUsuarios::seleccionarProducto(int codigo){
 	int codigoSeleccionado = codigo;
+}
+
+void ControladorUsuarios::tipoComentario(){
 	cout << "¿Desea realizar un comentario nuevo? (Y/N): ";
 	char respuesta;
 	cin >> respuesta;
 	if (respuesta == 'Y' || respuesta == 'y'){
-		respuestaSeleccionada = 'Y';
+		respuestaSeleccionada = true;
 	}
 	else if (respuesta == 'N' || respuesta == 'n'){
-		respuestaSeleccionada = 'N';
+		respuestaSeleccionada = false;
 	}
 	else{
 		cout << "Respuesta no válida." << endl;
 	}
 }
 
-
-
-
-void ControladorUsuarios::seleccionarComentario(int id){
-	int idSeleccionado = id;	
-}
 
 void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeComentario){
 	map<string, Usuario *>::iterator it = usuarios.find(vendedorSeleccionado);
@@ -157,9 +171,9 @@ void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeCome
     }
 	int idComentario = creadorIdComentario++;
 	Comentario* nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
-    if (respuestaSeleccionada == 'Y' || respuestaSeleccionada == 'y') {
+    if (respuestaSeleccionada == true) {
         productoSeleccionado->agregarComentario(nuevoComentario);
-    } /*else if (respuestaSeleccionada == 'N' || respuestaSeleccionada == 'n') {
+    } /*else if (respuestaSeleccionada == false) {
         // Buscar el comentario con el ID seleccionado para responder
         map<int, Comentario*>  = productoSeleccionado->getComentarios();
         Comentario* comentarioParaResponder = nullptr;
