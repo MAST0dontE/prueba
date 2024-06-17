@@ -51,6 +51,9 @@ void Cliente::eliminarSuscripcion()
 
 void Cliente::agregarComentario(Comentario *comentario)
 {
-    int idComentario = comentario->getId();
-    comentariosUsuario[idComentario] = comentario;
+    comentariosUsuario[comentario->getId()] = comentario;
+}
+
+map<int, Comentario*> Cliente::getComentarios(){
+    return comentariosUsuario;
 }

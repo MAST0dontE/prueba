@@ -54,14 +54,15 @@ class ControladorUsuarios : public iControladorUsuarios{
         void seleccionarUsuario_(string username);
         Usuario *seleccionarUsuario(string username);
         void listarProductos();
-        void listarComentarios(int codigo);
+        void listarComentariosProducto(int codigo);
         void seleccionarProducto(int codigo, string nickname);
         void tipoComentario();
         void deseaRespuestas();
         void seleccionarComentario(int id);
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
-        // void setDTComentario(DTcomentario *comentario);
-        void listaDeUsuarios_();
+        void listarComentariosUsuario(string nickname);
+            // void setDTComentario(DTcomentario *comentario);
+            void listaDeUsuarios_();
         void infoCliente(string nickname);
         void infoVendedor(string nickname);
         // void nuevaSuscripcion(string nickname);

@@ -155,8 +155,7 @@ void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeCome
 	}
 }
 
-void ControladorUsuarios::listarComentarios(int codigo) {
-    set<DTcomentario> comentarios;
+void ControladorUsuarios::listarComentariosProducto(int codigo) {
     map<string, Usuario*>::iterator it = usuarios.find(vendedorProductoSeleccionado);
     if (it != usuarios.end()) {
         Vendedor* vendedor = dynamic_cast<Vendedor*>(it->second);
@@ -201,6 +200,33 @@ void ControladorUsuarios::deseaRespuestas(){
 	}
 }
 
+void ControladorUsuarios::listarComentariosUsuario(string nickname)
+{
+	map<string, Usuario *>::iterator it = usuarios.find(vendedorProductoSeleccionado);
+	if (it != usuarios.end())
+	{
+		Vendedor *vendedor = dynamic_cast<Vendedor*>(it->second);
+		if (vendedor){
+			map<int, Comentario *> comentarios = vendedor->getComentarios();
+			for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
+				Comentario *comentario = comIt->second;
+				cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto() \
+					 << ", Fecha: " << comentario->getFecha().toString() << "\n";
+			}
+		}
+		else if (!vendedor){
+			Cliente *cliente = dynamic_cast<Cliente*>(it->second);
+			if (cliente){
+				map<int, Comentario *> comentarios = cliente->getComentarios();
+				for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
+					Comentario *comentario = comIt->second;
+					cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto() \
+						 << ", Fecha: " << comentario->getFecha().toString() << "\n";
+				}
+			}
+		}
+	}
+}
 
 Usuario *ControladorUsuarios::seleccionarUsuario(string username)
 {

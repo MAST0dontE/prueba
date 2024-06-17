@@ -23,6 +23,7 @@ class Vendedor : public Usuario{
         vector<Comentario> listarComentarios(string) override;
         set<Producto*> getProductos();
         void agregarComentario(Comentario*);
+        map<int, Comentario*> getComentarios();
 };
 
 #endif // VENDEDOR_H
