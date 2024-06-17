@@ -192,6 +192,10 @@ while (entradaConsola != "/exit"){
         case 3:{
             ControladorUsuariosTrucho.listaDeUsuarios_();
         }
+        case 4:{
+            cout <<"elija el nombre de un vendedor de los siguientes"<<endl;
+            ControladorUsuariosTrucho.listaDeVendedores();
+        }
         default:
             cout <<"Opción no válida." <<endl;
             break;
