@@ -182,6 +182,8 @@ while (entradaConsola != "/exit"){
             } else if(respuesta2 == "Vendedor" || respuesta2 == "vendedor" ){
                 string codigoRut;
                 cout << "Indique codigo Rut del vendedor"<<endl;
+                getline(cin,codigoRut);
+                if (ControladorUsuariosTrucho.altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado y es un hijo de remil puta"<<endl;}
             }
             }
         default:
