@@ -119,7 +119,61 @@ cout<< "** CASO DE USO: Realizar compra FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Realizar compra FIN ** //
 
-// ** SE LIBERA LA MEMORIA ** //
+
+//----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
+
+cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
+    <<" "<<endl
+    <<"¿En que lo podemos asistir?"<< endl 
+    <<"Recuerde usar el comando /help para ver el resto de comandos disponibles" <<endl
+    <<"y el comando /exit para salir."<<endl; 
+
+//mapeo de comandos para el switch
+map<string, int> comandos;
+comandos["/consultarProducto"] = 1; //futuramente caso de uso numero 4 //
+
+
+// cargar comandos casos de uso//
+cout << "Comandos para los casos de uso xd " <<endl;
+string entradaConsola;
+getline(cin, entradaConsola);
+while (entradaConsola != "/exit"){
+    getline(cin, entradaConsola);
+    if(comandos.find(entradaConsola)!= comandos.end()){
+    int valorEntrada = comandos[entradaConsola];
+    switch (valorEntrada){
+        case 1:
+            controladorVentas.listarProductos();
+            cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
+            char respuesta;
+            cin>> respuesta;
+            if (respuesta == 'Y' || respuesta == 'y' ){
+                cout << "Indique el codigo del producto que desea consultar:" <<endl;
+                int codigo;
+                cin>> codigo;
+                controladorVentas.consultarProducto(codigo,"productoDePrueba2");
+            }
+            
+        
+        break;
+    
+        default:
+        break;
+    }
+    }
+    
+};
+
+
+
+
+
+    
+    
+    
+
+    
+    // ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  
 delete productoEnPromocion2;
 delete productoEnPromocion3;
@@ -129,24 +183,5 @@ delete productoPrueba1;
 delete productoPrueba2;
 delete productoPrueba3;
 
-
-//**PRUEBA DE MENU INTERACTIVO**//
-
-cout << "Ingrese su nombre: " <<endl;
-string nombre;
-int edad;
-getline(cin, nombre);
-cout << "Ahroa ingrese su edad: " <<endl;
-cin >> edad;
-cout << "Hola " << edad << ", su edad es " << nombre << " :3"<< endl;
-
-
-    
-    
-    
-    
-
-    
-    
     return 0;
 }
