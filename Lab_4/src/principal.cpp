@@ -132,6 +132,7 @@ cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
 map<string, int> comandos;
 comandos["/consultarProducto"] = 1; //futuramente caso de uso numero 4 //
 comandos["/Alta usuario"] = 2;
+comandos["/Listado de usuarios"] = 3;
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
@@ -187,6 +188,9 @@ while (entradaConsola != "/exit"){
             } else { break;}
             break;
             }
+        case 3:{
+            
+        }
         default:
             cout <<"Opción no válida." <<endl;
             break;
