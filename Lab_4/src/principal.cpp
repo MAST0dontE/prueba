@@ -245,6 +245,9 @@ while (entradaConsola != "/exit"){
             string respuesta;
             cout<<"¿Desea dejar un comentario nuevo o uno existente?"<<endl;
             getline(cin,respuesta);
+            if(respuesta=="Dejar un comentario"){
+                cout<<"Escriba el comentario de una"<<endl;
+            }
         }
         default:
             cout <<"Opción no válida." <<endl;
