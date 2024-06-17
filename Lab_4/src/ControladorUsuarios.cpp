@@ -107,6 +107,8 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string username){
 
 void ControladorUsuarios::seleccionarComentario(DTcomentario *comentario)
 {
+	
+}
 void ControladorUsuarios::listarComentarios(int codigo) {
     set<DTcomentario> comentarios;
     map<string, Usuario*>::iterator it = usuarios.find(vendedorSeleccionado);
@@ -131,10 +133,10 @@ void ControladorUsuarios::listarComentarios(int codigo) {
 				}
             }
         }
-    } else {
-        cout << "Vendedor no seleccionado o no encontrado.\n";
-    }
-}
+		} else {
+			cout << "Vendedor no seleccionado o no encontrado.\n";
+		}
+	}
 
 void ControladorUsuarios::seleccionarComentario(int id)
 {
