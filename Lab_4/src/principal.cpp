@@ -249,8 +249,8 @@ while (entradaConsola != "/exit"){
                 string comentario;
                 cout<<"Escriba el comentario de una"<<endl;
                 getline(cin,comentario);
-                //gftkjxdhsdfhhsd
-
+                //La fecha la agrega el usuario?
+                ControladorUsuariosTrucho.nuevoComentario(comentario, DTFecha(1,1,1) );
             }
         }
         default:
