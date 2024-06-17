@@ -168,8 +168,16 @@ while (entradaConsola != "/exit"){
                 cout << "Indique ciudad del cliente"<<endl;
                 string ciudad;
                 getline(cin,ciudad);
-                
-                bool a=ControladorUsuariosTrucho.altaCliente(NombreCliente, contra,DTFecha(1,1,1),DTDireccion("calle1", 123), ciudad);
+                int ano;
+                cout << "Indique año de inserción al ámbito satánico del cliente"<<endl;
+                cin>>ano;
+                int mes;
+                cout << "Indique mes de inserción al ámbito satánico del cliente"<<endl;
+                cin>>mes;
+                int dia;
+                cout << "Indique dia de inserción al ámbito satánico del cliente"<<endl;
+                cin>>dia;
+                bool a=ControladorUsuariosTrucho.altaCliente(NombreCliente, contra,DTFecha(dia,mes,ano),DTDireccion("calle1", 123), ciudad);
                 if (a) {cout <<"Su cliente fue creado"<<endl;}
             }}
         default:
