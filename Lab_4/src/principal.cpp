@@ -159,13 +159,16 @@ while (entradaConsola != "/exit"){
             string respuesta2;
             getline(cin,respuesta2);
             if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
-                cout << "Indique Nombre del cliente"<<endl;
                 string NombreCliente;
+                cout << "Indique Nombre del cliente"<<endl;
                 getline(cin,NombreCliente);
                 string contra;
+                cout << "Indique contra del cliente"<<endl;
                 getline(cin,contra);
+                cout << "Indique ciudad del cliente"<<endl;
                 string ciudad;
                 getline(cin,ciudad);
+                
                 bool a=ControladorUsuariosTrucho.altaCliente(NombreCliente, contra,DTFecha(1,1,1),DTDireccion("calle1", 123), ciudad);
                 if (a) {cout <<"Su cliente fue creado"<<endl;}
             }}
