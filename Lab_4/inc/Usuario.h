@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <set>
+#include "DTNotificacion.h"
 #include "Comentario.h"
 using namespace std;
 class Usuario {
@@ -10,6 +12,8 @@ class Usuario {
         string contrasenia;
         string nickname;
         DTFecha fechaDeNacimiento;
+        set<Comentario *> comentariosUsuario;
+        set<DTNotificacion> notificaciones;
 
     public:
         Usuario(string contrasenia, string nickname, DTFecha fechaDeNacimiento);

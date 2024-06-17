@@ -48,8 +48,9 @@ class ControladorUsuarios : public iControladorUsuarios{
         set<string> suscribirseA(string nickname);
         set<DTNotificacion> consultarNotificaciones(string username); 
         void eliminarSuscripciones(string username);
-        Usuario *seleccionarVendedor(string username);
+        void seleccionarVendedor(string username);
         Usuario *seleccionarUsuario(string username);
+        void listarProductosVendedor();
         void listarComentarios(int codigo);
         void seleccionarProducto(int codigo);
         void tipoComentario();

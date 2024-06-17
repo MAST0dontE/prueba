@@ -10,8 +10,6 @@ class Cliente : public Usuario, public Observer{
     private:
         DTDireccion direccion;
         string ciudadResidencia;
-        set<DTNotificacion> notificaciones;
-
     public:
         // GETTERS
         DTDireccion getDireccion();
