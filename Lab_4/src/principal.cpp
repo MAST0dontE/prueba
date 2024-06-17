@@ -184,7 +184,7 @@ while (entradaConsola != "/exit"){
             cout << "Indique dia de insercion al ambito satanico del cliente"<<endl;
             cin>>dia;
             cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            //cin.ignore(numeric_limits<streamsize>::max(), '\n');
             string respuesta2;
             getline(cin,respuesta2);
             if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
