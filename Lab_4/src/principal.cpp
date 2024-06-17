@@ -206,8 +206,12 @@ while (entradaConsola != "/exit"){
             cin>>stock;
             string Descripcion;
             cout<<"Indique la descripcion del producto"<<endl;
-            getline(cin,Descripcion);            
-            //ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria)
+            getline(cin,Descripcion); 
+            cout<<"indique a cual categoria pertenece su producto: 1-ropa, 2-electrodomesticos, 3-otros"<<endl;   
+            int categoria;
+            cin>>categoria;  
+            ECategoria categoriaEnum = static_cast<ECategoria>(categoria);      
+            controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum);
         }
         default:
             cout <<"Opción no válida." <<endl;
