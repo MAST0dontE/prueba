@@ -214,6 +214,9 @@ while (entradaConsola != "/exit"){
             ECategoria categoriaEnum = static_cast<ECategoria>(categoria);      
             controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum);
         }
+        case 5:{
+            
+        }
         default:
             cout <<"Opción no válida." <<endl;
             break;
