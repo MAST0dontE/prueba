@@ -261,7 +261,10 @@ while (entradaConsola != "/exit"){
                 //La fecha la agrega el usuario?
                 ControladorUsuariosTrucho.nuevoComentario(comentario, DTFecha(1,1,1) );
                 cout<<"el comentario fue agregado"<<endl;
-            }else if (respuesta=="Responder un comentario"){}
+            }else if (respuesta=="Responder un comentario"){
+                int id;
+                cin>>id;
+            }
         }
         default:
             cout <<"Opción no válida." <<endl;
