@@ -169,13 +169,13 @@ while (entradaConsola != "/exit"){
                 string ciudad;
                 getline(cin,ciudad);
                 int ano;
-                cout << "Indique año de inserción al ámbito satánico del cliente"<<endl;
+                cout << "Indique anio de insercion al ambito satanico del cliente"<<endl;
                 cin>>ano;
                 int mes;
-                cout << "Indique mes de inserción al ámbito satánico del cliente"<<endl;
+                cout << "Indique mes de insercion al ambito satanico del cliente"<<endl;
                 cin>>mes;
                 int dia;
-                cout << "Indique dia de inserción al ámbito satánico del cliente"<<endl;
+                cout << "Indique dia de insercion al ambito satanico del cliente"<<endl;
                 cin>>dia;
                 bool a=ControladorUsuariosTrucho.altaCliente(NombreCliente, contra,DTFecha(dia,mes,ano),DTDireccion("calle1", 123), ciudad);
                 if (a) {cout <<"Su cliente fue creado"<<endl;}
