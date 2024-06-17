@@ -121,7 +121,7 @@ cout<< "-----------------------------------------------------"<< endl;
 
 
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
-
+ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
     <<" "<<endl
     <<"¿En que lo podemos asistir?"<< endl 
@@ -132,6 +132,9 @@ cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
 map<string, int> comandos;
 comandos["/consultarProducto"] = 1; //futuramente caso de uso numero 4 //
 comandos["/Alta usuario"] = 2;
+comandos["/Listado de usuarios"] = 3;
+comandos["/Alta producto"] = 4;
+comandos["/Consulta notificaciones"] = 4;
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
@@ -142,27 +145,89 @@ while (entradaConsola != "/exit"){
     if(comandos.find(entradaConsola)!= comandos.end()){
     int valorEntrada = comandos[entradaConsola];
     switch (valorEntrada){
-        case 1:
+        case 1:{
             controladorVentas.listarProductos();
             cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
-            char respuesta;
-            cin>> respuesta;
-            if (respuesta == 'Y' || respuesta == 'y' ){
+            char respuesta1;
+            cin>> respuesta1;
+            if (respuesta1 == 'Y' || respuesta1 == 'y' ){
                 cout << "Indique el codigo del producto que desea consultar:" <<endl;
                 int codigo;
                 cin>> codigo;
                 controladorVentas.consultarProducto(codigo,"productoDePrueba2");
-            }
+            }}
             break;
-    
+        case 2:{
+            string NombreUsuario;
+            cout << "Indique Nombre del Usuario nuevo"<<endl;
+            getline(cin,NombreUsuario);
+            string contra;
+            cout << "Indique contra del Usuario nuevo"<<endl;
+            getline(cin,contra);
+            int ano;
+            cout << "Indique anio de insercion al ambito satanico del cliente"<<endl;
+            cin>>ano;
+            int mes;
+            cout << "Indique mes de insercion al ambito satanico del cliente"<<endl;
+            cin>>mes;
+            int dia;
+            cout << "Indique dia de insercion al ambito satanico del cliente"<<endl;
+            cin>>dia;
+            cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
+            string respuesta2;
+            getline(cin,respuesta2);
+            if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
+                cout << "Indique ciudad del cliente"<<endl;
+                string ciudad;
+                getline(cin,ciudad);
+                bool a=ControladorUsuariosTrucho.altaCliente(NombreUsuario, contra,DTFecha(dia,mes,ano),DTDireccion("calle1", 123), ciudad);
+                if (a) {cout <<"Su cliente fue creado"<<endl;}
+            } else if(respuesta2 == "Vendedor" || respuesta2 == "vendedor" ){
+                string codigoRut;
+                cout << "Indique codigo Rut del vendedor"<<endl;
+                getline(cin,codigoRut);
+                if (ControladorUsuariosTrucho.altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado y es un hijo de remil puta"<<endl;}
+            } else { break;}
+            break;
+            }
+        case 3:{
+            ControladorUsuariosTrucho.listaDeUsuarios_();
+        }
+        case 4:{
+            cout <<"elija el nombre de un vendedor de los siguientes"<<endl;
+            ControladorUsuariosTrucho.listaDeVendedores();
+            string NombreVendedor;
+            getline(cin,NombreVendedor);
+            string NombreProducto;
+            cout<<"Indique el nombre del producto"<<endl;
+            getline(cin,NombreProducto);
+            float precio; 
+            cin>>precio;
+            int stock;
+            cin>>stock;
+            string Descripcion;
+            cout<<"Indique la descripcion del producto"<<endl;
+            getline(cin,Descripcion); 
+            cout<<"indique a cual categoria pertenece su producto: 1-ropa, 2-electrodomesticos, 3-otros"<<endl;   
+            int categoria;
+            cin>>categoria;  
+            ECategoria categoriaEnum = static_cast<ECategoria>(categoria);      
+            controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum);
+        }
+        case 5:{
+            cout<<"Indique el nombre del cliente"<<endl;
+            string NombreCliente;
+            getline(cin,NombreCliente);
+            set<DTNotificacion> Notificaciones=ControladorUsuariosTrucho.consultarNotificaciones(NombreCliente);
+
+        }
         default:
-            cout << "Opción no válida." << endl;
+            cout <<"Opción no válida." <<endl;
             break;
     }
     }
     
 };
-
 
 
 

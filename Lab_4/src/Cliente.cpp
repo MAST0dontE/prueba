@@ -31,7 +31,7 @@ set<DTNotificacion> Cliente::getNotificaciones()
 
 void Cliente::borrarNotificaciones()
 {
-    // Implementación
+notificaciones.clear();
 }
 
 vector<Comentario> Cliente::listarComentarios(string)
