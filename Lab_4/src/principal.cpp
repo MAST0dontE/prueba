@@ -162,6 +162,8 @@ while (entradaConsola != "/exit"){
                 cout << "Indique Nombre del cliente"<<endl;
                 string NombreCliente;
                 getline(cin,NombreCliente);
+                string contra;
+                getline(cin,contra);
                 //"un cliente1", "contra", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1"
             }}
         default:
