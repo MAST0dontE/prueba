@@ -160,8 +160,8 @@ while (entradaConsola != "/exit"){
             getline(cin,respuesta2);
             if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
                 cout << "Indique Nombre del cliente"<<endl;
-                char NombreCliente;
-                cin>> NombreCliente;
+                string NombreCliente;
+                getline(cin,NombreCliente);
                 //"un cliente1", "contra", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1"
             }}
         default:
