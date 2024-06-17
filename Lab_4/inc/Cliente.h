@@ -18,18 +18,15 @@ class Cliente : public Usuario, public Observer{
         DTDireccion getDireccion();
         string getCiudadResidencia();
         const set<Compra*>& getComprasRealizadas() const;
-
-        
         Cliente(string contrasenia, string username, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
         void agregarSuscripcion() override;
         void eliminarSuscripcion() override;
         void notificar(DTNotificacion notificacion) override;
-        bool esVendedor() const override{
-            return false;
-        } 
+        bool esVendedor() const override{return false;} 
         set<DTNotificacion> getNotificaciones();
         void borrarNotificaciones();
         vector<Comentario> listarComentarios(string) override;
+        void agregarComentario (Comentario*);
 };
 
 #endif // CLIENTE_H

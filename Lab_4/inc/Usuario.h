@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <set>
+#include <map>
 #include "DTNotificacion.h"
 #include "Comentario.h"
 using namespace std;
@@ -12,7 +13,7 @@ class Usuario {
         string contrasenia;
         string nickname;
         DTFecha fechaDeNacimiento;
-        set<Comentario *> comentariosUsuario;
+        map<int, Comentario*> comentariosUsuario;
         set<DTNotificacion> notificaciones;
 
     public:

@@ -53,4 +53,8 @@ vector<Comentario> Vendedor::listarComentarios(string)
     return vector<Comentario>();
 }
 
-
+void Vendedor::agregarComentario(Comentario *comentario)
+{
+    int idComentario = comentario->getId();
+    comentariosUsuario[idComentario] = comentario;
+}

@@ -40,84 +40,124 @@ bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha
 	controladorVentas.setVendedor(nuevoVendedor);
     return true; 
 }
-set<string> ControladorUsuarios::listaDeVendedores() {
+
+set<string> ControladorUsuarios::listaDeVendedores()
+{
 	set<string> listaVendedores;
-	for (map<string, Vendedor*>::iterator it = vendedores.begin(); it != vendedores.end(); ++it) {
+	for (map<string, Vendedor*>::iterator it = vendedores.begin(); it != vendedores.end(); ++it)
+	{
 		listaVendedores.insert(it->first);
 	}
 	return listaVendedores;
 }
 
-void ControladorUsuarios::seleccionarVendedor(string username){
-	string vendedorSeleccionado = username;
+set<string> ControladorUsuarios::listaDeUsuarios() {
+	set<string> listaUsuarios;
+	for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
+		listaUsuarios.insert(it->first);
+	}
+	return listaUsuarios;
 }
 
-void ControladorUsuarios::listarProductosVendedor(){
-	map<string, Usuario *>::iterator it = usuarios.find(vendedorSeleccionado);
-	if (it != usuarios.end())
-	{
-		Usuario *usuario = it->second;
-		if (usuario->esVendedor()){
-			Vendedor *vendedor = dynamic_cast<Vendedor *>(usuario);
+void ControladorUsuarios::seleccionarUsuario_(string username){
+	string usuarioSeleccionado = username;
+}
+
+void ControladorUsuarios::listarProductos(){
+	for (map<string, Vendedor*>::iterator it = vendedores.begin(); it != vendedores.end(); ++it){
+		if (it != vendedores.end()){
+			Vendedor *vendedor = it->second;
 			vector<DTInfoProducto> productos = vendedor->obtenerProductos();
-			cout << "Productos del vendedor " << vendedorSeleccionado << ":\n";
+			cout << "Productos del vendedor " << it->first << ":\n";
 			for (vector<DTInfoProducto>::iterator prodIt = productos.begin(); prodIt != productos.end(); ++prodIt){
 				cout << prodIt->toString() << "\n";
 			}
 		}
-		else{
-			cout << "El usuario " << vendedorSeleccionado << " es un cliente.\n";
-		}
+	}
+}
+
+void ControladorUsuarios::seleccionarProducto(int codigo, string nickname){
+	int codigoSeleccionado = codigo;
+	string vendedorProductoSeleccionado = nickname;
+}
+
+void ControladorUsuarios::tipoComentario(){
+	cout << "¿Desea realizar un comentario nuevo? (Y/N): ";
+	char respuesta;
+	cin >> respuesta;
+	if (respuesta == 'Y' || respuesta == 'y'){
+		respuestaSeleccionada = true;
+	}
+	else if (respuesta == 'N' || respuesta == 'n'){
+		respuestaSeleccionada = false;
 	}
 	else{
-		cout << "Usuario " << vendedorSeleccionado << " no encontrado.\n";
+		cout << "Respuesta no válida." << endl;
+		void tipoComentario();
 	}
 }
 
-Usuario *ControladorUsuarios::seleccionarUsuario(string username){
-    if (clientes.find(username) != clientes.end()) {
-        return clientes.find(username)->second;
+void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeComentario){
+	map<string, Usuario*>::iterator it = usuarios.find(vendedorProductoSeleccionado);
+	if (it == usuarios.end()) {
+        cout << "Vendedor no seleccionado o no encontrado.\n";
+        return;
     }
-    if (vendedores.find(username) != vendedores.end()) {
-        return vendedores.find(username)->second;
+    Vendedor* vendedor = dynamic_cast<Vendedor*>(it->second);
+    if (!vendedor) {
+        cout << "Vendedor no encontrado o no es un vendedor válido.\n";
+        return;
     }
-	//en caso de que no exista
-    return nullptr;  
-}
-
-/*set<DTComentario> ControladorUsuarios::seleccionarProducto(string nickname, int codigo)
-{
-	set<DTComentario> comentarios;
-	map<string, Usuario*>::iterator it = usuarios.find(nickname);
-
-	if (it != usuarios.end()){
-		Vendedor *vendedor = dynamic_cast<Vendedor*>(it->second);{
-			vector<Producto> productos = vendedor->getProductos();
-			for (vector<Producto>::iterator prodIt = productos.begin(); prodIt != productos.end(); ++prodIt){
-				if (prodIt->getCodigo() == codigo){
-					vector<Comentario> comentariosProducto = prodIt->getComentarios();
-					for (vector<Comentario>::iterator comIt = comentariosProducto.begin(); comIt != comentariosProducto.end(); ++comIt)
-					{
-						DTComentario dtComentario(comIt->getTexto(), comIt->getFecha());
-						comentarios.insert(dtComentario);
-					}
-					return comentarios;
-				}
-			}
+    set<Producto*> productosVendedor = vendedor->getProductos();
+    Producto* productoSeleccionado = nullptr;
+    for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt) {
+        if ((*prodIt)->getCodigo() == codigoSeleccionado) {
+            productoSeleccionado = *prodIt;
+            break;
+        }
+    }
+    if (!productoSeleccionado) {
+        cout << "Producto no encontrado.\n";
+        return;
+    }
+	int idComentario = creadorIdComentario++;
+	Comentario* nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
+    if (respuestaSeleccionada == true) {
+        productoSeleccionado->agregarComentario(nuevoComentario);
+    }  else if (respuestaSeleccionada == false) {
+        map<int, Comentario*> comentariosProducto = productoSeleccionado->getComentarios();
+        Comentario* comentarioParaResponder = nullptr;
+        map<int, Comentario*>::iterator comIt = comentariosProducto.find(idSeleccionado);
+        if (comIt != comentariosProducto.end()) {
+            comentarioParaResponder = comIt->second;
+        }
+        if (comentarioParaResponder) {
+            comentarioParaResponder->agregarRespuesta(nuevoComentario);
+        } else {
+            cout << "Comentario con ID " << idSeleccionado << " no encontrado.\n";
+            delete nuevoComentario;
+		}
+    } else {
+        cout << "Opción de respuesta no válida.\n";
+        delete nuevoComentario; 
+    }
+	map<string, Usuario *>::iterator itU = usuarios.find(usuarioSeleccionado);
+	if (itU != usuarios.end()){
+		Usuario *usuarioActual = itU->second;
+		if (usuarioActual->esVendedor()){
+		Vendedor *vendedorActual = dynamic_cast<Vendedor*>(itU->second);
+		vendedorActual->agregarComentario(nuevoComentario);
+		}
+		else {
+			Cliente *clienteActual = dynamic_cast<Cliente*>(itU->second);
+			clienteActual->agregarComentario(nuevoComentario);
 		}
 	}
-
-	cout << "Codigo o vendedor incorrectos.\n";
-	return comentarios;
-}*/
-
-void ControladorUsuarios::seleccionarComentario(DTcomentario *comentario)
-{
-	
 }
+
 void ControladorUsuarios::listarComentarios(int codigo) {
     set<DTcomentario> comentarios;
-    map<string, Usuario*>::iterator it = usuarios.find(vendedorSeleccionado);
+    map<string, Usuario*>::iterator it = usuarios.find(vendedorProductoSeleccionado);
     if (it != usuarios.end()) {
         Vendedor* vendedor = dynamic_cast<Vendedor*>(it->second);
         if (vendedor) {
@@ -161,70 +201,19 @@ void ControladorUsuarios::deseaRespuestas(){
 	}
 }
 
-void ControladorUsuarios::seleccionarProducto(int codigo){
-	int codigoSeleccionado = codigo;
-}
 
-void ControladorUsuarios::tipoComentario(){
-	cout << "¿Desea realizar un comentario nuevo? (Y/N): ";
-	char respuesta;
-	cin >> respuesta;
-	if (respuesta == 'Y' || respuesta == 'y'){
-		respuestaSeleccionada = true;
+Usuario *ControladorUsuarios::seleccionarUsuario(string username)
+{
+	if (clientes.find(username) != clientes.end())
+	{
+		return clientes.find(username)->second;
 	}
-	else if (respuesta == 'N' || respuesta == 'n'){
-		respuestaSeleccionada = false;
+	if (vendedores.find(username) != vendedores.end())
+	{
+		return vendedores.find(username)->second;
 	}
-	else{
-		cout << "Respuesta no válida." << endl;
-	}
-}
-
-
-void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeComentario){
-	map<string, Usuario *>::iterator it = usuarios.find(vendedorSeleccionado);
-    if (it == usuarios.end()) {
-        cout << "Vendedor no seleccionado o no encontrado.\n";
-        return;
-    }
-    Vendedor* vendedor = dynamic_cast<Vendedor*>(it->second);
-    if (!vendedor) {
-        cout << "Vendedor no encontrado o no es un vendedor válido.\n";
-        return;
-    }
-    set<Producto*> productosVendedor = vendedor->getProductos();
-    Producto* productoSeleccionado = nullptr;
-    for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt) {
-        if ((*prodIt)->getCodigo() == codigoSeleccionado) {
-            productoSeleccionado = *prodIt;
-            break;
-        }
-    }
-    if (!productoSeleccionado) {
-        cout << "Producto no encontrado.\n";
-        return;
-    }
-	int idComentario = creadorIdComentario++;
-	Comentario* nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
-    if (respuestaSeleccionada == true) {
-        productoSeleccionado->agregarComentario(nuevoComentario);
-    }  else if (respuestaSeleccionada == false) {
-        map<int, Comentario*> comentariosProducto = productoSeleccionado->getComentarios();
-        Comentario* comentarioParaResponder = nullptr;
-        map<int, Comentario*>::iterator comIt = comentariosProducto.find(idSeleccionado);
-        if (comIt != comentariosProducto.end()) {
-            comentarioParaResponder = comIt->second;
-        }
-        if (comentarioParaResponder) {
-            comentarioParaResponder->agregarRespuesta(nuevoComentario);
-        } else {
-            cout << "Comentario con ID " << idSeleccionado << " no encontrado.\n";
-            delete nuevoComentario;
-		}
-    } else {
-        cout << "Opción de respuesta no válida.\n";
-        delete nuevoComentario; 
-    }
+	// en caso de que no exista
+	return nullptr;
 }
 
 /*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)

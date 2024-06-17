@@ -25,14 +25,14 @@ class ControladorUsuarios : public iControladorUsuarios{
     bool respuestaSeleccionada; //deberia inicializarlo con algun valor? como es un triste char no supe hacerlo xd perdon p1 j3j3
     int idSeleccionado;
     int creadorIdComentario;
-    string vendedorSeleccionado;
-    map<string, Usuario*> usuarios;
+    string usuarioSeleccionado;
+    string vendedorProductoSeleccionado;
+    map<string, Usuario *> usuarios;
     //map<string, Usuario*>::iterator it0;
     map<string, Cliente*> clientes;
     map<string, Cliente*>::iterator it1;
     map<string, Vendedor*> vendedores;
     map<string, Vendedor*>::iterator it2;
-    //vector<Usuario*> Usuarios;
     //vector<Vendedor*> Vendedores;
     //vector<Cliente*> Clientes;
     
@@ -43,6 +43,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void setComentario(Comentario *comentario);
         bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
         bool altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT);
+        set<string> listaDeUsuarios();
         set<string> listaDeVendedores();
         set<DTcomentario> listarComentarios(string nickname);
         void seleccionarComentario(DTcomentario *comentario) ;
@@ -50,11 +51,11 @@ class ControladorUsuarios : public iControladorUsuarios{
         set<string> suscribirseA(string nickname);
         set<DTNotificacion> consultarNotificaciones(string username); 
         void eliminarSuscripciones(string username);
-        void seleccionarVendedor(string username);
+        void seleccionarUsuario_(string username);
         Usuario *seleccionarUsuario(string username);
-        void listarProductosVendedor();
+        void listarProductos();
         void listarComentarios(int codigo);
-        void seleccionarProducto(int codigo);
+        void seleccionarProducto(int codigo, string nickname);
         void tipoComentario();
         void deseaRespuestas();
         void seleccionarComentario(int id);
