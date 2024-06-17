@@ -264,6 +264,7 @@ while (entradaConsola != "/exit"){
             }else if (respuesta=="Responder un comentario"){
                 int id;
                 cin>>id;
+                //ControladorUsuariosTrucho.seleccionarComentario(int id);
             }
         }
         default:
