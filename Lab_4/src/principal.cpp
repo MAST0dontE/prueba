@@ -129,6 +129,18 @@ cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Crear Promocion FIN ** //
 
+// ** CASO DE USO: Dejar Comentario INICIO ** //
+
+cout << "     ** CASO DE USO: Dejar Comentario INICIO **" << endl;
+cout << "````````````````````````````````````````````````````" << endl;
+
+
+
+cout << "````````````````````````````````````````````````````" << endl;
+cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
+
+// ** CASO DE USO: Dejar Comentario FIN ** //
+
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
@@ -241,31 +253,39 @@ while (entradaConsola != "/exit"){
             cout <<SuperMegaStringFaseDios<<endl;
         }
         case 6:{
-            ControladorUsuariosTrucho.listaDeUsuarios_();
+            ControladorUsuariosTrucho.listaDeUsuarios();
             string NombreUsuario;
             cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
             getline(cin,NombreUsuario);
+            ControladorUsuariosTrucho.seleccionarUsuario_(NombreUsuario);
             controladorVentas.listarProductos();
-            string NombreProducto;
-            cout<<"Escriba el nombre del producto al que desea ingresar un comentario"<<endl;
-            getline(cin,NombreProducto);
-            string codigo;
+            int CodigoProducto;
             cout<<"Escriba el codigo del producto al que desea ingresar un comentario"<<endl;
-            getline(cin,codigo);
+            cin >> CodigoProducto;
+            string NombreVendedor;
+            cout<<"Escriba el nombre del vendedor del producto"<<endl;
+            getline(cin,NombreVendedor);
+            ControladorUsuariosTrucho.seleccionarProducto(CodigoProducto, NombreVendedor);
             string respuesta;
-            cout<<"¿Desea dejar un comentario nuevo o uno existente?"<<endl;
+            cout<<"¿Desea dejar un comentario nuevo o responder uno ya existente?"<<endl;
             getline(cin,respuesta);
-            if(respuesta=="Dejar un comentario"){
+            if(respuesta == "Dejar un comentario"){
                 string comentario;
-                cout<<"Escriba el comentario de una"<<endl;
+                cout<<"Escriba el comentario"<<endl;
                 getline(cin,comentario);
-                //La fecha la agrega el usuario?
                 ControladorUsuariosTrucho.nuevoComentario(comentario, DTFecha(1,1,1) );
                 cout<<"el comentario fue agregado"<<endl;
-            }else if (respuesta=="Responder un comentario"){
+            }else if (respuesta == "Responder uno ya existente"){
+                ControladorUsuariosTrucho.listarComentarios(CodigoProducto);
                 int id;
-                cin>>id;
-                //ControladorUsuariosTrucho.seleccionarComentario(int id);
+                cout << "Escriba el id del comentario al que desea responder" <<endl;
+                cin >> id;
+                ControladorUsuariosTrucho.seleccionarComentario(id);
+                string comentario;
+                cout << "Escriba el comentario" << endl;
+                getline(cin, comentario);
+                ControladorUsuariosTrucho.nuevaRespuesta(comentario, DTFecha(1,1,1));
+                cout << "el comentario fue agregado" << endl;
             }
         }
         case 7:{
