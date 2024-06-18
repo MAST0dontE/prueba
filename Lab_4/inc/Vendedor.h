@@ -4,12 +4,14 @@
 #include "Usuario.h"
 #include "Producto.h"
 #include "DTFecha.h"
+#include "iSuscriptor.h"
 #include <string>
 using namespace std;
 class Vendedor : public Usuario{
     private:
         string codigoRUT;
         set<Producto*> productosVendedor;
+        set<iSuscriptor*> suscriptores;
     public:
         //GETTERS
         string getCodigoRUT();
@@ -25,6 +27,8 @@ class Vendedor : public Usuario{
         void agregarComentario(Comentario*);
         map<int, Comentario*> getComentarios();
         void listarProductosVendedor();
+        void agregarSuscriptor(iSuscriptor* suscriptor);
+        void removerSuscriptor(iSuscriptor* suscriptor);
 };
 
 #endif // VENDEDOR_H

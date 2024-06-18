@@ -2,12 +2,12 @@
 #define CLIENTE_H
 
 #include "Usuario.h"
-#include "Observer.h"
+#include "iSuscriptor.h"
 #include "DTDireccion.h"
 #include "Compra.h"
 using namespace std;
 
-class Cliente : public Usuario, public Observer{
+class Cliente : public Usuario, public iSuscriptor{
     private:
         DTDireccion direccion;
         string ciudadResidencia;
@@ -19,9 +19,9 @@ class Cliente : public Usuario, public Observer{
         string getCiudadResidencia();
         const set<Compra*>& getComprasRealizadas() const;
         Cliente(string contrasenia, string username, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
-        void agregarSuscripcion() override;
-        void eliminarSuscripcion() override;
-        void notificar(DTNotificacion notificacion) override;
+        void agregarSuscripcion() override ;
+        void eliminarSuscripcion() ;
+        void notificar(DTNotificacion notificacion) ;
         bool esVendedor() const override{return false;} 
         set<DTNotificacion> getNotificaciones();
         void borrarNotificaciones();

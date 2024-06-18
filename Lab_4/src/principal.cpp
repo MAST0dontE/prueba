@@ -12,6 +12,7 @@
 int main() {
 
 ControladorVentas controladorVentas;
+ControladorUsuarios controladorUsuarios;
 Vendedor* vendedor1 = new Vendedor("y si me mato en lo del pelado", "pepito", DTFecha(1,1,1), "123456789");    
 Vendedor* vendedor2 = new Vendedor("y si me mato en lo del pelado2", "papito", DTFecha(1,1,1), "987654321");
 Vendedor* vendedor3 = new Vendedor("y si me mato en lo del pelado3", "putito", DTFecha(1,1,1), "32134834");
@@ -114,9 +115,9 @@ cout<< "-----------------------------------------------------"<< endl;
 cout<< "** CASO DE USO: Alta Producto INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
-controladorVentas.cargarNuevoProducto("pepito","productoPepito1", 1, 1, "el producto de pepito uno",ECategoria::otros, false);
-controladorVentas.cargarNuevoProducto("pepito","productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa, false);
-controladorVentas.cargarNuevoProducto("pepito","productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos, false);
+controladorVentas.cargarNuevoProducto("pepito",11, "productoPepito1", 1, 1, "el producto de pepito uno",ECategoria::otros, false);
+controladorVentas.cargarNuevoProducto("pepito",12, "productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa, false);
+controladorVentas.cargarNuevoProducto("pepito",13, "productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos, false);
 
 cout<< "** CASO DE USO: Alta Producto FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
@@ -127,8 +128,12 @@ cout<< "-----------------------------------------------------"<< endl;
 cout<< "** CASO DE USO: Crear Promocion INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
-controladorVentas.altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3));
+controladorVentas.altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3), 0.5);
 controladorVentas.seleccionarVendedor("pepito");
+controladorVentas.agregarProductoPromo(11,21);
+controladorVentas.agregarProductoPromo(12,22);
+controladorVentas.ingresarPromocion();
+controladorVentas.consultarPromocion("promocionZZZ");
 
 cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
@@ -146,6 +151,19 @@ cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
 
 // ** CASO DE USO: Dejar Comentario FIN ** //
 
+// ** CASO DE USO: Suscribirse INICIO ** //
+
+cout << "     ** CASO DE USO: Suscribirse INICIO **" << endl;
+cout << "````````````````````````````````````````````````````" << endl;
+
+controladorUsuarios.imprimirListaDeVendedores();
+
+cout << "````````````````````````````````````````````````````" << endl;
+cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
+
+// ** CASO DE USO: Suscribirse FIN ** //
+
+/*
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
@@ -356,7 +374,7 @@ while (entradaConsola != "/exit"){
 };
 
 
-
+*/
     // ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  
 delete productoEnPromocion2;
