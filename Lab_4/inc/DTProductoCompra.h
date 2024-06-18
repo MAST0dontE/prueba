@@ -6,8 +6,9 @@ using namespace std;
 
 class DTProductoCompra{
 public:
-    int codigo, cant;
+    int codigo;
     float precio;
+    int cant;
     DTProductoCompra( int codigo, float precio, int cant);
     string toString();
 };
