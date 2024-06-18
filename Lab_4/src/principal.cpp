@@ -135,6 +135,11 @@ controladorVentas.agregarProductoPromo(12,22);
 controladorVentas.ingresarPromocion();
 controladorVentas.consultarPromocion("promocionZZZ");
 
+controladorVentas.altaPromocion("promocionVACIA", "sdfhjahsdga", DTFecha(1,2,3), 0.5);
+controladorVentas.seleccionarVendedor("solitarioGamer");
+controladorVentas.ingresarPromocion();
+controladorVentas.consultarPromocion("promocionVACIA");
+
 cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Crear Promocion FIN ** //
@@ -215,13 +220,13 @@ while (entradaConsola != "/exit"){
             cout << "Indique contra del Usuario nuevo"<<endl;
             getline(cin,contra);
             int ano;
-            cout << "Indique anio de insercion al ambito satanico del cliente"<<endl;
+            cout << "Indique anio de insercion al ambito laboral del cliente"<<endl;
             cin>>ano;
             int mes;
-            cout << "Indique mes de insercion al ambito satanico del cliente"<<endl;
+            cout << "Indique mes de insercion al ambito laboral del cliente"<<endl;
             cin>>mes;
             int dia;
-            cout << "Indique dia de insercion al ambito satanico del cliente"<<endl;
+            cout << "Indique dia de insercion al ambito laboral del cliente"<<endl;
             cin>>dia;
             cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
             //cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -240,7 +245,7 @@ while (entradaConsola != "/exit"){
                 string codigoRut;
                 cout << "Indique codigo Rut del vendedor"<<endl;
                 getline(cin,codigoRut);
-                if (ControladorUsuariosTrucho.altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado y es un hijo de remil puta"<<endl;}
+                if (ControladorUsuariosTrucho.altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado"<<endl;}
             } else { 
                 break;}
             break;
