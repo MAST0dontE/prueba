@@ -88,7 +88,7 @@ void ControladorVentas::consultarProducto(int codigo, string nombre){
 }
 
 
-vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
+vector<DTInfoPromocion> ControladorVentas::crearSetDTInfoPromocion(){
     set<Promocion*>::iterator it;
     vector<DTInfoPromocion> res;
 
@@ -104,7 +104,7 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
             auto vendedorIt = vendedores.find(nombreVendedor);
             if(vendedorIt != vendedores.end()){
                 string vendedorInfo = vendedorIt->second->toString();
-                 DTInfoPromocion dtip(promocion->getNombre(), promocion->getDescripcion(), promocion->getFechaDeVencimiento(), vendedorInfo, promocion->getProductos());
+                DTInfoPromocion dtip(promocion->getNombre(), promocion->getDescripcion(), promocion->getFechaDeVencimiento(), vendedorInfo, promocion->getProductos());
                 res.push_back(dtip);
             }
          }
@@ -112,8 +112,19 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
     return res;
 }
 
+void ControladorVentas::listarPromociones(){
+    vector<DTInfoPromocion> listadoPromociones = this->crearSetDTInfoPromocion();
+    cout<< "Promociones: \n" << endl;   
+
+for (auto it = listadoPromociones.begin(); it != listadoPromociones.end(); ++it) {
+    DTInfoPromocion dtip = *it;
+    cout << dtip.toStringSimple() + "------------------------------\n" << endl;   
+} 
+
+}
+
 void ControladorVentas::consultarPromocion(string nombre){
-    vector<DTInfoPromocion> prom = this->listarPromociones();
+    vector<DTInfoPromocion> prom = this->crearSetDTInfoPromocion();
     vector<DTInfoPromocion>::iterator it = find_if(prom.begin(), prom.end(),
                                         [&nombre](const DTInfoPromocion& dtip) {
         return dtip.nombre == nombre;

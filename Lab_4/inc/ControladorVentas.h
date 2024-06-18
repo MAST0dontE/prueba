@@ -57,7 +57,9 @@ class ControladorVentas : public iControladorVentas{
         //setters y getters FIN
         void listarProductos();
         void consultarProducto(int codigo, string nombre);
-        vector<DTInfoPromocion> listarPromociones();
+        vector<DTInfoPromocion> crearSetDTInfoPromocion();
+        void listarPromociones();
+
         void consultarPromocion(string nombre);
         void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
         void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);

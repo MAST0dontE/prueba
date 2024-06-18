@@ -88,14 +88,7 @@ promocionPrueba1->agregarProductoPromocion(productoEnPromocion2);
 promocionPrueba2->agregarProductoPromocion(productoEnPromocion3);
 
 
-vector<DTInfoPromocion> listadoPromociones = controladorVentas.listarPromociones();
-cout<< "Promociones: \n" << endl;   
-
-for (auto it = listadoPromociones.begin(); it != listadoPromociones.end(); ++it) {
-    DTInfoPromocion dtip = *it;
-    cout << dtip.toStringSimple() + "------------------------------\n" << endl;   
-} 
-
+controladorVentas.listarPromociones();
 
 controladorVentas.consultarPromocion("promocionDePrueba1");
 controladorVentas.consultarPromocion("promocionDePrueba3");

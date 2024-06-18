@@ -2,7 +2,7 @@
 #define OBSERVER_H
 
 #include <set>
-#include "Cliente.h"
+//#include "Cliente.h"
 #include "DTNotificacion.h"
 
 class Observer{
