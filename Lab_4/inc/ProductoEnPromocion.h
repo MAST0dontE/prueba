@@ -6,7 +6,7 @@ using namespace std;
 
 class ProductoEnPromocion{
     private:
-        Producto ptrProducto;
+        Producto* ptrProducto;
         float descuento;
         int cantMinima;
 
@@ -14,7 +14,7 @@ class ProductoEnPromocion{
         ProductoEnPromocion(Producto* producto, float descuento, int cantMinima);
         float getDescuento();
         int getCantMinima();
-        Producto getProducto();
+        Producto* getProducto();
 };
 
 #endif // PRODUCTOENPROMOCION_H

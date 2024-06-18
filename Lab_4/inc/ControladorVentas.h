@@ -31,17 +31,13 @@ class ControladorVentas : public iControladorVentas{
         string descripcionPromo;
         DTFecha fechaVencimientoPromo = DTFecha(0,0,0);
         string nicknameVendedorPromo;
-        struct datosProducto{
-            int codigo;
-            int cantMin;
-        };
-        set<datosProducto> datosProductosPromo;
+        
+        map<int, DTInfoProducto> datosProductosPromo;
         
     public:
         void agregarProducto(int codigo, int cantMinima, float descuento);
         set<string> listarNicknamesClientes();
         set<DTInfoProducto> seleccionarCliente(string nickname);
-        set<DTInfoProducto> seleccionarVendedor(string nickname);
         DTInfoCompra mostrarDetallesCompra();
         void registrarCompra();
         bool ingresarPromocion();
@@ -58,8 +54,10 @@ class ControladorVentas : public iControladorVentas{
         void consultarProducto(int codigo, string nombre);
         vector<DTInfoPromocion> listarPromociones();
         void consultarPromocion(string nombre);
-        void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria);
+        void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
         void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
+        void seleccionarVendedor(string nickname);
+        void agregarProducto(int codigo, int cantMinima);
 };
 
 #endif // CONTROLADORVENTAS_H

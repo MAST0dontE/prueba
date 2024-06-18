@@ -53,7 +53,15 @@ vector<Comentario> Vendedor::listarComentarios(string)
     return vector<Comentario>();
 }
 
-void Vendedor::agregarComentario(Comentario *comentario)
+void Vendedor::listarProductosVendedor(){
+    set<Producto*> productos = this->getProductos();
+        cout<< "Se muestran los productos asociados al vendedor " << this->getNickname() <<":"<< endl;
+        for (auto it = productos.begin(); it != productos.end(); ++it) {
+            DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
+            string resultado = DTproductoPrueba.toString();
+            cout << resultado << "\n"<< endl;
+    }; 
+}void Vendedor::agregarComentario(Comentario *comentario)
 {
     comentariosUsuario[comentario->getId()] = comentario;
 }

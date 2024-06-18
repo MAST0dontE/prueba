@@ -22,14 +22,16 @@ class Producto{
         string vendedor;
         ECategoria categoria;
         map<int, Comentario*> comentarios;
+        bool enPromocion;
+        
 
     public:
-        Producto(int codigo, int stock, float precio, string nombre, string descripcion, string vendedor, ECategoria categoria);
+        Producto(int codigo, int stock, float precio, string nombre, string descripcion, string vendedor, ECategoria categoria, bool enPromocion);
+        //getters y setters:
         DTProductoCompra getDatosProducto();
         DTInfoCompra getDatosCompra();
         void agregarProducto(int stock, int cantidad);
         DTInfoProducto getInfoProducto();
-        //getters y setters:
         int getCodigo();
         int getStock();
         float getPrecio();
@@ -38,6 +40,7 @@ class Producto{
         ECategoria getCategoria();
         string getNombreVendedor();
         map<int, Comentario*> getComentarios();
+        bool getEnPromocion();
         void agregarComentario(Comentario* comentario);
 };
 

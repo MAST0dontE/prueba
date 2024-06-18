@@ -67,13 +67,24 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
     vector<DTInfoPromocion> res;
 
     for(it=promociones.begin(); it != promociones.end(); ++it){
+        Promocion* promocion = *it;
+
         set<ProductoEnPromocion*> prod = (*it)->getProductos();
          if(!prod.empty()){
             ProductoEnPromocion* producto = (*prod.begin()); 
-            string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
-            DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
+            Producto* prod = producto->getProducto();
+            string nombreVendedor = prod->getNombreVendedor();
+
+            auto vendedorIt = vendedores.find(nombreVendedor);
+            if(vendedorIt != vendedores.end()){
+                string vendedorInfo = vendedorIt->second->toString();
+                 DTInfoPromocion dtip(promocion->getNombre(), promocion->getDescripcion(), promocion->getFechaDeVencimiento(), vendedorInfo, promocion->getProductos());
+                res.push_back(dtip);
+            }
+           // string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
+           // DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
             
-            res.push_back(dtip); 
+           // res.push_back(dtip); 
          }
     }
     return res;
@@ -114,11 +125,7 @@ void ControladorVentas::consultarPromocion(string nombre){
  
 }
 
-set<DTInfoProducto> ControladorVentas::seleccionarVendedor(string nickname)
-{
-    // Implementación
-    return set<DTInfoProducto>();
-}
+
 
 void ControladorVentas::agregarProducto(int codigo,int cantMinima, float descuento)
 {
@@ -157,9 +164,9 @@ void ControladorVentas::registrarCompra()
 }
 
 //el Sistema le asigna un código único al producto y lo da de alta en el sistema.
-void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria){
+void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion){
     int codigo = 15 * stock * stock*(stock%5) + static_cast<int>(precio * precio) % 3 + 27; //asigno código
-    Producto *P=new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor,categoria); //instancio producto
+    Producto *P=new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor,categoria, false); //instancio producto
     productos.insert(P);//inserto en set el producto P
     Vendedor *V=vendedores[nicknameVendedor]; //busco al vendedor que pone en venta el prod
     V->agregarProducto(P); //lo vinculo
@@ -175,3 +182,17 @@ void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha
         cout<< vendedor->getNickname() << endl;
     }
 };
+
+void ControladorVentas::seleccionarVendedor(string nickname){
+    this->nicknameVendedorPromo = nickname;
+    Vendedor* vendedor = this->vendedores[nickname];
+    vendedor->listarProductosVendedor();
+}
+
+void ControladorVentas::agregarProducto(int codigo, int cantMinima){
+
+    // DTInfoProducto:: DTInfoProducto(codigo,"nombre", 0, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
+    // datosProductosPromo.insert(make_pair(codigo, this->datosProducto));
+
+
+}
