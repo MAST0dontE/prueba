@@ -18,10 +18,11 @@ class Cliente : public Usuario, public iSuscriptor{
         DTDireccion getDireccion();
         string getCiudadResidencia();
         const set<Compra*>& getComprasRealizadas() const;
-        Cliente(string contrasenia, string username, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
+        Cliente(string contrasenia, string nickname, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
         void agregarSuscripcion() override ;
-        void eliminarSuscripcion() ;
-        void notificar(DTNotificacion notificacion) ;
+        void eliminarSuscripcion() override ;
+        void notificar(DTNotificacion notificacion) override ;
+        string getNicknameSuscriptor() override ;
         bool esVendedor() const override{return false;} 
         set<DTNotificacion> getNotificaciones();
         void borrarNotificaciones();

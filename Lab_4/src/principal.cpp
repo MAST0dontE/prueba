@@ -13,13 +13,13 @@ int main() {
 
 ControladorVentas controladorVentas;
 ControladorUsuarios controladorUsuarios;
-Vendedor* vendedor1 = new Vendedor("y si me mato en lo del pelado", "pepito", DTFecha(1,1,1), "123456789");    
-Vendedor* vendedor2 = new Vendedor("y si me mato en lo del pelado2", "papito", DTFecha(1,1,1), "987654321");
-Vendedor* vendedor3 = new Vendedor("y si me mato en lo del pelado3", "putito", DTFecha(1,1,1), "32134834");
+Vendedor* vendedor1 = new Vendedor("pepito", "contraV1", DTFecha(1,1,1), "123456789");    
+Vendedor* vendedor2 = new Vendedor("papito", "contraV2", DTFecha(1,1,1), "987654321");
+Vendedor* vendedor3 = new Vendedor("putito", "contraV3", DTFecha(1,1,1), "32134834");
 
-Cliente* cliente1 = new Cliente("un cliente1", "contra", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1");
-Cliente* cliente2 = new Cliente("un cliente2", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
-Cliente* cliente3 = new Cliente("un cliente3", "contra", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad3");
+Cliente* cliente1 = new Cliente("un cliente1", "contraC1", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1");
+Cliente* cliente2 = new Cliente("un cliente2", "contraC2", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
+Cliente* cliente3 = new Cliente("un cliente3", "contraC3", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad3");
 
 /*ControladorUsuarios ControladorUsuariosTrucho;
 bool a=ControladorUsuariosTrucho.altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
@@ -156,7 +156,7 @@ cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
 cout << "     ** CASO DE USO: Suscribirse INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
 
-controladorUsuarios.imprimirListaDeVendedores();
+controladorUsuarios.imprimirSuscripcionesDisponibles("un cliente1");
 
 cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;

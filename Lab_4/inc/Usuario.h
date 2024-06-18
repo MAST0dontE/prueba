@@ -10,14 +10,14 @@
 using namespace std;
 class Usuario {
     protected:
-        string contrasenia;
         string nickname;
+        string contrasenia;
         DTFecha fechaDeNacimiento;
         map<int, Comentario*> comentariosUsuario;
         set<DTNotificacion> notificaciones;
 
     public:
-        Usuario(string contrasenia, string nickname, DTFecha fechaDeNacimiento);
+        Usuario(string nickname, string contrasenia, DTFecha fechaDeNacimiento);
         virtual ~Usuario();
         string getNickname();
         string getFecha();

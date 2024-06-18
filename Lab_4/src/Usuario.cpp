@@ -1,7 +1,7 @@
 #include "Usuario.h"
 
-Usuario::Usuario(string contrasenia, string nickname, DTFecha fechaDeNacimiento)
-    : contrasenia(contrasenia), nickname(nickname), fechaDeNacimiento(fechaDeNacimiento) {}
+Usuario::Usuario(string nickname, string contrasenia, DTFecha fechaDeNacimiento)
+    : nickname(nickname), contrasenia(contrasenia), fechaDeNacimiento(fechaDeNacimiento) {}
 
 Usuario::~Usuario() {}
 

@@ -16,12 +16,12 @@ void ControladorUsuarios::setComentario(Comentario *comentario)
 }
 
 
-bool ControladorUsuarios::altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
+bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
 {
-    if (clientes.find(username) != clientes.end()) {
+    if (clientes.find(nickname) != clientes.end()) {
         return false;
     }
-    Cliente* nuevoCliente = new Cliente(password, username, fechaNacimiento, direccion, ciudad);
+    Cliente* nuevoCliente = new Cliente(nickname, contrasenia, fechaNacimiento, direccion, ciudad);
     setCliente(nuevoCliente);
 	ControladorVentas controladorVentas;
 	controladorVentas.setCliente(nuevoCliente);
@@ -29,12 +29,12 @@ bool ControladorUsuarios::altaCliente(string username, string password, DTFecha 
 }
 
 
-bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT)
+bool ControladorUsuarios::altaVendedor(string nickname, string contrasenia, DTFecha fechaNacimiento, string codigoRUT)
 {
-	if (vendedores.find(username) != vendedores.end()) {
+	if (vendedores.find(nickname) != vendedores.end()) {
         return false;
     }
-    Vendedor* nuevoVendedor = new Vendedor(password, username, fechaNacimiento, codigoRUT);
+    Vendedor* nuevoVendedor = new Vendedor(nickname, contrasenia, fechaNacimiento, codigoRUT);
     setVendedor(nuevoVendedor);
 	ControladorVentas controladorVentas;
 	controladorVentas.setVendedor(nuevoVendedor);
@@ -68,8 +68,8 @@ set<string> ControladorUsuarios::listaDeUsuarios() {
 	return listaUsuarios;
 }
 
-void ControladorUsuarios::seleccionarUsuario_(string username){
-	string usuarioSeleccionado = username;
+void ControladorUsuarios::seleccionarUsuario_(string nickname){
+	string usuarioSeleccionado = nickname;
 }
 
 void ControladorUsuarios::listarProductos(){
@@ -277,15 +277,15 @@ void ControladorUsuarios::eliminarComentario(int id)
 	// Implementación
 }
 
-Usuario *ControladorUsuarios::seleccionarUsuario(string username)
+Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 {
-	if (clientes.find(username) != clientes.end())
+	if (clientes.find(nickname) != clientes.end())
 	{
-		return clientes.find(username)->second;
+		return clientes.find(nickname)->second;
 	}
-	if (vendedores.find(username) != vendedores.end())
+	if (vendedores.find(nickname) != vendedores.end())
 	{
-		return vendedores.find(username)->second;
+		return vendedores.find(nickname)->second;
 	}
 	// en caso de que no exista
 	return nullptr;
@@ -302,13 +302,13 @@ set<string> ControladorUsuarios::suscribirseA(string)
     return set<string>();
 }
 
-set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
+set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string nickname)
 {
 	// Implementación
 	return set<DTNotificacion>();
 }
 
-void ControladorUsuarios::eliminarSuscripciones(string username)
+void ControladorUsuarios::eliminarSuscripciones(string nickname)
 {
 	// Implementación
 }
@@ -366,7 +366,27 @@ void ControladorUsuarios::infoCliente(string nickname) {
 	}
 }
 
+void ControladorUsuarios::infoVendedor(string nickname) {
+	Vendedor* vendedorInfo = vendedores.find(nickname)->second;
+	cout << "Nickname: " << vendedorInfo->getNickname() << "\n" << endl;
+	cout << "Fecha de nacimiento: " << vendedorInfo->getFecha() << "\n" << endl;
+	cout << "Productos disponibles:" << "\n" << endl;
+	for (auto productoSet = vendedorInfo->obtenerProductos().begin(); productoSet != vendedorInfo->obtenerProductos().end(); ++productoSet)
+	{
+		DTInfoProducto productoActual = *productoSet;
+		cout << productoActual.getDTInfoProducto() << "\n" << endl;
+	}
+	cout << "Promociones vigentes:" << "\n" << endl;
 
 	
+}
 
-	
+
+void ControladorUsuarios::imprimirSuscripcionesDisponibles(string nickname){
+	map<string, Vendedor*>::iterator it;
+	for (it= vendedores.begin(); it!=vendedores.end(); ++it){
+		if(!it->second->estaSuscripto(nickname)){
+			cout<<it->first<<endl;
+		}
+	}
+}
