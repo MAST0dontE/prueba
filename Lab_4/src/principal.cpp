@@ -163,7 +163,7 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 // ** CASO DE USO: Suscribirse FIN ** //
 
-/*
+
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
@@ -260,8 +260,11 @@ while (entradaConsola != "/exit"){
             cout<<"indique a cual categoria pertenece su producto: 1-ropa, 2-electrodomesticos, 3-otros"<<endl;   
             int categoria;
             cin>>categoria;  
-            ECategoria categoriaEnum = static_cast<ECategoria>(categoria);      
-            controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
+            ECategoria categoriaEnum = static_cast<ECategoria>(categoria);  
+            int codigo;    
+            cout<<"indique codigo de producto"<<endl;
+            cin>>codigo;
+            controladorVentas.cargarNuevoProducto(NombreVendedor,codigo,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
         }
         case 5:{
             cout<<"Indique el nombre del cliente"<<endl;
@@ -374,7 +377,7 @@ while (entradaConsola != "/exit"){
 };
 
 
-*/
+
     // ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  
 delete productoEnPromocion2;
