@@ -20,21 +20,22 @@ using namespace std;
 
 class ControladorVentas : public iControladorVentas{
     private:
-        map<int ,Producto*> productos; //cambiar a map
+        map<int ,Producto*> productos; //cambiar a map (ya esta cambiado xd)
         set<Promocion*> promociones;
         map<string, Cliente*> clientes;
         map<string, Vendedor*> vendedores;
         map<string, Vendedor*>::iterator it;
         set<Compra*> compras;
-        //atributos para los datos de promocion
+
+        //atributos para guardar los datos de promocion:
         string nombrePromo;
         string descripcionPromo;
         DTFecha fechaVencimientoPromo = DTFecha(0,0,0);
         string nicknameVendedorPromo;
-        
-        map<int, DTInfoProducto> datosProductosPromo;
-        
-        //atributos para los datos de compra
+        float descuentoPromo;
+        set<ProductoEnPromocion*> productosPromo;
+    
+        //atributos para guardar los datos de compra:
         string nicknameClienteRealizarCompra;
         vector<DTProductoCompra> datosCompra;
         float montoTotalCompra;
@@ -45,7 +46,6 @@ class ControladorVentas : public iControladorVentas{
         void seleccionarCliente(string nickname);
         DTInfoCompra mostrarDetallesCompra();
         void registrarCompra();
-        bool ingresarPromocion();
         //setters y getters INICIO
         void setCliente(Cliente *cliente);
         void setVendedor(Vendedor *vendedor);
@@ -59,12 +59,13 @@ class ControladorVentas : public iControladorVentas{
         void consultarProducto(int codigo, string nombre);
         vector<DTInfoPromocion> listarPromociones();
         void consultarPromocion(string nombre);
-        void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
-        void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
+        void cargarNuevoProducto(string nicknameVendedor,int codigo, string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
+        void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento, float descuentoPromo);
         void seleccionarVendedor(string nickname);
         void agregarProductoCompra(int codigo, int cantMinima);
-
+        void agregarProductoPromo(int codigo, int cantMinima);
         void liberarMemoriaRealizarCompra();
+        void ingresarPromocion();
 };
 
 #endif // CONTROLADORVENTAS_H

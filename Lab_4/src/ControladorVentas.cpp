@@ -127,19 +127,6 @@ void ControladorVentas::consultarPromocion(string nombre){
  
 }
 
-
-
-void ControladorVentas::agregarProducto(int codigo,int cantMinima, float descuento){
-
-    // Implementación
-}
-
-bool ControladorVentas::ingresarPromocion()
-{
-    // Implementación
-    return true;
-}
-
 void ControladorVentas::listarNicknamesClientes(){
 /* 
 Version para imprimir en el main
@@ -166,6 +153,7 @@ void ControladorVentas::seleccionarCliente(string nickname){
        cout << dtip.getDTInfoProducto() << "\n" << endl;
     } 
 }
+
 void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     auto it = this->productos.find(codigo);
      if (it != this->productos.end()) {
@@ -198,24 +186,26 @@ void ControladorVentas::liberarMemoriaRealizarCompra()
 }
 
 //el Sistema le asigna un código único al producto y lo da de alta en el sistema.
-void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion){
+void ControladorVentas::cargarNuevoProducto(string nicknameVendedor, int codigo, string  nombreProd,float  precio , int stock , string  descripcion,
+    ECategoria  categoria, bool enPromocion){
 /*     int codigo = 15 * stock * stock*(stock%5) + static_cast<int>(precio * precio) % 3 + 27; //asigno código
     Producto *P=new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor,categoria, false); //instancio producto
     productos.insert(P);//inserto en set el producto P
     Vendedor *V=vendedores[nicknameVendedor]; //busco al vendedor que pone en venta el prod
     V->agregarProducto(P); //lo vinculo */
 
-    int codigo = 15 * stock * stock * (stock % 5) + static_cast<int>(precio * precio) % 3 + 27;
+    //int codigo = 15 * stock * stock * (stock % 5) + static_cast<int>(precio * precio) % 3 + 27;
     Producto *P = new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor, categoria, enPromocion);
     productos[codigo] = P;
     Vendedor *V = vendedores[nicknameVendedor];
     V->agregarProducto(P);
 }
 
-void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento){
+void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento, float descuentoPromo){
     this->nombrePromo = nombre;
     this->descripcionPromo = descripcion;
     this->fechaVencimientoPromo = fechaDeVencimiento;
+    this->descuentoPromo = descuentoPromo;
     cout << "Seleccione un vendedor: " << endl;
     for(it=vendedores.begin(); it != vendedores.end(); ++it){
         Vendedor* vendedor = it->second;
@@ -229,3 +219,23 @@ void ControladorVentas::seleccionarVendedor(string nickname){
     vendedor->listarProductosVendedor();
 }
 
+void ControladorVentas::agregarProductoPromo(int codigo, int cantMinima){
+    Producto* producto = this->productos[codigo];
+    if(producto!=NULL && !producto->getEnPromocion() && producto->getNombreVendedor()==this->nicknameVendedorPromo){
+        ProductoEnPromocion* produPromo = new ProductoEnPromocion(producto, this->descuentoPromo, cantMinima);
+        this->productosPromo.insert(produPromo);
+        cout<< "El producto es valido y se agregara correctamente a la promo: "<<endl;
+    }
+    else cout<< "El producto NO es valido para agregarse correctamente a la promo: "<<endl;
+}
+
+void ControladorVentas::ingresarPromocion(){
+    Promocion* promo = new Promocion(this->nombrePromo, this->descripcionPromo, this->fechaVencimientoPromo);
+    set<ProductoEnPromocion*>::iterator it;
+    for(it = this->productosPromo.begin(); it!= this->productosPromo.end(); ++it){
+        promo->agregarProductoPromocion((*it));
+    }
+    this->setPromocion(promo);
+    this->productosPromo.clear();
+    cout<<"La Promocion se ha ingresado correctamente: "<<endl;
+}
