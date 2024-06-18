@@ -20,7 +20,7 @@ const set<Compra *> &Cliente::getComprasRealizadas() const
 }
 
 void Cliente::agregarSuscripcion(){
-
+    //Implementacion
 }
 
 void Cliente::notificar(DTNotificacion notificacion)

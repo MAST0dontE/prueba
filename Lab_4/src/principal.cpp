@@ -12,6 +12,7 @@
 int main() {
 
 ControladorVentas controladorVentas;
+ControladorUsuarios controladorUsuarios;
 Vendedor* vendedor1 = new Vendedor("y si me mato en lo del pelado", "pepito", DTFecha(1,1,1), "123456789");    
 Vendedor* vendedor2 = new Vendedor("y si me mato en lo del pelado2", "papito", DTFecha(1,1,1), "987654321");
 Vendedor* vendedor3 = new Vendedor("y si me mato en lo del pelado3", "putito", DTFecha(1,1,1), "32134834");
@@ -156,6 +157,19 @@ cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
 
 // ** CASO DE USO: Dejar Comentario FIN ** //
+
+// ** CASO DE USO: Suscribirse INICIO ** //
+
+cout << "     ** CASO DE USO: Suscribirse INICIO **" << endl;
+cout << "````````````````````````````````````````````````````" << endl;
+
+controladorUsuarios.imprimirListaDeVendedores();
+
+cout << "````````````````````````````````````````````````````" << endl;
+cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
+
+// ** CASO DE USO: Suscribirse FIN ** //
+
 /*
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;

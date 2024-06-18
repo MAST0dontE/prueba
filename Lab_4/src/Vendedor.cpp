@@ -70,3 +70,14 @@ map<int, Comentario *> Vendedor::getComentarios()
 {
     return comentariosUsuario;
 }
+
+void Vendedor::agregarSuscriptor(iSuscriptor* suscriptor){
+    this->suscriptores.insert(suscriptor);
+}
+
+void Vendedor::removerSuscriptor(iSuscriptor* suscriptor){
+    this->suscriptores.erase(suscriptor);
+}
+
+
+

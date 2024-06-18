@@ -1,11 +1,10 @@
-#ifndef OBSERVER_H
-#define OBSERVER_H
+#ifndef ISUSCRIPTOR_H
+#define ISUSCRIPTOR_H
 
 #include <set>
-#include "Cliente.h"
 #include "DTNotificacion.h"
 
-class Observer{
+class iSuscriptor{
     public:
     
         virtual void agregarSuscripcion() = 0 ;
@@ -13,4 +12,4 @@ class Observer{
         virtual void eliminarSuscripcion() = 0;
 };
 
-#endif // OBSERVER_H
+#endif // ISUSCRIPTOR_H

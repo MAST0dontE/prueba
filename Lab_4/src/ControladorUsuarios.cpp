@@ -51,6 +51,15 @@ set<string> ControladorUsuarios::listaDeVendedores()
 	return listaVendedores;
 }
 
+void ControladorUsuarios::imprimirListaDeVendedores(){
+	cout<<"Se listan los nicknames de todos los vendedores registrados en el sistema:"<<endl;
+	for (map<string, Vendedor*>::iterator it = vendedores.begin(); it != vendedores.end(); ++it){
+		string nombreVendedor = it->first;
+		cout<<nombreVendedor << endl;
+	}
+
+}
+
 set<string> ControladorUsuarios::listaDeUsuarios() {
 	set<string> listaUsuarios;
 	for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
