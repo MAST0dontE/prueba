@@ -163,7 +163,7 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 // ** CASO DE USO: Suscribirse FIN ** //
 
-/*
+
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
@@ -182,6 +182,7 @@ comandos["/Consulta notificaciones"] = 5;
 comandos["/Dejar comentario"] = 6; //Ver con Santi
 comandos["/Enviar producto"] = 7; //Falta terminar Enviar Producto
 comandos["/RealizarCompra"] = 8;
+comandos["/ConsultarPromocion"] = 9; 
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
@@ -261,7 +262,7 @@ while (entradaConsola != "/exit"){
             int categoria;
             cin>>categoria;  
             ECategoria categoriaEnum = static_cast<ECategoria>(categoria);      
-            controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
+           // controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
         }
         case 5:{
             cout<<"Indique el nombre del cliente"<<endl;
@@ -365,6 +366,18 @@ while (entradaConsola != "/exit"){
             }
 
         }
+        case 9:{
+            controladorVentas.listarPromociones();
+            cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
+            char respuesta5;
+            cin>> respuesta5;
+            if (respuesta5 == 'Y' || respuesta5 == 'y' ){
+                cout << "Indique el nombre de la promocion que desea consultar:" <<endl;
+                string nombrePromocion;
+                cin>> nombrePromocion;
+                controladorVentas.consultarPromocion(nombrePromocion);
+            }
+        }
         default:
             cout <<"Opción no válida." <<endl;
             break;
@@ -374,7 +387,7 @@ while (entradaConsola != "/exit"){
 };
 
 
-*/
+
     // ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  
 delete productoEnPromocion2;
