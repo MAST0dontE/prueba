@@ -67,13 +67,24 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
     vector<DTInfoPromocion> res;
 
     for(it=promociones.begin(); it != promociones.end(); ++it){
+        Promocion* promocion = *it;
+
         set<ProductoEnPromocion*> prod = (*it)->getProductos();
          if(!prod.empty()){
             ProductoEnPromocion* producto = (*prod.begin()); 
-            string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
-            DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
+            Producto* prod = producto->getProducto();
+            string nombreVendedor = prod->getNombreVendedor();
+
+            auto vendedorIt = vendedores.find(nombreVendedor);
+            if(vendedorIt != vendedores.end()){
+                string vendedorInfo = vendedorIt->second->toString();
+                 DTInfoPromocion dtip(promocion->getNombre(), promocion->getDescripcion(), promocion->getFechaDeVencimiento(), vendedorInfo, promocion->getProductos());
+                res.push_back(dtip);
+            }
+           // string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
+           // DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
             
-            res.push_back(dtip); 
+           // res.push_back(dtip); 
          }
     }
     return res;
