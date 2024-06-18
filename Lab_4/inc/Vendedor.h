@@ -11,11 +11,12 @@ class Vendedor : public Usuario{
     private:
         string codigoRUT;
         set<Producto*> productosVendedor;
-        set<iSuscriptor*> suscriptores;
+        map<string, iSuscriptor*> suscriptores;
+        
     public:
         //GETTERS
         string getCodigoRUT();
-        Vendedor(string contrasenia, string nickname, DTFecha fecha, string codigoRUT);
+        Vendedor(string nickname, string contrasenia, DTFecha fecha, string codigoRUT);
         void notificar();
         void agregarProducto(Producto* producto);
         void setearProductosVendedor(set<Producto*>);
@@ -29,6 +30,7 @@ class Vendedor : public Usuario{
         void listarProductosVendedor();
         void agregarSuscriptor(iSuscriptor* suscriptor);
         void removerSuscriptor(iSuscriptor* suscriptor);
+        bool estaSuscripto(string nickname);
 };
 
 #endif // VENDEDOR_H

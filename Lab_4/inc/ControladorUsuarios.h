@@ -40,17 +40,17 @@ class ControladorUsuarios : public iControladorUsuarios{
         void setCliente(Cliente *cliente);
         void setVendedor(Vendedor *vendedor);
         void setComentario(Comentario *comentario);
-        bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
-        bool altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT);
+        bool altaCliente(string nickname, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
+        bool altaVendedor(string nickname, string password, DTFecha fechaNacimiento, string codigoRUT);
         set<string> listaDeUsuarios();
         set<string> listaDeVendedores();
         set<DTcomentario> listarComentarios(string nickname);
         void seleccionarComentario(DTcomentario *comentario) ;
         set<string> suscribirseA(string nickname);
-        set<DTNotificacion> consultarNotificaciones(string username); 
-        void eliminarSuscripciones(string username);
-        void seleccionarUsuario_(string username);
-        Usuario *seleccionarUsuario(string username);
+        set<DTNotificacion> consultarNotificaciones(string nickname); 
+        void eliminarSuscripciones(string nickname);
+        void seleccionarUsuario_(string nickname);
+        Usuario *seleccionarUsuario(string nickname);
         void listarProductos();
         void listarComentarios(int codigo);
         void seleccionarProducto(int codigo, string nickname);
@@ -65,6 +65,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void listaDeUsuarios_();
         void infoCliente(string nickname);
         void imprimirListaDeVendedores();
+        void imprimirSuscripcionesDisponibles(string nickname);
         // void nuevaSuscripcion(string nickname);
 };
 

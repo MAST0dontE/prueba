@@ -1,7 +1,7 @@
 #include "Cliente.h"
 
 
-Cliente::Cliente(string contrasenia, string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia)
+Cliente::Cliente(string nickname, string contrasenia, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia)
     : Usuario(nickname,contrasenia, fechaDeNacimiento), direccion(direccion), ciudadResidencia(ciudadResidencia) {}
 
 DTDireccion Cliente::getDireccion()
@@ -56,4 +56,8 @@ void Cliente::agregarComentario(Comentario *comentario)
 
 map<int, Comentario*> Cliente::getComentarios(){
     return comentariosUsuario;
+}
+
+string Cliente::getNicknameSuscriptor(){
+    return this->getNickname();
 }

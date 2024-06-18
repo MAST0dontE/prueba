@@ -1,8 +1,8 @@
 #include "Vendedor.h"
 
 
-Vendedor::Vendedor(string contrasenia, string nickname, DTFecha fechaDeNacimiento, string codigoRUT) \
-    : Usuario(contrasenia, nickname, fechaDeNacimiento), codigoRUT(codigoRUT) {}
+Vendedor::Vendedor(string nickname,string contrasenia, DTFecha fechaDeNacimiento, string codigoRUT) \
+    : Usuario(nickname,contrasenia, fechaDeNacimiento), codigoRUT(codigoRUT) {}
 
 string Vendedor::getCodigoRUT(){
     return this->codigoRUT;
@@ -72,12 +72,22 @@ map<int, Comentario *> Vendedor::getComentarios()
 }
 
 void Vendedor::agregarSuscriptor(iSuscriptor* suscriptor){
-    this->suscriptores.insert(suscriptor);
+    this->suscriptores[suscriptor->getNicknameSuscriptor()] = suscriptor;
 }
 
 void Vendedor::removerSuscriptor(iSuscriptor* suscriptor){
-    this->suscriptores.erase(suscriptor);
+    //string aBorrar = suscriptor->getNickname();
+    this->suscriptores.erase(suscriptor->getNicknameSuscriptor());
 }
 
-
+bool Vendedor::estaSuscripto(string nickname){
+    map<string, iSuscriptor*>::iterator it;
+    bool result = false;
+    for(it=suscriptores.begin();it!=suscriptores.end();++it){
+        if (it->first == nickname){
+            result=true;
+        }
+    }
+    return result;
+}
 
