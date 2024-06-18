@@ -20,7 +20,7 @@ using namespace std;
 
 class ControladorVentas : public iControladorVentas{
     private:
-        set<Producto*> productos;
+        map<int ,Producto*> productos; //cambiar a map
         set<Promocion*> promociones;
         map<string, Cliente*> clientes;
         map<string, Vendedor*> vendedores;
@@ -34,10 +34,15 @@ class ControladorVentas : public iControladorVentas{
         
         map<int, DTInfoProducto> datosProductosPromo;
         
+        //atributos para los datos de compra
+        string nicknameClienteRealizarCompra;
+        vector<DTProductoCompra> datosCompra;
+        float montoTotalCompra;
+        
     public:
         void agregarProducto(int codigo, int cantMinima, float descuento);
-        set<string> listarNicknamesClientes();
-        set<DTInfoProducto> seleccionarCliente(string nickname);
+        void listarNicknamesClientes();
+        void seleccionarCliente(string nickname);
         DTInfoCompra mostrarDetallesCompra();
         void registrarCompra();
         bool ingresarPromocion();
@@ -47,7 +52,7 @@ class ControladorVentas : public iControladorVentas{
         void setPromocion(Promocion *promocion);
         void setCompra(Compra *compra);
         void setProducto(Producto *producto);
-        set<Producto*> getProductos();
+        map<int, Producto*> getProductos();
         void setFechaPromo(DTFecha fechaPromocion);
         //setters y getters FIN
         void listarProductos();
@@ -57,7 +62,9 @@ class ControladorVentas : public iControladorVentas{
         void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
         void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
         void seleccionarVendedor(string nickname);
-        void agregarProducto(int codigo, int cantMinima);
+        void agregarProductoCompra(int codigo, int cantMinima);
+
+        void liberarMemoriaRealizarCompra();
 };
 
 #endif // CONTROLADORVENTAS_H

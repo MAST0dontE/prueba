@@ -24,28 +24,36 @@ void ControladorVentas::setFechaPromo(DTFecha fechaPromocion){
     this->fechaVencimientoPromo = fechaPromocion;
 }
 
-set<Producto*> ControladorVentas::getProductos(){
+map<int, Producto*> ControladorVentas::getProductos(){
     return this->productos;
-};
+}
 
-void ControladorVentas::setProducto(Producto *producto)
-{
-    this->productos.insert(producto);
+void ControladorVentas::setProducto(Producto *producto){
+    this->productos[producto->getCodigo()] = producto;
 }
 
 void ControladorVentas::listarProductos(){
 
-    set<Producto*> productos = this->getProductos();
+/* set<Producto*> productos = this->getProductos();
+    cout<< "Se muestran los productos: \n" << endl;
+    for (auto it = productos.begin(); it != productos.end(); ++it) {
+        DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
+        string resultado = DTproductoPrueba.toString();
+        cout << resultado << "\n"<< endl;
+} 
+ */
+    map<int, Producto*> productos = this->getProductos();
         cout<< "Se muestran los productos: \n" << endl;
         for (auto it = productos.begin(); it != productos.end(); ++it) {
-            DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
+            Producto* producto = it->second;
+            DTInfoProducto DTproductoPrueba = producto->getInfoProducto();
             string resultado = DTproductoPrueba.toString();
             cout << resultado << "\n"<< endl;
-    }; 
+    } 
 }
 
 void ControladorVentas::consultarProducto(int codigo, string nombre){
-    set<Producto*> productos = this->getProductos();
+/*     set<Producto*> productos = this->getProductos();
     bool encontrado = false;
         for (auto it = productos.begin(); it != productos.end(); ++it) {
             if ((*it)->getCodigo() == codigo){
@@ -59,8 +67,26 @@ void ControladorVentas::consultarProducto(int codigo, string nombre){
         }
     if(!encontrado){
         cout << "No existe ningun producto registrado con el codigo consultado: " << codigo << " \n "<< endl;
+    } */
+
+    map<int, Producto*> productos = this->getProductos();
+    bool encontrado = false;
+    auto it = productos.find(codigo);
+    
+    if (it != productos.end()) {
+        Producto* producto = it->second;
+        DTInfoProducto DTproductoPrueba = producto->getInfoProducto();
+        string resultado = DTproductoPrueba.imprimirInfoRestante();
+        cout << "Producto consultado: " << nombre << "\n" << endl;
+        cout << resultado << "\n" << endl;
+        encontrado = true;
     }
-};
+    
+    if (!encontrado) {
+        cout << "No existe ningun producto registrado con el codigo consultado: " << codigo << " \n" << endl;
+    }
+}
+
 
 vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
     set<Promocion*>::iterator it;
@@ -81,33 +107,9 @@ vector<DTInfoPromocion> ControladorVentas::listarPromociones(){
                  DTInfoPromocion dtip(promocion->getNombre(), promocion->getDescripcion(), promocion->getFechaDeVencimiento(), vendedorInfo, promocion->getProductos());
                 res.push_back(dtip);
             }
-           // string vendedorInfo = vendedores[(*producto).getProducto().getNombreVendedor()]->toString();
-           // DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
-            
-           // res.push_back(dtip); 
          }
     }
     return res;
-/*     set<Promocion*>::iterator it;
-    vector<DTInfoPromocion> res;
-    
-
-    for(it=promociones.begin(); it != promociones.end(); ++it){
-        set<ProductoEnPromocion*> prod = (*it)->getProductos();
-
-        if(!prod.empty()){
-            set<ProductoEnPromocion*>::iterator iter = prod.begin();
-            string nombreV = (*iter)->getNombreVendedor();
-            string vendedorInfo = vendedores[nombreV]->toString();
-
-            DTInfoPromocion dtip((*it)->getNombre(), (*it)->getDescripcion(), (*it)->getFechaDeVencimiento(), vendedorInfo, (*it)->getProductos());
-            res.push_back(dtip);
-        }
-    }
-    return res; 
- */
-
-
 }
 
 void ControladorVentas::consultarPromocion(string nombre){
@@ -127,8 +129,8 @@ void ControladorVentas::consultarPromocion(string nombre){
 
 
 
-void ControladorVentas::agregarProducto(int codigo,int cantMinima, float descuento)
-{
+void ControladorVentas::agregarProducto(int codigo,int cantMinima, float descuento){
+
     // Implementación
 }
 
@@ -138,22 +140,50 @@ bool ControladorVentas::ingresarPromocion()
     return true;
 }
 
-set<string> ControladorVentas::listarNicknamesClientes(){
+void ControladorVentas::listarNicknamesClientes(){
+/* 
+Version para imprimir en el main
     set<string> res;
     for (const auto& pair : this->clientes) {
         res.insert(pair.first);
     }
-    return res;
+    return res; */
+ 
+ // Version para imprimir directo en la funcion
+    for (const auto& pair : this->clientes) {
+        cout<< pair.first + "\n" << endl;
+    }
 }
 
-set<DTInfoProducto> ControladorVentas::seleccionarCliente(string nickname)
-{
-    // Implementación
-    return set<DTInfoProducto>();
+void ControladorVentas::seleccionarCliente(string nickname){
+    map<int, Producto*>::iterator it;
+    this->nicknameClienteRealizarCompra = nickname;
+
+      for (it = productos.begin(); it != productos.end(); ++it) {
+        Producto* producto = it->second; 
+        DTInfoProducto dtip(it->first, producto->getNombre(), producto->getPrecio(), producto->getStock(), producto->getDescripcion(), producto->getCategoria(), producto->getNombreVendedor());
+
+       cout << dtip.getDTInfoProducto() << "\n" << endl;
+    } 
+}
+void ControladorVentas::agregarProductoCompra(int codigo, int cant){
+    auto it = this->productos.find(codigo);
+     if (it != this->productos.end()) {
+        Producto* producto = it->second;
+
+        if (cant > 0 && cant <= producto->getStock()) {
+            float precio = producto->getPrecio();
+            this->datosCompra.push_back(DTProductoCompra(codigo, precio, cant));
+            this->montoTotalCompra += precio * cant;
+        } else {
+            cout << "Cantidad inválida. Debe ser mayor a 0 y no exceder el stock disponible." << endl;
+        } 
+    } else {
+        cout << "Producto no encontrado con el código proporcionado: " << codigo << endl;
+    } 
 }
 
-DTInfoCompra ControladorVentas::mostrarDetallesCompra()
-{
+DTInfoCompra ControladorVentas::mostrarDetallesCompra(){
     // Implementación
     return DTInfoCompra(DTFecha(1,1,1), 0);
 }
@@ -163,13 +193,23 @@ void ControladorVentas::registrarCompra()
     // Implementación
 }
 
+void ControladorVentas::liberarMemoriaRealizarCompra()
+{
+}
+
 //el Sistema le asigna un código único al producto y lo da de alta en el sistema.
 void ControladorVentas::cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion){
-    int codigo = 15 * stock * stock*(stock%5) + static_cast<int>(precio * precio) % 3 + 27; //asigno código
+/*     int codigo = 15 * stock * stock*(stock%5) + static_cast<int>(precio * precio) % 3 + 27; //asigno código
     Producto *P=new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor,categoria, false); //instancio producto
     productos.insert(P);//inserto en set el producto P
     Vendedor *V=vendedores[nicknameVendedor]; //busco al vendedor que pone en venta el prod
-    V->agregarProducto(P); //lo vinculo
+    V->agregarProducto(P); //lo vinculo */
+
+    int codigo = 15 * stock * stock * (stock % 5) + static_cast<int>(precio * precio) % 3 + 27;
+    Producto *P = new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor, categoria, enPromocion);
+    productos[codigo] = P;
+    Vendedor *V = vendedores[nicknameVendedor];
+    V->agregarProducto(P);
 }
 
 void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento){
@@ -189,10 +229,3 @@ void ControladorVentas::seleccionarVendedor(string nickname){
     vendedor->listarProductosVendedor();
 }
 
-void ControladorVentas::agregarProducto(int codigo, int cantMinima){
-
-    // DTInfoProducto:: DTInfoProducto(codigo,"nombre", 0, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
-    // datosProductosPromo.insert(make_pair(codigo, this->datosProducto));
-
-
-}

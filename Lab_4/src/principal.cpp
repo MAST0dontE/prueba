@@ -108,12 +108,9 @@ cout<< "-----------------------------------------------------"<< endl;
 cout<< "** CASO DE USO: Realizar compra INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
-set<string> listaNicknames = controladorVentas.listarNicknamesClientes();
-
 cout<< "\nClientes: \n" << endl;
-for (auto it = listaNicknames.begin(); it != listaNicknames.end(); ++it) {
-    cout << *it << "\n" << endl;
-}
+controladorVentas.listarNicknamesClientes();
+
 
 cout<< "** CASO DE USO: Realizar compra FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
@@ -173,6 +170,7 @@ comandos["/Alta producto"] = 4;
 comandos["/Consulta notificaciones"] = 5;
 comandos["/Dejar comentario"] = 6; //Ver con Santi
 comandos["/Enviar producto"] = 7; //Falta terminar Enviar Producto
+comandos["/RealizarCompra"] = 8;
 
 // cargar comandos casos de uso//
 cout << "Comandos para los casos de uso xd " <<endl;
@@ -312,6 +310,49 @@ while (entradaConsola != "/exit"){
             string NombreVendedor;
             cout << "Indique Nombre del vendedor"<<endl;
             getline(cin,NombreVendedor);
+        }
+        case 8:{
+            controladorVentas.listarNicknamesClientes();
+            cout << "Indique el nickname del cliente: "<<endl;
+            string nicknameCliente;
+            getline(cin,nicknameCliente);
+            controladorVentas.seleccionarCliente(nicknameCliente);
+
+            string respuesta3 = "Y";
+            while (respuesta3 != "N" || respuesta3 != "n"){
+                cout << "Desea agregar un producto a la compra? Y/N"<<endl;
+                getline(cin,respuesta3);
+
+                if (respuesta3 == "Y" || respuesta3 == "y"){
+                    cout << "Indique el codigo y cantidad del producto a agregar en la compra" <<endl;
+                    int codigo;
+                    cin>>codigo;
+                    int cantidad;
+                    cin>>cantidad;
+                    controladorVentas.agregarProductoCompra(codigo, cantidad);
+                    
+                } else if (respuesta3 == "N" || respuesta3 == "n"){
+                    break;
+                } else {
+                    cout << "Opción no válida." <<endl;
+                }
+            }
+            DTInfoCompra dtic = controladorVentas.mostrarDetallesCompra();
+           // cout << "Detalles de la compra: \n" << dtic.toString() << endl;
+
+            cout << "Desea confirmar la compra? Y/N" <<endl;
+            string respuesta4;
+            getline(cin,respuesta4);
+
+            if (respuesta4 == "Y" || respuesta4 == "y"){
+                controladorVentas.registrarCompra();
+                cout << "Compra realizada con éxito." <<endl;
+            } else if (respuesta4 == "N" || respuesta4 == "n"){
+                cout << "Compra cancelada." <<endl;
+            } else {
+                cout << "Opción no válida." <<endl;
+            }
+
         }
         default:
             cout <<"Opción no válida." <<endl;
