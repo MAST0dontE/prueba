@@ -24,6 +24,7 @@ class Vendedor : public Usuario{
         set<Producto*> getProductos();
         void agregarComentario(Comentario*);
         map<int, Comentario*> getComentarios();
+        void listarProductosVendedor();
 };
 
 #endif // VENDEDOR_H
