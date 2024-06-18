@@ -223,6 +223,9 @@ while (entradaConsola != "/exit"){
             cin>>dia;
             cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
             //cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            char c; 
+            while (cin.get(c) && c != '\n');
+
             string respuesta2;
             getline(cin,respuesta2);
             if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
@@ -262,7 +265,7 @@ while (entradaConsola != "/exit"){
             int categoria;
             cin>>categoria;  
             ECategoria categoriaEnum = static_cast<ECategoria>(categoria);      
-           // controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
+            controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
         }
         case 5:{
             cout<<"Indique el nombre del cliente"<<endl;
