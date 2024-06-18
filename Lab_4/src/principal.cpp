@@ -119,15 +119,58 @@ cout<< "** CASO DE USO: Realizar compra FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Realizar compra FIN ** //
 
+
+// ** CASO DE USO: Alta Producto INICIO ** //
+cout<< "** CASO DE USO: Alta Producto INICIO **"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+
+controladorVentas.cargarNuevoProducto("pepito","productoPepito1", 1, 1, "el producto de pepito uno",ECategoria::otros);
+controladorVentas.cargarNuevoProducto("pepito","productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa);
+controladorVentas.cargarNuevoProducto("pepito","productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos);
+
+cout<< "** CASO DE USO: Alta Producto FIN**"<< endl;
+cout<< "-----------------------------------------------------"<< endl;
+// ** CASO DE USO: Alta Producto FIN ** //
+
+
 // ** CASO DE USO: Crear Promocion INICIO ** //
 cout<< "** CASO DE USO: Crear Promocion INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
 controladorVentas.altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3));
+controladorVentas.seleccionarVendedor("pepito");
 
 cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Crear Promocion FIN ** //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;

@@ -125,11 +125,7 @@ void ControladorVentas::consultarPromocion(string nombre){
  
 }
 
-set<DTInfoProducto> ControladorVentas::seleccionarVendedor(string nickname)
-{
-    // Implementación
-    return set<DTInfoProducto>();
-}
+
 
 void ControladorVentas::agregarProducto(int codigo,int cantMinima, float descuento)
 {
@@ -186,3 +182,17 @@ void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha
         cout<< vendedor->getNickname() << endl;
     }
 };
+
+void ControladorVentas::seleccionarVendedor(string nickname){
+    this->nicknameVendedorPromo = nickname;
+    Vendedor* vendedor = this->vendedores[nickname];
+    vendedor->listarProductosVendedor();
+}
+
+void ControladorVentas::agregarProducto(int codigo, int cantMinima){
+
+    // DTInfoProducto:: DTInfoProducto(codigo,"nombre", 0, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
+    // datosProductosPromo.insert(make_pair(codigo, this->datosProducto));
+
+
+}
