@@ -250,3 +250,32 @@ void ControladorVentas::ingresarPromocion(){
     this->productosPromo.clear();
     cout<<"La Promocion se ha ingresado correctamente: "<<endl;
 }
+
+void ControladorVentas::agregarProducto(int codigo, int cantMinima){
+
+    // DTInfoProducto:: DTInfoProducto(codigo,"nombre", 0, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
+    // datosProductosPromo.insert(make_pair(codigo, this->datosProducto));
+
+
+}
+
+void ControladorVentas::infoVendedor(string nickname){
+	/*Vendedor* vendedorInfo = vendedores.find(nickname)->second;
+	cout << "Nickname: " << vendedorInfo->getNickname() << "\n" << endl;
+	cout << "Fecha de nacimiento: " << vendedorInfo->getFecha() << "\n" << endl;
+	cout << "Productos disponibles:" << "\n" << endl;
+	for (auto productoSet = vendedorInfo->obtenerProductos().begin(); productoSet != vendedorInfo->obtenerProductos().end(); ++productoSet)
+	{
+		DTInfoProducto productoActual = *productoSet;
+		cout << productoActual.getDTInfoProducto() << "\n" << endl;
+	}
+	cout << "Promociones vigentes:" << "\n" << endl;
+	for (auto enPromo = promociones.begin() ; enPromo != promociones.end() ; ++enPromo)
+	{
+        ProductoEnPromocion* productoEnPromocion = enPromo->getProductos().begin();
+        if (productoEnPromocion->getProducto()->getNombreVendedor() == nickname)
+        {
+       
+        }  
+	}*/
+}
