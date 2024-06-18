@@ -29,9 +29,9 @@ class ControladorUsuarios : public iControladorUsuarios{
     map<string, Usuario *> usuarios;
     //map<string, Usuario*>::iterator it0;
     map<string, Cliente*> clientes;
-    map<string, Cliente*>::iterator it1;
+    //map<string, Cliente*>::iterator it1;
     map<string, Vendedor*> vendedores;
-    map<string, Vendedor*>::iterator it2;
+    //map<string, Vendedor*>::iterator it2;
     //vector<Vendedor*> Vendedores;
     //vector<Cliente*> Clientes;
     

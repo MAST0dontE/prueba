@@ -217,6 +217,7 @@ void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha
     this->descripcionPromo = descripcion;
     this->fechaVencimientoPromo = fechaDeVencimiento;
     this->descuentoPromo = descuentoPromo;
+    map<string, Vendedor*>::iterator it;
     cout << "Seleccione un vendedor: " << endl;
     for(it=vendedores.begin(); it != vendedores.end(); ++it){
         Vendedor* vendedor = it->second;

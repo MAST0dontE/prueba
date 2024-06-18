@@ -14,8 +14,8 @@ int main() {
 ControladorVentas controladorVentas;
 ControladorUsuarios controladorUsuarios;
 Vendedor* vendedor1 = new Vendedor("pepito", "contraV1", DTFecha(1,1,1), "123456789");    
-Vendedor* vendedor2 = new Vendedor("papito", "contraV2", DTFecha(1,1,1), "987654321");
-Vendedor* vendedor3 = new Vendedor("putito", "contraV3", DTFecha(1,1,1), "32134834");
+Vendedor* vendedor2 = new Vendedor("tiranosaurioRex", "contraV2", DTFecha(1,1,1), "987654321");
+Vendedor* vendedor3 = new Vendedor("solitarioGamer", "contraV3", DTFecha(1,1,1), "32134834");
 
 Cliente* cliente1 = new Cliente("un cliente1", "contraC1", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1");
 Cliente* cliente2 = new Cliente("un cliente2", "contraC2", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
@@ -40,8 +40,8 @@ cout<< "** CASO DE USO: Consultar Producto INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
 Producto* productoPrueba1 = new Producto(1, 1, 1, "productoDePrueba1" , "este es el producto de prueba 1", "pepito", ECategoria::otros, false);
-Producto* productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2" , "este es el producto de prueba 2", "papito", ECategoria::ropa, false);
-Producto* productoPrueba3 = new Producto(3, 3, 3, "productoDePrueba3" , "este es el producto de prueba 3", "putito", ECategoria::electrodomesticos, false);
+Producto* productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2" , "este es el producto de prueba 2", "tiranosaurioRex", ECategoria::ropa, false);
+Producto* productoPrueba3 = new Producto(3, 3, 3, "productoDePrueba3" , "este es el producto de prueba 3", "solitarioGamer", ECategoria::electrodomesticos, false);
 
 
 controladorVentas.setProducto(productoPrueba1);
@@ -156,6 +156,8 @@ cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
 cout << "     ** CASO DE USO: Suscribirse INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
 
+
+controladorUsuarios.imprimirListaDeVendedores();
 controladorUsuarios.imprimirSuscripcionesDisponibles("un cliente1");
 
 cout << "````````````````````````````````````````````````````" << endl;

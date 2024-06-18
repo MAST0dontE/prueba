@@ -24,7 +24,7 @@ class ControladorVentas : public iControladorVentas{
         set<Promocion*> promociones;
         map<string, Cliente*> clientes;
         map<string, Vendedor*> vendedores;
-        map<string, Vendedor*>::iterator it;
+        //map<string, Vendedor*>::iterator it;
         set<Compra*> compras;
 
         //atributos para guardar los datos de promocion:

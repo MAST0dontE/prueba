@@ -53,12 +53,14 @@ set<string> ControladorUsuarios::listaDeVendedores()
 
 void ControladorUsuarios::imprimirListaDeVendedores(){
 	cout<<"Se listan los nicknames de todos los vendedores registrados en el sistema:"<<endl;
-	for (map<string, Vendedor*>::iterator it = vendedores.begin(); it != vendedores.end(); ++it){
-		string nombreVendedor = it->first;
-		cout<<nombreVendedor << endl;
-	}
-
+	map<string, Vendedor*>::iterator it;
+    for(it=vendedores.begin(); it != vendedores.end(); ++it){
+        Vendedor* vendedor = it->second;
+        cout<< vendedor->getNickname() << endl;
+    }
 }
+
+
 
 set<string> ControladorUsuarios::listaDeUsuarios() {
 	set<string> listaUsuarios;
@@ -313,6 +315,8 @@ void ControladorUsuarios::eliminarSuscripciones(string nickname)
 	// Implementación
 }
 void ControladorUsuarios::listaDeUsuarios_(){
+	map<string, Cliente*>::iterator it1;
+	map<string, Vendedor*>::iterator it2;
 	for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
 		printf( "(%s)\n", it1->first.c_str() );
 		printf( "(%s)\n", it1->second->getFecha().c_str() );
@@ -371,8 +375,10 @@ void ControladorUsuarios::infoCliente(string nickname) {
 void ControladorUsuarios::imprimirSuscripcionesDisponibles(string nickname){
 	map<string, Vendedor*>::iterator it;
 	for (it= vendedores.begin(); it!=vendedores.end(); ++it){
-		if(!it->second->estaSuscripto(nickname)){
+		bool suscripto = it->second->estaSuscripto(nickname);
+		if(!suscripto){
 			cout<<it->first<<endl;
+			cout<<"aaaaaa"<<endl;
 		}
 	}
 }

@@ -81,13 +81,13 @@ void Vendedor::removerSuscriptor(iSuscriptor* suscriptor){
 }
 
 bool Vendedor::estaSuscripto(string nickname){
-    map<string, iSuscriptor*>::iterator it;
-    bool result = false;
-    for(it=suscriptores.begin();it!=suscriptores.end();++it){
+    //map<string, iSuscriptor*>::iterator it;
+    //bool result = false;
+    /*for(it=suscriptores.begin();it!=suscriptores.end();++it){
         if (it->first == nickname){
             result=true;
         }
-    }
-    return result;
+    }*/
+    return false;
 }
 
