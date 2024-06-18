@@ -64,6 +64,8 @@ class ControladorVentas : public iControladorVentas{
         void cargarNuevoProducto(string nicknameVendedor,int codigo, string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
         void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento, float descuentoPromo);
         void seleccionarVendedor(string nickname);
+        void agregarProducto(int codigo, int cantMinima);
+        void infoVendedor(string nickname);
         void agregarProductoCompra(int codigo, int cantMinima);
         void agregarProductoPromo(int codigo, int cantMinima);
         void liberarMemoriaRealizarCompra();
