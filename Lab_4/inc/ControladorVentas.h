@@ -54,7 +54,7 @@ class ControladorVentas : public iControladorVentas{
         void consultarProducto(int codigo, string nombre);
         vector<DTInfoPromocion> listarPromociones();
         void consultarPromocion(string nombre);
-        void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria);
+        void cargarNuevoProducto(string nicknameVendedor,string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
         void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
         void seleccionarVendedor(string nickname);
         void agregarProducto(int codigo, int cantMinima);

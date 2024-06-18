@@ -38,9 +38,9 @@ controladorVentas.setVendedor(vendedor3);
 cout<< "** CASO DE USO: Consultar Producto INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
-Producto* productoPrueba1 = new Producto(1, 1, 1, "productoDePrueba1" , "este es el producto de prueba 1", "pepito", ECategoria::otros);
-Producto* productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2" , "este es el producto de prueba 2", "papito", ECategoria::ropa);
-Producto* productoPrueba3 = new Producto(3, 3, 3, "productoDePrueba3" , "este es el producto de prueba 3", "putito", ECategoria::electrodomesticos);
+Producto* productoPrueba1 = new Producto(1, 1, 1, "productoDePrueba1" , "este es el producto de prueba 1", "pepito", ECategoria::otros, false);
+Producto* productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2" , "este es el producto de prueba 2", "papito", ECategoria::ropa, false);
+Producto* productoPrueba3 = new Producto(3, 3, 3, "productoDePrueba3" , "este es el producto de prueba 3", "putito", ECategoria::electrodomesticos, false);
 
 
 controladorVentas.setProducto(productoPrueba1);
@@ -124,9 +124,9 @@ cout<< "-----------------------------------------------------"<< endl;
 cout<< "** CASO DE USO: Alta Producto INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
-controladorVentas.cargarNuevoProducto("pepito","productoPepito1", 1, 1, "el producto de pepito uno",ECategoria::otros);
-controladorVentas.cargarNuevoProducto("pepito","productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa);
-controladorVentas.cargarNuevoProducto("pepito","productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos);
+controladorVentas.cargarNuevoProducto("pepito","productoPepito1", 1, 1, "el producto de pepito uno",ECategoria::otros, false);
+controladorVentas.cargarNuevoProducto("pepito","productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa, false);
+controladorVentas.cargarNuevoProducto("pepito","productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos, false);
 
 cout<< "** CASO DE USO: Alta Producto FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
@@ -268,7 +268,7 @@ while (entradaConsola != "/exit"){
             int categoria;
             cin>>categoria;  
             ECategoria categoriaEnum = static_cast<ECategoria>(categoria);      
-            controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum);
+            controladorVentas.cargarNuevoProducto(NombreVendedor,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
         }
         case 5:{
             cout<<"Indique el nombre del cliente"<<endl;
@@ -331,12 +331,6 @@ while (entradaConsola != "/exit"){
 
 
 
-
-    
-
-    
-
-    
     // ** SE LIBERA LA MEMORIA ** //
 delete productoEnPromocion1;  
 delete productoEnPromocion2;

@@ -1,7 +1,7 @@
 #include "Producto.h"
 
-Producto::Producto(int codigo, int stock, float precio, string nombre, string descripcion, string vendedor, ECategoria categoria): 
-codigo(codigo), stock(stock), precio(precio), nombre(nombre), descripcion(descripcion), vendedor(vendedor), categoria(categoria) {}
+Producto::Producto(int codigo, int stock, float precio, string nombre, string descripcion, string vendedor, ECategoria categoria, bool enPromocion): 
+codigo(codigo), stock(stock), precio(precio), nombre(nombre), descripcion(descripcion), vendedor(vendedor), categoria(categoria), enPromocion(enPromocion) {}
 
 
 
@@ -75,6 +75,11 @@ string Producto::getNombreVendedor()
 
 map<int, Comentario*> Producto::getComentarios(){
     return comentarios;
+}
+
+bool Producto::getEnPromocion()
+{
+    return this->enPromocion;
 }
 
 void Producto::agregarComentario(Comentario* comentario){

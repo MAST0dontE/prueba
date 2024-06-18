@@ -322,7 +322,7 @@ void ControladorUsuarios::infoCliente(string nickname) {
 }
 
 void ControladorUsuarios::infoVendedor(string nickname) {
-	Vendedor* vendedorInfo = vendedores.find(nickname)->second;
+	/*Vendedor* vendedorInfo = vendedores.find(nickname)->second;
 	cout << "Nickname: " << vendedorInfo->getNickname() << "\n" << endl;
 	cout << "Fecha de nacimiento: " << vendedorInfo->getFecha() << "\n" << endl;
 	cout << "Productos disponibles:" << "\n" << endl;
@@ -331,4 +331,5 @@ void ControladorUsuarios::infoVendedor(string nickname) {
 		DTInfoProducto productoActual = *productoSet;
 		cout << productoActual.getDTInfoProducto() << "\n" << endl;
 	}
+	cout << "Promociones vigentes:" << "\n" << endl;*/
 }
