@@ -1,9 +1,11 @@
 # Cambios importantes 
+- ProductoEnPromocion tiene ahora un puntero a la Promocion a la que pertenece
 
--Cambiamos nickname por nickname como ya lo teniamos? 
--Dato en usuario la primer entrada es contrasenia no nickname, lo cambio por intuicion?
--Cambie los vectores de ControladorUsuarios por maps
+- Cambiamos nickname por nickname como ya lo teniamos? 
+- Dato en usuario la primer entrada es contrasenia no nickname, lo cambio por intuicion?
+- Cambie los vectores de ControladorUsuarios por maps
 
+## Cambios ya implementados
 - Descuento: Lo calculo o no? como me viene en porcentaje o como? yo puse float
 
   
