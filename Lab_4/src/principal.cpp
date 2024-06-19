@@ -187,8 +187,11 @@ cout << "     ** CASO DE USO: Suscribirse INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
 
 
-controladorUsuarios->imprimirListaDeVendedores();
-controladorUsuarios->imprimirSuscripcionesDisponibles("un cliente1");
+//controladorUsuarios->imprimirListaDeVendedores();
+controladorUsuarios->imprimirSuscripcionesDisponibles("Donatelo");
+controladorUsuarios->suscribirmeA("tiranosaurioRex");
+controladorUsuarios->imprimirSuscripcionesDisponibles("Donatelo");
+controladorUsuarios->suscribirmeA("tiranosaurioRex");
 
 cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;

@@ -312,11 +312,6 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 }*/
 
 
-set<string> ControladorUsuarios::suscribirseA(string)
-{
-    return set<string>();
-}
-
 set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string nickname)
 {
 	// Implementación
@@ -387,11 +382,25 @@ void ControladorUsuarios::infoCliente(string nickname) {
 
 void ControladorUsuarios::imprimirSuscripcionesDisponibles(string nickname){
 	map<string, Vendedor*>::iterator it;
+	this->nombreNuevoSuscriptor = nickname;
+	cout<<"Las suscripciones disponibles para "<< nickname <<" son:"<<endl;
 	for (it= vendedores.begin(); it!=vendedores.end(); ++it){
 		bool suscripto = it->second->estaSuscripto(nickname);
 		if(!suscripto){
 			cout<<it->first<<endl;
-			cout<<"aaaaaa"<<endl;
 		}
+	}
+}
+
+void ControladorUsuarios::suscribirmeA(string nickname){
+	Vendedor* vendedor = this->vendedores[nickname];
+	bool estaSuscripto = vendedor->estaSuscripto(this->nombreNuevoSuscriptor);
+	if(!estaSuscripto){
+		vendedor->agregarSuscriptor(this->clientes[this->nombreNuevoSuscriptor]);
+		cout<<this->nombreNuevoSuscriptor<<" se ha suscrito a "<<nickname<<endl;
+	}
+	else {
+		cout<<this->nombreNuevoSuscriptor<< "ya se encuentra suscrito a" << nickname<<endl;
+		cout<<"INGRESE UNA SUSCRIPCION VALIDA:"<<endl;
 	}
 }
