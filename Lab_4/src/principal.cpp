@@ -356,6 +356,7 @@ while (entradaConsola != 0){
         	string NombreVendedor;
         	cout << "Indique Nombre del vendedor"<<endl;
         	getline(cin,NombreVendedor);
+            //set<string> productosPendientes=controladorUsuarios->seleccionarUsuario(NombreVendedor)->listarProductoPendientes(NombreVendedor);
             break;
     	}
     	case 8:{
