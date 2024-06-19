@@ -65,7 +65,7 @@ void ControladorVentas::listarProductos(){
     } 
 }
 
-void ControladorVentas::consultarProducto(int codigo, string nombre){
+void ControladorVentas::consultarProducto(int codigo){
 /*     set<Producto*> productos = this->getProductos();
     bool encontrado = false;
         for (auto it = productos.begin(); it != productos.end(); ++it) {
@@ -88,9 +88,10 @@ void ControladorVentas::consultarProducto(int codigo, string nombre){
     
     if (it != productos.end()) {
         Producto* producto = it->second;
+        string nombreProd = it->second->getNombre();
         DTInfoProducto DTproductoPrueba = producto->getInfoProducto();
         string resultado = DTproductoPrueba.imprimirInfoRestante();
-        cout << "Producto consultado: " << nombre << "\n" << endl;
+        cout << "Producto consultado: " << nombreProd << "\n" << endl;
         cout << resultado << "\n" << endl;
         encontrado = true;
     }

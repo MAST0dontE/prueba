@@ -60,7 +60,7 @@ class ControladorVentas : public iControladorVentas{
         void setFechaPromo(DTFecha fechaPromocion);
         //setters y getters FIN
         void listarProductos();
-        void consultarProducto(int codigo, string nombre);
+        void consultarProducto(int codigo);
         vector<DTInfoPromocion> crearSetDTInfoPromocion();
         void listarPromociones();
 
