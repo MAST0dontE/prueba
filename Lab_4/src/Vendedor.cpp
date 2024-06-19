@@ -90,4 +90,8 @@ bool Vendedor::estaSuscripto(string nickname){
     }
     return result;
 }
+set<string> Vendedor::listarProductoPendientes(string nickname){
+    set<string> listarProductoPendientes;
+    return listarProductoPendientes;
+}
 
