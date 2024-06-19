@@ -1,5 +1,18 @@
 #include "ControladorUsuarios.h"
 
+ControladorUsuarios * ControladorUsuarios::controladorUsuariosInst = nullptr;
+
+ControladorUsuarios::ControladorUsuarios(){
+	//constructor
+}
+
+ControladorUsuarios * ControladorUsuarios::getControladorUsuarios(){
+	if (!controladorUsuariosInst){
+		controladorUsuariosInst = new ControladorUsuarios();
+	}
+	return controladorUsuariosInst;
+}
+
 void ControladorUsuarios::setCliente(Cliente *cliente)
 {
 	this->clientes[cliente->getNickname()] = cliente;
@@ -22,9 +35,9 @@ bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFec
         return false;
     }
     Cliente* nuevoCliente = new Cliente(nickname, contrasenia, fechaNacimiento, direccion, ciudad);
-    setCliente(nuevoCliente);
-	ControladorVentas controladorVentas;
-	controladorVentas.setCliente(nuevoCliente);
+    this->setCliente(nuevoCliente);
+	ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
+	controladorVentas->setCliente(nuevoCliente);
     return true; 
 }
 
@@ -36,8 +49,8 @@ bool ControladorUsuarios::altaVendedor(string nickname, string contrasenia, DTFe
     }
     Vendedor* nuevoVendedor = new Vendedor(nickname, contrasenia, fechaNacimiento, codigoRUT);
     setVendedor(nuevoVendedor);
-	ControladorVentas controladorVentas;
-	controladorVentas.setVendedor(nuevoVendedor);
+	ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();	
+	controladorVentas->setVendedor(nuevoVendedor);
     return true; 
 }
 
