@@ -130,8 +130,8 @@ cout<< "-----------------------------------------------------"<< endl;
 cout<< "\nClientes: \n" << endl;
 controladorVentas->listarNicknamesClientes();
 
-cout << "\nListad: \n" << endl;
-controladorVentas.seleccionarCliente("un cliente1");
+cout << "\nListado de productos: \n" << endl;
+controladorVentas->seleccionarCliente("un cliente1");
 
 
 cout<< "** CASO DE USO: Realizar compra FIN**"<< endl;
