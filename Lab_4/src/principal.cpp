@@ -229,7 +229,7 @@ while (entradaConsola != 0){
         	string NombreUsuario;
         	cout << "Indique Nombre del Usuario nuevo"<<endl;
         	getline(cin,NombreUsuario);
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            //cin.ignore(numeric_limits<streamsize>::max(), '\n');
         	string contra;
         	cout << "Indique contra del Usuario nuevo"<<endl;
         	getline(cin,contra);
@@ -296,7 +296,7 @@ while (entradaConsola != 0){
     	case 5:{
         	cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            //cin.ignore(numeric_limits<streamsize>::max(), '\n');
         	getline(cin,NombreCliente);
         	set<DTNotificacion> Notificaciones=controladorUsuarios->consultarNotificaciones(NombreCliente);
         	string SuperMegaStringFaseDios;
