@@ -157,12 +157,12 @@ void ControladorVentas::seleccionarCliente(string nickname){
     map<int, Producto*>::iterator it;
     this->nicknameClienteRealizarCompra = nickname;
 
-      for (it = productos.begin(); it != productos.end(); ++it) {
+       for (it = productos.begin(); it != productos.end(); ++it) {
         Producto* producto = it->second; 
         DTInfoProducto dtip(it->first, producto->getNombre(), producto->getPrecio(), producto->getStock(), producto->getDescripcion(), producto->getCategoria(), producto->getNombreVendedor());
 
        cout << dtip.getDTInfoProducto() << "\n" << endl;
-    } 
+    }  
 }
 
 void ControladorVentas::agregarProductoCompra(int codigo, int cant){
