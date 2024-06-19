@@ -190,7 +190,7 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 
-cout <<"            	--- 	¡Bienvenido a Mercado Finger! 	---"<<endl;
+cout <<"               	-----    	¡Bienvenido a Mercado Finger!   	-----"<<endl;
 cout <<" "<<endl;
 cout <<"¿En que lo podemos asistir?"<<endl;
 cout <<"Escriba 1 para consultar Producto"<<endl;
@@ -420,7 +420,17 @@ while (entradaConsola != 0){
         	cout <<"Opción no válida." <<endl;
         	break;
 	}
-	cout<<"¿Desea realizar otra operación?"<<endl;
+    cout<<"¿Desea realizar otra operación?"<<endl;
+    cout <<"Escriba 1 para consultar Producto"<<endl;
+    cout <<"Escriba 2 para dar Alta usuario"<<endl;
+    cout <<"Escriba 3 para Listado de usuarios"<<endl;
+    cout <<"Escriba 4 para Alta producto"<<endl;
+    cout <<"Escriba 5 para Consulta notificaciones"<<endl;
+    cout<<"Escriba 6 para Dejar comentario"<<endl; 
+    cout <<"Escriba 7 para Enviar producto"<<endl; 
+    cout <<"Escriba 8 para RealizarCompra"<<endl; 
+    cout <<"Escriba 9 para ConsultarPromocion"<<endl; 
+    cout <<"Escriba 0 para salir"<<endl;
     cin>>entradaConsola;
 };
 
