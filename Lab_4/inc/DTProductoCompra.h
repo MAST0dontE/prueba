@@ -9,7 +9,7 @@ public:
     int codigo;
     float precio;
     int cant;
-    DTProductoCompra( int codigo, float precio, int cant);
+    DTProductoCompra(int codigo, float precio, int cant);
     string toString();
 };
 

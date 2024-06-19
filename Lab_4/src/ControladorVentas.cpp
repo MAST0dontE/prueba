@@ -180,16 +180,32 @@ void ControladorVentas::seleccionarCliente(string nickname){
 
 void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     auto it = this->productos.find(codigo);
-     if (it != this->productos.end()) {
-        Producto* producto = it->second;
+    auto codigoProducto = this->datosProductoCompra.find(codigo);
 
-        if (cant > 0 && cant <= producto->getStock()) {
+    if (it != this->productos.end()) {
+        if(codigoProducto == this->datosProductoCompra.end()){
+             Producto* producto = it->second;
+
+            if (cant > 0 && cant <= producto->getStock()) {
             float precio = producto->getPrecio();
-            this->datosCompra.push_back(DTProductoCompra(codigo, precio, cant));
-            this->montoTotalCompra += precio * cant;
-        } else {
+           // this->datosProductoCompra[codigo]=DTProductoCompra(codigo, precio, cant);
+
+            if(producto->getEnPromocion()){
+                /* float descuento = producto->getDescuento();
+                this->montoTotalCompra += precio * cant * (1 - descuento/100); */
+
+              //  this->datosProductoCompra[codigo]=DTProductoCompra(codigo, precio, cant);
+
+            } else {
+                this->montoTotalCompra += precio * cant;
+            }
+            
+            } else {
             cout << "Cantidad inválida. Debe ser mayor a 0 y no exceder el stock disponible." << endl;
-        } 
+            } 
+        }else {
+            cout << "El producto con el código " << codigo << " ya se encuentra agregado en la compra." << endl;
+        }
     } else {
         cout << "Producto no encontrado con el código proporcionado: " << codigo << endl;
     } 

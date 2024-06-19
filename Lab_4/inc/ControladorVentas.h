@@ -12,6 +12,7 @@
 #include "Promocion.h"
 #include "Compra.h"
 #include "DTInfoPromocion.h"
+#include "DTProductoCompra.h"
 #include "ECategoria.h"
 #include "Producto.h"
 #include "DTFecha.h"
@@ -40,7 +41,8 @@ class ControladorVentas : public iControladorVentas{
     
         //Datos que guarda este controlador para los casos de uso relacionados a compra:
         string nicknameClienteRealizarCompra;
-        vector<DTProductoCompra> datosCompra;
+        map<int, DTProductoCompra> datosProductoCompra;
+        //map<int, DTProductoCompra> productosEnPromo
         float montoTotalCompra;
         
     public:
