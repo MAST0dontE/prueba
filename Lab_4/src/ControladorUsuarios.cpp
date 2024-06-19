@@ -1,5 +1,18 @@
 #include "ControladorUsuarios.h"
 
+ControladorUsuarios * ControladorUsuarios::controladorUsuariosInst = nullptr;
+
+ControladorUsuarios::ControladorUsuarios(){
+	//constructor
+}
+
+ControladorUsuarios * ControladorUsuarios::getControladorUsuarios(){
+	if (!controladorUsuariosInst){
+		controladorUsuariosInst = new ControladorUsuarios();
+	}
+	return controladorUsuariosInst;
+}
+
 void ControladorUsuarios::setCliente(Cliente *cliente)
 {
 	this->clientes[cliente->getNickname()] = cliente;
@@ -22,9 +35,9 @@ bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFec
         return false;
     }
     Cliente* nuevoCliente = new Cliente(nickname, contrasenia, fechaNacimiento, direccion, ciudad);
-    setCliente(nuevoCliente);
-	ControladorVentas controladorVentas;
-	controladorVentas.setCliente(nuevoCliente);
+    this->setCliente(nuevoCliente);
+	ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
+	controladorVentas->setCliente(nuevoCliente);
     return true; 
 }
 
@@ -36,8 +49,8 @@ bool ControladorUsuarios::altaVendedor(string nickname, string contrasenia, DTFe
     }
     Vendedor* nuevoVendedor = new Vendedor(nickname, contrasenia, fechaNacimiento, codigoRUT);
     setVendedor(nuevoVendedor);
-	ControladorVentas controladorVentas;
-	controladorVentas.setVendedor(nuevoVendedor);
+	ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();	
+	controladorVentas->setVendedor(nuevoVendedor);
     return true; 
 }
 
@@ -299,11 +312,6 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 }*/
 
 
-set<string> ControladorUsuarios::suscribirseA(string)
-{
-    return set<string>();
-}
-
 set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string nickname)
 {
 	// Implementación
@@ -374,11 +382,25 @@ void ControladorUsuarios::infoCliente(string nickname) {
 
 void ControladorUsuarios::imprimirSuscripcionesDisponibles(string nickname){
 	map<string, Vendedor*>::iterator it;
+	this->nombreNuevoSuscriptor = nickname;
+	cout<<"Las suscripciones disponibles para "<< nickname <<" son:"<<endl;
 	for (it= vendedores.begin(); it!=vendedores.end(); ++it){
 		bool suscripto = it->second->estaSuscripto(nickname);
 		if(!suscripto){
 			cout<<it->first<<endl;
-			cout<<"aaaaaa"<<endl;
 		}
+	}
+}
+
+void ControladorUsuarios::suscribirmeA(string nickname){
+	Vendedor* vendedor = this->vendedores[nickname];
+	bool estaSuscripto = vendedor->estaSuscripto(this->nombreNuevoSuscriptor);
+	if(!estaSuscripto){
+		vendedor->agregarSuscriptor(this->clientes[this->nombreNuevoSuscriptor]);
+		cout<<this->nombreNuevoSuscriptor<<" se ha suscrito a "<<nickname<<endl;
+	}
+	else {
+		cout<<this->nombreNuevoSuscriptor<< "ya se encuentra suscrito a" << nickname<<endl;
+		cout<<"INGRESE UNA SUSCRIPCION VALIDA:"<<endl;
 	}
 }

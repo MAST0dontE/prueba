@@ -20,14 +20,17 @@ using namespace std;
 
 class ControladorVentas : public iControladorVentas{
     private:
-        map<int ,Producto*> productos; //cambiar a map (ya esta cambiado xd)
+        static ControladorVentas * ControladorVentasInst;
+        ControladorVentas();
+
+        //Colecciones:
+        map<int ,Producto*> productos;
         set<Promocion*> promociones;
         map<string, Cliente*> clientes;
         map<string, Vendedor*> vendedores;
-        //map<string, Vendedor*>::iterator it;
         set<Compra*> compras;
 
-        //atributos para guardar los datos de promocion:
+        //Datos que guarda este controlador para los casos de uso relacionados a promocion:
         string nombrePromo;
         string descripcionPromo;
         DTFecha fechaVencimientoPromo = DTFecha(0,0,0);
@@ -35,12 +38,13 @@ class ControladorVentas : public iControladorVentas{
         float descuentoPromo;
         set<ProductoEnPromocion*> productosPromo;
     
-        //atributos para guardar los datos de compra:
+        //Datos que guarda este controlador para los casos de uso relacionados a compra:
         string nicknameClienteRealizarCompra;
         vector<DTProductoCompra> datosCompra;
         float montoTotalCompra;
         
     public:
+        static ControladorVentas * getControladorVentas();
         void agregarProducto(int codigo, int cantMinima, float descuento);
         void listarNicknamesClientes();
         void seleccionarCliente(string nickname);

@@ -2,6 +2,19 @@
 #include "../inc/Producto.h"
 #include "ECategoria.h"
 
+ControladorVentas * ControladorVentas::ControladorVentasInst = NULL;
+
+ControladorVentas::ControladorVentas(){
+    //Constructor
+}
+
+ControladorVentas * ControladorVentas::getControladorVentas(){
+	if (!ControladorVentasInst){
+		ControladorVentasInst = new ControladorVentas();
+	}
+	return ControladorVentasInst;
+}
+
 void ControladorVentas::setCliente(Cliente *cliente)
 {
     this->clientes[cliente->getNickname()] = cliente;

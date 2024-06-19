@@ -1,11 +1,26 @@
 #include "Fabrica.h"
+/*
+Fabrica * Fabrica::fabricaInst = NULL;
 
-ControladorUsuarios *Fabrica::getControladorUsuarios()
-{
-    return new ControladorUsuarios();
+Fabrica::Fabrica(){
+
 }
 
-ControladorVentas *Fabrica::getControladorVentas()
-{
-    return new ControladorVentas();
+Fabrica* Fabrica::getFabrica(){
+    if(fabricaInst == NULL){
+        fabricaInst = new Fabrica();
+    }
+    return fabricaInst;
 }
+
+iControladorUsuarios *Fabrica::getiControladorUsuarios(){
+    return ControladorUsuarios.getControladorUsuarios();
+}
+
+iControladorVentas *Fabrica::getiControladorVentas(){
+    if(this->controladorVentasInst == NULL){
+        this->controladorVentasInst = new ControladorVentas;
+    }
+    return this->controladorVentasInst;
+}
+*/

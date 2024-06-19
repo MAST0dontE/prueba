@@ -7,12 +7,35 @@
 #include "../inc/Vendedor.h"
 #include "../inc/ProductoEnPromocion.h"
 #include "../inc/DTInfoPromocion.h"
+#include "../inc/Fabrica.h"
 
 #include <stdlib.h>
 int main() {
 
-ControladorVentas controladorVentas;
-ControladorUsuarios controladorUsuarios;
+// ** FABRICA CREACION Y GET iCONTROLADORES** //
+/*
+Fabrica * factoria;
+factoria = Fabrica::getFabrica();
+factoria->getiControladorUsuarios();
+factoria->getiControladorVentas();
+// ----------------------------------------------- //
+*/
+
+ControladorUsuarios* controladorUsuarios = ControladorUsuarios::getControladorUsuarios();
+ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
+
+ControladorUsuarios* controladorUsuarios2 = ControladorUsuarios::getControladorUsuarios();
+ControladorVentas* controladorVentas2 = ControladorVentas::getControladorVentas();
+
+if(controladorUsuarios==controladorUsuarios2){
+    cout<<"Controlador Ususarios ES SINGLETON"<<endl;
+}
+
+if(controladorVentas==controladorVentas2){
+    cout<<"Controlador Ventas ES SINGLETON"<<endl;
+}
+
+
 Vendedor* vendedor1 = new Vendedor("pepito", "contraV1", DTFecha(1,1,1), "123456789");    
 Vendedor* vendedor2 = new Vendedor("tiranosaurioRex", "contraV2", DTFecha(1,1,1), "987654321");
 Vendedor* vendedor3 = new Vendedor("solitarioGamer", "contraV3", DTFecha(1,1,1), "32134834");
@@ -20,20 +43,22 @@ Vendedor* vendedor3 = new Vendedor("solitarioGamer", "contraV3", DTFecha(1,1,1),
 Cliente* cliente1 = new Cliente("un cliente1", "contraC1", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1");
 Cliente* cliente2 = new Cliente("un cliente2", "contraC2", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
 Cliente* cliente3 = new Cliente("un cliente3", "contraC3", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad3");
-
-/*ControladorUsuarios ControladorUsuariosTrucho;
+/*
+ControladorUsuarios ControladorUsuariosTrucho;
 bool a=ControladorUsuariosTrucho.altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
 bool b=ControladorUsuariosTrucho.altaVendedor("un vendedor2", "contra",DTFecha(1,1,1), "123");
 bool c=ControladorUsuariosTrucho.altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");
-ControladorUsuariosTrucho.listaDeUsuarios_();*/
+ControladorUsuariosTrucho.listaDeUsuarios_();
+*/
+controladorUsuarios->altaVendedor("pepito", "contraV1", DTFecha(1,1,1), "123456789");
+controladorUsuarios->altaVendedor("tiranosaurioRex", "contraV2", DTFecha(1,1,1), "987654321");
+controladorUsuarios->altaVendedor("solitarioGamer", "contraV3", DTFecha(1,1,1), "32134834");
+controladorUsuarios->altaVendedor("DaVinci","zzz123", DTFecha(15,4,1452),"45666544");
 
-controladorVentas.setCliente(cliente1);
-controladorVentas.setCliente(cliente2);
-controladorVentas.setCliente(cliente3);
+controladorUsuarios->altaCliente("Donatelo", "contraC1", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad1");
+controladorUsuarios->altaCliente("Leonardo", "contraC2", DTFecha(2,2,2),DTDireccion("calle2", 321), "ciudad2");
+controladorUsuarios->altaCliente("Raphael", "contraC3", DTFecha(3,3,3),DTDireccion("calle3", 132), "ciudad3");
 
-controladorVentas.setVendedor(vendedor1);
-controladorVentas.setVendedor(vendedor2);
-controladorVentas.setVendedor(vendedor3); 
 
 // ** CASO DE USO: Consultar Producto INICIO ** //
 cout<< "** CASO DE USO: Consultar Producto INICIO **"<< endl;
@@ -44,13 +69,13 @@ Producto* productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2" , "este es
 Producto* productoPrueba3 = new Producto(3, 3, 3, "productoDePrueba3" , "este es el producto de prueba 3", "solitarioGamer", ECategoria::electrodomesticos, false);
 
 
-controladorVentas.setProducto(productoPrueba1);
-controladorVentas.setProducto(productoPrueba2);
-controladorVentas.setProducto(productoPrueba3);
+controladorVentas->setProducto(productoPrueba1);
+controladorVentas->setProducto(productoPrueba2);
+controladorVentas->setProducto(productoPrueba3);
 
-controladorVentas.listarProductos();
-controladorVentas.consultarProducto(2,"productoDePrueba2");
-controladorVentas.consultarProducto(4,"productoDePrueba2");
+controladorVentas->listarProductos();
+controladorVentas->consultarProducto(2,"productoDePrueba2");
+controladorVentas->consultarProducto(4,"productoDePrueba2");
 
 
 /*
@@ -81,18 +106,18 @@ ProductoEnPromocion* productoEnPromocion3 = new ProductoEnPromocion(productoPrue
 Promocion* promocionPrueba1 = new Promocion("promocionDePrueba1", "esta es la promocion de prueba 1", DTFecha(1,1,2021));
 Promocion* promocionPrueba2 = new Promocion("promocionDePrueba2", "esta es la promocion de prueba 2", DTFecha(2,2,2022));
 
-controladorVentas.setPromocion(promocionPrueba1);
-controladorVentas.setPromocion(promocionPrueba2);
+controladorVentas->setPromocion(promocionPrueba1);
+controladorVentas->setPromocion(promocionPrueba2);
 
 promocionPrueba1->agregarProductoPromocion(productoEnPromocion1);
 promocionPrueba1->agregarProductoPromocion(productoEnPromocion2);
 promocionPrueba2->agregarProductoPromocion(productoEnPromocion3);
 
 
-controladorVentas.listarPromociones();
+controladorVentas->listarPromociones();
 
-controladorVentas.consultarPromocion("promocionDePrueba1");
-controladorVentas.consultarPromocion("promocionDePrueba3");
+controladorVentas->consultarPromocion("promocionDePrueba1");
+controladorVentas->consultarPromocion("promocionDePrueba3");
 
 cout<< "** CASO DE USO: Consultar Promocion FIN ** **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
@@ -103,7 +128,7 @@ cout<< "** CASO DE USO: Realizar compra INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
 cout<< "\nClientes: \n" << endl;
-controladorVentas.listarNicknamesClientes();
+controladorVentas->listarNicknamesClientes();
 
 cout << "\nListad: \n" << endl;
 controladorVentas.seleccionarCliente("un cliente1");
@@ -118,9 +143,9 @@ cout<< "-----------------------------------------------------"<< endl;
 cout<< "** CASO DE USO: Alta Producto INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
-controladorVentas.cargarNuevoProducto("pepito",11, "productoPepito1", 1, 1, "el producto de pepito uno",ECategoria::otros, false);
-controladorVentas.cargarNuevoProducto("pepito",12, "productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa, false);
-controladorVentas.cargarNuevoProducto("pepito",13, "productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("pepito",11, "productoPepito1", 1, 1, "el producto de pepito uno",ECategoria::otros, false);
+controladorVentas->cargarNuevoProducto("pepito",12, "productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa, false);
+controladorVentas->cargarNuevoProducto("pepito",13, "productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos, false);
 
 cout<< "** CASO DE USO: Alta Producto FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
@@ -131,17 +156,17 @@ cout<< "-----------------------------------------------------"<< endl;
 cout<< "** CASO DE USO: Crear Promocion INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
-controladorVentas.altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3), 0.5);
-controladorVentas.seleccionarVendedor("pepito");
-controladorVentas.agregarProductoPromo(11,21);
-controladorVentas.agregarProductoPromo(12,22);
-controladorVentas.ingresarPromocion();
-controladorVentas.consultarPromocion("promocionZZZ");
+controladorVentas->altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3), 0.5);
+controladorVentas->seleccionarVendedor("pepito");
+controladorVentas->agregarProductoPromo(11,21);
+controladorVentas->agregarProductoPromo(12,22);
+controladorVentas->ingresarPromocion();
+controladorVentas->consultarPromocion("promocionZZZ");
 
-controladorVentas.altaPromocion("promocionVACIA", "sdfhjahsdga", DTFecha(1,2,3), 0.5);
-controladorVentas.seleccionarVendedor("solitarioGamer");
-controladorVentas.ingresarPromocion();
-controladorVentas.consultarPromocion("promocionVACIA");
+controladorVentas->altaPromocion("promocionVACIA", "sdfhjahsdgaaaaazzz", DTFecha(1,2,3), 0.25);
+controladorVentas->seleccionarVendedor("solitarioGamer");
+controladorVentas->ingresarPromocion();
+controladorVentas->consultarPromocion("promocionVACIA");
 
 cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
@@ -165,15 +190,18 @@ cout << "     ** CASO DE USO: Suscribirse INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
 
 
-controladorUsuarios.imprimirListaDeVendedores();
-controladorUsuarios.imprimirSuscripcionesDisponibles("un cliente1");
+//controladorUsuarios->imprimirListaDeVendedores();
+controladorUsuarios->imprimirSuscripcionesDisponibles("Donatelo");
+controladorUsuarios->suscribirmeA("tiranosaurioRex");
+controladorUsuarios->imprimirSuscripcionesDisponibles("Donatelo");
+controladorUsuarios->suscribirmeA("tiranosaurioRex");
 
 cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 // ** CASO DE USO: Suscribirse FIN ** //
 
-
+/*
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 ControladorUsuarios ControladorUsuariosTrucho;
 cout <<"                ---     ¡Bienvenido a Mercado Finger!     ---"<<endl
@@ -410,6 +438,6 @@ delete promocionPrueba2;
 delete productoPrueba1;
 delete productoPrueba2;
 delete productoPrueba3;
-
+*/
     return 0;
 }
