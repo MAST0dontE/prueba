@@ -1,4 +1,5 @@
 # Cambios importantes 
+- Cambie en promocion el set<ProductoEnPromocion> por un map<int,ProductoEnPromocion>
 - ProductoEnPromocion tiene ahora un puntero a la Promocion a la que pertenece
 
 - Cambiamos nickname por nickname como ya lo teniamos? 
