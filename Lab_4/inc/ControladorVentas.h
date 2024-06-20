@@ -78,6 +78,7 @@ class ControladorVentas : public iControladorVentas{
         void liberarMemoriaRealizarCompra();
         void ingresarPromocion();
         void notificar(DTNotificacion);
+        void listarProductosPendientes(string nickname);
 };
 
 #endif // CONTROLADORVENTAS_H

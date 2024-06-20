@@ -299,6 +299,22 @@ void ControladorVentas::ingresarPromocion(){
 
 }
 
+void ControladorVentas::listarProductosPendientes(string nickname)
+{
+    for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt)
+    {
+        Compra* compraActual = *compraIt; 
+        for (auto compraPorProducto = compraActual->getProductos().begin() ; compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto)
+        {
+          CompraPorProducto* productoActual = *compraPorProducto;
+          if ((productoActual->getVendedor() == nickname) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
+          {
+            cout << "Producto pendiente de envio: " << productoActual->getCodigoProducto() << endl;
+          }
+        }
+    }
+}
+
 void ControladorVentas::agregarProducto(int codigo, int cantMinima){
 
     // DTInfoProducto:: DTInfoProducto(codigo,"nombre", 0, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
