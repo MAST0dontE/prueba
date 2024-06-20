@@ -1,9 +1,7 @@
 #include "Compra.h"
-
-Compra::Compra(DTFecha fechaDeCompra, float montoTotal, set<ProductoEnPromocion*> productosEnPromo, set<CompraPorProducto*> productos)
-        : fechaDeCompra(fechaDeCompra), montoTotal(montoTotal), productosEnPromo(productosEnPromo), productos(productos) {
+Compra::Compra(DTFecha fechaDeCompra, float montoTotal, set<ProductoEnPromocion *> productosEnPromo, set<CompraPorProducto *> productos, string cliente) : fechaDeCompra(fechaDeCompra), montoTotal(montoTotal), productosEnPromo(productosEnPromo), productos(productos), cliente(cliente)
+{
 }
-
 /*DTFecha Compra::getFechaDeCompra() const {
     return this->fechaDeCompra;
 }*/
@@ -25,6 +23,11 @@ float Compra::getMontoTotal()
 const std::set<CompraPorProducto *> &Compra::getProductos() const
 {
     return this->productos;
+}
+
+string Compra::getCliente()
+{
+    return this->cliente;
 }
 
 void Compra::addProducto(ProductoEnPromocion producto)
