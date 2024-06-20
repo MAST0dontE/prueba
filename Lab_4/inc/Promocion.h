@@ -7,6 +7,8 @@
 #include <set>
 using namespace std;
 
+class ProductoEnPromocion;
+
 class Promocion{
     private:
         string nombre;

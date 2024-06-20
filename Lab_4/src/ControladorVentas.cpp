@@ -191,8 +191,6 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
             if (cant > 0 && cant <= producto->getStock()) {
 
                 if(producto->getEnPromocion()){
-                    /* float descuento = producto->getDescuento();
-                    this->montoTotalCompra += precio * cant * (1 - descuento/100); */
                     this->productosEnPromo[codigo] = cant;
 
                 } else {
@@ -213,7 +211,10 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
 }
 
 DTInfoCompra ControladorVentas::mostrarDetallesCompra(){
-    // Implementación
+
+    /* float descuento = producto->getDescuento();
+    this->montoTotalCompra += precio * cant * (1 - descuento/100); */
+    
     return DTInfoCompra(DTFecha(1,1,1), 0);
 }
 
