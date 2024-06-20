@@ -299,8 +299,7 @@ void ControladorVentas::ingresarPromocion(){
 
 }
 
-void ControladorVentas::listarProductosPendientes(string nickname)
-{
+void ControladorVentas::listarProductosPendientes(string nickname){
     for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt)
     {
         Compra* compraActual = *compraIt; 
@@ -313,6 +312,21 @@ void ControladorVentas::listarProductosPendientes(string nickname)
           }
         }
     }
+}
+
+void ControladorVentas::listarComprasAEnviar(Producto *producto){
+    /* for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt)
+    {
+        Compra* compraActual = *compraIt; 
+        for (auto compraPorProducto = compraActual->getProductos().begin() ; compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto)
+        {
+          CompraPorProducto* productoActual = *compraPorProducto;
+          if ((productoActual->getCodigoProducto() == producto->getCodigo()) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
+          {
+            cout << "Compra pendiente:" << compraActual-> << endl;
+          }
+        }
+    }*/
 }
 
 void ControladorVentas::agregarProducto(int codigo, int cantMinima){

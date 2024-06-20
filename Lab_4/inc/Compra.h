@@ -14,14 +14,16 @@ class Compra{
         float montoTotal;
         set<ProductoEnPromocion*> productosEnPromo;
         set<CompraPorProducto*> productos;
+        string cliente;
 
     public:
         //GETTERS
         string getFechaDeCompra();
         float getMontoTotal();
         const set<CompraPorProducto*>& getProductos() const;
+        string getCliente();
 
-        Compra(DTFecha fechaDeCompra, float montoTotal, set<ProductoEnPromocion*> productosEnPromo, set<CompraPorProducto*> productos);
+        Compra(DTFecha fechaDeCompra, float montoTotal, set<ProductoEnPromocion*> productosEnPromo, set<CompraPorProducto*> productos, string cliente);
         void addProducto(ProductoEnPromocion producto);
 };
 
