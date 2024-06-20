@@ -332,3 +332,10 @@ void ControladorVentas::infoVendedor(string nickname){
         }
 	}
 }
+
+void ControladorVentas::listarNicknamesVendedor()
+{
+    for (const auto& pair : this->vendedores) {
+        cout<< pair.first + "\n" << endl;
+    }
+}

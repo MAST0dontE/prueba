@@ -68,7 +68,6 @@ class ControladorUsuarios : public iControladorUsuarios{
         void imprimirListaDeVendedores();
         void imprimirSuscripcionesDisponibles(string nickname);
         void suscribirmeA(string nickname);
-        void infoVendedor(string nickname);
         // void nuevaSuscripcion(string nickname);
 };
 
