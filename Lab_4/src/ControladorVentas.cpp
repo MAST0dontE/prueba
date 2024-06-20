@@ -191,7 +191,18 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
             if (cant > 0 && cant <= producto->getStock()) {
 
                 if(producto->getEnPromocion()){
-                    this->productosEnPromo[codigo] = cant;
+                    auto it2 = this->promociones.begin();
+                    while((*it2)->getProductos().find(codigo) == (*it2)->getProductos().end()){
+                        it2++;
+                    }
+                    ProductoEnPromocion* p = (*it2)->getProductos()[codigo];
+                     if(p->getCantMinima() <= cant){
+                        this->productosEnPromo[codigo] = cant;
+                     }else{
+                        float precio = producto->getPrecio();
+                        this->montoTotalCompra += precio * cant;     
+                        this->datosProductoCompra.emplace(codigo, DTProductoCompra(codigo, precio, cant));
+                     }
 
                 } else {
                     float precio = producto->getPrecio();
@@ -211,18 +222,59 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
 }
 
 void ControladorVentas::mostrarDetallesCompra(){
-    
-   for(Promocion* promo : this->promociones){
-        bool cumplePromocion = true;
-        float subtotalPromocion = 0;
-        
-        for(const auto& par : promo->getProductos()){
-            
-        }
+     
+     while(!this->productosEnPromo.empty()){
+        auto it = this->productosEnPromo.begin();
+        int codigoProducto = it->first;
+        int cantidad = it->second;
 
-           
+        auto it1 = this->promociones.begin();
+        Promocion* promo = nullptr;
+        
+        while (it1 != this->promociones.end()) {
+            if ((*it1)->getProductos().find(codigoProducto) != (*it1)->getProductos().end()) {
+                promo = *it1;
+                break;
+            }
+            it1++;
         }
-} 
+        if(promo != nullptr){
+            map<int, ProductoEnPromocion*> prPromo = promo->getProductos();
+           // auto it2 = productos[prPromo.first];
+            map<int, DTProductoCompra> auxSiAplica;
+
+ /*            while(it2 != productos.end() && (prPromo.find(it2->first()) != prPromo.end())){
+                float precio = ((*it2).second()->getProducto()->getPrecio())*(it2.second()->getDescuento()/100);
+                auxSiAplica[promo->first()] = DTProductoCompra(promo->first(), precio , cantidad);
+
+                it2++;
+            } */
+        }
+        
+
+/*        auto it2 = productos[promo.first];
+       auto p = this->productoEnPromo.find(it2.first());
+       map<int, DTProductoCompra> aux;
+
+       while(it2 != productos.end() && p != this->productoEnPromo.end()){
+        float precio = ((*it2).second()->getProducto()->getPrecio())*(it2.second()->getDescuento()/100);
+        aux[p.first()] = DTProductoCompra(p.first(), precio , p.second());
+        it2++;
+        p = this->productoEnPromo.find(it2.first());
+       }
+
+       if(it2 != productos.end()){ //aplica la promocion
+
+       }else{ //no aplica la promocion
+
+       } */
+    }
+
+        
+}
+
+
+
 
 
 

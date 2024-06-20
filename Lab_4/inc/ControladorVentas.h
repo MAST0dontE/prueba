@@ -79,6 +79,7 @@ class ControladorVentas : public iControladorVentas{
         void ingresarPromocion();
         void notificar(DTNotificacion);
         void listarProductosPendientes(string nickname);
+
 };
 
 #endif // CONTROLADORVENTAS_H
