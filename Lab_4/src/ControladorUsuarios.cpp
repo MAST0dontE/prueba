@@ -377,7 +377,7 @@ void ControladorUsuarios::infoCliente(string nickname) {
 	cout << "Fecha de nacimiento: " << clienteInfo->getFecha() << "\n" << endl;
 	cout << "Compras realizadas:" << "\n" << endl;
 	for (auto it = clienteInfo->getComprasRealizadas().begin(); it != clienteInfo->getComprasRealizadas().end(); ++it) {
-	Compra* compraActualIt = *it;
+	Compra* compraActualIt = it->second;
     compraAString(compraActualIt);
 	cout << "Monto total: " << compraActualIt->getMontoTotal() << "\n" << endl;
 	cout << "Fecha: " << compraActualIt->getFechaDeCompra() << "\n" << endl;
