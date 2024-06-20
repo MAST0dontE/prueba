@@ -30,6 +30,11 @@ string Compra::getCliente()
     return this->cliente;
 }
 
+int Compra::getId()
+{
+    return this->id;
+}
+
 void Compra::addProducto(ProductoEnPromocion producto)
 {
     // Implementación
