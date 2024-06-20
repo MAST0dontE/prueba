@@ -182,24 +182,24 @@ void ControladorVentas::seleccionarCliente(string nickname){
 void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     auto it = this->productos.find(codigo);
     auto codigoProducto = this->datosProductoCompra.find(codigo);
+    auto codigoProductoPromo = this->productosEnPromo.find(codigo);
 
     if (it != this->productos.end()) {
-        if(codigoProducto == this->datosProductoCompra.end()){
+        if(codigoProducto == this->datosProductoCompra.end() || codigoProductoPromo == this->productosEnPromo.end()){
              Producto* producto = it->second;
 
             if (cant > 0 && cant <= producto->getStock()) {
-            float precio = producto->getPrecio();
-           // this->datosProductoCompra[codigo]=DTProductoCompra(codigo, precio, cant);
 
-            if(producto->getEnPromocion()){
-                /* float descuento = producto->getDescuento();
-                this->montoTotalCompra += precio * cant * (1 - descuento/100); */
+                if(producto->getEnPromocion()){
+                    /* float descuento = producto->getDescuento();
+                    this->montoTotalCompra += precio * cant * (1 - descuento/100); */
+                    this->productosEnPromo[codigo] = cant;
 
-              //  this->datosProductoCompra[codigo]=DTProductoCompra(codigo, precio, cant);
-
-            } else {
-                this->montoTotalCompra += precio * cant;
-            }
+                } else {
+                    float precio = producto->getPrecio();
+                    this->montoTotalCompra += precio * cant;     
+                    this->datosProductoCompra.emplace(codigo, DTProductoCompra(codigo, precio, cant));
+                }
             
             } else {
             cout << "Cantidad inválida. Debe ser mayor a 0 y no exceder el stock disponible." << endl;

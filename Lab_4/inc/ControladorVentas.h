@@ -42,7 +42,7 @@ class ControladorVentas : public iControladorVentas{
         //Datos que guarda este controlador para los casos de uso relacionados a compra:
         string nicknameClienteRealizarCompra;
         map<int, DTProductoCompra> datosProductoCompra;
-        //map<int, DTProductoCompra> productosEnPromo
+        map<int, int> productosEnPromo;
         float montoTotalCompra;
         
     public:
