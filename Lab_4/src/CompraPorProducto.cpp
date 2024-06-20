@@ -6,7 +6,7 @@ CompraPorProducto::CompraPorProducto(int cantidadSolicitada, EEnvio estadoDeEnvi
 
 EEnvio CompraPorProducto::getestadoDeEnvio()
 {
-    return EEnvio();
+    //return EEnvio();
     return EEnvio();
 }
 
