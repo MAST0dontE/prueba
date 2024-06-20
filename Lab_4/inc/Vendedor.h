@@ -32,6 +32,7 @@ class Vendedor : public Usuario{
         void removerSuscriptor(iSuscriptor* suscriptor);
         bool estaSuscripto(string nickname);
         set<string> listarProductoPendientes(string nickname);
+        void notificar(DTNotificacion notificacion);
 };
 
 #endif // VENDEDOR_H

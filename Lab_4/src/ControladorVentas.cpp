@@ -271,15 +271,22 @@ void ControladorVentas::agregarProductoPromo(int codigo, int cantMinima){
     else cout<< "El producto NO es valido para agregarse correctamente a la promo: "<<endl;
 }
 
+
 void ControladorVentas::ingresarPromocion(){
     Promocion* promo = new Promocion(this->nombrePromo, this->descripcionPromo, this->fechaVencimientoPromo);
     set<ProductoEnPromocion*>::iterator it;
+    set<DTInfoProducto> productos;
     for(it = this->productosPromo.begin(); it!= this->productosPromo.end(); ++it){
         promo->agregarProductoPromocion((*it));
+        Producto* prod = (*it)->getProducto();
+        //productos.insert(prod->getInfoProducto());
     }
     this->setPromocion(promo);
     this->productosPromo.clear();
     cout<<"La Promocion se ha ingresado correctamente: "<<endl;
+    //Se crea la notificacion asociada a esta promo:
+    //this->vendedores[this->nicknameVendedorPromo]->notificar(DTNotificacion(this->nicknameVendedorPromo,this->nombrePromo, productos));
+
 }
 
 void ControladorVentas::agregarProducto(int codigo, int cantMinima){

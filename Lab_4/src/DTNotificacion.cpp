@@ -3,10 +3,10 @@
 DTNotificacion::DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTInfoProducto> productos): nicknameVendedor(nicknameVendedor), nombrePromo(nombrePromo)
 {
 };
-string DTNotificacion:: getnicknameVendedor(){
+string DTNotificacion:: getNicknameVendedor(){
     return nicknameVendedor;
 }
-string DTNotificacion:: getnombrePromo(){
+string DTNotificacion:: getNombrePromo(){
     return nombrePromo;
 }
 string DTNotificacion:: getDTInfoProducto(){

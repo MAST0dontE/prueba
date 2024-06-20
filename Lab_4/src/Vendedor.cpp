@@ -8,12 +8,6 @@ string Vendedor::getCodigoRUT(){
     return this->codigoRUT;
 }
 
-
-void Vendedor::notificar()
-{
-    // Implementación
-}
-
 void Vendedor::agregarProducto(Producto *producto){
     this->productosVendedor.insert(producto);
 }
@@ -93,5 +87,9 @@ bool Vendedor::estaSuscripto(string nickname){
 set<string> Vendedor::listarProductoPendientes(string nickname){
     set<string> listarProductoPendientes;
     return listarProductoPendientes;
+}
+
+void Vendedor::notificar(DTNotificacion notificacion){
+
 }
 

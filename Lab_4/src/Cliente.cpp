@@ -23,16 +23,16 @@ void Cliente::agregarSuscripcion(){
     //Implementacion
 }
 
-void Cliente::notificar(DTNotificacion notificacion)
-{
-    // Implementación
+void Cliente::notificar(DTNotificacion notificacion){
+    //int key = this->contadorDeNotificaciones;
+   //this->notificaciones[notificacion]=key;
+    //this->contadorDeNotificaciones++;
 }
 
-set<DTNotificacion> Cliente::getNotificaciones()
-{
-    // Implementación
-    return set<DTNotificacion>();
-}
+
+//<DTNotificacion, int> Cliente::getNotificaciones(){
+   // return this->notificaciones;
+//}
 
 void Cliente::borrarNotificaciones()
 {

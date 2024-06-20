@@ -12,8 +12,8 @@ public:
     string nicknameVendedor, nombrePromo;
     set<DTInfoProducto> productos;
     DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTInfoProducto> productos);
-    string getnicknameVendedor();
-    string getnombrePromo();
+    string getNicknameVendedor();
+    string getNombrePromo();
     string getDTInfoProducto();
 };
 

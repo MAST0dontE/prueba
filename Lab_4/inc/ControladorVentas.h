@@ -76,6 +76,7 @@ class ControladorVentas : public iControladorVentas{
         void agregarProductoPromo(int codigo, int cantMinima);
         void liberarMemoriaRealizarCompra();
         void ingresarPromocion();
+        void notificar(DTNotificacion);
 };
 
 #endif // CONTROLADORVENTAS_H
