@@ -109,9 +109,9 @@ vector<DTInfoPromocion> ControladorVentas::crearSetDTInfoPromocion(){
     for(it=promociones.begin(); it != promociones.end(); ++it){
         Promocion* promocion = *it;
 
-        set<ProductoEnPromocion*> prod = (*it)->getProductos();
+        map<int,ProductoEnPromocion*> prod = (*it)->getProductos();
          if(!prod.empty()){
-            ProductoEnPromocion* producto = (*prod.begin()); 
+            ProductoEnPromocion* producto = (*prod.begin()).second; //Obtengo el primer producto de la promocion (porque todos los productos de la promocion son del mismo vendedor
             Producto* prod = producto->getProducto();
             string nombreVendedor = prod->getNombreVendedor();
 
@@ -210,13 +210,21 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     } 
 }
 
-DTInfoCompra ControladorVentas::mostrarDetallesCompra(){
-
-    /* float descuento = producto->getDescuento();
-    this->montoTotalCompra += precio * cant * (1 - descuento/100); */
+void ControladorVentas::mostrarDetallesCompra(){
     
-    return DTInfoCompra(DTFecha(1,1,1), 0);
-}
+   for(Promocion* promo : this->promociones){
+        bool cumplePromocion = true;
+        float subtotalPromocion = 0;
+        
+        for(const auto& par : promo->getProductos()){
+            
+        }
+
+           
+        }
+} 
+
+
 
 void ControladorVentas::registrarCompra()
 {
@@ -280,6 +288,7 @@ void ControladorVentas::ingresarPromocion(){
     for(it = this->productosPromo.begin(); it!= this->productosPromo.end(); ++it){
         promo->agregarProductoPromocion((*it));
         Producto* prod = (*it)->getProducto();
+        (*it)->setPromocion(promo);
         //productos.insert(prod->getInfoProducto());
     }
     this->setPromocion(promo);
@@ -298,8 +307,8 @@ void ControladorVentas::agregarProducto(int codigo, int cantMinima){
 
 }
 
-static void imprimirPromoVenderdor(string nickname, Promocion* promocion) {
-    cout << "Promocion: " << promocion->getNombre() << "\n" << endl;
+static void imprimirPromoVendedor(string nickname, Promocion* promocion) {
+/*     cout << "Promocion: " << promocion->getNombre() << "\n" << endl;
     cout << "Descripcion: " << promocion->getDescripcion() << "\n" << endl;
     cout << "Productos en Promocion:\n" << endl;
     for (auto productos = promocion->getProductos().begin(); productos != promocion->getProductos().end(); ++productos) {
@@ -307,12 +316,21 @@ static void imprimirPromoVenderdor(string nickname, Promocion* promocion) {
             cout << "  Producto: " << productoActual->getProducto()->getCodigo() << "\n" << endl;
             cout << "  Descuento: " << productoActual->getDescuento() << "%\n" << endl;
             cout << "  Cantidad Minima: " << productoActual->getCantMinima() << "\n" << endl;
+    } */
+    cout << "Promocion: " << promocion->getNombre() << "\n" << endl;
+    cout << "Descripcion: " << promocion->getDescripcion() << "\n" << endl;
+    cout << "Productos en Promocion:\n" << endl;
+    for (auto productos = promocion->getProductos().begin(); productos != promocion->getProductos().end(); ++productos) {
+        ProductoEnPromocion* productoActual = productos->second;
+        cout << "  Producto: " << productoActual->getProducto()->getCodigo() << "\n" << endl;
+        cout << "  Descuento: " << productoActual->getDescuento() << "%\n" << endl;
+        cout << "  Cantidad Minima: " << productoActual->getCantMinima() << "\n" << endl;
     }
 }
 
 
 void ControladorVentas::infoVendedor(string nickname){
-	Vendedor* vendedorInfo = vendedores.find(nickname)->second;
+	/* Vendedor* vendedorInfo = vendedores.find(nickname)->second;
 	cout << "Nickname: " << vendedorInfo->getNickname() << "\n" << endl;
 	cout << "Fecha de nacimiento: " << vendedorInfo->getFecha() << "\n" << endl;
 	cout << "Productos disponibles:" << "\n" << endl;
@@ -331,7 +349,25 @@ void ControladorVentas::infoVendedor(string nickname){
         if (ayuda->getProducto()->getNombreVendedor() == nickname) {
             imprimirPromoVenderdor(nickname, promoActual);
         }
-	}
+	} */
+ Vendedor* vendedorInfo = vendedores.find(nickname)->second;
+    cout << "Nickname: " << vendedorInfo->getNickname() << "\n" << endl;
+    cout << "Fecha de nacimiento: " << vendedorInfo->getFecha() << "\n" << endl;
+    cout << "Productos disponibles:" << "\n" << endl;
+    for (auto productoSet = vendedorInfo->obtenerProductos().begin(); productoSet != vendedorInfo->obtenerProductos().end(); ++productoSet) {
+        DTInfoProducto productoActual = *productoSet;
+        cout << productoActual.getDTInfoProducto() << "\n" << endl;
+    }
+    cout << "Promociones vigentes:" << "\n" << endl;
+    for (auto enPromo = promociones.begin(); enPromo != promociones.end(); ++enPromo) {
+        Promocion* promoActual = *enPromo;
+        map<int, ProductoEnPromocion*> mapProd = promoActual->getProductos();
+        auto productoVend = mapProd.begin();
+        ProductoEnPromocion* ayuda = productoVend->second;
+        if (ayuda->getProducto()->getNombreVendedor() == nickname) {
+            imprimirPromoVendedor(nickname, promoActual);
+        }
+    }
 }
 
 void ControladorVentas::listarNicknamesVendedor()

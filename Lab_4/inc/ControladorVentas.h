@@ -50,7 +50,7 @@ class ControladorVentas : public iControladorVentas{
         void agregarProducto(int codigo, int cantMinima, float descuento);
         void listarNicknamesClientes();
         void seleccionarCliente(string nickname);
-        DTInfoCompra mostrarDetallesCompra();
+        void mostrarDetallesCompra();
         void registrarCompra();
         //setters y getters INICIO
         void setCliente(Cliente *cliente);

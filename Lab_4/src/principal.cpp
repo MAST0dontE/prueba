@@ -392,7 +392,7 @@ while (entradaConsola != 0){
             	}
                 break;
         	}
-        	DTInfoCompra dtic = controladorVentas->mostrarDetallesCompra();
+        	controladorVentas->mostrarDetallesCompra();
        	// cout << "Detalles de la compra: \n" << dtic.toString() << endl;
 
         	cout << "Desea confirmar la compra? Y/N" <<endl;

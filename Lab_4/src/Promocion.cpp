@@ -4,7 +4,7 @@ Promocion::Promocion(string nombre, string descripcion, DTFecha fechaDeVencimien
     : nombre(nombre), descripcion(descripcion), fechaDeVencimiento(fechaDeVencimiento) {}
 
 void Promocion::agregarProductoPromocion(ProductoEnPromocion* producto){
-    this->productos.insert(producto);
+    this->productos[producto->getProducto()->getCodigo()] = producto;
 }
 
 string Promocion::getNombre()
@@ -22,7 +22,7 @@ DTFecha Promocion::getFechaDeVencimiento()
     return this->fechaDeVencimiento;
 }
 
-set<ProductoEnPromocion*> Promocion::getProductos()
+map<int,ProductoEnPromocion*> Promocion::getProductos()
 {
     return this->productos;
 }
