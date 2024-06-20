@@ -204,11 +204,14 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
                         this->datosProductoCompra.emplace(codigo, DTProductoCompra(codigo, precio, cant));
                      }
 
-                } else {
+                } /* else {
                     float precio = producto->getPrecio();
                     this->montoTotalCompra += precio * cant;     
                     this->datosProductoCompra.emplace(codigo, DTProductoCompra(codigo, precio, cant));
-                }
+                } */
+               float precio = producto->getPrecio();
+               this->montoTotalCompra += precio * cant;     
+               this->datosProductoCompra.emplace(codigo, DTProductoCompra(codigo, precio, cant));
             
             } else {
             cout << "Cantidad inválida. Debe ser mayor a 0 y no exceder el stock disponible." << endl;
@@ -221,62 +224,82 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     } 
 }
 
-void ControladorVentas::mostrarDetallesCompra(){
-     
-     while(!this->productosEnPromo.empty()){
+void ControladorVentas::procesarProductosEnPromo(){
+    while (!this->productosEnPromo.empty()) {
         auto it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
         int cantidad = it->second;
+        //this->productosEnPromo.erase(it);
 
-        auto it1 = this->promociones.begin();
         Promocion* promo = nullptr;
-        
-        while (it1 != this->promociones.end()) {
+
+        // encontrar la promoción que contiene el producto
+        for (auto it1 = this->promociones.begin(); it1 != this->promociones.end(); ++it1) {
             if ((*it1)->getProductos().find(codigoProducto) != (*it1)->getProductos().end()) {
                 promo = *it1;
                 break;
             }
-            it1++;
         }
-        if(promo != nullptr){
-            map<int, ProductoEnPromocion*> prPromo = promo->getProductos();
-           // auto it2 = productos[prPromo.first];
-            map<int, DTProductoCompra> auxSiAplica;
+        if (promo != nullptr) {
+            map<int, ProductoEnPromocion*> productosEnPromo = promo->getProductos();
+            bool todosProductosEnPromo = true;
+            map<int, DTProductoCompra> productosCompra;
 
- /*            while(it2 != productos.end() && (prPromo.find(it2->first()) != prPromo.end())){
-                float precio = ((*it2).second()->getProducto()->getPrecio())*(it2.second()->getDescuento()/100);
-                auxSiAplica[promo->first()] = DTProductoCompra(promo->first(), precio , cantidad);
+            for (const auto& par : productosEnPromo) {
+                int codigoProdPromo = par.first;
+                ProductoEnPromocion* prodEnPromo = par.second;
 
-                it2++;
-            } */
+                auto itProdEnPromo = this->productosEnPromo.find(codigoProdPromo);
+
+                if (itProdEnPromo != this->productosEnPromo.end()) {
+                    // Producto está en productosEnPromo y cumple con la cantidad mínima
+                    int cantidadSolicitada = itProdEnPromo->second;
+                    if (cantidadSolicitada >= prodEnPromo->getCantMinima()) {
+                        float precioConDescuento = prodEnPromo->getProducto()->getPrecio() * (1 - prodEnPromo->getDescuento() / 100.0);
+                        productosCompra.emplace(codigoProdPromo, DTProductoCompra(codigoProdPromo, precioConDescuento, cantidadSolicitada));
+                       // productosCompra[codigoProdPromo] = DTProductoCompra(codigoProdPromo, precioConDescuento, cantidadSolicitada);
+                        this->productosEnPromo.erase(itProdEnPromo);
+                    }else {
+                        todosProductosEnPromo = false;
+                        break;
+                    } 
+                } else {
+                    todosProductosEnPromo = false;
+                    break;
+                }
+            }
+            
+            if (todosProductosEnPromo){
+                // Aplica la promoción
+                for (const auto& par : productosCompra) {
+                    auto it = this->productos.find(par.first);
+                    Producto* producto = it->second;
+                    float precioOriginal = producto->getPrecio();
+
+                    //resto el precio que habia sumado previamente y sumo el precio con descuento al monto total
+                    this->montoTotalCompra -= precioOriginal * par.second.cant; 
+                    this->montoTotalCompra += par.second.precio * par.second.cant; 
+                    //Borro el producto que agregue si descuento en agregarProductoCompra y pongo el nuevo con descuento
+                    this->datosProductoCompra.erase(par.first);
+                    this->datosProductoCompra.emplace(par.first, par.second);
+                }
+            }
+
         }
-        
-
-/*        auto it2 = productos[promo.first];
-       auto p = this->productoEnPromo.find(it2.first());
-       map<int, DTProductoCompra> aux;
-
-       while(it2 != productos.end() && p != this->productoEnPromo.end()){
-        float precio = ((*it2).second()->getProducto()->getPrecio())*(it2.second()->getDescuento()/100);
-        aux[p.first()] = DTProductoCompra(p.first(), precio , p.second());
-        it2++;
-        p = this->productoEnPromo.find(it2.first());
-       }
-
-       if(it2 != productos.end()){ //aplica la promocion
-
-       }else{ //no aplica la promocion
-
-       } */
     }
-
-        
 }
 
+void ControladorVentas::mostrarDetallesCompra(){
+    this->procesarProductosEnPromo();
+    cout << "Detalles de la compra: " << endl;
 
-
-
-
+    for (const auto& par : this->datosProductoCompra) {
+        DTProductoCompra producto = par.second;
+        cout << producto.toString() << endl;
+    }
+    cout << "Monto total de la compra: " << this->montoTotalCompra << endl;
+    
+} 
 
 void ControladorVentas::registrarCompra()
 {
@@ -382,6 +405,7 @@ void ControladorVentas::listarComprasAEnviar(Producto *producto){
         }
     }
 }
+
 
 void ControladorVentas::agregarProducto(int codigo, int cantMinima){
 
