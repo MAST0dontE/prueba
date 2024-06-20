@@ -72,10 +72,12 @@ class ControladorVentas : public iControladorVentas{
         void seleccionarVendedor(string nickname);
         void agregarProducto(int codigo, int cantMinima);
         void infoVendedor(string nickname);
+        void listarNicknamesVendedor();
         void agregarProductoCompra(int codigo, int cantMinima);
         void agregarProductoPromo(int codigo, int cantMinima);
         void liberarMemoriaRealizarCompra();
         void ingresarPromocion();
+        void notificar(DTNotificacion);
 };
 
 #endif // CONTROLADORVENTAS_H

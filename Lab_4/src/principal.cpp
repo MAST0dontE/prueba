@@ -296,7 +296,7 @@ while (entradaConsola != 0){
        	    controladorVentas->cargarNuevoProducto(NombreVendedor,codigo,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
             break;
     	}   
-    	case 5:{
+    	case 5:{/*
         	cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
             //cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -310,7 +310,8 @@ while (entradaConsola != 0){
             	SuperMegaStringFaseDios += notif.getDTInfoProducto() + "\n";
         	}
         	cout <<SuperMegaStringFaseDios<<endl;
-            }
+            
+            }*/
             break;
     	}
     	case 6:{
@@ -351,7 +352,7 @@ while (entradaConsola != 0){
             break;
     	}
     	case 7:{
-        	set<string> ListaVend=controladorUsuarios->listaDeVendedores();
+        	/*set<string> ListaVend=controladorUsuarios->listaDeVendedores();
         	set<string>::iterator it;
         	for (it=ListaVend.begin(); it !=ListaVend.end(); it++){
             	cout<<*it<<endl;
@@ -359,7 +360,9 @@ while (entradaConsola != 0){
         	string NombreVendedor;
         	cout << "Indique Nombre del vendedor"<<endl;
         	getline(cin,NombreVendedor);
-            //set<string> productosPendientes=controladorUsuarios->seleccionarUsuario(NombreVendedor)->listarProductoPendientes(NombreVendedor);
+            //auto vendedor = controladorUsuarios->seleccionarUsuario(NombreVendedor);
+            //set<string> productosPendientes= vendedor->listarProductoPendientes(NombreVendedor);
+            */
             break;
     	}
     	case 8:{

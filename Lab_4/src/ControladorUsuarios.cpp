@@ -312,10 +312,17 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 }*/
 
 
-set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string nickname)
-{
-	// Implementación
-	return set<DTNotificacion>();
+void ControladorUsuarios::consultarNotificaciones(string nickname){/*
+	Cliente *cliente = clientes[nickname];
+	set<DTNotificacion*> notificaciones = cliente->getNotificaciones();
+	set<DTNotificacion*>::iterator it;
+	for(it=notificaciones.begin();it!=notificaciones.end();++it){
+		cout<<(*it)->getNicknameVendedor()<<(*it)->getNombrePromo()<<(*it)->getDTInfoProducto()<<endl;
+		
+	}
+	cliente->borrarNotificaciones();
+
+	*/
 }
 
 void ControladorUsuarios::eliminarSuscripciones(string nickname)
