@@ -1,4 +1,6 @@
 # Cambios importantes 
+-Compras tiene int id y string cliente
+
 - Cambie en promocion el set<ProductoEnPromocion> por un map<int,ProductoEnPromocion>
 > ProductoEnPromocion tiene ahora un puntero a la Promocion a la que pertenece (haganme acordar de borrarlo :3)
 
