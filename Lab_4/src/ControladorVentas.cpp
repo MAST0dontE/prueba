@@ -396,12 +396,13 @@ void ControladorVentas::listarComprasAEnviar(Producto *producto){
         Compra* compraActual = *compraIt; 
         for (auto compraPorProducto = compraActual->getProductos().begin() ; compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto)
         {
-          CompraPorProducto* productoActual = *compraPorProducto;
-          if ((productoActual->getCodigoProducto() == producto->getCodigo()) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
-          {
-            cout << "Cliente: " << compraActual->getCliente() << endl;
-            cout << "Fecha de realización: " << compraActual->getFechaDeCompra() << endl;
-          }
+            CompraPorProducto* productoActual = *compraPorProducto;
+            if ((productoActual->getCodigoProducto() == producto->getCodigo()) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
+            {
+                cout << "COMPRA: " << compraActual->getId() << endl:
+                cout << "  Cliente: " << compraActual->getCliente() << endl;
+                cout << "  Fecha de realización: " << compraActual->getFechaDeCompra() << endl;
+            }
         }
     }
 }
