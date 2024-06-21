@@ -37,6 +37,7 @@ class ControladorUsuarios : public iControladorUsuarios{
     string usuarioSeleccionado;
     string vendedorProductoSeleccionado;
     string nombreNuevoSuscriptor;
+
     public:
         static ControladorUsuarios* getControladorUsuarios();
         void setCliente(Cliente *cliente);
@@ -49,7 +50,9 @@ class ControladorUsuarios : public iControladorUsuarios{
         set<DTcomentario> listarComentarios(string nickname);
         void seleccionarComentario(DTcomentario *comentario) ;
         void consultarNotificaciones(string nickname); 
-        void eliminarSuscripciones(string nickname);
+        void eliminarSuscripciones(string nicknameCliente);
+        void listarSuscripciones(string nickname);
+
         void seleccionarUsuario_(string nickname);
         Usuario *seleccionarUsuario(string nickname);
         void listarProductos();
@@ -69,6 +72,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void imprimirSuscripcionesDisponiblesPara(string nickname);
         void suscribirmeA(string nickname);
         bool existenUsuariosRegistrados();
+        
         // void nuevaSuscripcion(string nickname);
 };
 

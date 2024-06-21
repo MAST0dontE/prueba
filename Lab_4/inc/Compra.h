@@ -10,11 +10,12 @@ using namespace std;
 
 class Compra{
     private:
+        int id;
         DTFecha fechaDeCompra;
-        float montoTotal;;
+        float montoTotal;
         map<int, CompraPorProducto*> productos;
         string cliente;
-        int id;
+
 
     public:
         //GETTERS

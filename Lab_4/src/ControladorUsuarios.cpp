@@ -323,9 +323,22 @@ void ControladorUsuarios::consultarNotificaciones(string nickname){
 	cliente->borrarNotificaciones();
 }
 
-void ControladorUsuarios::eliminarSuscripciones(string nickname)
-{
-	// Implementación
+void ControladorUsuarios::eliminarSuscripciones(string nicknameCliente){
+	Vendedor* vendedor = this->vendedores[nicknameCliente];
+	vendedor->removerSuscriptor(this->clientes[nicknameCliente]);
+	
+}
+
+void ControladorUsuarios::listarSuscripciones(string nickname){
+	map<string, Vendedor*>::iterator it;
+	this->nombreNuevoSuscriptor = nickname;
+	cout<<"Las suscripciones disponibles para "<< nickname <<" son:"<<endl;
+	for (it= vendedores.begin(); it!=vendedores.end(); ++it){
+		bool suscripto = it->second->estaSuscripto(nickname);
+		if(suscripto){
+			cout<<it->first<<endl;
+		}
+	}
 }
 
 void ControladorUsuarios::listaDeUsuarios_(){

@@ -179,14 +179,12 @@ void ControladorVentas::seleccionarCliente(string nickname){
 void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     auto it = this->productos.find(codigo);
     auto codigoProducto = this->datosProductoCompra.find(codigo);
-    auto codigoProductoPromo = this->productosEnPromo.find(codigo);
+  //  auto codigoProductoPromo = this->productosEnPromo.find(codigo);
 
     if (it != this->productos.end()) {
-        if(codigoProducto == this->datosProductoCompra.end() || codigoProductoPromo == this->productosEnPromo.end()){
+        if(codigoProducto == this->datosProductoCompra.end()){
              Producto* producto = it->second;
-
-            if (cant > 0 && cant <= producto->getStock()) {
-
+            if (cant > 0 && cant <= producto->getStock()){
                 if(producto->getEnPromocion()){
                     auto it2 = this->promociones.begin();
                     while((*it2)->getProductos().find(codigo) == (*it2)->getProductos().end()){
@@ -195,17 +193,8 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
                     ProductoEnPromocion* p = (*it2)->getProductos()[codigo];
                      if(p->getCantMinima() <= cant){
                         this->productosEnPromo[codigo] = cant;
-                     }else{
-                        float precio = producto->getPrecio();
-                        this->montoTotalCompra += precio * cant;     
-                        this->datosProductoCompra.emplace(codigo, DTProductoCompra(codigo, precio, cant));
                      }
-
-                } /* else {
-                    float precio = producto->getPrecio();
-                    this->montoTotalCompra += precio * cant;     
-                    this->datosProductoCompra.emplace(codigo, DTProductoCompra(codigo, precio, cant));
-                } */
+                } 
                float precio = producto->getPrecio();
                this->montoTotalCompra += precio * cant;     
                this->datosProductoCompra.emplace(codigo, DTProductoCompra(codigo, precio, cant));
@@ -323,7 +312,7 @@ void ControladorVentas::registrarCompra(){
         productosCompra[par.first] = compraPorProducto;
     }
     this->idCompra++;
-    Compra* compra = new Compra(this->idCompra,DTFecha(0,0,0), this->montoTotalCompra, productosCompra, this->nicknameClienteRealizarCompra);
+    Compra* compra = new Compra(this->idCompra, this->fechaActual, this->montoTotalCompra, productosCompra, this->nicknameClienteRealizarCompra);
     
     Cliente* cliente = this->clientes[this->nicknameClienteRealizarCompra];
     cliente->agregarCompra(compra);

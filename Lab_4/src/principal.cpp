@@ -221,6 +221,7 @@ cout <<"Escriba 7 para Enviar producto"<<endl;
 cout <<"Escriba 8 para RealizarCompra"<<endl; 
 cout <<"Escriba 9 para ConsultarPromocion"<<endl;
 cout <<"Escriba 10 para ver expediente de usuario"<<endl; 
+cout <<"Escriba 11 para eliminar una suscripcion"<<endl;
 cout <<"Escriba 0 para salir"<<endl;
 
 
@@ -419,7 +420,7 @@ while (entradaConsola != 0){
 			break;
     	}
     	case 8:{
-			cout << "Clientes disponibles: " << endl;
+			cout << "Clientes: " << endl;
         	controladorVentas->listarNicknamesClientes();
         	cout << "Indique el nickname del cliente: "<<endl;
         	string nicknameCliente;
@@ -508,6 +509,27 @@ while (entradaConsola != 0){
 				cout << "No existen usuarios registrados. No es posible ver expedientes." << endl;
 			}
             break;
+		}
+		case 11:{
+			cout << "Indique su nickname: "<<endl;
+			string nicknameCliente;
+			getline (cin, nicknameCliente);
+			cout << "Suscripciones de " << nicknameCliente << ":" << endl;
+			controladorUsuarios->listarSuscripciones(nicknameCliente);
+			string respuesta6 = "Y";
+			do {
+				cout << "Indique el nickname del vendedor al que desea eliminar la suscripción: " << endl;
+				string nicknameVendedor;
+				getline(cin, nicknameVendedor);
+				controladorUsuarios->eliminarSuscripciones(nicknameVendedor);
+				
+				cout << "Desea eliminar otra suscripción? Y/N" << endl;
+				getline(cin, respuesta6);
+/* 				if (respuesta6 == "N" || respuesta6 == "n") {
+					break;
+				} */
+			} while (respuesta6 == "Y" || respuesta6 == "y");
+
 		}
     	default:
         	cout <<"Opción no válida." <<endl;

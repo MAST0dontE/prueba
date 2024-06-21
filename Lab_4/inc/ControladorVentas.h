@@ -25,6 +25,7 @@ class ControladorVentas : public iControladorVentas{
         ControladorVentas();
 
         int idCompra = 0;
+        DTFecha fechaActual = DTFecha(0,0,0);
         //Colecciones:
         map<int ,Producto*> productos;
         set<Promocion*> promociones;
