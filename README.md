@@ -1,4 +1,5 @@
 # Cambios importantes 
+>Ahora compra no tiene productos en promocion y si tiene un map de compras por producto
 -Compras tiene int id y string cliente
 
 - Cambie en promocion el set<ProductoEnPromocion> por un map<int,ProductoEnPromocion>
