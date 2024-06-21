@@ -80,7 +80,7 @@ class ControladorVentas : public iControladorVentas{
         void notificar(DTNotificacion);
         void listarProductosPendientes(string nickname);
         void listarComprasAEnviar(Producto* producto);
-
+        void compraEnviada(int idCompra, int idProducto, string nickname);
         void procesarProductosEnPromo();
 };
 

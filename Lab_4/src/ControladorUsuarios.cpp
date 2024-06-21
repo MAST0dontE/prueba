@@ -364,7 +364,7 @@ static void compraPorProductoAString(CompraPorProducto* compraPorProducto) {
 //Imprime cada producto y cantidad solicitada en una compra
 static void compraAString(Compra* compra) {
 	for (auto compraPorProductoit= compra->getProductos().begin(); compraPorProductoit != compra->getProductos().end(); ++compraPorProductoit) {
-		CompraPorProducto* productoActuallIterador = *compraPorProductoit;
+		CompraPorProducto* productoActuallIterador = compraPorProductoit->second;
 		compraPorProductoAString(productoActuallIterador);
     }	
 }

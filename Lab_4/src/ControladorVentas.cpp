@@ -380,7 +380,7 @@ void ControladorVentas::listarProductosPendientes(string nickname){
         Compra* compraActual = *compraIt; 
         for (auto compraPorProducto = compraActual->getProductos().begin() ; compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto)
         {
-          CompraPorProducto* productoActual = *compraPorProducto;
+          CompraPorProducto* productoActual = compraPorProducto->second;
           if ((productoActual->getVendedor() == nickname) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
           {
             cout << "Producto pendiente de envio: " << productoActual->getCodigoProducto() << endl;
@@ -396,17 +396,23 @@ void ControladorVentas::listarComprasAEnviar(Producto *producto){
         Compra* compraActual = *compraIt; 
         for (auto compraPorProducto = compraActual->getProductos().begin() ; compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto)
         {
-            CompraPorProducto* productoActual = *compraPorProducto;
-            if ((productoActual->getCodigoProducto() == producto->getCodigo()) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
-            {
-                cout << "COMPRA: " << compraActual->getId() << endl:
-                cout << "  Cliente: " << compraActual->getCliente() << endl;
-                cout << "  Fecha de realización: " << compraActual->getFechaDeCompra() << endl;
-            }
+            CompraPorProducto* productoActual = compraPorProducto->second;
+          if ((productoActual->getCodigoProducto() == producto->getCodigo()) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
+          {
+            cout << "COMPRA: " << compraActual->getId() << endl;
+            cout << "  Cliente: " << compraActual->getCliente() << endl;
+            cout << "  Fecha de realización: " << compraActual->getFechaDeCompra() << endl;
+          }
         }
     }
 }
 
+void ControladorVentas::compraEnviada(int idCompra, int idProducto, string nickname) {
+    Cliente* cliente = clientes.find(nickname)->second;
+    Compra* compra = cliente->getComprasRealizadas().find(idCompra)->second;
+    CompraPorProducto* productoEnviado = compra->getProductos().find(idProducto)->second;
+    productoEnviado->setestadoDeEnvio(EEnvio::enviado);
+}
 
 void ControladorVentas::agregarProducto(int codigo, int cantMinima){
 

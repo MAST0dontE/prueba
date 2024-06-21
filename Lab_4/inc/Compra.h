@@ -11,9 +11,8 @@ using namespace std;
 class Compra{
     private:
         DTFecha fechaDeCompra;
-        float montoTotal;
-        set<ProductoEnPromocion*> productosEnPromo;
-        set<CompraPorProducto*> productos;
+        float montoTotal;;
+        map<int, CompraPorProducto*> productos;
         string cliente;
         int id;
 
@@ -21,11 +20,11 @@ class Compra{
         //GETTERS
         string getFechaDeCompra();
         float getMontoTotal();
-        const set<CompraPorProducto*>& getProductos() const;
+        const map<int, CompraPorProducto*>& getProductos() const;
         string getCliente();
         int getId();
 
-        Compra(DTFecha fechaDeCompra, float montoTotal, set<ProductoEnPromocion*> productosEnPromo, set<CompraPorProducto*> productos, string cliente);
+        Compra(DTFecha fechaDeCompra, float montoTotal, map<int, CompraPorProducto*> productos, string cliente);
         void addProducto(ProductoEnPromocion producto);
 };
 
