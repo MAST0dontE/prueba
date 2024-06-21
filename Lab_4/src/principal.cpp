@@ -269,11 +269,12 @@ while (entradaConsola != "/exit"){
         }
         case 6:{
             ControladorUsuariosTrucho.listaDeUsuarios();
+            ControladorUsuariosTrucho.listaDeUsuarios();
             string NombreUsuario;
             cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
             getline(cin,NombreUsuario);
             ControladorUsuariosTrucho.seleccionarUsuario_(NombreUsuario);
-            controladorVentas.listarProductos();
+            ControladorUsuariosTrucho.listarProductos();
             int CodigoProducto;
             cout<<"Escriba el codigo del producto al que desea ingresar un comentario"<<endl;
             cin >> CodigoProducto;

@@ -57,3 +57,7 @@ void Cliente::agregarComentario(Comentario *comentario)
 map<int, Comentario*> Cliente::getComentarios(){
     return comentariosUsuario;
 }
+
+void Cliente::eliminarComentario(int id){
+    comentariosUsuario.erase(id);
+}

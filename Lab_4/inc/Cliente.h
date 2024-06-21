@@ -28,6 +28,7 @@ class Cliente : public Usuario, public Observer{
         vector<Comentario> listarComentarios(string) override;
         void agregarComentario (Comentario*);
         map<int, Comentario *> getComentarios();
+        void eliminarComentario(int id);
 };
 
 #endif // CLIENTE_H

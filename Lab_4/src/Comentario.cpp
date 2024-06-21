@@ -22,6 +22,18 @@ DTFecha Comentario::getFecha() const{
     return fechaDeComentario;
 }
 
+Producto *Comentario::getProducto() const{
+    return producto;
+}
+
 void Comentario::agregarRespuesta(Comentario* comentario){
     respuestas[comentario->getId()] = comentario;
+}
+
+map<int, Comentario*>& Comentario::getRespuestas(){
+    return respuestas;
+}
+
+void Comentario::eliminarRespuesta(int id){
+    respuestas.erase(id);
 }

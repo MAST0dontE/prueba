@@ -62,6 +62,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void listarComentariosUsuario(string nickname);
         void setDTComentario(DTcomentario *comentario);
         void eliminarComentario(int id);
+        void eliminarComentarioRecursivo(Comentario *comentario);
         void listaDeUsuarios_();
         void infoCliente(string nickname);
         void infoVendedor(string nickname);

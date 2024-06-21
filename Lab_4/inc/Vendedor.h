@@ -25,6 +25,7 @@ class Vendedor : public Usuario{
         void agregarComentario(Comentario*);
         map<int, Comentario*> getComentarios();
         void listarProductosVendedor();
+        void eliminarComentario(int id);
 };
 
 #endif // VENDEDOR_H

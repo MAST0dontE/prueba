@@ -70,3 +70,7 @@ map<int, Comentario *> Vendedor::getComentarios()
 {
     return comentariosUsuario;
 }
+
+void Vendedor::eliminarComentario(int id){
+    comentariosUsuario.erase(id);
+}
