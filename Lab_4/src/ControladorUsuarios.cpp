@@ -146,7 +146,8 @@ void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeCome
     }
 	int idComentario = creadorIdComentario++;
 	Comentario* nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
-    productoSeleccionado->agregarComentario(nuevoComentario);
+	nuevoComentario->setProducto(productoSeleccionado);
+	productoSeleccionado->agregarComentario(nuevoComentario);
 	map<string, Usuario *>::iterator itU = usuarios.find(usuarioSeleccionado);
 	if (itU != usuarios.end()){
 		Usuario *usuarioActual = itU->second;
@@ -186,7 +187,6 @@ void ControladorUsuarios::nuevaRespuesta(string comentario, DTFecha fechaDeComen
     }
 	int idComentario = creadorIdComentario++;
 	Comentario* nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
-	nuevoComentario->setProducto(productoSeleccionado);
 	map<int, Comentario*> comentariosProducto = productoSeleccionado->getComentarios();
     Comentario* comentarioParaResponder = nullptr;
     map<int, Comentario*>::iterator comIt = comentariosProducto.find(idSeleccionado);
