@@ -12,7 +12,8 @@ class Cliente : public Usuario, public iSuscriptor{
         DTDireccion direccion;
         string ciudadResidencia;
         map<int, Compra*> comprasRealizadas;
-        //set<DTNotificacion> notificaciones;
+        int contadorNotificaciones;
+        map<int, DTNotificacion> notificaciones;
 
     public:
         // GETTERS
@@ -25,7 +26,7 @@ class Cliente : public Usuario, public iSuscriptor{
         void notificar(DTNotificacion notificacion) override ;
         string getNicknameSuscriptor() override ;
         bool esVendedor() const override{return false;} 
-        //set<DTNotificacion> getNotificaciones();
+        map<int, DTNotificacion> getNotificaciones();
         void borrarNotificaciones();
         vector<Comentario> listarComentarios(string) override;
         void agregarComentario (Comentario*);

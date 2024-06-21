@@ -1,4 +1,5 @@
 # Cambios importantes 
+- Agregue contadorCompras al controladorVentas
 >Ahora compra no tiene productos en promocion y si tiene un map de compras por producto
 -Compras tiene int id y string cliente
 
