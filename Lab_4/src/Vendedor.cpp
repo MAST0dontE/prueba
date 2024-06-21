@@ -102,3 +102,6 @@ void Vendedor::notificar(DTNotificacion notificacion){
     }
 }
 
+void Vendedor::eliminarComentario(int id){
+    comentariosUsuario.erase(id);
+}

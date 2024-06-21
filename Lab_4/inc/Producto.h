@@ -42,8 +42,9 @@ class Producto{
         map<int, Comentario*> getComentarios();
         bool getEnPromocion();
         void agregarComentario(Comentario* comentario);
-
+        void eliminarComentario(int id);
         void setStock(int stock);
+        
 };
 
 #endif // PRODUCTO_H

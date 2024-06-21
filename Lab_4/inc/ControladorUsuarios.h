@@ -65,7 +65,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void nuevaRespuesta(string comentario, DTFecha fechaDeComentario);
         void listarComentariosUsuario(string nickname);
         void setDTComentario(DTcomentario *comentario);
-        void eliminarComentario(int id);
+        void eliminarComentarioRecursivo(Comentario *comentario);
         void listaDeUsuarios_();
         void infoCliente(string nickname);
         void imprimirListaDeVendedores();

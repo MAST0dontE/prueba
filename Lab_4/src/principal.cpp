@@ -331,7 +331,7 @@ while (entradaConsola != 0){
             }*/
             break;
     	}
-    	case 6:{
+    	case 6:{/*
         	controladorUsuarios->listaDeUsuarios();
         	string NombreUsuario;
         	cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
@@ -365,7 +365,7 @@ while (entradaConsola != 0){
             	getline(cin, comentario);
             	controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1,1,1));
             	cout << "el comentario fue agregado" << endl;
-        	}
+        	}*/
             break;
     	}
     	case 7:{

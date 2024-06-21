@@ -65,3 +65,7 @@ void Cliente::agregarCompra(Compra *compra){
 string Cliente::getNicknameSuscriptor(){
     return this->getNickname();
 }
+
+void Cliente::eliminarComentario(int id){
+    comentariosUsuario.erase(id);
+}
