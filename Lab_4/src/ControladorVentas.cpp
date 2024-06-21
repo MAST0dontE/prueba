@@ -41,6 +41,11 @@ map<int, Producto*> ControladorVentas::getProductos(){
     return this->productos;
 }
 
+map<string, Vendedor*> ControladorVentas::getVendedores()
+{
+    return this->vendedores;
+}
+
 void ControladorVentas::setProducto(Producto *producto){
     this->productos[producto->getCodigo()] = producto;
 }
@@ -374,7 +379,8 @@ void ControladorVentas::ingresarPromocion(){
 
 }
 
-void ControladorVentas::listarProductosPendientes(string nickname){
+int ControladorVentas::listarProductosPendientes(string nickname){
+    int existenProductosPendientes = 0;
     for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt)
     {
         Compra* compraActual = *compraIt; 
@@ -384,12 +390,15 @@ void ControladorVentas::listarProductosPendientes(string nickname){
           if ((productoActual->getVendedor() == nickname) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
           {
             cout << "Producto pendiente de envio: " << productoActual->getCodigoProducto() << endl;
+            existenProductosPendientes = 1;
           }
         }
     }
+    return existenProductosPendientes;
 }
 
-void ControladorVentas::listarComprasAEnviar(Producto *producto){
+int ControladorVentas::listarComprasAEnviar(Producto *producto){
+    int existenComprasAEnviar = 0;
     cout << "Compras pendientes a enviar:" << endl;
     for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt)
     {
@@ -399,12 +408,14 @@ void ControladorVentas::listarComprasAEnviar(Producto *producto){
             CompraPorProducto* productoActual = compraPorProducto->second;
           if ((productoActual->getCodigoProducto() == producto->getCodigo()) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
           {
+            existenComprasAEnviar = 1;
             cout << "COMPRA: " << compraActual->getId() << endl;
             cout << "  Cliente: " << compraActual->getCliente() << endl;
             cout << "  Fecha de realización: " << compraActual->getFechaDeCompra() << endl;
           }
         }
     }
+    return existenComprasAEnviar;
 }
 
 void ControladorVentas::compraEnviada(int idCompra, int idProducto, string nickname) {

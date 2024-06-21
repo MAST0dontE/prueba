@@ -68,7 +68,6 @@ Producto* productoPrueba1 = new Producto(1, 1, 1, "productoDePrueba1" , "este es
 Producto* productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2" , "este es el producto de prueba 2", "tiranosaurioRex", ECategoria::ropa, false);
 Producto* productoPrueba3 = new Producto(3, 3, 3, "productoDePrueba3" , "este es el producto de prueba 3", "solitarioGamer", ECategoria::electrodomesticos, false);
 
-
 controladorVentas->setProducto(productoPrueba1);
 controladorVentas->setProducto(productoPrueba2);
 controladorVentas->setProducto(productoPrueba3);
@@ -204,7 +203,8 @@ cout <<"Escriba 5 para Consulta notificaciones"<<endl;
 cout <<"Escriba 6 para Dejar comentario"<<endl; 
 cout <<"Escriba 7 para Enviar producto"<<endl; 
 cout <<"Escriba 8 para RealizarCompra"<<endl; 
-cout <<"Escriba 9 para ConsultarPromocion"<<endl; 
+cout <<"Escriba 9 para ConsultarPromocion"<<endl;
+cout <<"Escriba 10 para ver expediente de usuario"<<endl; 
 cout <<"Escriba 0 para salir"<<endl;
 
 
@@ -363,7 +363,44 @@ while (entradaConsola != 0){
             //auto vendedor = controladorUsuarios->seleccionarUsuario(NombreVendedor);
             //set<string> productosPendientes= vendedor->listarProductoPendientes(NombreVendedor);
             */
-            break;
+		    cout << "Vendedores disponibles:" << endl;
+		   	controladorVentas->listarNicknamesVendedor();
+			cout <<"Indique el nickname de vendedor:" << endl;
+			string nickname;
+			cin >> nickname;
+			if (controladorVentas->listarProductosPendientes(nickname) == 1)
+			{
+				cout <<"Indique el codigo del producto deseado:" << endl;
+				int producto;
+				cin>>producto;
+				if (controladorVentas->getProductos().find(producto)->first == producto)
+				{
+					Producto* ptrProducto = controladorVentas->getProductos().find(producto)->second;
+					if (controladorVentas->listarComprasAEnviar(ptrProducto) == 1)
+					{
+						cout << "Seleccione la compra a enviar:" << endl;
+						int idCompra;
+						string nickVendedor;
+						cin >> idCompra >> nickVendedor;
+
+						controladorVentas->compraEnviada(idCompra, producto, nickname);
+						cout << "La compra ha sido modificada correctamente" << endl;
+					}
+					else {
+						cout << "No hay compras pendientes o la opción es inválida." << endl;
+					}
+				}
+				else  {
+					cout << "\n" << "Opción inválida." << "\n" << endl;
+				}
+			}
+			else if (controladorVentas->getVendedores().find(nickname)->first == nickname)
+			{
+				cout << "\n" <<"No existen compras pendientes de envio del vendedor seleccionado." << "\n" << endl;				
+			} else {
+				cout << "\n" <<"Opción inválida." << "\n" << endl;
+			}
+			break;
     	}
     	case 8:{
         	controladorVentas->listarNicknamesClientes();
@@ -422,6 +459,36 @@ while (entradaConsola != 0){
         	}
             break;
     	}
+		case 10:{
+			cout <<"Usuarios registrados:" << endl;
+		   	controladorUsuarios->listaDeUsuarios_();
+		   	cout <<"¿Cual clase de usuario desea ver?" << endl;
+		   	cout <<"1 - Cliente" << endl;
+		   	cout <<"2 - Vendedor" << endl;
+		   	int clase;
+			cin>>clase;
+			cout << "Indique el nickname del usuario:" << endl;
+			string nickname;
+			cin>>nickname;
+			if (controladorUsuarios->existenUsuariosRegistrados()) {
+				switch (clase)
+				{
+				case 1:
+					controladorUsuarios->infoCliente(nickname);
+					break;
+				case 2:
+					controladorVentas->infoVendedor(nickname);
+					break;				
+				default:
+					cout << "Su entrada no es válida. Por favor seleccione 1 o 2." << endl;
+					break;
+				}
+			}
+			else {
+				cout << "No existen usuarios registrados. No es posible ver expedientes." << endl;
+			}
+            break;
+		}
     	default:
         	cout <<"Opción no válida." <<endl;
         	break;
@@ -436,6 +503,7 @@ while (entradaConsola != 0){
     cout <<"Escriba 7 para Enviar producto"<<endl; 
     cout <<"Escriba 8 para RealizarCompra"<<endl; 
     cout <<"Escriba 9 para ConsultarPromocion"<<endl; 
+	cout <<"Escriba 10 para ver expediente de usuario"<<endl;
     cout <<"Escriba 0 para salir"<<endl;
     cin>>entradaConsola;
 };
