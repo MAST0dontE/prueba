@@ -186,13 +186,15 @@ void ControladorUsuarios::nuevaRespuesta(string comentario, DTFecha fechaDeComen
     }
 	int idComentario = creadorIdComentario++;
 	Comentario* nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
-    map<int, Comentario*> comentariosProducto = productoSeleccionado->getComentarios();
+	nuevoComentario->setProducto(productoSeleccionado);
+	map<int, Comentario*> comentariosProducto = productoSeleccionado->getComentarios();
     Comentario* comentarioParaResponder = nullptr;
     map<int, Comentario*>::iterator comIt = comentariosProducto.find(idSeleccionado);
     if (comIt != comentariosProducto.end()) {
         comentarioParaResponder = comIt->second;
-    }
-    if (comentarioParaResponder) {
+		nuevoComentario->setComentarioPadre(comentarioParaResponder);
+	}
+	if (comentarioParaResponder) {
         comentarioParaResponder->agregarRespuesta(nuevoComentario);
     } else {
         cout << "Comentario con ID " << idSeleccionado << " no encontrado.\n";
@@ -287,9 +289,35 @@ void ControladorUsuarios::listarComentariosUsuario(string nickname)
 	}
 }
 
-void ControladorUsuarios::eliminarComentario(int id)
-{
-	// Implementación
+void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
+    map<int, Comentario*>& respuestas = comentario->getRespuestas();
+    for (map<int, Comentario*>::iterator it = respuestas.begin(); it != respuestas.end(); ++it) {
+        eliminarComentarioRecursivo(it->second);
+    }
+    for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
+        Usuario* usuarioActual = it->second;
+        if (!usuarioActual->esVendedor()) {
+            Cliente* cliente = dynamic_cast<Cliente*>(usuarioActual);
+            if (cliente) {
+                cliente->eliminarComentario(comentario->getId());
+            }
+        } else {
+            Vendedor* vendedor = dynamic_cast<Vendedor*>(usuarioActual);
+            if (vendedor) {
+                vendedor->eliminarComentario(comentario->getId());
+            }
+        }
+    }
+    Comentario* comentarioPadre = comentario->getComentarioPadre();
+    if (comentarioPadre) {
+        comentarioPadre->getRespuestas().erase(comentario->getId());
+    } else {
+        Producto* producto = comentario->getProducto();
+        if (producto) {
+            producto->eliminarComentario(comentario->getId());
+        }
+    }
+    delete comentario;
 }
 
 Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)

@@ -15,6 +15,7 @@ class Comentario{
         DTFecha fechaDeComentario;
         map<int, Comentario*> respuestas;
         Producto* producto;
+        Comentario* comentarioPadre;
 
     public:
         Comentario(int id, string comentario, DTFecha fechaDeComentario);
@@ -23,6 +24,9 @@ class Comentario{
         string getTexto() const;
         DTFecha getFecha() const;
         Producto* getProducto() const;
+        void setProducto(Producto* producto);
+        Comentario* getComentarioPadre() const;
+        void setComentarioPadre(Comentario* comentarioPadre);
         void agregarRespuesta (Comentario* comentario);
         void eliminarRespuesta(int id);
         map<int, Comentario*>& getRespuestas();

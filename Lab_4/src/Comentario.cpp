@@ -22,10 +22,21 @@ DTFecha Comentario::getFecha() const{
     return fechaDeComentario;
 }
 
-Producto *Comentario::getProducto() const{
+Producto* Comentario::getProducto() const{
     return producto;
 }
 
+void Comentario::setProducto(Producto* producto){
+    this->producto = producto;
+}
+
+Comentario* Comentario::getComentarioPadre() const{
+    return comentarioPadre;
+}
+
+void Comentario::setComentarioPadre(Comentario* comentarioPadre) {
+    this->comentarioPadre = comentarioPadre;
+}
 void Comentario::agregarRespuesta(Comentario* comentario){
     respuestas[comentario->getId()] = comentario;
 }
