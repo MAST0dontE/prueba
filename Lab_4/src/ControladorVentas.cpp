@@ -342,7 +342,8 @@ void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha
         Vendedor* vendedor = it->second;
         cout<< vendedor->getNickname() << endl;
     }
-};
+
+}
 
 void ControladorVentas::seleccionarVendedor(string nickname){
     this->nicknameVendedorPromo = nickname;
@@ -362,21 +363,29 @@ void ControladorVentas::agregarProductoPromo(int codigo, int cantMinima){
 
 
 void ControladorVentas::ingresarPromocion(){
+    if(this->productosPromo.empty()){
+        cout<<"No es posible resgistrar una promocion vacia, por favor agregue al menos un producto valido."<<endl;
+    }
+    else{
     Promocion* promo = new Promocion(this->nombrePromo, this->descripcionPromo, this->fechaVencimientoPromo);
     set<ProductoEnPromocion*>::iterator it;
-    set<DTInfoProducto> productos;
+    map<int, DTInfoProducto> productos;
+    int contadorProds = 0;
+    Vendedor* vendedor = this->vendedores[this->nicknameVendedorPromo];
     for(it = this->productosPromo.begin(); it!= this->productosPromo.end(); ++it){
         promo->agregarProductoPromocion((*it));
         Producto* prod = (*it)->getProducto();
-        (*it)->setPromocion(promo);
-        //productos.insert(prod->getInfoProducto());
+        productos.emplace(contadorProds, prod->getInfoProducto());
+        contadorProds++;
     }
+        //(*it)->setPromocion(promo);
+    vendedor->notificar(DTNotificacion(this->nicknameVendedorPromo,this->nombrePromo, productos));
     this->setPromocion(promo);
     this->productosPromo.clear();
     cout<<"La Promocion se ha ingresado correctamente: "<<endl;
     //Se crea la notificacion asociada a esta promo:
     //this->vendedores[this->nicknameVendedorPromo]->notificar(DTNotificacion(this->nicknameVendedorPromo,this->nombrePromo, productos));
-
+    }
 }
 
 int ControladorVentas::listarProductosPendientes(string nickname){

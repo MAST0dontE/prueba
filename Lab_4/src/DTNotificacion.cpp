@@ -1,6 +1,6 @@
 #include "../inc/DTNotificacion.h"
 
-DTNotificacion::DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTInfoProducto> productos): nicknameVendedor(nicknameVendedor), nombrePromo(nombrePromo)
+DTNotificacion::DTNotificacion(string nicknameVendedor, string nombrePromo, map<int, DTInfoProducto> productos): nicknameVendedor(nicknameVendedor), nombrePromo(nombrePromo)
 {
 };
 string DTNotificacion:: getNicknameVendedor(){
@@ -12,7 +12,7 @@ string DTNotificacion:: getNombrePromo(){
 string DTNotificacion:: getDTInfoProducto(){
     string MegaSuperInfoProducto;
     for(auto producto:productos){
-        MegaSuperInfoProducto +=producto.getDTInfoProducto() + "\n";
+        MegaSuperInfoProducto +=producto.second.getDTInfoProducto() + "\n";
     }
     return MegaSuperInfoProducto ;
 }

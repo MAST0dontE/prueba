@@ -312,23 +312,22 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 }*/
 
 
-void ControladorUsuarios::consultarNotificaciones(string nickname){/*
+void ControladorUsuarios::consultarNotificaciones(string nickname){
 	Cliente *cliente = clientes[nickname];
-	set<DTNotificacion*> notificaciones = cliente->getNotificaciones();
-	set<DTNotificacion*>::iterator it;
+	map<int, DTNotificacion> notificaciones = cliente->getNotificaciones();
+	map<int, DTNotificacion>::iterator it;
 	for(it=notificaciones.begin();it!=notificaciones.end();++it){
-		cout<<(*it)->getNicknameVendedor()<<(*it)->getNombrePromo()<<(*it)->getDTInfoProducto()<<endl;
-		
+		cout<<"aaaaa"<<endl;
+		cout<<it->second.getNicknameVendedor()<<it->second.getNombrePromo()<<it->second.getDTInfoProducto()<<endl;
 	}
 	cliente->borrarNotificaciones();
-
-	*/
 }
 
 void ControladorUsuarios::eliminarSuscripciones(string nickname)
 {
 	// Implementación
 }
+
 void ControladorUsuarios::listaDeUsuarios_(){
 	map<string, Cliente*>::iterator it1;
 	map<string, Vendedor*>::iterator it2;
@@ -395,8 +394,7 @@ void ControladorUsuarios::infoCliente(string nickname) {
  }
 
 
-
-void ControladorUsuarios::imprimirSuscripcionesDisponibles(string nickname){
+void ControladorUsuarios::imprimirSuscripcionesDisponiblesPara(string nickname){
 	map<string, Vendedor*>::iterator it;
 	this->nombreNuevoSuscriptor = nickname;
 	cout<<"Las suscripciones disponibles para "<< nickname <<" son:"<<endl;

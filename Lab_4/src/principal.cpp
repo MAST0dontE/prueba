@@ -135,6 +135,9 @@ controladorVentas->cargarNuevoProducto("pepito",11, "productoPepito1", 1, 1, "el
 controladorVentas->cargarNuevoProducto("pepito",12, "productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa, false);
 controladorVentas->cargarNuevoProducto("pepito",13, "productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos, false);
 
+controladorVentas->cargarNuevoProducto("tiranosaurioRex",321, "productoTiranosaurio1", 1, 1, "el producto de Tiranosaurio uno",ECategoria::otros, false);
+controladorVentas->cargarNuevoProducto("tiranosaurioRex",322, "productoTiranosaurio2", 2, 2, "el producto de Tiranosaurio dos",ECategoria::ropa, false);
+
 cout<< "** CASO DE USO: Alta Producto FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Alta Producto FIN ** //
@@ -153,9 +156,16 @@ controladorVentas->consultarPromocion("promocionZZZ");
 
 controladorVentas->altaPromocion("promocionVACIA", "sdfhjahsdgaaaaazzz", DTFecha(1,2,3), 0.25);
 controladorVentas->seleccionarVendedor("solitarioGamer");
+controladorVentas->agregarProductoPromo(13,2);
 controladorVentas->ingresarPromocion();
 controladorVentas->consultarPromocion("promocionVACIA");
-
+/*
+controladorVentas->altaPromocion("promocionTIRA", "kkkkkkkkkkkk", DTFecha(1,2,3), 0.5);
+controladorVentas->seleccionarVendedor("tiranosaurioRex");
+controladorVentas->agregarProductoPromo(321,3);
+controladorVentas->ingresarPromocion();
+controladorVentas->listarPromociones();
+*/
 cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Crear Promocion FIN ** //
@@ -179,10 +189,16 @@ cout << "````````````````````````````````````````````````````" << endl;
 
 
 //controladorUsuarios->imprimirListaDeVendedores();
-controladorUsuarios->imprimirSuscripcionesDisponibles("Donatelo");
+controladorUsuarios->imprimirSuscripcionesDisponiblesPara("Donatelo");
 controladorUsuarios->suscribirmeA("tiranosaurioRex");
-controladorUsuarios->imprimirSuscripcionesDisponibles("Donatelo");
+controladorUsuarios->imprimirSuscripcionesDisponiblesPara("Donatelo");
 controladorUsuarios->suscribirmeA("tiranosaurioRex");
+controladorVentas->altaPromocion("promocionTIRA", "kkkkkkkkkkkk", DTFecha(1,2,3), 0.5);
+controladorVentas->seleccionarVendedor("tiranosaurioRex");
+controladorVentas->agregarProductoPromo(321,3);
+controladorVentas->ingresarPromocion();
+
+controladorUsuarios->consultarNotificaciones("Donatelo");
 
 cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;

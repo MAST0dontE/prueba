@@ -24,19 +24,19 @@ void Cliente::agregarSuscripcion(){
 }
 
 void Cliente::notificar(DTNotificacion notificacion){
-    //int key = this->contadorDeNotificaciones;
-   //this->notificaciones[notificacion]=key;
-    //this->contadorDeNotificaciones++;
+    int key = this->contadorNotificaciones;
+    this->notificaciones.emplace(key,notificacion);
+    this->contadorNotificaciones++;
 }
 
 
-//<DTNotificacion, int> Cliente::getNotificaciones(){
-   // return this->notificaciones;
-//}
+map<int, DTNotificacion> Cliente::getNotificaciones(){
+    return this->notificaciones;
+}
 
-void Cliente::borrarNotificaciones()
-{
-notificaciones.clear();
+void Cliente::borrarNotificaciones(){
+    notificaciones.clear();
+    this->contadorNotificaciones = 0;
 }
 
 vector<Comentario> Cliente::listarComentarios(string)
