@@ -59,6 +59,7 @@ class ControladorVentas : public iControladorVentas{
         void setCompra(Compra *compra);
         void setProducto(Producto *producto);
         map<int, Producto*> getProductos();
+        map<string, Vendedor*> getVendedores();
         void setFechaPromo(DTFecha fechaPromocion);
         //setters y getters FIN
         void listarProductos();
@@ -78,9 +79,9 @@ class ControladorVentas : public iControladorVentas{
         void liberarMemoriaRealizarCompra();
         void ingresarPromocion();
         void notificar(DTNotificacion);
-        void listarProductosPendientes(string nickname);
-        void listarComprasAEnviar(Producto* producto);
-
+        int listarProductosPendientes(string nickname); //devuelve 1 si existian productos pendientes
+        int listarComprasAEnviar(Producto* producto); //devuelve 1 si existen compras pendientes de envio con ese producto
+        void compraEnviada(int idCompra, int idProducto, string nickname);
         void procesarProductosEnPromo();
 };
 

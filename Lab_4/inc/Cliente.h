@@ -11,14 +11,14 @@ class Cliente : public Usuario, public iSuscriptor{
     private:
         DTDireccion direccion;
         string ciudadResidencia;
-        set<Compra*> comprasRealizadas;
+        map<int, Compra*> comprasRealizadas;
         //set<DTNotificacion> notificaciones;
 
     public:
         // GETTERS
         DTDireccion getDireccion();
         string getCiudadResidencia();
-        const set<Compra*>& getComprasRealizadas() const;
+        const map<int, Compra*>& getComprasRealizadas() const;
         Cliente(string contrasenia, string nickname, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
         void agregarSuscripcion() override ;
         void eliminarSuscripcion() override ;

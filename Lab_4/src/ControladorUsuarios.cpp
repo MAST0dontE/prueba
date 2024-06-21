@@ -364,7 +364,7 @@ static void compraPorProductoAString(CompraPorProducto* compraPorProducto) {
 //Imprime cada producto y cantidad solicitada en una compra
 static void compraAString(Compra* compra) {
 	for (auto compraPorProductoit= compra->getProductos().begin(); compraPorProductoit != compra->getProductos().end(); ++compraPorProductoit) {
-		CompraPorProducto* productoActuallIterador = *compraPorProductoit;
+		CompraPorProducto* productoActuallIterador = compraPorProductoit->second;
 		compraPorProductoAString(productoActuallIterador);
     }	
 }
@@ -373,17 +373,26 @@ static void compraAString(Compra* compra) {
 void ControladorUsuarios::infoCliente(string nickname) {
 	
 	Cliente* clienteInfo = clientes.find(nickname)->second;
-	cout << "Nickname: " << clienteInfo->getNickname() << "\n" << endl;
-	cout << "Fecha de nacimiento: " << clienteInfo->getFecha() << "\n" << endl;
-	cout << "Compras realizadas:" << "\n" << endl;
-	for (auto it = clienteInfo->getComprasRealizadas().begin(); it != clienteInfo->getComprasRealizadas().end(); ++it) {
-	Compra* compraActualIt = *it;
-    compraAString(compraActualIt);
-	cout << "Monto total: " << compraActualIt->getMontoTotal() << "\n" << endl;
-	cout << "Fecha: " << compraActualIt->getFechaDeCompra() << "\n" << endl;
-        		
+	if (clienteInfo->getNickname() == nickname) {		
+		cout << "Nickname: " << clienteInfo->getNickname() << endl;
+		cout << "Fecha de nacimiento: " << clienteInfo->getFecha() << "\n" << endl;
+		if (clienteInfo->getComprasRealizadas().empty()){
+			cout <<"El cliente no ha realizado compras." << "\n" << endl;
+		}
+		else{
+			cout << "Compras realizadas: " << endl;
+			for (auto it = clienteInfo->getComprasRealizadas().begin(); it != clienteInfo->getComprasRealizadas().end(); ++it) {
+			Compra* compraActualIt = it->second;
+			compraAString(compraActualIt);
+			cout << "Monto total: " << compraActualIt->getMontoTotal() << "\n" << endl;
+			cout << "Fecha: " << compraActualIt->getFechaDeCompra() << "\n" << endl;}
+					
+		}
 	}
-}
+	else {
+		cout << "\n" << "No existe un cliente con el usuario proporcionado." << "\n" << endl;
+	}
+ }
 
 
 
@@ -410,4 +419,16 @@ void ControladorUsuarios::suscribirmeA(string nickname){
 		cout<<this->nombreNuevoSuscriptor<< "ya se encuentra suscrito a" << nickname<<endl;
 		cout<<"INGRESE UNA SUSCRIPCION VALIDA:"<<endl;
 	}
+}
+
+bool ControladorUsuarios::existenUsuariosRegistrados()
+{
+    if (clientes.empty()&&vendedores.empty())
+	{
+		return false;
+	}
+	else {
+		return true;
+	}
+	
 }

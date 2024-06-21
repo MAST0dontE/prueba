@@ -14,7 +14,7 @@ string Cliente::getCiudadResidencia()
     return this->ciudadResidencia;
 }
 
-const set<Compra *> &Cliente::getComprasRealizadas() const
+const map<int, Compra*> &Cliente::getComprasRealizadas() const
 {
     return this->comprasRealizadas;
 }
