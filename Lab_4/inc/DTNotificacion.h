@@ -4,16 +4,17 @@
 #include <iostream>
 #include <string>
 #include <set>
+#include <map>
 #include "DTInfoProducto.h"
 
 using namespace std;
 class DTNotificacion{
 public:
     string nicknameVendedor, nombrePromo;
-    set<DTInfoProducto> productos;
-    DTNotificacion(string nicknameVendedor, string nombrePromo, set<DTInfoProducto> productos);
-    string getnicknameVendedor();
-    string getnombrePromo();
+    map<int, DTInfoProducto> productos;
+    DTNotificacion(string nicknameVendedor, string nombrePromo, map<int, DTInfoProducto> productos);
+    string getNicknameVendedor();
+    string getNombrePromo();
     string getDTInfoProducto();
 };
 

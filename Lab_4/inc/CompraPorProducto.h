@@ -14,7 +14,7 @@ class CompraPorProducto{
         EEnvio estadoDeEnvio;
 
     public:
-    CompraPorProducto(int cantidadSolicitada, EEnvio estadoDeEnvio);
+    CompraPorProducto(Producto* producto, int cantidadSolicitada, EEnvio estadoDeEnvio);
     //GETTERS
     EEnvio getestadoDeEnvio();
     int getCantidadSolicitada();

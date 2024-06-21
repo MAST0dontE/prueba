@@ -1,7 +1,7 @@
 #include "Cliente.h"
 
 
-Cliente::Cliente(string contrasenia, string nickname, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia)
+Cliente::Cliente(string nickname, string contrasenia, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia)
     : Usuario(nickname,contrasenia, fechaDeNacimiento), direccion(direccion), ciudadResidencia(ciudadResidencia) {}
 
 DTDireccion Cliente::getDireccion()
@@ -14,29 +14,29 @@ string Cliente::getCiudadResidencia()
     return this->ciudadResidencia;
 }
 
-const set<Compra *> &Cliente::getComprasRealizadas() const
+const map<int, Compra*> &Cliente::getComprasRealizadas() const
 {
     return this->comprasRealizadas;
 }
 
 void Cliente::agregarSuscripcion(){
-
+    //Implementacion
 }
 
-void Cliente::notificar(DTNotificacion notificacion)
-{
-    // Implementación
+void Cliente::notificar(DTNotificacion notificacion){
+    int key = this->contadorNotificaciones;
+    this->notificaciones.emplace(key,notificacion);
+    this->contadorNotificaciones++;
 }
 
-set<DTNotificacion> Cliente::getNotificaciones()
-{
-    // Implementación
-    return set<DTNotificacion>();
+
+map<int, DTNotificacion> Cliente::getNotificaciones(){
+    return this->notificaciones;
 }
 
-void Cliente::borrarNotificaciones()
-{
-notificaciones.clear();
+void Cliente::borrarNotificaciones(){
+    notificaciones.clear();
+    this->contadorNotificaciones = 0;
 }
 
 vector<Comentario> Cliente::listarComentarios(string)
@@ -56,6 +56,14 @@ void Cliente::agregarComentario(Comentario *comentario)
 
 map<int, Comentario*> Cliente::getComentarios(){
     return comentariosUsuario;
+}
+
+void Cliente::agregarCompra(Compra *compra){
+    comprasRealizadas[compra->getId()] = compra;
+}
+
+string Cliente::getNicknameSuscriptor(){
+    return this->getNickname();
 }
 
 void Cliente::eliminarComentario(int id){

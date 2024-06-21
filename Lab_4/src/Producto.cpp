@@ -86,6 +86,10 @@ void Producto::agregarComentario(Comentario* comentario){
    comentarios[comentario->getId()] = comentario;
 }
 
+void Producto::setStock(int stock){
+    this->stock = stock;
+}
+
 void Producto::eliminarComentario(int id){
     comentarios.erase(id);
 }

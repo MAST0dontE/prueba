@@ -4,15 +4,17 @@
 #include <string>
 #include "DTFecha.h"
 #include "ProductoEnPromocion.h"
-#include <set>
+#include <map>
 using namespace std;
+
+class ProductoEnPromocion;
 
 class Promocion{
     private:
         string nombre;
-        string descripcion;DTFecha fechaDeVencimiento
-        ;
-        set<ProductoEnPromocion*> productos;
+        string descripcion;
+        DTFecha fechaDeVencimiento;
+        map<int,ProductoEnPromocion*> productos;
 
     public:
         Promocion(string nombre, string descripcion, DTFecha fechaDeVencimiento);
@@ -20,7 +22,7 @@ class Promocion{
         string getNombre();
         string getDescripcion();
         DTFecha getFechaDeVencimiento();
-        set<ProductoEnPromocion*> getProductos();
+        map<int,ProductoEnPromocion*> getProductos();
 };
 
 #endif // PROMOCION_H

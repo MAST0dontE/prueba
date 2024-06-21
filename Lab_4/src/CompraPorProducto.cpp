@@ -1,13 +1,10 @@
 #include "CompraPorProducto.h"
 
-CompraPorProducto::CompraPorProducto(int cantidadSolicitada, EEnvio estadoDeEnvio)
-{
-}
+CompraPorProducto::CompraPorProducto(Producto* producto, int cantidadSolicitada, EEnvio estadoDeEnvio): ptrProducto(producto), cantidadSolicitada(cantidadSolicitada), estadoDeEnvio(estadoDeEnvio)
+{}
 
-EEnvio CompraPorProducto::getestadoDeEnvio()
-{
-    return EEnvio();
-    return EEnvio();
+EEnvio CompraPorProducto::getestadoDeEnvio(){
+    return this->estadoDeEnvio;
 }
 
 int CompraPorProducto::getCantidadSolicitada() {
@@ -19,11 +16,10 @@ int CompraPorProducto::getCodigoProducto() {
     return this->ptrProducto->getCodigo();
 }
 
-string CompraPorProducto::getVendedor()
-{
+string CompraPorProducto::getVendedor(){
     return this->ptrProducto->getNombreVendedor();
 }
 
-void CompraPorProducto::setestadoDeEnvio(EEnvio estadoDeEnvio)
-{
+void CompraPorProducto::setestadoDeEnvio(EEnvio estadoDeEnvio){
+    this->estadoDeEnvio = estadoDeEnvio;
 }

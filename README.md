@@ -1,9 +1,17 @@
 # Cambios importantes 
+- Agregue contadorCompras al controladorVentas
+>Ahora compra no tiene productos en promocion y si tiene un map de compras por producto
+-Compras tiene int id y string cliente
 
--Cambiamos username por nickname como ya lo teniamos? 
--Dato en usuario la primer entrada es contrasenia no username, lo cambio por intuicion?
--Cambie los vectores de ControladorUsuarios por maps
+- Cambie en promocion el set<ProductoEnPromocion> por un map<int,ProductoEnPromocion>
+> ProductoEnPromocion tiene ahora un puntero a la Promocion a la que pertenece (haganme acordar de borrarlo :3)
 
+
+- Cambiamos nickname por nickname como ya lo teniamos? 
+- Dato en usuario la primer entrada es contrasenia no nickname, lo cambio por intuicion?
+- Cambie los vectores de ControladorUsuarios por maps
+
+## Cambios ya implementados
 - Descuento: Lo calculo o no? como me viene en porcentaje o como? yo puse float
 
   

@@ -15,9 +15,9 @@ class DTInfoPromocion{
         string descripcion;
         DTFecha fechaDeVencimiento;
         string infoVendedor;
-        set<ProductoEnPromocion*> productos;
+        map<int,ProductoEnPromocion*> productos;
 
-        DTInfoPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento,string infoVendedor, set<ProductoEnPromocion*> productos);
+        DTInfoPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento,string infoVendedor, map<int,ProductoEnPromocion*> productos);
         string toString();
         string toStringSimple();
 

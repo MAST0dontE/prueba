@@ -2,32 +2,36 @@
 #define CLIENTE_H
 
 #include "Usuario.h"
-#include "Observer.h"
+#include "iSuscriptor.h"
 #include "DTDireccion.h"
 #include "Compra.h"
 using namespace std;
 
-class Cliente : public Usuario, public Observer{
+class Cliente : public Usuario, public iSuscriptor{
     private:
         DTDireccion direccion;
         string ciudadResidencia;
-        set<Compra*> comprasRealizadas;
+        map<int, Compra*> comprasRealizadas;
+        int contadorNotificaciones;
+        map<int, DTNotificacion> notificaciones;
 
     public:
         // GETTERS
         DTDireccion getDireccion();
         string getCiudadResidencia();
-        const set<Compra*>& getComprasRealizadas() const;
-        Cliente(string contrasenia, string username, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
-        void agregarSuscripcion() override;
-        void eliminarSuscripcion() override;
-        void notificar(DTNotificacion notificacion) override;
+        const map<int, Compra*>& getComprasRealizadas() const;
+        Cliente(string contrasenia, string nickname, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
+        void agregarSuscripcion() override ;
+        void eliminarSuscripcion() override ;
+        void notificar(DTNotificacion notificacion) override ;
+        string getNicknameSuscriptor() override ;
         bool esVendedor() const override{return false;} 
-        set<DTNotificacion> getNotificaciones();
+        map<int, DTNotificacion> getNotificaciones();
         void borrarNotificaciones();
         vector<Comentario> listarComentarios(string) override;
         void agregarComentario (Comentario*);
         map<int, Comentario *> getComentarios();
+        void agregarCompra(Compra* compra);
         void eliminarComentario(int id);
 };
 

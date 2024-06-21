@@ -20,37 +20,38 @@ using namespace std;
 
 class ControladorUsuarios : public iControladorUsuarios{
     private:
+
+    static ControladorUsuarios * controladorUsuariosInst;
+    ControladorUsuarios();
+
+    // Colecciones:
+    map<string, Usuario *> usuarios;
+    map<string, Cliente*> clientes;
+    map<string, Vendedor*> vendedores;
+
+    // Datos que guarda este controlador:
     int codigoSeleccionado = 0;
     bool respuestaSeleccionada; //deberia inicializarlo con algun valor? como es un triste char no supe hacerlo xd perdon p1 j3j3
     int idSeleccionado;
     int creadorIdComentario;
     string usuarioSeleccionado;
     string vendedorProductoSeleccionado;
-    map<string, Usuario *> usuarios;
-    //map<string, Usuario*>::iterator it0;
-    map<string, Cliente*> clientes;
-    map<string, Cliente*>::iterator it1;
-    map<string, Vendedor*> vendedores;
-    map<string, Vendedor*>::iterator it2;
-    //vector<Vendedor*> Vendedores;
-    //vector<Cliente*> Clientes;
-    
+    string nombreNuevoSuscriptor;
     public:
-        //porque notificaciones es un bool? no se
+        static ControladorUsuarios* getControladorUsuarios();
         void setCliente(Cliente *cliente);
         void setVendedor(Vendedor *vendedor);
         void setComentario(Comentario *comentario);
-        bool altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
-        bool altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT);
+        bool altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
+        bool altaVendedor(string nickname, string contrasenia, DTFecha fechaNacimiento, string codigoRUT);
         set<string> listaDeUsuarios();
         set<string> listaDeVendedores();
         set<DTcomentario> listarComentarios(string nickname);
         void seleccionarComentario(DTcomentario *comentario) ;
-        set<string> suscribirseA(string nickname);
-        set<DTNotificacion> consultarNotificaciones(string username); 
-        void eliminarSuscripciones(string username);
-        void seleccionarUsuario_(string username);
-        Usuario *seleccionarUsuario(string username);
+        void consultarNotificaciones(string nickname); 
+        void eliminarSuscripciones(string nickname);
+        void seleccionarUsuario_(string nickname);
+        Usuario *seleccionarUsuario(string nickname);
         void listarProductos();
         void listarComentarios(int codigo);
         void seleccionarProducto(int codigo, string nickname);
@@ -65,7 +66,10 @@ class ControladorUsuarios : public iControladorUsuarios{
         void eliminarComentarioRecursivo(Comentario *comentario);
         void listaDeUsuarios_();
         void infoCliente(string nickname);
-        void infoVendedor(string nickname);
+        void imprimirListaDeVendedores();
+        void imprimirSuscripcionesDisponiblesPara(string nickname);
+        void suscribirmeA(string nickname);
+        bool existenUsuariosRegistrados();
         // void nuevaSuscripcion(string nickname);
 };
 

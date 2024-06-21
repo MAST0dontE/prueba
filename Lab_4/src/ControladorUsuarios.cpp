@@ -1,5 +1,18 @@
 #include "ControladorUsuarios.h"
 
+ControladorUsuarios * ControladorUsuarios::controladorUsuariosInst = nullptr;
+
+ControladorUsuarios::ControladorUsuarios(){
+	//constructor
+}
+
+ControladorUsuarios * ControladorUsuarios::getControladorUsuarios(){
+	if (!controladorUsuariosInst){
+		controladorUsuariosInst = new ControladorUsuarios();
+	}
+	return controladorUsuariosInst;
+}
+
 void ControladorUsuarios::setCliente(Cliente *cliente)
 {
 	this->clientes[cliente->getNickname()] = cliente;
@@ -16,28 +29,28 @@ void ControladorUsuarios::setComentario(Comentario *comentario)
 }
 
 
-bool ControladorUsuarios::altaCliente(string username, string password, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
+bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
 {
-    if (clientes.find(username) != clientes.end()) {
+    if (clientes.find(nickname) != clientes.end()) {
         return false;
     }
-    Cliente* nuevoCliente = new Cliente(password, username, fechaNacimiento, direccion, ciudad);
-    setCliente(nuevoCliente);
-	ControladorVentas controladorVentas;
-	controladorVentas.setCliente(nuevoCliente);
+    Cliente* nuevoCliente = new Cliente(nickname, contrasenia, fechaNacimiento, direccion, ciudad);
+    this->setCliente(nuevoCliente);
+	ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
+	controladorVentas->setCliente(nuevoCliente);
     return true; 
 }
 
 
-bool ControladorUsuarios::altaVendedor(string username, string password, DTFecha fechaNacimiento, string codigoRUT)
+bool ControladorUsuarios::altaVendedor(string nickname, string contrasenia, DTFecha fechaNacimiento, string codigoRUT)
 {
-	if (vendedores.find(username) != vendedores.end()) {
+	if (vendedores.find(nickname) != vendedores.end()) {
         return false;
     }
-    Vendedor* nuevoVendedor = new Vendedor(password, username, fechaNacimiento, codigoRUT);
+    Vendedor* nuevoVendedor = new Vendedor(nickname, contrasenia, fechaNacimiento, codigoRUT);
     setVendedor(nuevoVendedor);
-	ControladorVentas controladorVentas;
-	controladorVentas.setVendedor(nuevoVendedor);
+	ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();	
+	controladorVentas->setVendedor(nuevoVendedor);
     return true; 
 }
 
@@ -51,6 +64,17 @@ set<string> ControladorUsuarios::listaDeVendedores()
 	return listaVendedores;
 }
 
+void ControladorUsuarios::imprimirListaDeVendedores(){
+	cout<<"Se listan los nicknames de todos los vendedores registrados en el sistema:"<<endl;
+	map<string, Vendedor*>::iterator it;
+    for(it=vendedores.begin(); it != vendedores.end(); ++it){
+        Vendedor* vendedor = it->second;
+        cout<< vendedor->getNickname() << endl;
+    }
+}
+
+
+
 set<string> ControladorUsuarios::listaDeUsuarios() {
 	set<string> listaUsuarios;
 	for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
@@ -59,8 +83,8 @@ set<string> ControladorUsuarios::listaDeUsuarios() {
 	return listaUsuarios;
 }
 
-void ControladorUsuarios::seleccionarUsuario_(string username){
-	string usuarioSeleccionado = username;
+void ControladorUsuarios::seleccionarUsuario_(string nickname){
+	string usuarioSeleccionado = nickname;
 }
 
 void ControladorUsuarios::listarProductos(){
@@ -268,15 +292,15 @@ void ControladorUsuarios::eliminarComentario(int id)
 	// Implementación
 }
 
-Usuario *ControladorUsuarios::seleccionarUsuario(string username)
+Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 {
-	if (clientes.find(username) != clientes.end())
+	if (clientes.find(nickname) != clientes.end())
 	{
-		return clientes.find(username)->second;
+		return clientes.find(nickname)->second;
 	}
-	if (vendedores.find(username) != vendedores.end())
+	if (vendedores.find(nickname) != vendedores.end())
 	{
-		return vendedores.find(username)->second;
+		return vendedores.find(nickname)->second;
 	}
 	// en caso de que no exista
 	return nullptr;
@@ -288,22 +312,25 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string username)
 }*/
 
 
-set<string> ControladorUsuarios::suscribirseA(string)
-{
-    return set<string>();
+void ControladorUsuarios::consultarNotificaciones(string nickname){
+	Cliente *cliente = clientes[nickname];
+	map<int, DTNotificacion> notificaciones = cliente->getNotificaciones();
+	map<int, DTNotificacion>::iterator it;
+	for(it=notificaciones.begin();it!=notificaciones.end();++it){
+		cout<<"aaaaa"<<endl;
+		cout<<it->second.getNicknameVendedor()<<it->second.getNombrePromo()<<it->second.getDTInfoProducto()<<endl;
+	}
+	cliente->borrarNotificaciones();
 }
 
-set<DTNotificacion> ControladorUsuarios::consultarNotificaciones(string username)
+void ControladorUsuarios::eliminarSuscripciones(string nickname)
 {
 	// Implementación
-	return set<DTNotificacion>();
 }
 
-void ControladorUsuarios::eliminarSuscripciones(string username)
-{
-	// Implementación
-}
 void ControladorUsuarios::listaDeUsuarios_(){
+	map<string, Cliente*>::iterator it1;
+	map<string, Vendedor*>::iterator it2;
 	for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
 		printf( "(%s)\n", it1->first.c_str() );
 		printf( "(%s)\n", it1->second->getFecha().c_str() );
@@ -336,7 +363,7 @@ static void compraPorProductoAString(CompraPorProducto* compraPorProducto) {
 //Imprime cada producto y cantidad solicitada en una compra
 static void compraAString(Compra* compra) {
 	for (auto compraPorProductoit= compra->getProductos().begin(); compraPorProductoit != compra->getProductos().end(); ++compraPorProductoit) {
-		CompraPorProducto* productoActuallIterador = *compraPorProductoit;
+		CompraPorProducto* productoActuallIterador = compraPorProductoit->second;
 		compraPorProductoAString(productoActuallIterador);
     }	
 }
@@ -345,27 +372,61 @@ static void compraAString(Compra* compra) {
 void ControladorUsuarios::infoCliente(string nickname) {
 	
 	Cliente* clienteInfo = clientes.find(nickname)->second;
-	cout << "Nickname: " << clienteInfo->getNickname() << "\n" << endl;
-	cout << "Fecha de nacimiento: " << clienteInfo->getFecha() << "\n" << endl;
-	cout << "Compras realizadas:" << "\n" << endl;
-	for (auto it = clienteInfo->getComprasRealizadas().begin(); it != clienteInfo->getComprasRealizadas().end(); ++it) {
-	Compra* compraActualIt = *it;
-    compraAString(compraActualIt);
-	cout << "Monto total: " << compraActualIt->getMontoTotal() << "\n" << endl;
-	cout << "Fecha: " << compraActualIt->getFechaDeCompra() << "\n" << endl;
-        		
+	if (clienteInfo->getNickname() == nickname) {		
+		cout << "Nickname: " << clienteInfo->getNickname() << endl;
+		cout << "Fecha de nacimiento: " << clienteInfo->getFecha() << "\n" << endl;
+		if (clienteInfo->getComprasRealizadas().empty()){
+			cout <<"El cliente no ha realizado compras." << "\n" << endl;
+		}
+		else{
+			cout << "Compras realizadas: " << endl;
+			for (auto it = clienteInfo->getComprasRealizadas().begin(); it != clienteInfo->getComprasRealizadas().end(); ++it) {
+			Compra* compraActualIt = it->second;
+			compraAString(compraActualIt);
+			cout << "Monto total: " << compraActualIt->getMontoTotal() << "\n" << endl;
+			cout << "Fecha: " << compraActualIt->getFechaDeCompra() << "\n" << endl;}
+					
+		}
+	}
+	else {
+		cout << "\n" << "No existe un cliente con el usuario proporcionado." << "\n" << endl;
+	}
+ }
+
+
+void ControladorUsuarios::imprimirSuscripcionesDisponiblesPara(string nickname){
+	map<string, Vendedor*>::iterator it;
+	this->nombreNuevoSuscriptor = nickname;
+	cout<<"Las suscripciones disponibles para "<< nickname <<" son:"<<endl;
+	for (it= vendedores.begin(); it!=vendedores.end(); ++it){
+		bool suscripto = it->second->estaSuscripto(nickname);
+		if(!suscripto){
+			cout<<it->first<<endl;
+		}
 	}
 }
 
-void ControladorUsuarios::infoVendedor(string nickname) {
-	/*Vendedor* vendedorInfo = vendedores.find(nickname)->second;
-	cout << "Nickname: " << vendedorInfo->getNickname() << "\n" << endl;
-	cout << "Fecha de nacimiento: " << vendedorInfo->getFecha() << "\n" << endl;
-	cout << "Productos disponibles:" << "\n" << endl;
-	for (auto productoSet = vendedorInfo->obtenerProductos().begin(); productoSet != vendedorInfo->obtenerProductos().end(); ++productoSet)
-	{
-		DTInfoProducto productoActual = *productoSet;
-		cout << productoActual.getDTInfoProducto() << "\n" << endl;
+void ControladorUsuarios::suscribirmeA(string nickname){
+	Vendedor* vendedor = this->vendedores[nickname];
+	bool estaSuscripto = vendedor->estaSuscripto(this->nombreNuevoSuscriptor);
+	if(!estaSuscripto){
+		vendedor->agregarSuscriptor(this->clientes[this->nombreNuevoSuscriptor]);
+		cout<<this->nombreNuevoSuscriptor<<" se ha suscrito a "<<nickname<<endl;
 	}
-	cout << "Promociones vigentes:" << "\n" << endl;*/
+	else {
+		cout<<this->nombreNuevoSuscriptor<< "ya se encuentra suscrito a" << nickname<<endl;
+		cout<<"INGRESE UNA SUSCRIPCION VALIDA:"<<endl;
+	}
+}
+
+bool ControladorUsuarios::existenUsuariosRegistrados()
+{
+    if (clientes.empty()&&vendedores.empty())
+	{
+		return false;
+	}
+	else {
+		return true;
+	}
+	
 }

@@ -11,18 +11,21 @@ using namespace std;
 class Compra{
     private:
         DTFecha fechaDeCompra;
-        float montoTotal;
-        set<ProductoEnPromocion*> productosEnPromo;
-        set<CompraPorProducto*> productos;
+        float montoTotal;;
+        map<int, CompraPorProducto*> productos;
+        string cliente;
+        int id;
 
     public:
         //GETTERS
         string getFechaDeCompra();
         float getMontoTotal();
-        const set<CompraPorProducto*>& getProductos() const;
+        const map<int, CompraPorProducto*>& getProductos() const;
+        string getCliente();
+        int getId();
 
-        Compra(DTFecha fechaDeCompra, float montoTotal, set<ProductoEnPromocion*> productosEnPromo, set<CompraPorProducto*> productos);
-        void addProducto(ProductoEnPromocion producto);
+        Compra(int id, DTFecha fechaDeCompra, float montoTotal, map<int, CompraPorProducto*> productos, string cliente);
+       
 };
 
 #endif // COMPRA_H

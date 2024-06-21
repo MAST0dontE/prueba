@@ -1,17 +1,11 @@
 #include "Vendedor.h"
 
 
-Vendedor::Vendedor(string contrasenia, string nickname, DTFecha fechaDeNacimiento, string codigoRUT) \
-    : Usuario(contrasenia, nickname, fechaDeNacimiento), codigoRUT(codigoRUT) {}
+Vendedor::Vendedor(string nickname,string contrasenia, DTFecha fechaDeNacimiento, string codigoRUT) \
+    : Usuario(nickname,contrasenia, fechaDeNacimiento), codigoRUT(codigoRUT) {}
 
 string Vendedor::getCodigoRUT(){
     return this->codigoRUT;
-}
-
-
-void Vendedor::notificar()
-{
-    // Implementación
 }
 
 void Vendedor::agregarProducto(Producto *producto){
@@ -55,20 +49,57 @@ vector<Comentario> Vendedor::listarComentarios(string)
 
 void Vendedor::listarProductosVendedor(){
     set<Producto*> productos = this->getProductos();
-        cout<< "Se muestran los productos asociados al vendedor " << this->getNickname() <<":"<< endl;
-        for (auto it = productos.begin(); it != productos.end(); ++it) {
-            DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
-            string resultado = DTproductoPrueba.toString();
-            cout << resultado << "\n"<< endl;
-    }; 
-}void Vendedor::agregarComentario(Comentario *comentario)
-{
+    if(productos.empty()){
+        cout<<"Este vendedor aun no posee productos asociados."<<endl;
+        }
+        else{
+            cout<< "Se muestran los productos asociados al vendedor " << this->getNickname() <<":"<< endl;
+            for (auto it = productos.begin(); it != productos.end(); ++it) {
+                DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
+                string resultado = DTproductoPrueba.toString();
+                cout << resultado << "\n"<< endl;
+            }
+        } 
+}
+
+void Vendedor::agregarComentario(Comentario *comentario){
     comentariosUsuario[comentario->getId()] = comentario;
 }
 
 map<int, Comentario *> Vendedor::getComentarios()
 {
     return comentariosUsuario;
+}
+
+void Vendedor::agregarSuscriptor(iSuscriptor* suscriptor){
+    this->suscriptores[suscriptor->getNicknameSuscriptor()] = suscriptor;
+}
+
+void Vendedor::removerSuscriptor(iSuscriptor* suscriptor){
+    //string aBorrar = suscriptor->getNickname();
+    this->suscriptores.erase(suscriptor->getNicknameSuscriptor());
+}
+
+bool Vendedor::estaSuscripto(string nickname){
+    map<string, iSuscriptor*>::iterator it;
+    bool result = false;
+    for(it=suscriptores.begin();it!=suscriptores.end();++it){
+        if (it->first == nickname){
+            result=true;
+        }
+    }
+    return result;
+}
+set<string> Vendedor::listarProductoPendientes(string nickname){
+    set<string> listarProductoPendientes;
+    return listarProductoPendientes;
+}
+
+void Vendedor::notificar(DTNotificacion notificacion){
+    map<string, iSuscriptor*>::iterator it;
+    for(it=this->suscriptores.begin();it!=this->suscriptores.end();++it){
+        (*it).second->notificar(notificacion);
+    }
 }
 
 void Vendedor::eliminarComentario(int id){
