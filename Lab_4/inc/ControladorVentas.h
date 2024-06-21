@@ -24,6 +24,7 @@ class ControladorVentas : public iControladorVentas{
         static ControladorVentas * ControladorVentasInst;
         ControladorVentas();
 
+        int idCompra = 0;
         //Colecciones:
         map<int ,Producto*> productos;
         set<Promocion*> promociones;

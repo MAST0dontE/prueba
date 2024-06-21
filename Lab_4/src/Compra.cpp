@@ -1,5 +1,5 @@
 #include "Compra.h"
-Compra::Compra(DTFecha fechaDeCompra, float montoTotal, map<int, CompraPorProducto *> productos, string cliente) : fechaDeCompra(fechaDeCompra), montoTotal(montoTotal), productos(productos), cliente(cliente)
+Compra::Compra(int id, DTFecha fechaDeCompra, float montoTotal, map<int, CompraPorProducto *> productos, string cliente) : id(id), fechaDeCompra(fechaDeCompra), montoTotal(montoTotal), productos(productos), cliente(cliente)
 {
 }
 /*DTFecha Compra::getFechaDeCompra() const {
@@ -38,11 +38,4 @@ string Compra::getCliente()
 int Compra::getId()
 {
     return this->id;
-}
-
-
-
-void Compra::addProducto(ProductoEnPromocion producto)
-{
-    // Implementación
 }

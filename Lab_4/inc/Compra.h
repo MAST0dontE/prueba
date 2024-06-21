@@ -24,8 +24,8 @@ class Compra{
         string getCliente();
         int getId();
 
-        Compra(DTFecha fechaDeCompra, float montoTotal, map<int, CompraPorProducto*> productos, string cliente);
-        void addProducto(ProductoEnPromocion producto);
+        Compra(int id, DTFecha fechaDeCompra, float montoTotal, map<int, CompraPorProducto*> productos, string cliente);
+       
 };
 
 #endif // COMPRA_H

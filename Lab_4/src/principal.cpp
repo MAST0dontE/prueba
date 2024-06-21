@@ -403,16 +403,20 @@ while (entradaConsola != 0){
 			break;
     	}
     	case 8:{
+			cout << "Clientes disponibles: " << endl;
         	controladorVentas->listarNicknamesClientes();
         	cout << "Indique el nickname del cliente: "<<endl;
         	string nicknameCliente;
+			cin.ignore();
         	getline(cin,nicknameCliente);
         	controladorVentas->seleccionarCliente(nicknameCliente);
 
         	string respuesta3 = "Y";
         	while (respuesta3 != "N" || respuesta3 != "n"){
             	cout << "Desea agregar un producto a la compra? Y/N"<<endl;
+				//cin >> respuesta3;
             	getline(cin,respuesta3);
+				//cin.ignore();
 
             	if (respuesta3 == "Y" || respuesta3 == "y"){
                 	cout << "Indique el codigo y cantidad del producto a agregar en la compra" <<endl;
@@ -427,10 +431,8 @@ while (entradaConsola != 0){
             	} else {
                 	cout << "Opción no válida." <<endl;
             	}
-                break;
         	}
         	controladorVentas->mostrarDetallesCompra();
-       	// cout << "Detalles de la compra: \n" << dtic.toString() << endl;
 
         	cout << "Desea confirmar la compra? Y/N" <<endl;
         	string respuesta4;
@@ -444,6 +446,8 @@ while (entradaConsola != 0){
         	} else {
             	cout << "Opción no válida." <<endl;
         	}
+
+			controladorVentas->liberarMemoriaRealizarCompra();
             break;
     	}
     	case 9:{

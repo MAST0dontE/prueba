@@ -158,14 +158,6 @@ void ControladorVentas::consultarPromocion(string nombre){
 }
 
 void ControladorVentas::listarNicknamesClientes(){
-/* 
-Version para imprimir en el main
-    set<string> res;
-    for (const auto& pair : this->clientes) {
-        res.insert(pair.first);
-    }
-    return res; */
- 
  // Version para imprimir directo en la funcion
     for (const auto& pair : this->clientes) {
         cout<< pair.first + "\n" << endl;
@@ -321,15 +313,27 @@ PostCondiciones:
  */
 
 void ControladorVentas::registrarCompra(){
-    
+    map<int, CompraPorProducto*> productosCompra;
+
     for(const auto& par : this->datosProductoCompra){
         Producto* producto = this->productos[par.first];
+        producto->setStock(producto->getStock() - par.second.cant);
+        
+        CompraPorProducto* compraPorProducto = new CompraPorProducto(producto, par.second.cant, EEnvio::pendiente);
+        productosCompra[par.first] = compraPorProducto;
     }
+    this->idCompra++;
+    Compra* compra = new Compra(this->idCompra,DTFecha(0,0,0), this->montoTotalCompra, productosCompra, this->nicknameClienteRealizarCompra);
     
+    Cliente* cliente = this->clientes[this->nicknameClienteRealizarCompra];
+    cliente->agregarCompra(compra);
 }
 
-void ControladorVentas::liberarMemoriaRealizarCompra()
-{
+void ControladorVentas::liberarMemoriaRealizarCompra(){
+    this->datosProductoCompra.clear();
+    this->productosEnPromo.clear();
+    this->montoTotalCompra = 0;
+    this->nicknameClienteRealizarCompra = "";
 }
 
 //el Sistema le asigna un código único al producto y lo da de alta en el sistema.

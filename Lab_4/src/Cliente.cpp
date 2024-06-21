@@ -58,6 +58,10 @@ map<int, Comentario*> Cliente::getComentarios(){
     return comentariosUsuario;
 }
 
+void Cliente::agregarCompra(Compra *compra){
+    comprasRealizadas[compra->getId()] = compra;
+}
+
 string Cliente::getNicknameSuscriptor(){
     return this->getNickname();
 }

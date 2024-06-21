@@ -30,6 +30,7 @@ class Cliente : public Usuario, public iSuscriptor{
         vector<Comentario> listarComentarios(string) override;
         void agregarComentario (Comentario*);
         map<int, Comentario *> getComentarios();
+        void agregarCompra(Compra* compra);
 };
 
 #endif // CLIENTE_H
