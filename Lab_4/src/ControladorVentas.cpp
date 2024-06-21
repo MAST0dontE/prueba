@@ -269,8 +269,7 @@ void ControladorVentas::procesarProductosEnPromo(){
                 }
             }
             
-            if (todosProductosEnPromo){
-                // Aplica la promoción
+            if (todosProductosEnPromo){// Aplica la promocion 
                 for (const auto& par : productosCompra) {
                     auto it = this->productos.find(par.first);
                     Producto* producto = it->second;
@@ -300,10 +299,28 @@ void ControladorVentas::mostrarDetallesCompra(){
     cout << "Monto total de la compra: " << this->montoTotalCompra << endl;
     
 } 
+/*Chequea que la compra no sea vacía.
+Registra la compra en el sistema si el parámetro es verdadero, lo que significa que:
+1. Crea una instancia de Compra y le asocia la fecha actual al atributo fechaDeCompra y a montoTotal el monto guardado calculado en mostrarDetallesCompra().
+2.Crea tantas instancias de tipo CompraPorProducto como la cantidad de productos que se hayan guardado anteriormente, le asocia la cantidad a cantidadSolicitada e inicializa el estadoDeEnvío en pendiente.
 
-void ControladorVentas::registrarCompra()
-{
-    // Implementación
+PostCondiciones:
+1. Debe quedar creada una nueva instancia de Compra en el sistema.
+2. Debe quedar liberada la memoria auxiliar utilizada para guardar previamente:
+- codigo y cantidad guardados por agregarProducto
+- nickname guardado por seleccionarCliente
+-monto calculado por mostrarDetallesCompra
+3. Deben quedar creados los links entre Compra y el Cliente.
+4. Deben quedar creados los links entre Compra y Producto.
+
+ */
+
+void ControladorVentas::registrarCompra(){
+    
+    for(const auto& par : this->datosProductoCompra){
+        Producto* producto = this->productos[par.first];
+    }
+    
 }
 
 void ControladorVentas::liberarMemoriaRealizarCompra()
