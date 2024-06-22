@@ -199,6 +199,7 @@ controladorVentas->agregarProductoPromo(321,3);
 controladorVentas->ingresarPromocion();
 
 controladorUsuarios->consultarNotificaciones("Donatelo");
+controladorUsuarios->consultarNotificaciones("Donatelo");
 
 cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
