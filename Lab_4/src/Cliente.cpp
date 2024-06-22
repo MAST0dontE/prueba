@@ -51,11 +51,11 @@ void Cliente::eliminarSuscripcion()
 
 void Cliente::agregarComentario(Comentario *comentario)
 {
-    comentariosUsuario[comentario->getId()] = comentario;
+    this->comentarios[comentario->getId()] = comentario;
 }
 
 map<int, Comentario*> Cliente::getComentarios(){
-    return comentariosUsuario;
+    return comentarios;
 }
 
 void Cliente::agregarCompra(Compra *compra){
@@ -67,5 +67,5 @@ string Cliente::getNicknameSuscriptor(){
 }
 
 void Cliente::eliminarComentario(int id){
-    comentariosUsuario.erase(id);
+    comentarios.erase(id);
 }

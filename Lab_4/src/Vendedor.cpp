@@ -63,12 +63,12 @@ void Vendedor::listarProductosVendedor(){
 }
 
 void Vendedor::agregarComentario(Comentario *comentario){
-    comentariosUsuario[comentario->getId()] = comentario;
+    this->comentarios[comentario->getId()] = comentario;
 }
 
 map<int, Comentario *> Vendedor::getComentarios()
 {
-    return comentariosUsuario;
+    return comentarios;
 }
 
 void Vendedor::agregarSuscriptor(iSuscriptor* suscriptor){
@@ -103,5 +103,5 @@ void Vendedor::notificar(DTNotificacion notificacion){
 }
 
 void Vendedor::eliminarComentario(int id){
-    comentariosUsuario.erase(id);
+    comentarios.erase(id);
 }

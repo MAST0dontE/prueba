@@ -13,7 +13,6 @@ class Usuario {
         string nickname;
         string contrasenia;
         DTFecha fechaDeNacimiento;
-        map<int, Comentario*> comentariosUsuario;
         set<DTNotificacion> notificaciones;
 
     public:

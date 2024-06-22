@@ -14,6 +14,7 @@ class Cliente : public Usuario, public iSuscriptor{
         map<int, Compra*> comprasRealizadas;
         int contadorNotificaciones;
         map<int, DTNotificacion> notificaciones;
+        map<int, Comentario *> comentarios;
 
     public:
         // GETTERS
