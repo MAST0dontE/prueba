@@ -463,43 +463,49 @@ while (entradaConsola != 0){
             }*/
             break;
     	}
-    	case 6:{/*
-        	controladorUsuarios->listaDeUsuarios();
-        	string NombreUsuario;
-        	cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
-        	getline(cin,NombreUsuario);
-        	controladorUsuarios->seleccionarUsuario_(NombreUsuario);
-        	controladorVentas->listarProductos();
-        	int CodigoProducto;
-        	cout<<"Escriba el codigo del producto al que desea ingresar un comentario"<<endl;
-        	cin >> CodigoProducto;
-        	string NombreVendedor;
-        	cout<<"Escriba el nombre del vendedor del producto"<<endl;
-        	getline(cin,NombreVendedor);
-        	controladorUsuarios->seleccionarProducto(CodigoProducto, NombreVendedor);
-        	string respuesta;
-        	cout<<"¿Desea dejar un comentario nuevo o responder uno ya existente?"<<endl;
-        	getline(cin,respuesta);
-        	if(respuesta == "Dejar un comentario"){
-            	string comentario;
-            	cout<<"Escriba el comentario"<<endl;
-            	getline(cin,comentario);
-            	controladorUsuarios->nuevoComentario(comentario, DTFecha(1,1,1) );
-            	cout<<"el comentario fue agregado"<<endl;
-        	}else if (respuesta == "Responder uno ya existente"){
-            	controladorUsuarios->listarComentarios(CodigoProducto);
-            	int id;
-            	cout << "Escriba el id del comentario al que desea responder" <<endl;
-            	cin >> id;
-            	controladorUsuarios->seleccionarComentario(id);
-            	string comentario;
-            	cout << "Escriba el comentario" << endl;
-            	getline(cin, comentario);
-            	controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1,1,1));
-            	cout << "el comentario fue agregado" << endl;
-        	}*/
-            break;
-    	}
+		case 8:{
+			controladorUsuarios->imprimirListaDeVendedores();
+			controladorUsuarios->imprimirListaDeClientes();
+			string NombreUsuario;
+			cout << "Indique Nombre del Usuario que desea agregar un comentario: ";
+			cin >> NombreUsuario;
+			controladorUsuarios->seleccionarUsuario_(NombreUsuario);
+			controladorUsuarios->listarProductos();
+			cout << "Escriba el código del producto al que desea ingresar un comentario y el nombre de su vendedor: ";
+			int CodigoProducto;
+			string NombreVendedor;
+			cin >> CodigoProducto >> NombreVendedor;
+			controladorUsuarios->seleccionarProducto(CodigoProducto, NombreVendedor);
+			cin.ignore(); // Ignorar el carácter de nueva línea residual
+			string respuesta;
+			cout << "¿Desea dejar un comentario nuevo o responder uno ya existente? ";
+			getline(cin, respuesta);
+			if (respuesta == "Dejar un comentario"){
+				string comentario;
+				cout << "Escriba el comentario: ";
+				getline(cin, comentario);
+				controladorUsuarios->nuevoComentario(comentario, DTFecha(1, 1, 1));
+				cout << "El comentario fue agregado" << endl;
+			}
+			else if (respuesta == "Responder uno ya existente"){
+				controladorUsuarios->listarComentarios(CodigoProducto);
+				cout << "Escriba el ID y el nombre del autor del comentario al que desea responder: ";
+				int id;
+				string comentador;
+				cin >> id >> comentador;
+				controladorUsuarios->seleccionarComentario(id, comentador);
+				cin.ignore(); // Ignorar el carácter de nueva línea residual
+				string comentario;
+				cout << "Escriba el comentario: ";
+				getline(cin, comentario);
+				controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1, 1, 1));
+				cout << "El comentario fue agregado" << endl;
+			}
+			break;
+		}
+		case 9:{
+			break;
+		}
     	case 7:{
         	/*set<string> ListaVend=controladorUsuarios->listaDeVendedores();
         	set<string>::iterator it;

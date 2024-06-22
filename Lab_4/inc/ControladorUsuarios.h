@@ -30,13 +30,13 @@ class ControladorUsuarios : public iControladorUsuarios{
     map<string, Vendedor*> vendedores;
 
     // Datos que guarda este controlador:
-    int codigoSeleccionado = 0;
-    bool respuestaSeleccionada; //deberia inicializarlo con algun valor? como es un triste char no supe hacerlo xd perdon p1 j3j3
-    int idSeleccionado;
-    string comentador;
+    int codigoSeleccionado = 0; //seleccionarProducto
+    string vendedorProductoSeleccionado; //seleccionarProducto
+    int idSeleccionado; //seleccionarComentario
+    string comentador; //seleccionarComentario
     int creadorIdComentario;
-    string usuarioSeleccionado;
-    string vendedorProductoSeleccionado;
+    char respuestaSeleccionada;
+    string usuarioSeleccionado; //seleccionarUsuario
     string nombreNuevoSuscriptor;
 
     public:
@@ -52,7 +52,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void consultarNotificaciones(string nickname); 
         void eliminarSuscripciones(string nicknameCliente);
         void listarSuscripciones(string nickname);
-
+        void tipoComentario();
         void seleccionarUsuario_(string nickname);
         Usuario *seleccionarUsuario(string nickname);
         void listarProductos();

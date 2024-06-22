@@ -104,8 +104,24 @@ void ControladorUsuarios::seleccionarProducto(int codigo, string nickname){
 	string vendedorProductoSeleccionado = nickname;
 }
 
+void ControladorUsuarios::tipoComentario(){
+	cout << "¿Desea realizar un comentario nuevo? (Y/N): ";
+	char respuesta;
+	cin >> respuesta;
+	if (respuesta == 'Y' || respuesta == 'y'){
+		respuestaSeleccionada = true;
+	}
+	else if (respuesta == 'N' || respuesta == 'n'){
+		respuestaSeleccionada = false;
+	}
+	else{
+		cout << "Respuesta no válida." << endl;
+		void tipoComentario();
+	}
+}
+
 void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeComentario){
-	map<string, Usuario *>::iterator itU = usuarios.find(usuarioSeleccionado);
+	map<string, Usuario*>::iterator itU = usuarios.find(usuarioSeleccionado);
 	if (itU == usuarios.end()){
 		cout << "Usuario no seleccionado o no encontrado.\n";
 		return;
@@ -234,7 +250,7 @@ void ControladorUsuarios::listarComentarios(int codigo) {
             }
         }
 		else{
-			cout << "Error encontrando el producto, el vendedor correspondiente al codigo no existe.\n"
+			cout << "Error encontrando el producto, el vendedor correspondiente al codigo no existe.\n";
 		}
 	} 
 	else{
