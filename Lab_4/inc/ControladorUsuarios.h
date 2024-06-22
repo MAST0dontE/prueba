@@ -30,19 +30,19 @@ class ControladorUsuarios : public iControladorUsuarios{
     map<string, Vendedor*> vendedores;
 
     // Datos que guarda este controlador:
-    int codigoSeleccionado = 0;
-    bool respuestaSeleccionada; //deberia inicializarlo con algun valor? como es un triste char no supe hacerlo xd perdon p1 j3j3
-    int idSeleccionado;
+    int codigoSeleccionado = 0; //seleccionarProducto
+    string vendedorProductoSeleccionado; //seleccionarProducto
+    int idSeleccionado; //seleccionarComentario
+    string comentador; //seleccionarComentario
     int creadorIdComentario;
-    string usuarioSeleccionado;
-    string vendedorProductoSeleccionado;
+    char respuestaSeleccionada;
+    string usuarioSeleccionado; //seleccionarUsuario
     string nombreNuevoSuscriptor;
 
     public:
         static ControladorUsuarios* getControladorUsuarios();
         void setCliente(Cliente *cliente);
         void setVendedor(Vendedor *vendedor);
-        void setComentario(Comentario *comentario);
         bool altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
         bool altaVendedor(string nickname, string contrasenia, DTFecha fechaNacimiento, string codigoRUT);
         set<string> listaDeUsuarios();
@@ -52,15 +52,13 @@ class ControladorUsuarios : public iControladorUsuarios{
         void consultarNotificaciones(string nickname); 
         void eliminarSuscripciones(string nicknameCliente);
         void listarSuscripciones(string nickname);
-
+        void tipoComentario();
         void seleccionarUsuario_(string nickname);
         Usuario *seleccionarUsuario(string nickname);
         void listarProductos();
         void listarComentarios(int codigo);
         void seleccionarProducto(int codigo, string nickname);
-        void tipoComentario();
-        void deseaRespuestas();
-        void seleccionarComentario(int id);
+        void seleccionarComentario(int id, string nickname);
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         void nuevaRespuesta(string comentario, DTFecha fechaDeComentario);
         void listarComentariosUsuario(string nickname);
@@ -68,11 +66,13 @@ class ControladorUsuarios : public iControladorUsuarios{
         void eliminarComentarioRecursivo(Comentario *comentario);
         void listaDeUsuarios_();
         void infoCliente(string nickname);
+        void imprimirListaDeUsuarios();
         void imprimirListaDeVendedores();
+        void imprimirListaDeClientes();
         void imprimirSuscripcionesDisponiblesPara(string nickname);
         void suscribirmeA(string nickname);
         bool existenUsuariosRegistrados();
-        
+        bool existeNickname(string nickname);
         // void nuevaSuscripcion(string nickname);
 };
 

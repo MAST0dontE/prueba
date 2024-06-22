@@ -349,10 +349,13 @@ cin>>entradaConsola;
 while (entradaConsola != 0){
 	switch (entradaConsola){
     	case 1:{
-        	string NombreUsuario;
+        	string nombreUsuario;
         	cout << "Indique Nombre del Usuario nuevo"<<endl;
-        	cin>>NombreUsuario;
-            //cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        	cin>>nombreUsuario;
+			while(controladorUsuarios->existeNickname(nombreUsuario)){
+				cout<<"El nickname ya se encuentra registrado, por favor ingrese otro."<<endl;
+				cin>>nombreUsuario;
+			}
         	string contra;
         	cout << "Indique contraseña del Usuario nuevo"<<endl;
         	cin>>contra;
@@ -383,7 +386,7 @@ while (entradaConsola != 0){
 				cout << "Indique número de puerta:"<<endl;
 				int numPuerta;
 				cin>>numPuerta;
-            	bool a=controladorUsuarios->altaCliente(NombreUsuario, contra, DTFecha(dia,mes,ano),DTDireccion(calle, numPuerta), ciudad);
+            	bool a=controladorUsuarios->altaCliente(nombreUsuario, contra, DTFecha(dia,mes,ano),DTDireccion(calle, numPuerta), ciudad);
             	if (a) {
 					cout <<"Su cliente fue creado"<<endl;
 					break;
@@ -396,7 +399,7 @@ while (entradaConsola != 0){
             	string codigoRut;
             	cout << "Indique codigo Rut del vendedor"<<endl;
             	getline(cin,codigoRut);
-            	if (controladorUsuarios->altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado"<<endl;}
+            	if (controladorUsuarios->altaVendedor(nombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado"<<endl;}
         	} else {
             	break;
 				}
@@ -407,7 +410,7 @@ while (entradaConsola != 0){
             break;
     	}
     	case 3:{
-        	cout <<"elija el nombre de un vendedor de los siguientes"<<endl;
+        	cout <<"Elija el nombre de un vendedor para asignarle el producto: "<<endl;
         	controladorUsuarios->listaDeVendedores();
         	string NombreVendedor;
         	getline(cin,NombreVendedor);
@@ -463,55 +466,20 @@ while (entradaConsola != 0){
             }*/
             break;
     	}
-    	case 6:{/*
-        	controladorUsuarios->listaDeUsuarios();
-        	string NombreUsuario;
-        	cout << "Indique Nombre del Usuario que desea agregar un comentario"<<endl;
-        	getline(cin,NombreUsuario);
-        	controladorUsuarios->seleccionarUsuario_(NombreUsuario);
-        	controladorVentas->listarProductos();
-        	int CodigoProducto;
-        	cout<<"Escriba el codigo del producto al que desea ingresar un comentario"<<endl;
-        	cin >> CodigoProducto;
-        	string NombreVendedor;
-        	cout<<"Escriba el nombre del vendedor del producto"<<endl;
-        	getline(cin,NombreVendedor);
-        	controladorUsuarios->seleccionarProducto(CodigoProducto, NombreVendedor);
-        	string respuesta;
-        	cout<<"¿Desea dejar un comentario nuevo o responder uno ya existente?"<<endl;
-        	getline(cin,respuesta);
-        	if(respuesta == "Dejar un comentario"){
-            	string comentario;
-            	cout<<"Escriba el comentario"<<endl;
-            	getline(cin,comentario);
-            	controladorUsuarios->nuevoComentario(comentario, DTFecha(1,1,1) );
-            	cout<<"el comentario fue agregado"<<endl;
-        	}else if (respuesta == "Responder uno ya existente"){
-            	controladorUsuarios->listarComentarios(CodigoProducto);
-            	int id;
-            	cout << "Escriba el id del comentario al que desea responder" <<endl;
-            	cin >> id;
-            	controladorUsuarios->seleccionarComentario(id);
-            	string comentario;
-            	cout << "Escriba el comentario" << endl;
-            	getline(cin, comentario);
-            	controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1,1,1));
-            	cout << "el comentario fue agregado" << endl;
-        	}*/
+		case 6:{
+        	controladorVentas->listarPromociones();
+        	cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
+        	char respuesta5;
+        	cin>> respuesta5;
+        	if (respuesta5 == 'Y' || respuesta5 == 'y' ){
+            	cout << "Indique el nombre de la promocion que desea consultar:" <<endl;
+            	string nombrePromocion;
+            	cin>> nombrePromocion;
+            	controladorVentas->consultarPromocion(nombrePromocion);
+        	}
             break;
     	}
-    	case 7:{
-        	/*set<string> ListaVend=controladorUsuarios->listaDeVendedores();
-        	set<string>::iterator it;
-        	for (it=ListaVend.begin(); it !=ListaVend.end(); it++){
-            	cout<<*it<<endl;
-        	}
-        	string NombreVendedor;
-        	cout << "Indique Nombre del vendedor"<<endl;
-        	getline(cin,NombreVendedor);
-            //auto vendedor = controladorUsuarios->seleccionarUsuario(NombreVendedor);
-            //set<string> productosPendientes= vendedor->listarProductoPendientes(NombreVendedor);
-            */
+		case 7:{
 		    cout << "Vendedores disponibles:" << endl;
 		   	controladorVentas->listarNicknamesVendedor();
 			cout <<"Indique el nickname de vendedor:" << endl;
@@ -663,13 +631,52 @@ while (entradaConsola != 0){
 				
 				cout << "Desea eliminar otra suscripción? Y/N" << endl;
 				getline(cin, respuesta6);
-/* 				if (respuesta6 == "N" || respuesta6 == "n") {
+				if (respuesta6 == "N" || respuesta6 == "n") {
 					break;
-				} */
+				} 
 			} while (respuesta6 == "Y" || respuesta6 == "y");
 
+		} 
+		case 12: {
+			controladorUsuarios->imprimirListaDeUsuarios();
+			string NombreUsuario;
+			cout << "Indique Nombre del Usuario que desea agregar un comentario: ";
+			cin >> NombreUsuario;
+			controladorUsuarios->seleccionarUsuario_(NombreUsuario);
+			controladorUsuarios->listarProductos();
+			cout << "Escriba el código del producto al que desea ingresar un comentario y el nombre de su vendedor: ";
+			int CodigoProducto;
+			string NombreVendedor;
+			cin >> CodigoProducto >> NombreVendedor;
+			controladorUsuarios->seleccionarProducto(CodigoProducto, NombreVendedor);
+			cin.ignore(); // Ignorar el carácter de nueva línea residual
+			string respuesta;
+			cout << "¿Desea dejar un comentario nuevo o responder uno ya existente? ";
+			getline(cin, respuesta);
+			if (respuesta == "Dejar un comentario"){
+				string comentario;
+				cout << "Escriba el comentario: ";
+				getline(cin, comentario);
+				controladorUsuarios->nuevoComentario(comentario, DTFecha(1, 1, 1));
+				cout << "El comentario fue agregado" << endl;
+			}
+			else if (respuesta == "Responder uno ya existente"){
+				controladorUsuarios->listarComentarios(CodigoProducto);
+				cout << "Escriba el ID y el nombre del autor del comentario al que desea responder: ";
+				int id;
+				string comentador;
+				cin >> id >> comentador;
+				controladorUsuarios->seleccionarComentario(id, comentador);
+				cin.ignore(); // Ignorar el carácter de nueva línea residual
+				string comentario;
+				cout << "Escriba el comentario: ";
+				getline(cin, comentario);
+				controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1, 1, 1));
+				cout << "El comentario fue agregado" << endl;
+			}
+			break;
 		}
-		/* case 15: {
+		/*case 15: {
 			string carpeta = "data"; // Carpeta donde están los CSV
 			vector<string> archivosCSV = listarArchivosCSV(carpeta);
 
