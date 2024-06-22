@@ -63,6 +63,7 @@ class ControladorVentas : public iControladorVentas{
         map<int, Producto*> getProductos();
         map<string, Vendedor*> getVendedores();
         void setFechaPromo(DTFecha fechaPromocion);
+        void setFechaActual(DTFecha fechaSistema);
         //setters y getters FIN
         void listarProductos();
         void consultarProducto(int codigo);

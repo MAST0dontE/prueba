@@ -211,49 +211,45 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 cout <<"               	-----    	¡Bienvenido a Mercado Finger!   	-----"<<endl;
 cout <<" "<<endl;
+cout <<"Antes de comenzar, por favor indique la fecha actual:"<<endl;
+cout <<"Ingrese el dia"<<endl;
+int dia;
+cin>>dia;
+cout <<"Ingrese el mes"<<endl;
+int mes;
+cin>>mes;
+cout <<"Ingrese el anio"<<endl;
+int anio;
+cin>>anio;
+
 cout <<"¿En que lo podemos asistir?"<<endl;
-cout <<"Escriba 1 para consultar Producto"<<endl;
-cout <<"Escriba 2 para dar Alta usuario"<<endl;
-cout <<"Escriba 3 para Listado de usuarios"<<endl;
-cout <<"Escriba 4 para Alta producto"<<endl;
-cout <<"Escriba 5 para Consulta notificaciones"<<endl;
-cout <<"Escriba 6 para Dejar comentario"<<endl; 
-cout <<"Escriba 7 para Enviar producto"<<endl; 
-cout <<"Escriba 8 para RealizarCompra"<<endl; 
-cout <<"Escriba 9 para ConsultarPromocion"<<endl;
-cout <<"Escriba 10 para ver expediente de usuario"<<endl; 
-cout <<"Escriba 11 para eliminar una suscripcion"<<endl;
-cout <<"Escriba 0 para salir"<<endl;
-
-
+cout <<"Digite 1 para Alta de usuario."<<endl;
+cout <<"Digite 2 para Listado de usuarios."<<endl;
+cout <<"Digite 3 para Alta de producto."<<endl;
+cout <<"Digite 4 para Consultar producto."<<endl;
+cout <<"Digite 5 para Crear promocion."<<endl;
+cout <<"Digite 6 para Consultar promocion."<<endl;
+cout <<"Digite 7 para Realizar compra."<<endl;
+cout <<"Digite 8 para Dejar comentario."<<endl;
+cout <<"Digite 9 para Eliminar comentario."<<endl;
+cout <<"Digite 10 para Enviar producto."<<endl;
+cout <<"Digite 11 para Expediente de usuario."<<endl;
+cout <<"Digite 12 para Suscribirse a notificaciones."<<endl;
+cout <<"Digite 13 para Consultar notificaciones"<<endl;
+cout <<"Digite 14 para Eliminar suscripciones."<<endl;
 
 int entradaConsola;
 cin>>entradaConsola;
 while (entradaConsola != 0){
 	switch (entradaConsola){
     	case 1:{
-        	controladorVentas->listarProductos();
-        	cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
-        	char respuesta1;
-        	cin>> respuesta1;
-        	if (respuesta1 == 'Y' || respuesta1 == 'y' ){
-            	cout << "Indique el codigo del producto que desea consultar:" <<endl;
-            	int codigo;
-            	cin>> codigo;
-            	controladorVentas->consultarProducto(codigo);
-        	}
-            break;
-            }
-        	
-    	case 2:{
-            
         	string NombreUsuario;
         	cout << "Indique Nombre del Usuario nuevo"<<endl;
-        	getline(cin,NombreUsuario);
+        	cin>>NombreUsuario;
             //cin.ignore(numeric_limits<streamsize>::max(), '\n');
         	string contra;
-        	cout << "Indique contra del Usuario nuevo"<<endl;
-        	getline(cin,contra);
+        	cout << "Indique contraseña del Usuario nuevo"<<endl;
+        	cin>>contra;
         	int ano;
         	cout << "Indique año de nacimiento"<<endl;
         	cin>>ano;
@@ -271,25 +267,40 @@ while (entradaConsola != 0){
         	string respuesta2;
         	getline(cin,respuesta2);
         	if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
-            	cout << "Indique ciudad del cliente"<<endl;
+            	cout << "Indique ciudad del cliente:"<<endl;
             	string ciudad;
             	getline(cin,ciudad);
-            	bool a=controladorUsuarios->altaCliente(NombreUsuario, contra,DTFecha(dia,mes,ano),DTDireccion("calle1", 123), ciudad);
-            	if (a) {cout <<"Su cliente fue creado"<<endl;}
+				cout << "A continuación indique su dirección:"<<endl;
+				cout << "Indique calle:"<<endl;
+				string calle;
+				getline(cin, calle);
+				cout << "Indique número de puerta:"<<endl;
+				int numPuerta;
+				cin>>numPuerta;
+            	bool a=controladorUsuarios->altaCliente(NombreUsuario, contra, DTFecha(dia,mes,ano),DTDireccion(calle, numPuerta), ciudad);
+            	if (a) {
+					cout <<"Su cliente fue creado"<<endl;
+					break;
+					}
+				else {
+					cout <<"No fue posible crear el cliente."<<endl;
+
+				}
         	} else if(respuesta2 == "Vendedor" || respuesta2 == "vendedor" ){
             	string codigoRut;
             	cout << "Indique codigo Rut del vendedor"<<endl;
             	getline(cin,codigoRut);
             	if (controladorUsuarios->altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado"<<endl;}
         	} else {
-            	break;}
+            	break;
+				}
         	break;
         	}
-    	case 3:{
+    	case 2:{
         	controladorUsuarios->listaDeUsuarios_();
             break;
     	}
-    	case 4:{
+    	case 3:{
         	cout <<"elija el nombre de un vendedor de los siguientes"<<endl;
         	controladorUsuarios->listaDeVendedores();
         	string NombreVendedor;
@@ -313,7 +324,21 @@ while (entradaConsola != 0){
         	ECategoria categoriaEnum = static_cast<ECategoria>(categoria); 	 
        	    controladorVentas->cargarNuevoProducto(NombreVendedor,codigo,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
             break;
-    	}   
+    	}  
+		case 4:{
+        	controladorVentas->listarProductos();
+        	cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
+        	char respuesta1;
+        	cin>> respuesta1;
+        	if (respuesta1 == 'Y' || respuesta1 == 'y' ){
+            	cout << "Indique el codigo del producto que desea consultar:" <<endl;
+            	int codigo;
+            	cin>> codigo;
+            	controladorVentas->consultarProducto(codigo);
+        	}
+            break;
+        }
+        	 
     	case 5:{/*
         	cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
@@ -538,17 +563,21 @@ while (entradaConsola != 0){
         	break;
 	}
     cout<<"¿Desea realizar otra operación?"<<endl;
-    cout <<"Escriba 1 para consultar Producto"<<endl;
-    cout <<"Escriba 2 para dar Alta usuario"<<endl;
-    cout <<"Escriba 3 para Listado de usuarios"<<endl;
-    cout <<"Escriba 4 para Alta producto"<<endl;
-    cout <<"Escriba 5 para Consulta notificaciones"<<endl;
-    cout<<"Escriba 6 para Dejar comentario"<<endl; 
-    cout <<"Escriba 7 para Enviar producto"<<endl; 
-    cout <<"Escriba 8 para RealizarCompra"<<endl; 
-    cout <<"Escriba 9 para ConsultarPromocion"<<endl; 
-	cout <<"Escriba 10 para ver expediente de usuario"<<endl;
-    cout <<"Escriba 0 para salir"<<endl;
+	cout <<"¿En que lo podemos asistir?"<<endl;
+	cout <<"Digite 1 para Alta de usuario."<<endl;
+	cout <<"Digite 2 para Listado de usuarios."<<endl;
+	cout <<"Digite 3 para Alta de producto."<<endl;
+	cout <<"Digite 4 para Consultar producto."<<endl;
+	cout <<"Digite 5 para Crear promocion."<<endl;
+	cout <<"Digite 6 para Consultar promocion."<<endl;
+	cout <<"Digite 7 para Realizar compra."<<endl;
+	cout <<"Digite 8 para Dejar comentario."<<endl;
+	cout <<"Digite 9 para Eliminar comentario."<<endl;
+	cout <<"Digite 10 para Enviar producto."<<endl;
+	cout <<"Digite 11 para Expediente de usuario."<<endl;
+	cout <<"Digite 12 para Suscribirse a notificaciones."<<endl;
+	cout <<"Digite 13 para Consultar notificaciones"<<endl;
+	cout <<"Digite 14 para Eliminar suscripciones."<<endl;
     cin>>entradaConsola;
 };
 

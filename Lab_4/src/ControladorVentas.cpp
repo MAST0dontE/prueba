@@ -8,6 +8,10 @@ ControladorVentas::ControladorVentas(){
     //Constructor
 }
 
+void ControladorVentas::setFechaActual(DTFecha fechaSistema){
+    this->fechaActual = fechaSistema;
+}
+
 ControladorVentas * ControladorVentas::getControladorVentas(){
 	if (!ControladorVentasInst){
 		ControladorVentasInst = new ControladorVentas();
@@ -325,20 +329,21 @@ void ControladorVentas::liberarMemoriaRealizarCompra(){
     this->nicknameClienteRealizarCompra = "";
 }
 
+
 //el Sistema le asigna un código único al producto y lo da de alta en el sistema.
 void ControladorVentas::cargarNuevoProducto(string nicknameVendedor, int codigo, string  nombreProd,float  precio , int stock , string  descripcion,
     ECategoria  categoria, bool enPromocion){
-/*     int codigo = 15 * stock * stock*(stock%5) + static_cast<int>(precio * precio) % 3 + 27; //asigno código
-    Producto *P=new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor,categoria, false); //instancio producto
-    productos.insert(P);//inserto en set el producto P
-    Vendedor *V=vendedores[nicknameVendedor]; //busco al vendedor que pone en venta el prod
-    V->agregarProducto(P); //lo vinculo */
 
-    //int codigo = 15 * stock * stock * (stock % 5) + static_cast<int>(precio * precio) % 3 + 27;
-    Producto *P = new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor, categoria, enPromocion);
-    productos[codigo] = P;
-    Vendedor *V = vendedores[nicknameVendedor];
-    V->agregarProducto(P);
+    if(this->productos.find(codigo)==this->productos.end()){
+        Producto *P = new Producto(codigo, stock, precio, nombreProd, descripcion, nicknameVendedor, categoria, enPromocion);
+        productos[codigo] = P;
+        Vendedor *V = vendedores[nicknameVendedor];
+        V->agregarProducto(P);
+        cout<<"El producto "<<nombreProd<<" fue cargado correctamente para el vendedor "<<nicknameVendedor<<"."<<endl;
+    }
+    else{
+        cout<<"El codigo '"<<codigo <<"' ya esta asociado a otro producto. Vuelva a intentarlo con informacion valida."<<endl;
+    }
 }
 
 void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento, float descuentoPromo){
@@ -352,7 +357,6 @@ void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha
         Vendedor* vendedor = it->second;
         cout<< vendedor->getNickname() << endl;
     }
-
 }
 
 void ControladorVentas::seleccionarVendedor(string nickname){
