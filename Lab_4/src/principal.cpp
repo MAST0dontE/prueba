@@ -452,7 +452,8 @@ while (entradaConsola != 0){
 			cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
             //cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        	getline(cin,NombreCliente);
+        	cin>>NombreCliente;
+			cout<<NombreCliente<<endl;
         	controladorUsuarios->consultarNotificaciones(NombreCliente);
             break;
     	}
