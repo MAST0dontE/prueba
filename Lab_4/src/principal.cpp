@@ -353,7 +353,8 @@ while (entradaConsola != 0){
         	cout << "Indique Nombre del Usuario nuevo"<<endl;
         	cin>>nombreUsuario;
 			while(controladorUsuarios->existeNickname(nombreUsuario)){
-				
+				cout<<"El nickname ya se encuentra registrado, por favor ingrese otro."<<endl;
+				cin>>nombreUsuario;
 			}
         	string contra;
         	cout << "Indique contraseña del Usuario nuevo"<<endl;
@@ -409,7 +410,7 @@ while (entradaConsola != 0){
             break;
     	}
     	case 3:{
-        	cout <<"elija el nombre de un vendedor de los siguientes"<<endl;
+        	cout <<"Elija el nombre de un vendedor para asignarle el producto: "<<endl;
         	controladorUsuarios->listaDeVendedores();
         	string NombreVendedor;
         	getline(cin,NombreVendedor);
