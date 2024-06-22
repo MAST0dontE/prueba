@@ -70,6 +70,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void listaDeUsuarios_();
         void infoCliente(string nickname);
         void imprimirListaDeVendedores();
+        void imprimirListaDeClientes();
         void imprimirSuscripcionesDisponiblesPara(string nickname);
         void suscribirmeA(string nickname);
         bool existenUsuariosRegistrados();

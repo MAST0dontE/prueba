@@ -73,6 +73,14 @@ void ControladorUsuarios::imprimirListaDeVendedores(){
     }
 }
 
+void ControladorUsuarios::imprimirListaDeClientes(){
+	cout<<"Se listan los nicknames de todos los clientes registrados en el sistema:"<<endl;
+	map<string, Cliente*>::iterator it;
+    for(it=clientes.begin(); it != clientes.end(); ++it){
+        Cliente* cliente = it->second;
+        cout<< cliente->getNickname() << endl;
+    }
+}
 
 
 set<string> ControladorUsuarios::listaDeUsuarios() {
