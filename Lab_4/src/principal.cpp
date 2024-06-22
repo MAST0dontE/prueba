@@ -531,10 +531,12 @@ while (entradaConsola != 0){
 			cin >> NombreUsuario;
 			controladorUsuarios->seleccionarUsuario_(NombreUsuario);
 			controladorUsuarios->listarProductos();
-			cout << "Escriba el código del producto al que desea ingresar un comentario y el nombre de su vendedor: ";
 			int CodigoProducto;
+			cout << "Escriba el código del producto al que desea ingresar un comentario: ";
+			cin >> CodigoProducto;
 			string NombreVendedor;
-			cin >> CodigoProducto >> NombreVendedor;
+			cout << "Escriba el nombre del vendedor que publico el producto: ";
+			cin >> NombreVendedor;
 			controladorUsuarios->seleccionarProducto(CodigoProducto, NombreVendedor);
 			cin.ignore(); // Ignorar el carácter de nueva línea residual
 			string respuesta;
@@ -549,10 +551,12 @@ while (entradaConsola != 0){
 			}
 			else if (respuesta == "Responder uno ya existente"){
 				controladorUsuarios->listarComentarios(CodigoProducto);
-				cout << "Escriba el ID y el nombre del autor del comentario al que desea responder: ";
 				int id;
+				cout << "Escriba el ID del comentario al que desea responder: ";
+				cin >> id;
 				string comentador;
-				cin >> id >> comentador;
+				cout << "Escriba el nombre del autor del comentario al que desea responder: ";
+				cin >> comentador;
 				controladorUsuarios->seleccionarComentario(id, comentador);
 				cin.ignore(); // Ignorar el carácter de nueva línea residual
 				string comentario;
@@ -570,10 +574,12 @@ while (entradaConsola != 0){
 			cin >> NombreUsuario;
 			controladorUsuarios->seleccionarUsuario_(NombreUsuario);
 			controladorUsuarios->listarComentariosUsuario(NombreUsuario);
-			cout << "Indique ID y Autor del comentario que desea eliminar: ";
 			int CodigoProducto;
+			cout << "Indique ID del comentario que desea eliminar: ";
+			cin >> CodigoProducto;
 			string NombreAutor;
-			cin >> CodigoProducto >> NombreAutor;
+			cout << "Indique nombre del autor del comentario que desea eliminar: ";
+			cin >> NombreAutor;
 			Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(CodigoProducto, NombreAutor);
 			controladorUsuarios->eliminarComentarioRecursivo(comentarioAEliminar);
 			break;
