@@ -34,7 +34,7 @@ class ControladorUsuarios : public iControladorUsuarios{
     string vendedorProductoSeleccionado; //seleccionarProducto
     int idSeleccionado; //seleccionarComentario
     string comentador; //seleccionarComentario
-    int creadorIdComentario;
+    int creadorIdComentario = 0;
     char respuestaSeleccionada;
     string usuarioSeleccionado; //seleccionarUsuario
     string nombreNuevoSuscriptor;
@@ -62,6 +62,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         void nuevaRespuesta(string comentario, DTFecha fechaDeComentario);
         void listarComentariosUsuario(string nickname);
+        //void listarComentariosVendedor(string nickname);
         void setDTComentario(DTcomentario *comentario);
         void eliminarComentarioRecursivo(Comentario *comentario);
         void listaDeUsuarios_();
@@ -73,6 +74,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void suscribirmeA(string nickname);
         bool existenUsuariosRegistrados();
         bool existeNickname(string nickname);
+        void getComentarios(Usuario* usuario);
         // void nuevaSuscripcion(string nickname);
 };
 
