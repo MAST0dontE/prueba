@@ -55,15 +55,14 @@ bool ControladorUsuarios::altaVendedor(string nickname, string contrasenia, DTFe
     return true; 
 }
 
-set<string> ControladorUsuarios::listaDeVendedores()
+void ControladorUsuarios::listaDeVendedores()
 {
-	set<string> listaVendedores;
-	for (map<string, Vendedor*>::iterator it = vendedores.begin(); it != vendedores.end(); ++it)
-	{
-		listaVendedores.insert(it->first);
-	}
-	return listaVendedores;
+    for (const auto& pair : this->vendedores) {
+        cout<< pair.first + "\n" << endl;
+    }
 }
+
+
 
 void ControladorUsuarios::imprimirListaDeUsuarios(){
 	cout<<"Se listan los nicknames de todos los usuarios registrados en el sistema:"<<endl;
@@ -426,12 +425,13 @@ void ControladorUsuarios::consultarNotificaciones(string nickname){
 		}
 		else{	
 			for(it=notificaciones.begin();it!=notificaciones.end();++it){
-				cout<<it->second.getNicknameVendedor()<<it->second.getNombrePromo()<<endl;
-				map<int, DTInfoProducto>::iterator itProds;
-				map<int, DTInfoProducto> productos = it->second.productos;
-				for(itProds= productos.begin(); itProds!=productos.end(); ++itProds){
-					cout<<itProds->second.toString()<<endl;
-				}
+				cout<<it->second.getDTInfoProductoNotificacion()<<endl;
+				//cout<<"Vendedor: "<<it->second.getNicknameVendedor()<<<<it->second.getNombrePromo()<<endl;
+				//map<int, DTInfoProducto>::iterator itProds;
+				//map<int, DTInfoProducto> productos = it->second.productos;
+				//for(itProds= productos.begin(); itProds!=productos.end(); ++itProds){
+					//cout<<itProds->second.getDTInfoProducto()<<endl;
+				//}
 		}
 		cliente->borrarNotificaciones();
 		}

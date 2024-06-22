@@ -414,17 +414,18 @@ void ControladorVentas::ingresarPromocion(){
     else{
     Promocion* promo = new Promocion(this->nombrePromo, this->descripcionPromo, this->fechaVencimientoPromo);
     set<ProductoEnPromocion*>::iterator it;
-    map<int, DTInfoProducto> productos;
-    int contadorProds = 0;
+    map<int, DTInfoProducto> productosPromoDT;
+    //int contadorProds = 0;
     Vendedor* vendedor = this->vendedores[this->nicknameVendedorPromo];
     for(it = this->productosPromo.begin(); it!= this->productosPromo.end(); ++it){
         promo->agregarProductoPromocion((*it));
         Producto* prod = (*it)->getProducto();
-        productos.emplace(contadorProds, prod->getInfoProducto());
-        contadorProds++;
+        DTInfoProducto dtProd = prod->getInfoProducto();
+        productosPromoDT.emplace(prod->getCodigo(), dtProd);
+        //contadorProds++;
     }
         //(*it)->setPromocion(promo);
-    vendedor->notificar(DTNotificacion(this->nicknameVendedorPromo,this->nombrePromo, productos));
+    vendedor->notificar(DTNotificacion(this->nicknameVendedorPromo,this->nombrePromo, productosPromoDT));
     this->setPromocion(promo);
     this->productosPromo.clear();
     cout<<"La Promocion se ha ingresado correctamente: "<<endl;
@@ -523,4 +524,11 @@ void ControladorVentas::listarNicknamesVendedor()
     for (const auto& pair : this->vendedores) {
         cout<< pair.first + "\n" << endl;
     }
+}
+
+bool ControladorVentas::existeCodigo(int codigo){
+	if (productos.find(codigo) != productos.end()) {
+        return true;
+    }
+	else return false;
 }

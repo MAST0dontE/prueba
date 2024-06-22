@@ -229,6 +229,8 @@ controladorVentas->cargarNuevoProducto("pepito",13, "productoPepito2", 3, 3, "el
 
 controladorVentas->cargarNuevoProducto("tiranosaurioRex",321, "productoTiranosaurio1", 1, 1, "el producto de Tiranosaurio uno",ECategoria::otros, false);
 controladorVentas->cargarNuevoProducto("tiranosaurioRex",322, "productoTiranosaurio2", 2, 2, "el producto de Tiranosaurio dos",ECategoria::ropa, false);
+controladorVentas->cargarNuevoProducto("tiranosaurioRex",323, "productoTiranosaurio2", 3, 3, "el producto de Tiranosaurio dos",ECategoria::ropa, false);
+
 
 cout<< "** CASO DE USO: Alta Producto FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
@@ -288,6 +290,8 @@ controladorUsuarios->suscribirmeA("tiranosaurioRex");
 controladorVentas->altaPromocion("promocionTIRA", "kkkkkkkkkkkk", DTFecha(1,2,3), 0.5);
 controladorVentas->seleccionarVendedor("tiranosaurioRex");
 controladorVentas->agregarProductoPromo(321,3);
+controladorVentas->agregarProductoPromo(322,1);
+controladorVentas->agregarProductoPromo(323,1);
 controladorVentas->ingresarPromocion();
 
 controladorUsuarios->consultarNotificaciones("Donatelo");
@@ -415,27 +419,39 @@ while (entradaConsola != 0){
     	}
     	case 3:{
         	cout <<"Elija el nombre de un vendedor para asignarle el producto: "<<endl;
+
         	controladorUsuarios->listaDeVendedores();
-        	string NombreVendedor;
-        	getline(cin,NombreVendedor);
-        	string NombreProducto;
+        	string nombreVendedor;
+        	cin>>nombreVendedor;
+        	string nombreProducto;
         	cout<<"Indique el nombre del producto"<<endl;
-        	getline(cin,NombreProducto);
+        	cin>>nombreProducto;
             int codigo;
         	cout<<"Indique el codigo del producto"<<endl;
         	cin>>codigo;
+			while(controladorVentas->existeCodigo(codigo)){
+				cout<<"El codigo ingresado ya le corresponde a otro producto, por favor ingrese uno distinto: "<<endl;
+				cin>>codigo;
+			}
+			cout<<"Indique el precio del producto"<<endl;
         	float precio;
         	cin>>precio;
+			cout<<"Indique la cantidad en stock del producto"<<endl;
         	int stock;
         	cin>>stock;
-        	string Descripcion;
+			cin.ignore();
+        	string descripcion;
         	cout<<"Indique la descripcion del producto"<<endl;
-        	getline(cin,Descripcion);
-        	cout<<"indique a cual categoria pertenece su producto: 1-ropa, 2-electrodomesticos, 3-otros"<<endl;   
+        	getline(cin,descripcion);
+        	cout<<"Indique a cual categoria pertenece su producto: 1-ropa, 2-electrodomesticos, 3-otros"<<endl;   
         	int categoria;
-        	cin>>categoria;  
-        	ECategoria categoriaEnum = static_cast<ECategoria>(categoria); 	 
-       	    controladorVentas->cargarNuevoProducto(NombreVendedor,codigo,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
+        	cin>>categoria;
+			while(categoria<1 || categoria > 3){
+				cout<<"Categoria invalida, ingrese una de las indicadas: "<<endl;
+				cin>>categoria;
+			}
+        	ECategoria categoriaEnum = static_cast<ECategoria>(categoria-1); 	 
+       	    controladorVentas->cargarNuevoProducto(nombreVendedor,codigo,nombreProducto, precio ,stock ,descripcion, categoriaEnum, false);
             break;
     	}  
 		case 4:{
