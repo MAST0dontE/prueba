@@ -535,9 +535,7 @@ while (entradaConsola != 0){
         	string respuesta3 = "Y";
         	while (respuesta3 != "N" && respuesta3 != "n"){
             	cout << "Desea agregar un producto a la compra? Y/N"<<endl;
-				//cin >> respuesta3;
             	getline(cin,respuesta3);
-				//cin.ignore();
 
             	if (respuesta3 == "Y" || respuesta3 == "y"){
                 	cout << "Indique el codigo y cantidad del producto a agregar en la compra" <<endl;

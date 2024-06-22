@@ -230,6 +230,7 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     } 
 }
 
+
 void ControladorVentas::procesarProductosEnPromo(){
     while (!this->productosEnPromo.empty()) {
         auto it = this->productosEnPromo.begin();

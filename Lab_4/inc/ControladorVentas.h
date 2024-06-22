@@ -87,6 +87,8 @@ class ControladorVentas : public iControladorVentas{
         int listarComprasAEnviar(Producto* producto); //devuelve 1 si existen compras pendientes de envio con ese producto
         void compraEnviada(int idCompra, int idProducto, string nickname);
         void procesarProductosEnPromo();
+
+        void compararFechasPromociones();
 };
 
 #endif // CONTROLADORVENTAS_H
