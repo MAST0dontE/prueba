@@ -26,6 +26,7 @@ class Comentario{
         Producto* getProducto() const;
         void setProducto(Producto* producto);
         Comentario* getComentarioPadre() const;
+        int getIdComentarioPadre();
         void setComentarioPadre(Comentario* comentarioPadre);
         void agregarRespuesta (Comentario* comentario);
         void eliminarRespuesta(int id);

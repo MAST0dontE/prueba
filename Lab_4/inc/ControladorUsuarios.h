@@ -33,6 +33,7 @@ class ControladorUsuarios : public iControladorUsuarios{
     int codigoSeleccionado = 0;
     bool respuestaSeleccionada; //deberia inicializarlo con algun valor? como es un triste char no supe hacerlo xd perdon p1 j3j3
     int idSeleccionado;
+    string comentador;
     int creadorIdComentario;
     string usuarioSeleccionado;
     string vendedorProductoSeleccionado;
@@ -60,7 +61,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void seleccionarProducto(int codigo, string nickname);
         void tipoComentario();
         void deseaRespuestas();
-        void seleccionarComentario(int id);
+        void seleccionarComentario(int id, string nickname);
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         void nuevaRespuesta(string comentario, DTFecha fechaDeComentario);
         void listarComentariosUsuario(string nickname);

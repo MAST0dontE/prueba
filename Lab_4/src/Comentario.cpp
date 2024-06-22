@@ -34,6 +34,10 @@ Comentario* Comentario::getComentarioPadre() const{
     return comentarioPadre;
 }
 
+int Comentario::getIdComentarioPadre(){
+    return comentarioPadre->getId();
+}
+
 void Comentario::setComentarioPadre(Comentario* comentarioPadre) {
     this->comentarioPadre = comentarioPadre;
 }
