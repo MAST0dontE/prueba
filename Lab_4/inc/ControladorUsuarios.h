@@ -66,6 +66,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void eliminarComentarioRecursivo(Comentario *comentario);
         void listaDeUsuarios_();
         void infoCliente(string nickname);
+        void imprimirListaDeUsuarios();
         void imprimirListaDeVendedores();
         void imprimirListaDeClientes();
         void imprimirSuscripcionesDisponiblesPara(string nickname);

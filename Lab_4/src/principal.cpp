@@ -466,8 +466,7 @@ while (entradaConsola != 0){
             break;
     	}
 		case 8:{
-			controladorUsuarios->imprimirListaDeVendedores();
-			controladorUsuarios->imprimirListaDeClientes();
+			controladorUsuarios->imprimirListaDeUsuarios();
 			string NombreUsuario;
 			cout << "Indique Nombre del Usuario que desea agregar un comentario: ";
 			cin >> NombreUsuario;

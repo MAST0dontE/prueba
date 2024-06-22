@@ -18,6 +18,10 @@ string Comentario::getTexto() const{
     return comentario;
 }
 
+string Comentario::getAutor() const{
+    return autor;
+}
+
 DTFecha Comentario::getFecha() const{
     return fechaDeComentario;
 }
@@ -28,6 +32,10 @@ Producto* Comentario::getProducto() const{
 
 void Comentario::setProducto(Producto* producto){
     this->producto = producto;
+}
+
+void Comentario::setAutor(string nickname){
+    this->autor = nickname;
 }
 
 Comentario* Comentario::getComentarioPadre() const{
