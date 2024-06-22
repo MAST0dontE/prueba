@@ -465,6 +465,59 @@ while (entradaConsola != 0){
             }*/
             break;
     	}
+		case 6:{
+        	controladorVentas->listarPromociones();
+        	cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
+        	char respuesta5;
+        	cin>> respuesta5;
+        	if (respuesta5 == 'Y' || respuesta5 == 'y' ){
+            	cout << "Indique el nombre de la promocion que desea consultar:" <<endl;
+            	string nombrePromocion;
+            	cin>> nombrePromocion;
+            	controladorVentas->consultarPromocion(nombrePromocion);
+        	}
+            break;
+    	}
+		case 7:{
+		    cout << "Vendedores disponibles:" << endl;
+		   	controladorVentas->listarNicknamesVendedor();
+			cout <<"Indique el nickname de vendedor:" << endl;
+			string nickname;
+			cin >> nickname;
+			if (controladorVentas->listarProductosPendientes(nickname) == 1)
+			{
+				cout <<"Indique el codigo del producto deseado:" << endl;
+				int producto;
+				cin>>producto;
+				if (controladorVentas->getProductos().find(producto)->first == producto)
+				{
+					Producto* ptrProducto = controladorVentas->getProductos().find(producto)->second;
+					if (controladorVentas->listarComprasAEnviar(ptrProducto) == 1)
+					{
+						cout << "Seleccione la compra a enviar:" << endl;
+						int idCompra;
+						string nickVendedor;
+						cin >> idCompra >> nickVendedor;
+
+						controladorVentas->compraEnviada(idCompra, producto, nickname);
+						cout << "La compra ha sido modificada correctamente" << endl;
+					}
+					else {
+						cout << "No hay compras pendientes o la opción es inválida." << endl;
+					}
+				}
+				else  {
+					cout << "\n" << "Opción inválida." << "\n" << endl;
+				}
+			}
+			else if (controladorVentas->getVendedores().find(nickname)->first == nickname)
+			{
+				cout << "\n" <<"No existen compras pendientes de envio del vendedor seleccionado." << "\n" << endl;				
+			} else {
+				cout << "\n" <<"Opción inválida." << "\n" << endl;
+			}
+			break;
+    	}
 		case 8:{
 			controladorUsuarios->imprimirListaDeUsuarios();
 			string NombreUsuario;
@@ -507,120 +560,7 @@ while (entradaConsola != 0){
 		case 9:{
 			break;
 		}
-    	case 7:{
-        	/*set<string> ListaVend=controladorUsuarios->listaDeVendedores();
-        	set<string>::iterator it;
-        	for (it=ListaVend.begin(); it !=ListaVend.end(); it++){
-            	cout<<*it<<endl;
-        	}
-        	string NombreVendedor;
-        	cout << "Indique Nombre del vendedor"<<endl;
-        	getline(cin,NombreVendedor);
-            //auto vendedor = controladorUsuarios->seleccionarUsuario(NombreVendedor);
-            //set<string> productosPendientes= vendedor->listarProductoPendientes(NombreVendedor);
-            */
-		    cout << "Vendedores disponibles:" << endl;
-		   	controladorVentas->listarNicknamesVendedor();
-			cout <<"Indique el nickname de vendedor:" << endl;
-			string nickname;
-			cin >> nickname;
-			if (controladorVentas->listarProductosPendientes(nickname) == 1)
-			{
-				cout <<"Indique el codigo del producto deseado:" << endl;
-				int producto;
-				cin>>producto;
-				if (controladorVentas->getProductos().find(producto)->first == producto)
-				{
-					Producto* ptrProducto = controladorVentas->getProductos().find(producto)->second;
-					if (controladorVentas->listarComprasAEnviar(ptrProducto) == 1)
-					{
-						cout << "Seleccione la compra a enviar:" << endl;
-						int idCompra;
-						string nickVendedor;
-						cin >> idCompra >> nickVendedor;
-
-						controladorVentas->compraEnviada(idCompra, producto, nickname);
-						cout << "La compra ha sido modificada correctamente" << endl;
-					}
-					else {
-						cout << "No hay compras pendientes o la opción es inválida." << endl;
-					}
-				}
-				else  {
-					cout << "\n" << "Opción inválida." << "\n" << endl;
-				}
-			}
-			else if (controladorVentas->getVendedores().find(nickname)->first == nickname)
-			{
-				cout << "\n" <<"No existen compras pendientes de envio del vendedor seleccionado." << "\n" << endl;				
-			} else {
-				cout << "\n" <<"Opción inválida." << "\n" << endl;
-			}
-			break;
-    	}
-    	case 12:{
-			cout << "Clientes: " << endl;
-        	controladorVentas->listarNicknamesClientes();
-        	cout << "Indique el nickname del cliente: "<<endl;
-        	string nicknameCliente;
-			cin.ignore();
-        	getline(cin,nicknameCliente);
-			cout << "\nListado de productos: \n" << endl;
-        	controladorVentas->seleccionarCliente(nicknameCliente);
-
-        	string respuesta3 = "Y";
-        	while (respuesta3 != "N" || respuesta3 != "n"){
-            	cout << "Desea agregar un producto a la compra? Y/N"<<endl;
-				//cin >> respuesta3;
-            	getline(cin,respuesta3);
-				//cin.ignore();
-
-            	if (respuesta3 == "Y" || respuesta3 == "y"){
-                	cout << "Indique el codigo y cantidad del producto a agregar en la compra" <<endl;
-                	int codigo;
-                	cin>>codigo;
-                	int cantidad;
-                	cin>>cantidad;
-                	controladorVentas->agregarProductoCompra(codigo, cantidad);
-               	 
-            	} else if (respuesta3 == "N" || respuesta3 == "n"){
-                	break;
-            	} else {
-                	cout << "Opción no válida." <<endl;
-            	}
-        	}
-        	controladorVentas->mostrarDetallesCompra();
-
-        	cout << "Desea confirmar la compra? Y/N" <<endl;
-        	string respuesta4;
-        	getline(cin,respuesta4);
-
-        	if (respuesta4 == "Y" || respuesta4 == "y"){
-            	controladorVentas->registrarCompra();
-            	cout << "Compra realizada con éxito." <<endl;
-        	} else if (respuesta4 == "N" || respuesta4 == "n"){
-            	cout << "Compra cancelada." <<endl;
-        	} else {
-            	cout << "Opción no válida." <<endl;
-        	}
-
-			controladorVentas->liberarMemoriaRealizarCompra();
-            break;
-    	}
-    	case 6:{
-        	controladorVentas->listarPromociones();
-        	cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
-        	char respuesta5;
-        	cin>> respuesta5;
-        	if (respuesta5 == 'Y' || respuesta5 == 'y' ){
-            	cout << "Indique el nombre de la promocion que desea consultar:" <<endl;
-            	string nombrePromocion;
-            	cin>> nombrePromocion;
-            	controladorVentas->consultarPromocion(nombrePromocion);
-        	}
-            break;
-    	}
-		case 10:{
+    	case 10:{
 			cout <<"Usuarios registrados:" << endl;
 		   	controladorUsuarios->listaDeUsuarios_();
 		   	cout <<"¿Cual clase de usuario desea ver?" << endl;
@@ -671,6 +611,55 @@ while (entradaConsola != 0){
 			} while (respuesta6 == "Y" || respuesta6 == "y");
 
 		}
+    	case 12:{
+			cout << "Clientes: " << endl;
+        	controladorVentas->listarNicknamesClientes();
+        	cout << "Indique el nickname del cliente: "<<endl;
+        	string nicknameCliente;
+			cin.ignore();
+        	getline(cin,nicknameCliente);
+			cout << "\nListado de productos: \n" << endl;
+        	controladorVentas->seleccionarCliente(nicknameCliente);
+
+        	string respuesta3 = "Y";
+        	while (respuesta3 != "N" || respuesta3 != "n"){
+            	cout << "Desea agregar un producto a la compra? Y/N"<<endl;
+				//cin >> respuesta3;
+            	getline(cin,respuesta3);
+				//cin.ignore();
+
+            	if (respuesta3 == "Y" || respuesta3 == "y"){
+                	cout << "Indique el codigo y cantidad del producto a agregar en la compra" <<endl;
+                	int codigo;
+                	cin>>codigo;
+                	int cantidad;
+                	cin>>cantidad;
+                	controladorVentas->agregarProductoCompra(codigo, cantidad);
+               	 
+            	} else if (respuesta3 == "N" || respuesta3 == "n"){
+                	break;
+            	} else {
+                	cout << "Opción no válida." <<endl;
+            	}
+        	}
+        	controladorVentas->mostrarDetallesCompra();
+
+        	cout << "Desea confirmar la compra? Y/N" <<endl;
+        	string respuesta4;
+        	getline(cin,respuesta4);
+
+        	if (respuesta4 == "Y" || respuesta4 == "y"){
+            	controladorVentas->registrarCompra();
+            	cout << "Compra realizada con éxito." <<endl;
+        	} else if (respuesta4 == "N" || respuesta4 == "n"){
+            	cout << "Compra cancelada." <<endl;
+        	} else {
+            	cout << "Opción no válida." <<endl;
+        	}
+
+			controladorVentas->liberarMemoriaRealizarCompra();
+            break;
+    	}
 		case 15: {
 			string carpeta = "data"; // Carpeta donde están los CSV
 			vector<string> archivosCSV = listarArchivosCSV(carpeta);
