@@ -51,7 +51,7 @@ class ControladorVentas : public iControladorVentas{
         static ControladorVentas * getControladorVentas();
         void agregarProducto(int codigo, int cantMinima, float descuento);
         void listarNicknamesClientes();
-        void seleccionarCliente(string nickname);
+        bool seleccionarCliente(string nickname);
         void mostrarDetallesCompra();
         void registrarCompra();
         //setters y getters INICIO
@@ -62,6 +62,7 @@ class ControladorVentas : public iControladorVentas{
         void setProducto(Producto *producto);
         map<int, Producto*> getProductos();
         map<string, Vendedor*> getVendedores();
+        map<string, Cliente*> getClientes();
         void setFechaPromo(DTFecha fechaPromocion);
         void setFechaActual(DTFecha fechaSistema);
         //setters y getters FIN

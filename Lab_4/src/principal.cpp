@@ -18,7 +18,7 @@
 #include <stdlib.h>
 
 using namespace std;
-namespace fs = std::filesystem;
+/* namespace fs = std::filesystem;
 
 // Estructura para almacenar los datos de cada fila del CSV
 struct CasoPrueba {
@@ -73,7 +73,7 @@ vector<string> listarArchivosCSV(const string& carpeta) {
     }
 
     return archivosCSV;
-}
+} */
 
 
 bool esBisiesto(int anio){
@@ -558,11 +558,14 @@ while (entradaConsola != 0){
         	string nicknameCliente;
 			cin.ignore();
         	getline(cin,nicknameCliente);
-			cout << "\nListado de productos: \n" << endl;
-        	controladorVentas->seleccionarCliente(nicknameCliente);
+			
+			while(!controladorVentas->seleccionarCliente(nicknameCliente)){
+				cout << "Nickname inválido. Intente nuevamente ingresando un nickname valido" << endl;
+				getline(cin,nicknameCliente);
+			}
 
         	string respuesta3 = "Y";
-        	while (respuesta3 != "N" || respuesta3 != "n"){
+        	while (respuesta3 != "N" && respuesta3 != "n"){
             	cout << "Desea agregar un producto a la compra? Y/N"<<endl;
 				//cin >> respuesta3;
             	getline(cin,respuesta3);
@@ -575,6 +578,7 @@ while (entradaConsola != 0){
                 	int cantidad;
                 	cin>>cantidad;
                 	controladorVentas->agregarProductoCompra(codigo, cantidad);
+					cin.ignore();
                	 
             	} else if (respuesta3 == "N" || respuesta3 == "n"){
                 	break;
@@ -598,6 +602,7 @@ while (entradaConsola != 0){
         	}
 
 			controladorVentas->liberarMemoriaRealizarCompra();
+			
             break;
     	}
     	case 9:{
@@ -664,7 +669,7 @@ while (entradaConsola != 0){
 			} while (respuesta6 == "Y" || respuesta6 == "y");
 
 		}
-		case 15: {
+		/* case 15: {
 			string carpeta = "data"; // Carpeta donde están los CSV
 			vector<string> archivosCSV = listarArchivosCSV(carpeta);
 
@@ -694,7 +699,7 @@ while (entradaConsola != 0){
     	}
 
 
-		}
+		} */
     	default:
         	cout <<"Opción no válida." <<endl;
         	break;

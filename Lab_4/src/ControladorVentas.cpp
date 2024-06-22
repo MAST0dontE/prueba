@@ -50,6 +50,11 @@ map<string, Vendedor*> ControladorVentas::getVendedores()
     return this->vendedores;
 }
 
+map<string, Cliente *> ControladorVentas::getClientes()
+{
+    return this->clientes;
+}
+
 void ControladorVentas::setProducto(Producto *producto){
     this->productos[producto->getCodigo()] = producto;
 }
@@ -168,16 +173,27 @@ void ControladorVentas::listarNicknamesClientes(){
     }
 }
 
-void ControladorVentas::seleccionarCliente(string nickname){
+bool ControladorVentas::seleccionarCliente(string nickname){
     map<int, Producto*>::iterator it;
-    this->nicknameClienteRealizarCompra = nickname;
+    auto cliente = this->clientes.find(nickname);
+    bool encontrado = false;
 
-       for (it = productos.begin(); it != productos.end(); ++it) {
-        Producto* producto = it->second; 
-        DTInfoProducto dtip(it->first, producto->getNombre(), producto->getPrecio(), producto->getStock(), producto->getDescripcion(), producto->getCategoria(), producto->getNombreVendedor());
+    if(cliente != this->clientes.end()){
+        encontrado = true;
+        cout << "Cliente seleccionado: " << nickname << endl;
+        this->nicknameClienteRealizarCompra = nickname;
+        cout << "\nListado de productos: \n" << endl;
+        for (it = productos.begin(); it != productos.end(); ++it) {
+            Producto* producto = it->second; 
+            DTInfoProducto dtip(it->first, producto->getNombre(), producto->getPrecio(), producto->getStock(), producto->getDescripcion(), producto->getCategoria(), producto->getNombreVendedor());
 
-       cout << dtip.getDTInfoProducto() << "\n" << endl;
-    }  
+            cout << dtip.getDTInfoProducto() << "\n" << endl;
+        }  
+    } else {
+        cout << "Cliente no encontrado con el nickname proporcionado: " << nickname << endl;
+
+    }
+    return encontrado;
 }
 
 void ControladorVentas::agregarProductoCompra(int codigo, int cant){
