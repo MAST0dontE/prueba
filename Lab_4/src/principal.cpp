@@ -75,6 +75,33 @@ vector<string> listarArchivosCSV(const string& carpeta) {
     return archivosCSV;
 }
 
+
+bool esBisiesto(int anio){
+    bool aux;
+    aux = (anio%4==0 && (!anio%100==0 || anio%400));
+   return aux;
+}
+
+int diasMes(int mes, int anio){
+    int cantDias;
+    switch (mes){
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        cantDias = 31;
+        break;
+        case 4: case 6: case 9: case 11:
+        cantDias = 30;
+        break;
+        case 2:
+            if (esBisiesto(anio))
+                cantDias = 29;
+             else 
+                cantDias = 28;
+        break;
+        default: printf("Numero de mes invalido."); 
+    }
+    return cantDias;
+}
+
 int main() {
 
 // ** FABRICA CREACION Y GET iCONTROLADORES** //
@@ -271,21 +298,33 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 // ** CASO DE USO: Suscribirse FIN ** //
 
+//**FUNCIONES PARA FECHA**//
+
+
 
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 
 cout <<"               	-----    	¡Bienvenido a Mercado Finger!   	-----"<<endl;
 cout <<" "<<endl;
 cout <<"Antes de comenzar, por favor indique la fecha actual:"<<endl;
-cout <<"Ingrese el dia"<<endl;
-int dia;
-cin>>dia;
-cout <<"Ingrese el mes"<<endl;
-int mes;
-cin>>mes;
+int anio=0;
+int mes =0;
+int dia=0;
 cout <<"Ingrese el anio"<<endl;
-int anio;
 cin>>anio;
+cout <<"Ingrese el mes"<<endl;
+cin>>mes;
+while(mes>12 || mes<1){
+	cout<<"Ingrese un mes valido:"<<endl;
+	cin>>mes;
+}
+cout <<"Ingrese el dia"<<endl;
+cin>>dia;
+int cantDiasMes = diasMes(mes, anio);
+while(dia>cantDiasMes || dia<1){
+	cout<<"Ingrese un dia valido:"<<endl;
+	cin>>dia;
+}
 
 cout <<"¿En que lo podemos asistir?"<<endl;
 cout <<"Digite 1 para Alta de usuario."<<endl;
@@ -326,7 +365,7 @@ while (entradaConsola != 0){
         	int dia;
         	cout << "Indique dia de nacimiento"<<endl;
         	cin>>dia;
-        	cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
+        	cout <<"¿Desea registrar un vendedor o un cliente?" <<endl;
         	//cin.ignore(numeric_limits<streamsize>::max(), '\n');
         	char c;
         	while (cin.get(c) && c != '\n');
