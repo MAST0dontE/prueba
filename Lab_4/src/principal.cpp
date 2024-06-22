@@ -562,7 +562,19 @@ while (entradaConsola != 0){
 			break;
 		}
     	case 9:{
-            break;
+			controladorUsuarios->imprimirListaDeUsuarios();
+			string NombreUsuario;
+			cout << "Indique Nombre del Usuario al que desea eliminar un comentario: ";
+			cin >> NombreUsuario;
+			controladorUsuarios->seleccionarUsuario_(NombreUsuario);
+			controladorUsuarios->listarComentariosUsuario(NombreUsuario);
+			cout << "Indique ID y Autor del comentario que desea eliminar: ";
+			int CodigoProducto;
+			string NombreAutor;
+			cin >> CodigoProducto >> NombreAutor;
+			Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(CodigoProducto, NombreAutor);
+			controladorUsuarios->eliminarComentarioRecursivo(comentarioAEliminar);
+			break;
     	}
 		case 10:{
 		    cout << "Vendedores disponibles:" << endl;

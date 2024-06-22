@@ -300,18 +300,16 @@ void ControladorUsuarios::seleccionarComentario(int id, string nickname)
 	this->comentador = nickname;
 }
 
-void ControladorUsuarios::listarComentariosUsuario(string nickname)
-{
-	map<string, Usuario*>::iterator it = usuarios.find(vendedorProductoSeleccionado);
-	if (it != usuarios.end())
-	{
+void ControladorUsuarios::listarComentariosUsuario(string nickname){
+	map<string, Usuario*>::iterator it = usuarios.find(usuarioSeleccionado);
+	if (it != usuarios.end()){
 		Vendedor *vendedor = dynamic_cast<Vendedor*>(it->second);
 		if (vendedor){
 			map<int, Comentario *> comentarios = vendedor->getComentarios();
 			for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
 				Comentario *comentario = comIt->second;
-				cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto() \
-					 << ", Fecha: " << comentario->getFecha().toString() << "\n";
+				cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto()
+					 << ", Fecha: " << comentario->getFecha().toString() << ", Autor: " << comentario->getAutor() << "\n";
 			}
 		}
 		else if (!vendedor){
@@ -320,15 +318,45 @@ void ControladorUsuarios::listarComentariosUsuario(string nickname)
 				map<int, Comentario *> comentarios = cliente->getComentarios();
 				for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
 					Comentario *comentario = comIt->second;
-					cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto() \
-						 << ", Fecha: " << comentario->getFecha().toString() << "\n";
+					cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto()
+						 << ", Fecha: " << comentario->getFecha().toString() << ", Autor: " << comentario->getAutor() << "\n";
 				}
 			}
 		}
 	}
 }
 
+Comentario* ControladorUsuarios::buscarComentario(int id, string nickname){
+	map<string, Usuario *>::iterator itU = usuarios.find(comentador);
+	if (itU != usuarios.end()){
+		Vendedor *vendedor = dynamic_cast<Vendedor*>(itU->second);
+		if (vendedor){
+			map<int, Comentario*> comentarios = vendedor->getComentarios();
+			map<int, Comentario*>::iterator comIt = comentarios.find(idSeleccionado);
+			if (comIt != comentarios.end()){
+				Comentario* comentario = comIt->second;
+				return comentario;
+			}
+		}
+		else{
+			Cliente* cliente = dynamic_cast<Cliente*>(itU->second);
+			map<int, Comentario *> comentarios = cliente->getComentarios();
+			map<int, Comentario*>::iterator comIt = comentarios.find(idSeleccionado);
+			if (comIt != comentarios.end()){
+				Comentario* comentario = comIt->second;
+				return comentario;
+			}
+		}
+		return nullptr;
+	}
+	return nullptr;
+}
+
 void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
+	if (!comentario){
+		return;
+	}
+	else{
     map<int, Comentario*>& respuestas = comentario->getRespuestas();
     for (map<int, Comentario*>::iterator it = respuestas.begin(); it != respuestas.end(); ++it) {
         eliminarComentarioRecursivo(it->second);
@@ -357,6 +385,7 @@ void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
         }
     }
     delete comentario;
+	}
 }
 
 Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)

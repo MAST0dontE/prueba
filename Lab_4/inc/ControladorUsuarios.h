@@ -75,6 +75,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         bool existenUsuariosRegistrados();
         bool existeNickname(string nickname);
         void getComentarios(Usuario* usuario);
+        Comentario* buscarComentario(int id, string nickname);
         // void nuevaSuscripcion(string nickname);
 };
 
