@@ -31,7 +31,7 @@ class ControladorVentas : public iControladorVentas{
         set<Promocion*> promociones;
         map<string, Cliente*> clientes;
         map<string, Vendedor*> vendedores;
-        set<Compra*> compras;
+        map<int,Compra*> compras;
 
         //Datos que guarda este controlador para los casos de uso relacionados a promocion:
         string nombrePromo;
@@ -86,9 +86,10 @@ class ControladorVentas : public iControladorVentas{
         int listarProductosPendientes(string nickname); //devuelve 1 si existian productos pendientes
         int listarComprasAEnviar(Producto* producto); //devuelve 1 si existen compras pendientes de envio con ese producto
         void compraEnviada(int idCompra, int idProducto, string nickname);
+       
+        int compararFechasPromociones();
         void procesarProductosEnPromo();
 
-        void compararFechasPromociones();
 };
 
 #endif // CONTROLADORVENTAS_H

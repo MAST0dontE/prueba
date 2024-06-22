@@ -32,8 +32,8 @@ void ControladorVentas::setPromocion(Promocion *promocion){
     this->promociones.insert(promocion);
 }
 
-void ControladorVentas::setCompra(Compra *compra)
-{
+void ControladorVentas::setCompra(Compra *compra){
+    this->compras[compra->getId()] = compra;
     // Implementación
 }
 
@@ -230,8 +230,13 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     } 
 }
 
+int ControladorVentas::compararFechasPromociones(){
 
-void ControladorVentas::procesarProductosEnPromo(){
+return 0;
+}
+
+void ControladorVentas::procesarProductosEnPromo()
+{
     while (!this->productosEnPromo.empty()) {
         auto it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
@@ -247,7 +252,7 @@ void ControladorVentas::procesarProductosEnPromo(){
                 break;
             }
         }
-        if (promo != nullptr) {
+        if (promo != nullptr ) {
             map<int, ProductoEnPromocion*> productosEnPromo = promo->getProductos();
             bool todosProductosEnPromo = true;
             map<int, DTProductoCompra> productosCompra;
@@ -337,6 +342,7 @@ void ControladorVentas::registrarCompra(){
     
     Cliente* cliente = this->clientes[this->nicknameClienteRealizarCompra];
     cliente->agregarCompra(compra);
+    this->compras[this->idCompra] = compra;
 }
 
 void ControladorVentas::liberarMemoriaRealizarCompra(){
@@ -423,7 +429,7 @@ int ControladorVentas::listarProductosPendientes(string nickname){
     int existenProductosPendientes = 0;
     for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt)
     {
-        Compra* compraActual = *compraIt; 
+        Compra* compraActual = compraIt->second; 
         for (auto compraPorProducto = compraActual->getProductos().begin() ; compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto)
         {
           CompraPorProducto* productoActual = compraPorProducto->second;
@@ -440,9 +446,8 @@ int ControladorVentas::listarProductosPendientes(string nickname){
 int ControladorVentas::listarComprasAEnviar(Producto *producto){
     int existenComprasAEnviar = 0;
     cout << "Compras pendientes a enviar:" << endl;
-    for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt)
-    {
-        Compra* compraActual = *compraIt; 
+    for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt){
+        Compra* compraActual = compraIt->second; 
         for (auto compraPorProducto = compraActual->getProductos().begin() ; compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto)
         {
             CompraPorProducto* productoActual = compraPorProducto->second;
