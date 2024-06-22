@@ -15,27 +15,42 @@ ControladorUsuarios * ControladorUsuarios::getControladorUsuarios(){
 
 void ControladorUsuarios::setCliente(Cliente *cliente){
 	this->clientes[cliente->getNickname()] = cliente;
+	this->usuarios[cliente->getNickname()] = cliente;
 }
 
 void ControladorUsuarios::setVendedor(Vendedor *vendedor){
 	this->vendedores[vendedor->getNickname()] = vendedor;
+	this->usuarios[vendedor->getNickname()] = vendedor;
 }
 
-bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad){
-    if (clientes.find(nickname) != clientes.end()) {
+void ControladorUsuarios::setComentario(Comentario *comentario)
+{
+	// Implementación
+}
+
+
+bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
+{
+    if (clientes.find(nickname) != clientes.end() || vendedores.find(nickname)!=vendedores.end()){
         return false;
     }
     Cliente* nuevoCliente = new Cliente(nickname, contrasenia, fechaNacimiento, direccion, ciudad);
     this->setCliente(nuevoCliente);
 	ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
 	controladorVentas->setCliente(nuevoCliente);
-    return true; 
+    return true;
 }
 
+bool ControladorUsuarios::existeNickname(string nickname){
+	if (vendedores.find(nickname) != vendedores.end() || clientes.find(nickname) != clientes.end()) {
+        return true;
+    }
+	else return false;
+}
 
 bool ControladorUsuarios::altaVendedor(string nickname, string contrasenia, DTFecha fechaNacimiento, string codigoRUT)
 {
-	if (vendedores.find(nickname) != vendedores.end()) {
+	if (vendedores.find(nickname) != vendedores.end() || clientes.find(nickname) != clientes.end()) {
         return false;
     }
     Vendedor* nuevoVendedor = new Vendedor(nickname, contrasenia, fechaNacimiento, codigoRUT);
@@ -380,15 +395,20 @@ void ControladorUsuarios::listarSuscripciones(string nickname){
 void ControladorUsuarios::listaDeUsuarios_(){
 	map<string, Cliente*>::iterator it1;
 	map<string, Vendedor*>::iterator it2;
-	for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
-		printf( "(%s)\n", it1->first.c_str() );
-		printf( "(%s)\n", it1->second->getFecha().c_str() );
-		printf( "(%s)\n", it1->second->getCiudadResidencia().c_str() );
-	}
+	if(clientes.empty() && vendedores.empty()){
+		cout<<"En este momento no existe ningun usario registrado en el sistema."<<endl;
+	} else{
+		cout<<"A continuacion se listan los usuarios registrados actualmente en el sistema:"<<endl;
+		for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
+			printf( "(%s)\n", it1->first.c_str() );
+			printf( "(%s)\n", it1->second->getFecha().c_str() );
+			printf( "(%s)\n", it1->second->getCiudadResidencia().c_str() );
+		}
 		for (it2= vendedores.begin(); it2!=vendedores.end(); ++it2){
-		printf( "(%s)\n", it2->first.c_str() );
-		printf( "(%s)\n", it2->second->getFecha().c_str() );
-		printf( "(%s)\n", it2->second->getCodigoRUT().c_str() );
+			printf( "(%s)\n", it2->first.c_str() );
+			printf( "(%s)\n", it2->second->getFecha().c_str() );
+			printf( "(%s)\n", it2->second->getCodigoRUT().c_str() );
+		}
 	}
 	/*for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
 		printf( "(%s)\n", (*it)->getNickname().c_str() );

@@ -71,7 +71,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void imprimirSuscripcionesDisponiblesPara(string nickname);
         void suscribirmeA(string nickname);
         bool existenUsuariosRegistrados();
-        
+        bool existeNickname(string nickname);
         // void nuevaSuscripcion(string nickname);
 };
 

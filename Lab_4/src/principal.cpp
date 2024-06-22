@@ -349,10 +349,12 @@ cin>>entradaConsola;
 while (entradaConsola != 0){
 	switch (entradaConsola){
     	case 1:{
-        	string NombreUsuario;
+        	string nombreUsuario;
         	cout << "Indique Nombre del Usuario nuevo"<<endl;
-        	cin>>NombreUsuario;
-            //cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        	cin>>nombreUsuario;
+			while(controladorUsuarios->existeNickname(nombreUsuario)){
+				
+			}
         	string contra;
         	cout << "Indique contraseña del Usuario nuevo"<<endl;
         	cin>>contra;
@@ -383,7 +385,7 @@ while (entradaConsola != 0){
 				cout << "Indique número de puerta:"<<endl;
 				int numPuerta;
 				cin>>numPuerta;
-            	bool a=controladorUsuarios->altaCliente(NombreUsuario, contra, DTFecha(dia,mes,ano),DTDireccion(calle, numPuerta), ciudad);
+            	bool a=controladorUsuarios->altaCliente(nombreUsuario, contra, DTFecha(dia,mes,ano),DTDireccion(calle, numPuerta), ciudad);
             	if (a) {
 					cout <<"Su cliente fue creado"<<endl;
 					break;
@@ -396,7 +398,7 @@ while (entradaConsola != 0){
             	string codigoRut;
             	cout << "Indique codigo Rut del vendedor"<<endl;
             	getline(cin,codigoRut);
-            	if (controladorUsuarios->altaVendedor(NombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado"<<endl;}
+            	if (controladorUsuarios->altaVendedor(nombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado"<<endl;}
         	} else {
             	break;
 				}
