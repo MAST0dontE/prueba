@@ -230,10 +230,18 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     } 
 }
 
-int ControladorVentas::compararFechasPromociones(){
-
-return 0;
-}
+int ControladorVentas::compararFechasPromociones(DTFecha fecha1){
+    int res = 0;
+    if ((fecha1.anio != this->fechaActual.anio) || (fecha1.mes != this->fechaActual.mes) || (fecha1.dia != this->fechaActual.dia)) {
+        if ((fecha1.anio < this->fechaActual.anio) || ((fecha1.anio == this->fechaActual.anio) && (fecha1.mes < this->fechaActual.mes)) ||
+            ((fecha1.anio == this->fechaActual.anio) && (fecha1.mes == this->fechaActual.mes) && (fecha1.dia < this->fechaActual.dia))) {
+            res = -1;
+        } else {
+            res = 1;
+        }
+    }
+    return res;
+}    
 
 void ControladorVentas::procesarProductosEnPromo()
 {
@@ -252,7 +260,7 @@ void ControladorVentas::procesarProductosEnPromo()
                 break;
             }
         }
-        if (promo != nullptr ) {
+        if (promo != nullptr && (compararFechasPromociones(promo->getFechaDeVencimiento()) == -1|| compararFechasPromociones(promo->getFechaDeVencimiento()) == 0)){
             map<int, ProductoEnPromocion*> productosEnPromo = promo->getProductos();
             bool todosProductosEnPromo = true;
             map<int, DTProductoCompra> productosCompra;

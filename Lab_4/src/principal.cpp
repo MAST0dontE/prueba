@@ -325,6 +325,8 @@ while(dia>cantDiasMes || dia<1){
 	cout<<"Ingrese un dia valido:"<<endl;
 	cin>>dia;
 }
+DTFecha fechaSistema(dia,mes,anio);
+controladorVentas->setFechaActual(fechaSistema);
 
 cout <<"¿En que lo podemos asistir?"<<endl;
 cout <<"Digite 1 para Alta de usuario."<<endl;
