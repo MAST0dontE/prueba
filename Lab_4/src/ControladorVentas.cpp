@@ -504,9 +504,11 @@ void ControladorVentas::infoVendedor(string nickname){
     cout << "Nickname: " << vendedorInfo->getNickname() << endl;
     cout << "Fecha de nacimiento: " << vendedorInfo->getFecha() << "\n" << endl;
     cout << "Productos disponibles:" << endl;
+    cout << "ESTOY ENTRANDOOOOOO" << endl;
     for (auto productoSet = vendedorInfo->obtenerProductos().begin(); productoSet != vendedorInfo->obtenerProductos().end(); ++productoSet) {
         DTInfoProducto productoActual = *productoSet;
         cout << productoActual.getDTInfoProducto() << endl;
+        cout << "ESTOY ENTRANDOOOOOO2" << endl;
     }
     cout << "Promociones vigentes:" << endl;
     for (auto enPromo = promociones.begin(); enPromo != promociones.end(); ++enPromo) {

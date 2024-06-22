@@ -410,7 +410,6 @@ void ControladorUsuarios::consultarNotificaciones(string nickname){
 void ControladorUsuarios::eliminarSuscripciones(string nicknameCliente){
 	Vendedor* vendedor = this->vendedores[nicknameCliente];
 	vendedor->removerSuscriptor(this->clientes[nicknameCliente]);
-	
 }
 
 void ControladorUsuarios::listarSuscripciones(string nickname){
