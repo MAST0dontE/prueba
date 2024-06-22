@@ -378,6 +378,7 @@ void ControladorUsuarios::consultarNotificaciones(string nickname){
 		cout<<"El usuario "<<nickname<<" no tiene nuevas notificaciones"<<endl;
 		}
 		else{
+			cout<<"Cargando notificaiones"<<endl;
 		for(it=notificaciones.begin();it!=notificaciones.end();++it){
 			cout<<"aaaaa"<<endl;
 			cout<<it->second.getNicknameVendedor()<<it->second.getNombrePromo()<<it->second.getDTInfoProducto()<<endl;
