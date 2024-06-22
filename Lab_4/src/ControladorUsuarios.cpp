@@ -368,7 +368,13 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 
 
 void ControladorUsuarios::consultarNotificaciones(string nickname){
-	if (this->clientes.empty()){
+	map<string, Cliente*>::iterator itt;
+	bool Existe=false;
+	for(itt=clientes.begin(); itt!=clientes.end(); ++itt)
+	{
+		if(itt->first==nickname){Existe=true;}
+	}
+	if (this->clientes.empty() || !Existe){
 		cout<<"No hay clientes registrados"<<endl;
 	} else{
 		Cliente *cliente = clientes[nickname];
