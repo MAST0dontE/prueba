@@ -543,11 +543,11 @@ while (entradaConsola != 0){
 			}
 			else if (respuesta == "Responder uno ya existente"){
 				controladorUsuarios->listarComentarios(CodigoProducto);
-				cout << "Escriba el ID y el nombre del autor del comentario al que desea responder: ";
+				cout << "Escriba el ID y el autor del comentario al que desea responder: ";
 				int id;
-				string comentador;
-				cin >> id >> comentador;
-				controladorUsuarios->seleccionarComentario(id, comentador);
+				string autor;
+				cin >> id >> autor;
+				controladorUsuarios->seleccionarComentario(id, autor);
 				cin.ignore(); // Ignorar el carácter de nueva línea residual
 				string comentario;
 				cout << "Escriba el comentario: ";

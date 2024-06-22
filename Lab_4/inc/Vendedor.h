@@ -12,7 +12,8 @@ class Vendedor : public Usuario{
         string codigoRUT;
         set<Producto*> productosVendedor;
         map<string, iSuscriptor*> suscriptores;
-        
+        map<int, Comentario *> comentarios;
+
     public:
         //GETTERS
         string getCodigoRUT();

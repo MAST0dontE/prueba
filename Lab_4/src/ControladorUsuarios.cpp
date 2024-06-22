@@ -1,12 +1,12 @@
 #include "ControladorUsuarios.h"
 
-ControladorUsuarios * ControladorUsuarios::controladorUsuariosInst = nullptr;
+ControladorUsuarios* ControladorUsuarios::controladorUsuariosInst = nullptr;
 
 ControladorUsuarios::ControladorUsuarios(){
 	//constructor
 }
 
-ControladorUsuarios * ControladorUsuarios::getControladorUsuarios(){
+ControladorUsuarios* ControladorUsuarios::getControladorUsuarios(){
 	if (!controladorUsuariosInst){
 		controladorUsuariosInst = new ControladorUsuarios();
 	}
@@ -19,34 +19,21 @@ void ControladorUsuarios::setCliente(Cliente *cliente){
 }
 
 void ControladorUsuarios::setVendedor(Vendedor *vendedor){
-    if (vendedor == nullptr) {
-        cout << "El vendedor es nulo." << endl;
-        return;
-    }
-    string nickname = vendedor->getNickname();
-    cout << "Agregando vendedor con nickname: " << nickname << endl;
-    this->vendedores[nickname] = vendedor;
-    this->usuarios[nickname] = vendedor;
-    // Verifica que el vendedor fue agregado
-    if (this->usuarios.find(nickname) != this->usuarios.end()) {
-        cout << "Vendedor agregado correctamente al mapa de usuarios." << endl;
-    } 
-	else{
-        cout << "Error al agregar el vendedor al mapa de usuarios." << endl;
-    }
+	this->vendedores[vendedor->getNickname()] = vendedor;
+	this->usuarios[vendedor->getNickname()] = vendedor;
 }
 
-
-bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
-{
-    if (clientes.find(nickname) != clientes.end() || vendedores.find(nickname)!=vendedores.end()){
-        return false;
-    }
-    Cliente* nuevoCliente = new Cliente(nickname, contrasenia, fechaNacimiento, direccion, ciudad);
-    this->setCliente(nuevoCliente);
-	ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
-	controladorVentas->setCliente(nuevoCliente);
-    return true;
+	bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
+	{
+		if (clientes.find(nickname) != clientes.end() || vendedores.find(nickname) != vendedores.end())
+		{
+			return false;
+		}
+		Cliente *nuevoCliente = new Cliente(nickname, contrasenia, fechaNacimiento, direccion, ciudad);
+		this->setCliente(nuevoCliente);
+		ControladorVentas *controladorVentas = ControladorVentas::getControladorVentas();
+		controladorVentas->setCliente(nuevoCliente);
+		return true;
 }
 
 bool ControladorUsuarios::existeNickname(string nickname){
@@ -277,11 +264,10 @@ void ControladorUsuarios::listarComentarios(int codigo) {
 				if (prodIt != productosVendedor.end()){
 					if ((*prodIt)->getCodigo() == codigo){
 						map<int, Comentario *> comentarios = (*prodIt)->getComentarios();
-						for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt)
-						{
+						for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
 							Comentario *comentario = comIt->second;
 							cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto()
-								 << ", Fecha: " << comentario->getFecha().toString() << "Autor: " << comentario->getAutor() << "\n";
+								 << ", Fecha: " << comentario->getFecha().toString() << ", Autor: " << comentario->getAutor() << "\n";
 						}
 					}
 				}
