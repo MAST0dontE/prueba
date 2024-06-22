@@ -43,7 +43,6 @@ class ControladorUsuarios : public iControladorUsuarios{
         static ControladorUsuarios* getControladorUsuarios();
         void setCliente(Cliente *cliente);
         void setVendedor(Vendedor *vendedor);
-        void setComentario(Comentario *comentario);
         bool altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad);
         bool altaVendedor(string nickname, string contrasenia, DTFecha fechaNacimiento, string codigoRUT);
         set<string> listaDeUsuarios();
@@ -60,7 +59,6 @@ class ControladorUsuarios : public iControladorUsuarios{
         void listarComentarios(int codigo);
         void seleccionarProducto(int codigo, string nickname);
         void tipoComentario();
-        void deseaRespuestas();
         void seleccionarComentario(int id, string nickname);
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         void nuevaRespuesta(string comentario, DTFecha fechaDeComentario);

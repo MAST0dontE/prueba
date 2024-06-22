@@ -13,24 +13,15 @@ ControladorUsuarios * ControladorUsuarios::getControladorUsuarios(){
 	return controladorUsuariosInst;
 }
 
-void ControladorUsuarios::setCliente(Cliente *cliente)
-{
+void ControladorUsuarios::setCliente(Cliente *cliente){
 	this->clientes[cliente->getNickname()] = cliente;
 }
 
-void ControladorUsuarios::setVendedor(Vendedor *vendedor)
-{
+void ControladorUsuarios::setVendedor(Vendedor *vendedor){
 	this->vendedores[vendedor->getNickname()] = vendedor;
 }
 
-void ControladorUsuarios::setComentario(Comentario *comentario)
-{
-	// Implementación
-}
-
-
-bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad)
-{
+bool ControladorUsuarios::altaCliente(string nickname, string contrasenia, DTFecha fechaNacimiento, DTDireccion direccion, string ciudad){
     if (clientes.find(nickname) != clientes.end()) {
         return false;
     }
@@ -130,42 +121,46 @@ void ControladorUsuarios::tipoComentario(){
 }
 
 void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeComentario){
-	map<string, Usuario*>::iterator it = usuarios.find(vendedorProductoSeleccionado);
-	if (it == usuarios.end()) {
-        cout << "Vendedor no seleccionado o no encontrado.\n";
-        return;
-    }
-    Vendedor* vendedor = dynamic_cast<Vendedor*>(it->second);
-    if (!vendedor) {
-        cout << "Vendedor no encontrado o no es un vendedor válido.\n";
-        return;
-    }
-    set<Producto*> productosVendedor = vendedor->getProductos();
-    Producto* productoSeleccionado = nullptr;
-    for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt) {
-        if ((*prodIt)->getCodigo() == codigoSeleccionado) {
-            productoSeleccionado = *prodIt;
-            break;
-        }
-    }
-    if (!productoSeleccionado) {
-        cout << "Producto no encontrado.\n";
-        return;
-    }
-	int idComentario = creadorIdComentario++;
-	Comentario* nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
-	nuevoComentario->setProducto(productoSeleccionado);
-	nuevoComentario->setComentarioPadre(nuevoComentario);
-	productoSeleccionado->agregarComentario(nuevoComentario);
 	map<string, Usuario *>::iterator itU = usuarios.find(usuarioSeleccionado);
-	if (itU != usuarios.end()){
+	if (itU == usuarios.end()){
+		cout << "Usuario no seleccionado o no encontrado.\n";
+		return;
+	}
+	else{
+		map<string, Usuario *>::iterator it = usuarios.find(vendedorProductoSeleccionado);
+		if (it == usuarios.end()){
+			cout << "Vendedor no seleccionado o no encontrado.\n";
+			return;
+		}
+		Vendedor *vendedor = dynamic_cast<Vendedor *>(it->second);
+		if (!vendedor){
+			cout << "Vendedor no encontrado o no es un vendedor válido.\n";
+			return;
+		}
+		set<Producto *> productosVendedor = vendedor->getProductos();
+		Producto *productoSeleccionado = nullptr;
+		for (set<Producto *>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt){
+			if ((*prodIt)->getCodigo() == codigoSeleccionado){
+				productoSeleccionado = *prodIt;
+				break;
+			}
+		}
+		if (!productoSeleccionado){
+			cout << "Producto no encontrado.\n";
+			return;
+		}
+		int idComentario = creadorIdComentario++;
+		Comentario *nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
+		nuevoComentario->setProducto(productoSeleccionado);
+		nuevoComentario->setComentarioPadre(nuevoComentario);
+		productoSeleccionado->agregarComentario(nuevoComentario);
 		Usuario *usuarioActual = itU->second;
 		if (usuarioActual->esVendedor()){
-		Vendedor *vendedorActual = dynamic_cast<Vendedor*>(itU->second);
-		vendedorActual->agregarComentario(nuevoComentario);
+			Vendedor *vendedorActual = dynamic_cast<Vendedor *>(itU->second);
+			vendedorActual->agregarComentario(nuevoComentario);
 		}
-		else {
-			Cliente *clienteActual = dynamic_cast<Cliente*>(itU->second);
+		else{
+			Cliente *clienteActual = dynamic_cast<Cliente *>(itU->second);
 			clienteActual->agregarComentario(nuevoComentario);
 		}
 	}
@@ -177,14 +172,19 @@ void ControladorUsuarios::nuevaRespuesta(string comentario, DTFecha fechaDeComen
         cout << "Usuario comentador no encontrado.\n";
         return;
     }
-    Usuario* usuarioActual = it->second;
+	map<string, Usuario *>::iterator itU = usuarios.find(usuarioSeleccionado);
+	if (itU == usuarios.end()){
+		cout << "Usuario no seleccionado o no encontrado.\n";
+		return;
+	}
+    Usuario* comentadorActual = it->second;
     map<int, Comentario*> comentarios;
-    if (usuarioActual->esVendedor()) {
-        Vendedor* comentadorVendedor = dynamic_cast<Vendedor*>(usuarioActual);
+    if (comentadorActual->esVendedor()) {
+        Vendedor* comentadorVendedor = dynamic_cast<Vendedor*>(comentadorActual);
         comentarios = comentadorVendedor->getComentarios();
     } 
 	else{
-        Cliente* comentadorCliente = dynamic_cast<Cliente*>(usuarioActual);
+        Cliente* comentadorCliente = dynamic_cast<Cliente*>(comentadorActual);
         comentarios = comentadorCliente->getComentarios();
     }
     Comentario* comentarioR = nullptr;
@@ -212,17 +212,14 @@ void ControladorUsuarios::nuevaRespuesta(string comentario, DTFecha fechaDeComen
         cout << "Comentario con ID " << idSeleccionado << " no encontrado.\n";
         delete nuevoComentario;
 	}
-	map<string, Usuario *>::iterator itU = usuarios.find(usuarioSeleccionado);
-	if (itU != usuarios.end()){
-		Usuario *usuarioActual = itU->second;
-		if (usuarioActual->esVendedor()){
-		Vendedor *vendedorActual = dynamic_cast<Vendedor*>(itU->second);
-		vendedorActual->agregarComentario(nuevoComentario);
-		}
-		else {
-			Cliente *clienteActual = dynamic_cast<Cliente*>(itU->second);
-			clienteActual->agregarComentario(nuevoComentario);
-		}
+	Usuario *usuarioActual = itU->second;
+	if (usuarioActual->esVendedor()){
+	Vendedor *vendedorActual = dynamic_cast<Vendedor*>(itU->second);
+	vendedorActual->agregarComentario(nuevoComentario);
+	}
+	else{
+		Cliente* clienteActual = dynamic_cast<Cliente*>(itU->second);
+		clienteActual->agregarComentario(nuevoComentario);
 	}
 }
 
@@ -246,33 +243,25 @@ void ControladorUsuarios::listarComentarios(int codigo) {
 								 << ", Fecha: " << comentario->getFecha().toString() << "\n";
 						}
 					}
+				}
 				else {
 					cout << "Prodcuto no encontrado.\n" ;
 				}
-				}
             }
         }
-		} else {
-			cout << "Vendedor no seleccionado o no encontrado.\n";
+		else{
+			cout << "Error encontrando el producto, el vendedor correspondiente al codigo no existe.\n"
 		}
+	} 
+	else{
+		cout << "Vendedor no seleccionado o no encontrado.\n";
+	}
 	}
 
 void ControladorUsuarios::seleccionarComentario(int id, string nickname)
 {
 	int idSeleccionado = id;
 	string comentador = nickname;
-}
-
-void ControladorUsuarios::deseaRespuestas(){
-	cout << "¿Desea desplegar respuestas a un comentario? (Y/N): ";
-	char respuesta;
-	cin >> respuesta;
-	if (respuesta == 'Y' || respuesta == 'y'){
-		cout << "Ingrese ID de comentario a desplegar: ";
-		int comentario;
-		cin >> comentario;
-		idSeleccionado = comentario;
-	}
 }
 
 void ControladorUsuarios::listarComentariosUsuario(string nickname)
