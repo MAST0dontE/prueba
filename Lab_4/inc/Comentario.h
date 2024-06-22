@@ -3,6 +3,12 @@
 
 #include <string>
 #include <map>
+
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <vector>
+
 #include "DTFecha.h"
 #include "DTcomentario.h"
 using namespace std;
@@ -34,6 +40,8 @@ class Comentario{
         void agregarRespuesta (Comentario* comentario);
         void eliminarRespuesta(int id);
         map<int, Comentario*>& getRespuestas();
+
+        vector<Comentario> cargarComentariosDesdeCSV(const string& nombreArchivo);
 };
 
 #endif // COMENTARIO_H

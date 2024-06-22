@@ -380,19 +380,31 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 
 
 void ControladorUsuarios::consultarNotificaciones(string nickname){
-	Cliente *cliente = clientes[nickname];
-	map<int, DTNotificacion> notificaciones = cliente->getNotificaciones();
-	map<int, DTNotificacion>::iterator it;
-	if(notificaciones.empty()){
+	map<string, Cliente*>::iterator itt;
+	bool Existe=false;
+	for(itt=clientes.begin(); itt!=clientes.end(); ++itt)
+	{
+		if(itt->first==nickname){Existe=true;}
+	}
+	if (this->clientes.empty() || !Existe){
+		cout<<"No hay clientes registrados"<<endl;
+	} else{
+		Cliente *cliente = clientes[nickname];
+		map<int, DTNotificacion> notificaciones = cliente->getNotificaciones();
+		map<int, DTNotificacion>::iterator it;
+		if(notificaciones.empty()){
 		cout<<"El usuario "<<nickname<<" no tiene nuevas notificaciones"<<endl;
+		}
+		else{
+			cout<<"Cargando notificaiones"<<endl;
+		for(it=notificaciones.begin();it!=notificaciones.end();++it){
+			cout<<"aaaaa"<<endl;
+			cout<<it->second.getNicknameVendedor()<<it->second.getNombrePromo()<<it->second.getDTInfoProducto()<<endl;
+		}
+		cliente->borrarNotificaciones();
+		}
 	}
-	else{
-	for(it=notificaciones.begin();it!=notificaciones.end();++it){
-		cout<<"aaaaa"<<endl;
-		cout<<it->second.getNicknameVendedor()<<it->second.getNombrePromo()<<it->second.getDTInfoProducto()<<endl;
-	}
-	cliente->borrarNotificaciones();
-	}
+
 }
 
 void ControladorUsuarios::eliminarSuscripciones(string nicknameCliente){
