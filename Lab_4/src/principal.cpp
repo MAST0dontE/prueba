@@ -296,6 +296,8 @@ controladorUsuarios->consultarNotificaciones("Donatelo");
 cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
+
+
 // ** CASO DE USO: Suscribirse FIN ** //
 
 //**FUNCIONES PARA FECHA**//

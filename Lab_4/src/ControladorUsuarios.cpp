@@ -424,16 +424,18 @@ void ControladorUsuarios::consultarNotificaciones(string nickname){
 		if(notificaciones.empty()){
 		cout<<"El usuario "<<nickname<<" no tiene nuevas notificaciones"<<endl;
 		}
-		else{
-			cout<<"Cargando notificaiones"<<endl;
-		for(it=notificaciones.begin();it!=notificaciones.end();++it){
-			cout<<"aaaaa"<<endl;
-			cout<<it->second.getNicknameVendedor()<<it->second.getNombrePromo()<<it->second.getDTInfoProducto()<<endl;
+		else{	
+			for(it=notificaciones.begin();it!=notificaciones.end();++it){
+				cout<<it->second.getNicknameVendedor()<<it->second.getNombrePromo()<<endl;
+				map<int, DTInfoProducto>::iterator itProds;
+				map<int, DTInfoProducto> productos = it->second.productos;
+				for(itProds= productos.begin(); itProds!=productos.end(); ++itProds){
+					cout<<itProds->second.toString()<<endl;
+				}
 		}
 		cliente->borrarNotificaciones();
 		}
 	}
-
 }
 
 void ControladorUsuarios::eliminarSuscripciones(string nicknameCliente){

@@ -9,10 +9,10 @@ string DTNotificacion:: getNicknameVendedor(){
 string DTNotificacion:: getNombrePromo(){
     return nombrePromo;
 }
-string DTNotificacion:: getDTInfoProducto(){
+/*string DTNotificacion:: getDTInfoProductoNotificacion(){
     string MegaSuperInfoProducto;
     for(auto producto:productos){
         MegaSuperInfoProducto +=producto.second.getDTInfoProducto() + "\n";
     }
     return MegaSuperInfoProducto ;
-}
+}*/
