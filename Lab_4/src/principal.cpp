@@ -243,20 +243,6 @@ cin>>entradaConsola;
 while (entradaConsola != 0){
 	switch (entradaConsola){
     	case 1:{
-        	controladorVentas->listarProductos();
-        	cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
-        	char respuesta1;
-        	cin>> respuesta1;
-        	if (respuesta1 == 'Y' || respuesta1 == 'y' ){
-            	cout << "Indique el codigo del producto que desea consultar:" <<endl;
-            	int codigo;
-            	cin>> codigo;
-            	controladorVentas->consultarProducto(codigo);
-        	}
-            break;
-            }
-        	
-    	case 2:{
             
         	string NombreUsuario;
         	cout << "Indique Nombre del Usuario nuevo"<<endl;
@@ -296,11 +282,11 @@ while (entradaConsola != 0){
             	break;}
         	break;
         	}
-    	case 3:{
+    	case 2:{
         	controladorUsuarios->listaDeUsuarios_();
             break;
     	}
-    	case 4:{
+    	case 3:{
         	cout <<"elija el nombre de un vendedor de los siguientes"<<endl;
         	controladorUsuarios->listaDeVendedores();
         	string NombreVendedor;
@@ -324,7 +310,21 @@ while (entradaConsola != 0){
         	ECategoria categoriaEnum = static_cast<ECategoria>(categoria); 	 
        	    controladorVentas->cargarNuevoProducto(NombreVendedor,codigo,NombreProducto, precio ,stock ,Descripcion, categoriaEnum, false);
             break;
-    	}   
+    	}  
+		case 4:{
+        	controladorVentas->listarProductos();
+        	cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
+        	char respuesta1;
+        	cin>> respuesta1;
+        	if (respuesta1 == 'Y' || respuesta1 == 'y' ){
+            	cout << "Indique el codigo del producto que desea consultar:" <<endl;
+            	int codigo;
+            	cin>> codigo;
+            	controladorVentas->consultarProducto(codigo);
+        	}
+            break;
+        }
+        	 
     	case 5:{/*
         	cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
