@@ -3,6 +3,7 @@ OBJ_DIR = obj
 BIN_DIR = bin
 INC_DIR = inc
 SRC_DIR = src
+DATA_DIR = data
 OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/Comentario.o \
 		  $(OBJ_DIR)/Compra.o \
@@ -26,7 +27,7 @@ OBJS    = $(OBJ_DIR)/Cliente.o \
 		  $(OBJ_DIR)/principal.o
 
 CPP = g++
-CPPFLAGS = -Wall -I$(INC_DIR) -Wno-unused-variable -Wno-unused-parameter
+CPPFLAGS = -Wall -I$(INC_DIR) -Wno-unused-variable -Wno-unused-parameter 
 
 $(TARGET) : $(OBJS)
 	mkdir -p $(BIN_DIR)

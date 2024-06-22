@@ -1,6 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <map>
 #include <string>
+
+#include <fstream> // Para manejar archivos
+#include <sstream> //Para manipular flujos de cadenas de texto 
+#include <filesystem>  // Para manejar directorios y archivos
+
 #include "../inc/ControladorUsuarios.h"
 #include "../inc/ControladorVentas.h"
 #include "../inc/Producto.h"
@@ -10,6 +16,92 @@
 #include "../inc/Fabrica.h"
 
 #include <stdlib.h>
+
+using namespace std;
+namespace fs = std::filesystem;
+
+// Estructura para almacenar los datos de cada fila del CSV
+struct CasoPrueba {
+    int id;
+    std::string nombre;
+    int edad;
+};
+
+// Función para leer un archivo CSV y almacenar los datos en un vector de estructuras CasoPrueba
+std::vector<CasoPrueba> leerCSV(const std::string& nombreArchivo) {
+    std::vector<CasoPrueba> casos;
+    std::ifstream archivo(nombreArchivo);
+    std::string linea;
+
+    // Verificar si el archivo se abrió correctamente
+    if (!archivo.is_open()) {
+        std::cerr << "No se pudo abrir el archivo: " << nombreArchivo << std::endl;
+        return casos;
+    }
+
+    // Leer la primera línea (encabezados) y descartarla
+    std::getline(archivo, linea);
+
+    // Leer el archivo línea por línea
+    while (std::getline(archivo, linea)) {
+        std::istringstream ss(linea);
+        std::string dato;
+        CasoPrueba caso;
+
+        // Leer y asignar los datos de cada columna a la estructura CasoPrueba
+        std::getline(ss, dato, ',');
+        caso.id = std::stoi(dato);
+        std::getline(ss, caso.nombre, ',');
+        std::getline(ss, dato, ',');
+        caso.edad = std::stoi(dato);
+
+        // Agregar el caso leído al vector de casos
+        casos.push_back(caso);
+    }
+
+    archivo.close();
+    return casos;
+}
+
+vector<string> listarArchivosCSV(const string& carpeta) {
+    vector<string> archivosCSV;
+
+    for (const auto& entry : fs::directory_iterator(carpeta)) {
+        if (entry.path().extension() == ".csv") {
+            archivosCSV.push_back(entry.path().string());
+        }
+    }
+
+    return archivosCSV;
+}
+
+
+bool esBisiesto(int anio){
+    bool aux;
+    aux = (anio%4==0 && (!anio%100==0 || anio%400));
+   return aux;
+}
+
+int diasMes(int mes, int anio){
+    int cantDias;
+    switch (mes){
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        cantDias = 31;
+        break;
+        case 4: case 6: case 9: case 11:
+        cantDias = 30;
+        break;
+        case 2:
+            if (esBisiesto(anio))
+                cantDias = 29;
+             else 
+                cantDias = 28;
+        break;
+        default: printf("Numero de mes invalido."); 
+    }
+    return cantDias;
+}
+
 int main() {
 
 // ** FABRICA CREACION Y GET iCONTROLADORES** //
@@ -206,21 +298,33 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 // ** CASO DE USO: Suscribirse FIN ** //
 
+//**FUNCIONES PARA FECHA**//
+
+
 
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 
 cout <<"               	-----    	¡Bienvenido a Mercado Finger!   	-----"<<endl;
 cout <<" "<<endl;
 cout <<"Antes de comenzar, por favor indique la fecha actual:"<<endl;
-cout <<"Ingrese el dia"<<endl;
-int dia;
-cin>>dia;
-cout <<"Ingrese el mes"<<endl;
-int mes;
-cin>>mes;
+int anio=0;
+int mes =0;
+int dia=0;
 cout <<"Ingrese el anio"<<endl;
-int anio;
 cin>>anio;
+cout <<"Ingrese el mes"<<endl;
+cin>>mes;
+while(mes>12 || mes<1){
+	cout<<"Ingrese un mes valido:"<<endl;
+	cin>>mes;
+}
+cout <<"Ingrese el dia"<<endl;
+cin>>dia;
+int cantDiasMes = diasMes(mes, anio);
+while(dia>cantDiasMes || dia<1){
+	cout<<"Ingrese un dia valido:"<<endl;
+	cin>>dia;
+}
 
 cout <<"¿En que lo podemos asistir?"<<endl;
 cout <<"Digite 1 para Alta de usuario."<<endl;
@@ -237,6 +341,8 @@ cout <<"Digite 11 para Expediente de usuario."<<endl;
 cout <<"Digite 12 para Suscribirse a notificaciones."<<endl;
 cout <<"Digite 13 para Consultar notificaciones"<<endl;
 cout <<"Digite 14 para Eliminar suscripciones."<<endl;
+cout <<"Digite 15 para los casos de prueba "<<endl;
+
 
 int entradaConsola;
 cin>>entradaConsola;
@@ -259,7 +365,7 @@ while (entradaConsola != 0){
         	int dia;
         	cout << "Indique dia de nacimiento"<<endl;
         	cin>>dia;
-        	cout <<"¿Desea crear una instancia de cliente o de un vendedor master?" <<endl;
+        	cout <<"¿Desea registrar un vendedor o un cliente?" <<endl;
         	//cin.ignore(numeric_limits<streamsize>::max(), '\n');
         	char c;
         	while (cin.get(c) && c != '\n');
@@ -556,6 +662,37 @@ while (entradaConsola != 0){
 					break;
 				} */
 			} while (respuesta6 == "Y" || respuesta6 == "y");
+
+		}
+		case 15: {
+			string carpeta = "data"; // Carpeta donde están los CSV
+			vector<string> archivosCSV = listarArchivosCSV(carpeta);
+
+			if (archivosCSV.empty()) {
+       			std::cerr << "No se encontraron archivos CSV en la carpeta especificada." << std::endl;
+       			return 1;
+			
+    		}
+			cout << "Archivos CSV disponibles:" << endl;
+   			for (size_t i = 0; i < archivosCSV.size(); ++i) {
+      	  		cout << i + 1 << ". " << archivosCSV[i] << endl;
+    		}
+			std::cout << "Seleccione el número del archivo CSV que desea procesar: ";
+   			size_t seleccion;
+    		std::cin >> seleccion;
+
+   	 	if (seleccion < 1 || seleccion > archivosCSV.size()) {
+        	std::cerr << "Selección inválida." << std::endl;
+        	return 1;
+    	}
+
+    	std::vector<CasoPrueba> casos = leerCSV(archivosCSV[seleccion - 1]);
+
+    	// Imprimir los datos leídos
+    	for (const auto& caso : casos) {
+        	std::cout << "ID: " << caso.id << ", Nombre: " << caso.nombre << ", Edad: " << caso.edad << std::endl;
+    	}
+
 
 		}
     	default:
