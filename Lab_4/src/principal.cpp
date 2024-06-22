@@ -448,22 +448,13 @@ while (entradaConsola != 0){
             break;
         }
         	 
-    	case 5:{/*
-        	cout<<"Indique el nombre del cliente"<<endl;
+    	case 5:{
+			cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
             //cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        	getline(cin,NombreCliente);
-        	set<DTNotificacion> Notificaciones=controladorUsuarios->consultarNotificaciones(NombreCliente);
-        	string SuperMegaStringFaseDios;
-            if(SuperMegaStringFaseDios.empty()){cout<<"No hay notificaciones"<<endl;}else{
-                for (auto notif:Notificaciones){
-            	SuperMegaStringFaseDios += notif.getnicknameVendedor() + "\n";
-            	SuperMegaStringFaseDios += notif.getnombrePromo() + "\n";
-            	SuperMegaStringFaseDios += notif.getDTInfoProducto() + "\n";
-        	}
-        	cout <<SuperMegaStringFaseDios<<endl;
-            
-            }*/
+        	cin>>NombreCliente;
+			cout<<NombreCliente<<endl;
+        	controladorUsuarios->consultarNotificaciones(NombreCliente);
             break;
     	}
 		case 6:{
