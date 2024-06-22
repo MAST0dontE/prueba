@@ -58,7 +58,6 @@ class ControladorUsuarios : public iControladorUsuarios{
         void listarProductos();
         void listarComentarios(int codigo);
         void seleccionarProducto(int codigo, string nickname);
-        void tipoComentario();
         void seleccionarComentario(int id, string nickname);
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         void nuevaRespuesta(string comentario, DTFecha fechaDeComentario);

@@ -551,7 +551,7 @@ while (entradaConsola != 0){
 			}
 			break;
     	}
-    	case 8:{
+    	case 12:{
 			cout << "Clientes: " << endl;
         	controladorVentas->listarNicknamesClientes();
         	cout << "Indique el nickname del cliente: "<<endl;
@@ -600,7 +600,7 @@ while (entradaConsola != 0){
 			controladorVentas->liberarMemoriaRealizarCompra();
             break;
     	}
-    	case 9:{
+    	case 6:{
         	controladorVentas->listarPromociones();
         	cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
         	char respuesta5;
