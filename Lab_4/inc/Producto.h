@@ -22,7 +22,7 @@ class Producto{
         string vendedor;
         ECategoria categoria;
         map<int, Comentario*> comentarios;
-        bool enPromocion;
+        bool enPromocion = false;
         
 
     public:
