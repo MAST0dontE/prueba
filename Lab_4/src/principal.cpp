@@ -305,6 +305,7 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 //---------------------Casos de prueba tarea 4---------------------//
 	//Tabla 1: Datos básicos de usuarios:
 controladorUsuarios->altaVendedor("ana23", "qwer1234", DTFecha(15,5,1988), "212345678001");
+controladorUsuarios->altaVendedor("carlos78", "asdfghj", DTFecha(18,6,1986), "212345678001");
 
 
 
