@@ -307,6 +307,8 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 controladorUsuarios->altaVendedor("ana23", "qwer1234", DTFecha(15,5,1988), "212345678001");
 controladorUsuarios->altaVendedor("carlos78", "asdfghj", DTFecha(18,6,1986), "356789012345");
 controladorUsuarios->altaVendedor("diegom", "zxcvbn", DTFecha(28,7,1993), "190123456789");
+controladorUsuarios->altaVendedor("maria01", "5tgb6yhn", DTFecha(25,3,1985), "321098765432");
+controladorUsuarios->altaVendedor("sofia25", "1234asdf", DTFecha(7,12,1983), "445678901234");
 
 
 
