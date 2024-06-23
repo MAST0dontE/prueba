@@ -246,18 +246,23 @@ void ControladorUsuarios::nuevaRespuesta(string comentario, DTFecha fechaDeComen
 		}
 	}
 }*/
-void ControladorUsuarios::imprimirComentarioYRespuestas(Comentario* comentario){
-	cout << "ID: " << comentario->getId() 
-	<< ", Texto: " << comentario->getTexto()
-	<< ", Fecha: " << comentario->getFecha().toString()
-	<< ", Autor: " << comentario->getAutor() << "\n";
-	map<int, Comentario*> respuestas = comentario->getRespuestas();
-    for (map<int, Comentario*>::iterator it = respuestas.begin(); it != respuestas.end(); ++it) {
+
+void ControladorUsuarios::imprimirComentarioYRespuestas(Comentario* comentario, set<int>& comentariosImpresos) {
+    if (!comentario) {
+        return;
+    }
+    if (comentariosImpresos.find(comentario->getId()) != comentariosImpresos.end()) {
+        return; // si ya se imprimio sale sin hacer nada
+    }
+    cout << "ID: " << comentario->getId()
+         << ", Texto: " << comentario->getTexto()
+         << ", Fecha: " << comentario->getFecha().toString()
+         << ", Autor: " << comentario->getAutor() << "\n";
+    comentariosImpresos.insert(comentario->getId());
+    map<int, Comentario*> respuestas = comentario->getRespuestas();
+    for (map<int,Comentario*>::iterator it = respuestas.begin(); it != respuestas.end(); ++it) {
         Comentario* respuesta = it->second;
-        cout << "  ID: " << respuesta->getId() 
-             << ", Texto: " << respuesta->getTexto()
-             << ", Fecha: " << respuesta->getFecha().toString() 
-             << ", Autor: " << respuesta->getAutor() << "\n";
+        imprimirComentarioYRespuestas(respuesta, comentariosImpresos);
     }
 }
 
@@ -268,19 +273,15 @@ void ControladorUsuarios::listarComentarios(int codigo) {
         if (vendedor) { 
             set<Producto*> productosVendedor = vendedor->getProductos();
             for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt) {
-				if (prodIt != productosVendedor.end()){
-					if ((*prodIt)->getCodigo() == codigo){
-						map<int, Comentario *> comentarios = (*prodIt)->getComentarios();
-						for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
-							Comentario *comentario = comIt->second;
-							if (comentario){
-								imprimirComentarioYRespuestas(comentario);
-							}
+				if ((*prodIt)->getCodigo() == codigo){
+					map<int, Comentario *> comentarios = (*prodIt)->getComentarios();
+					for (map<int, Comentario *>::iterator comIt = comentarios.begin(); comIt != comentarios.end(); ++comIt){
+						Comentario *comentario = comIt->second;
+						if (comentario){
+							set<int> comentariosImpresos;
+							imprimirComentarioYRespuestas(comentario, comentariosImpresos);
 						}
 					}
-				}
-				else {
-					cout << "Prodcuto no encontrado.\n" ;
 				}
             }
 		}
