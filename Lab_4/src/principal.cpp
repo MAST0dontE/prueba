@@ -511,10 +511,30 @@ controladorVentas->cargarNuevoProducto("diegom", 14, "Tablet", 15000, 15, "Table
 controladorVentas->cargarNuevoProducto("sofia25", 15, "Reloj de Pared", 150.50, 20, "Reloj de pared vintage", otros, false);
 
 	//Datos de promociones:
+
+
 controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
+controladorVentas->seleccionarVendedor("ana23");
+controladorVentas->agregarProductoPromo(2, 1);
+controladorVentas->ingresarPromocion();
+
+//controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
 controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
+controladorVentas->seleccionarVendedor("carlos78");
+controladorVentas->agregarProductoPromo(6, 3);
+controladorVentas->agregarProductoPromo(3, 2);
+controladorVentas->ingresarPromocion();
+
 controladorVentas->altaPromocion("Domotica", "Para modernizar tu casa", DTFecha(26, 10, 2024), 10);
+controladorVentas->seleccionarVendedor("diegom");
+controladorVentas->agregarProductoPromo(5, 2);
+controladorVentas->ingresarPromocion();
+
 controladorVentas->altaPromocion("Liquidacion", "Hasta agotar stock", DTFecha(26, 3, 2024), 10);
+controladorVentas->seleccionarVendedor("diegom");
+controladorVentas->agregarProductoPromo(14, 1);
+controladorVentas->ingresarPromocion();
+
 
 //----------------------**MENU INTERACTIVO**----------------------//
 
@@ -957,9 +977,31 @@ do {
 			}
             break;
 		}
-		case 12:
-			cout << "Ha seleccionado Suscribirse a notificaciones.\n";
+		case 12:{
+			cout << "Usted ha seleccionado suscribirse a notificaciones:"<<endl;
+			cout <<"Desea ver un listado con los posibles suscriptores? Y/N"<<endl;
+			char resp;
+			cin>>resp;
+			if (resp == 'Y' || resp == 'y'){
+				controladorUsuarios->imprimirListaDeClientes();
+			}
+			cout<<"Indique el nombre del nuevo suscriptor"<<endl;
+			string suscriptorNuevo;
+			cin>>suscriptorNuevo;
+			controladorUsuarios->imprimirSuscripcionesDisponiblesPara(suscriptorNuevo);
+			cout<<"Desea registrar una nueva suscripcion entre las disponibles? Y/N"<<endl;
+			char resp2;
+			cin>>resp2;
+			while(resp2!='n'&& resp2!='N'){
+			cout<<"Indique a quien desea suscribirse para empezar a recibir sus notificaciones: "<<endl;
+			string creadorDeContenido;
+			cin>>creadorDeContenido;
+			controladorUsuarios->suscribirmeA(creadorDeContenido);
+			cout<<"Desea ingresar otra suscripcion? Y/N"<<endl;
+			cin>>resp2;
+			}
 			break;
+		}
 		case 13:{
 			cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
