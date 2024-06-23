@@ -234,19 +234,6 @@ void ControladorUsuarios::nuevaRespuesta(string comentario, DTFecha fechaDeComen
     cout << "Respuesta agregada correctamente.\n";
 }
 
-/*void ControladorUsuarios::listarComentariosVendedor(string nickname) {
-	map<string, Vendedor*>::iterator it = vendedores.find(nickname);
-	if (it != vendedores.end()){
-		Vendedor* vendedor= it->second;
-		map<int, Comentario*> comentariosVendedor = vendedor->getComentarios();
-		for (map<int, Comentario*>::iterator comIt = comentariosVendedor.begin(); comIt != comentariosVendedor.end(); comIt++){
-			Comentario *comentario = comIt->second;
-			cout << "ID: " << comentario->getId() << ", Texto: " << comentario->getTexto()
-				 << ", Fecha: " << comentario->getFecha().toString() << ", Autor: " << comentario->getAutor() << "\n";
-		}
-	}
-}*/
-
 void ControladorUsuarios::imprimirComentarioYRespuestas(Comentario* comentario, set<int>& comentariosImpresos) {
     if (!comentario) {
         return;
@@ -373,6 +360,7 @@ void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
         }
     }
     Comentario* comentarioPadre = comentario->getComentarioPadre();
+
 	if (comentarioPadre) {
         cout << "Eliminando referencia del comentario con ID: " << comentario->getId() << " del comentario padre con ID: " << comentarioPadre->getId() << "\n";
         comentarioPadre->getRespuestas().erase(comentario->getId());

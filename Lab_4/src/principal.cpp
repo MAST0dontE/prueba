@@ -346,9 +346,10 @@ cout<< "-----------------------------------------------------"<< endl;
 cout << "     ** CASO DE USO: Dejar Comentario INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
 
+//controladorUsuarios->nuevoComentarioAuto("Cualquier consulta pregunten!", DTFecha(2024, 6, 23), "pepito", 11, "pepito");
 
-
-cout << "````````````````````````````````````````````````````" << endl;
+cout
+	<< "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
 
 // ** CASO DE USO: Dejar Comentario FIN ** //
