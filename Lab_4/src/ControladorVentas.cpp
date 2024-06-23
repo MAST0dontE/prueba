@@ -542,10 +542,18 @@ int ControladorVentas::listarComprasAEnviar(Producto *producto){
     return existenComprasAEnviar;
 }
 
+
 void ControladorVentas::compraEnviada(int idCompra, int idProducto, string nickname) {
     Cliente* cliente = clientes.find(nickname)->second;
-    Compra* compra = cliente->getComprasRealizadas().find(idCompra)->second;
-    CompraPorProducto* productoEnviado = compra->getProductos().find(idProducto)->second;
+    map<int, Compra*> compras = cliente->getComprasRealizadas();    
+        cout << "entreeeeeeeee3" << endl;
+
+    Compra* compra = compras.find(idCompra)->second;
+        cout << "entreeeeeeeee4" << endl;
+
+    map<int, CompraPorProducto*> prods = compra->getProductos();
+    cout << "entreeeeeeeee5" << endl;
+    CompraPorProducto* productoEnviado = prods.find(idProducto)->second;
     productoEnviado->setestadoDeEnvio(EEnvio::enviado);
 }
 
@@ -580,7 +588,6 @@ void ControladorVentas::infoVendedor(string nickname){
     cout << "Nickname: " << vendedorInfo->getNickname() << endl;
     cout << "Fecha de nacimiento: " << vendedorInfo->getFecha() << "\n" << endl;
     cout << "Productos disponibles:" << endl;
-    cout << "ESTOY ENTRANDOOOOOO" << endl;
     vendedorInfo->listarProductosVendedor();
     cout << "Promociones vigentes:" << endl;
     for (auto enPromo = promociones.begin(); enPromo != promociones.end(); ++enPromo) {
