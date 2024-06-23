@@ -353,12 +353,35 @@ cout<< "-----------------------------------------------------"<< endl;
 
 cout << "     ** CASO DE USO: Dejar Comentario INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
+controladorUsuarios->seleccionarUsuario_("Donatelo");
+controladorUsuarios->seleccionarProducto(11, "pepito");
+controladorUsuarios->nuevoComentario("Buenas", DTFecha(2024, 6, 23));
+controladorUsuarios->seleccionarUsuario_("pepito");
+controladorUsuarios->seleccionarProducto(11, "pepito");
+controladorUsuarios->seleccionarComentario(0, "Donatelo");
+controladorUsuarios->nuevaRespuesta("En que te ayudo pibe?", DTFecha(2024, 6, 23));
+controladorUsuarios->seleccionarUsuario_("Donatelo");
+controladorUsuarios->seleccionarProducto(11, "pepito");
+controladorUsuarios->seleccionarComentario(1, "pepito");
+controladorUsuarios->nuevaRespuesta("Ando mirando muchas gracias", DTFecha(2024, 6, 23));
+controladorUsuarios->seleccionarUsuario_("pepito");
+controladorUsuarios->seleccionarProducto(11, "pepito");
+controladorUsuarios->seleccionarComentario(2, "Donatelo");
+controladorUsuarios->nuevaRespuesta("...", DTFecha(2024, 6, 23));
 
-//controladorUsuarios->nuevoComentarioAuto("Cualquier consulta pregunten!", DTFecha(2024, 6, 23), "pepito", 11, "pepito");
-
-cout
-	<< "````````````````````````````````````````````````````" << endl;
+cout<< "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
+
+
+
+cout << "     ** CASO DE USO: Eliminar Comentario INICIO **" << endl;
+cout << "````````````````````````````````````````````````````" << endl;
+
+Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(0, "pepito"); //no elimina nada porque el comentario id=0 es de Donatelo
+controladorUsuarios->eliminarComentarioRecursivo(comentarioAEliminar);
+
+cout << "````````````````````````````````````````````````````" << endl;
+cout << "     ** CASO DE USO: Eliminar Comentario FIN **" << endl;
 
 // ** CASO DE USO: Dejar Comentario FIN ** //
 
@@ -780,13 +803,13 @@ do {
 			cin >> NombreUsuario;
 			controladorUsuarios->seleccionarUsuario_(NombreUsuario);
 			controladorUsuarios->listarComentariosUsuario(NombreUsuario);
-			int CodigoProducto;
+			int IdComentario;
 			cout << "Indique ID del comentario que desea eliminar: ";
-			cin >> CodigoProducto;
+			cin >> IdComentario;
 			string NombreAutor;
 			cout << "Indique nombre del autor del comentario que desea eliminar: ";
 			cin >> NombreAutor;
-			Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(CodigoProducto, NombreAutor);
+			Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(IdComentario, NombreAutor);
 			controladorUsuarios->eliminarComentarioRecursivo(comentarioAEliminar);
 			break;
     	}
