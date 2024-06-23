@@ -277,7 +277,8 @@ int ControladorVentas::compararFechasPromociones(DTFecha fecha1){
 }    
 void ControladorVentas::procesarProductosEnPromo(){
     while (!this->productosEnPromo.empty()) {
-        auto it = this->productosEnPromo.begin();
+        map<int, int>::iterator it;
+        it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
         int cantidad = it->second;
         //this->productosEnPromo.erase(it);
@@ -285,18 +286,21 @@ void ControladorVentas::procesarProductosEnPromo(){
         Promocion* promo = nullptr;
 
         // encontrar la promoción que contiene el producto
-        for (auto it1 = this->promociones.begin(); it1 != this->promociones.end(); ++it1) {
+        
+        set<Promocion*>::iterator it1;
+        for (it1 = this->promociones.begin(); it1 != this->promociones.end(); ++it1) {
             if ((*it1)->getProductos().find(codigoProducto) != (*it1)->getProductos().end()) {
                 promo = *it1;
                 break;
             }
         }
-        if (promo != nullptr && (compararFechasPromociones(promo->getFechaDeVencimiento()) == 1|| compararFechasPromociones(promo->getFechaDeVencimiento()) == 0)){
-            map<int, ProductoEnPromocion*> productosEnPromo = promo->getProductos();
+        if (promo != nullptr && (compararFechasPromociones(promo->getFechaDeVencimiento()) == 1||
+            compararFechasPromociones(promo->getFechaDeVencimiento()) == 0)){
+            map<int, ProductoEnPromocion*> productosEnPromoMap = promo->getProductos();
             bool todosProductosEnPromo = true;
             map<int, DTProductoCompra> productosCompra;
 
-            for (const auto& par : productosEnPromo) {
+            for (const auto& par : productosEnPromoMap) {
                 int codigoProdPromo = par.first;
                 ProductoEnPromocion* prodEnPromo = par.second;
 
@@ -334,7 +338,9 @@ void ControladorVentas::procesarProductosEnPromo(){
                     this->datosProductoCompra.emplace(par.first, par.second);
                 }
             }
-
+        }
+        else{
+            this->productosEnPromo.erase(codigoProducto);
         }
     }
 }

@@ -312,9 +312,9 @@ controladorVentas->cargarNuevoProducto("pepito",11, "productoPepito1", 1, 1, "el
 controladorVentas->cargarNuevoProducto("pepito",12, "productoPepito2", 2, 2, "el producto de pepito dos",ECategoria::ropa, false);
 controladorVentas->cargarNuevoProducto("pepito",13, "productoPepito2", 3, 3, "el producto de pepito tres",ECategoria::electrodomesticos, false);
 
-controladorVentas->cargarNuevoProducto("tiranosaurioRex",321, "productoTiranosaurio1", 1, 1, "el producto de Tiranosaurio uno",ECategoria::otros, false);
-controladorVentas->cargarNuevoProducto("tiranosaurioRex",322, "productoTiranosaurio2", 2, 2, "el producto de Tiranosaurio dos",ECategoria::ropa, false);
-controladorVentas->cargarNuevoProducto("tiranosaurioRex",323, "productoTiranosaurio2", 3, 3, "el producto de Tiranosaurio dos",ECategoria::ropa, false);
+controladorVentas->cargarNuevoProducto("tiranosaurioRex",321, "productoTiranosaurio1", 1, 100, "el producto de Tiranosaurio uno",ECategoria::otros, false);
+controladorVentas->cargarNuevoProducto("tiranosaurioRex",322, "productoTiranosaurio2", 2, 200, "el producto de Tiranosaurio dos",ECategoria::ropa, false);
+controladorVentas->cargarNuevoProducto("tiranosaurioRex",323, "productoTiranosaurio2", 3, 300, "el producto de Tiranosaurio dos",ECategoria::ropa, false);
 
 
 cout<< "** CASO DE USO: Alta Producto FIN**"<< endl;
@@ -326,14 +326,14 @@ cout<< "-----------------------------------------------------"<< endl;
 cout<< "** CASO DE USO: Crear Promocion INICIO **"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 
-controladorVentas->altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3), 0.5);
+controladorVentas->altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1,2,3), 50);
 controladorVentas->seleccionarVendedor("pepito");
 controladorVentas->agregarProductoPromo(11,21);
 controladorVentas->agregarProductoPromo(12,22);
 controladorVentas->ingresarPromocion();
 controladorVentas->consultarPromocion("promocionZZZ");
 
-controladorVentas->altaPromocion("promocionVACIA", "sdfhjahsdgaaaaazzz", DTFecha(1,2,3), 0.25);
+controladorVentas->altaPromocion("promocionVACIA", "sdfhjahsdgaaaaazzz", DTFecha(1,2,3), 25);
 controladorVentas->seleccionarVendedor("solitarioGamer");
 controladorVentas->agregarProductoPromo(13,2);
 controladorVentas->ingresarPromocion();
@@ -396,9 +396,9 @@ controladorUsuarios->imprimirSuscripcionesDisponiblesPara("Donatelo");
 controladorUsuarios->suscribirmeA("tiranosaurioRex");
 controladorUsuarios->imprimirSuscripcionesDisponiblesPara("Donatelo");
 controladorUsuarios->suscribirmeA("tiranosaurioRex");
-controladorVentas->altaPromocion("promocionTIRA", "kkkkkkkkkkkk", DTFecha(1,2,3), 0.5);
+controladorVentas->altaPromocion("promocionTIRA", "kkkkkkkkkkkk", DTFecha(25,6,2024), 50);
 controladorVentas->seleccionarVendedor("tiranosaurioRex");
-controladorVentas->agregarProductoPromo(321,3);
+controladorVentas->agregarProductoPromo(321,1);
 controladorVentas->agregarProductoPromo(322,1);
 controladorVentas->agregarProductoPromo(323,1);
 controladorVentas->ingresarPromocion();
