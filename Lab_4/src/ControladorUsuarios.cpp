@@ -178,7 +178,7 @@ void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeCome
 		Comentario *nuevoComentario = new Comentario(idComentario, comentario, fechaDeComentario);
 		nuevoComentario->setAutor(usuarioSeleccionado);
 		nuevoComentario->setProducto(productoSeleccionado);
-		nuevoComentario->setComentarioPadre(nuevoComentario);
+		nuevoComentario->setComentarioPadre(nullptr);
 		productoSeleccionado->agregarComentario(nuevoComentario);
 		Usuario *usuarioActual = itU->second;                       //
 		if (usuarioActual->esVendedor()){
@@ -262,7 +262,7 @@ void ControladorUsuarios::listarComentarios(int codigo) {
     map<string, Vendedor*>::iterator it = vendedores.find(vendedorProductoSeleccionado);
     if (it != vendedores.end()) {
         Vendedor* vendedor = it->second;
-        if (vendedor) {
+        if (vendedor) { 
             set<Producto*> productosVendedor = vendedor->getProductos();
             for (set<Producto*>::iterator prodIt = productosVendedor.begin(); prodIt != productosVendedor.end(); ++prodIt) {
 				if (prodIt != productosVendedor.end()){
@@ -369,7 +369,8 @@ void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
         }
     }
     Comentario* comentarioPadre = comentario->getComentarioPadre();
-    if (comentarioPadre) {
+	cout << "dios.\n";
+	if (comentarioPadre) {
         cout << "Eliminando referencia del comentario con ID: " << comentario->getId() << " del comentario padre con ID: " << comentarioPadre->getId() << "\n";
         comentarioPadre->getRespuestas().erase(comentario->getId());
     } else {

@@ -22,7 +22,7 @@ class Comentario{
         DTFecha fechaDeComentario;
         map<int, Comentario*> respuestas;
         Producto* producto;
-        Comentario* comentarioPadre;
+        Comentario* comentarioPadre = nullptr;
 
     public:
         Comentario(int id, string comentario, DTFecha fechaDeComentario);
@@ -40,7 +40,6 @@ class Comentario{
         void agregarRespuesta (Comentario* comentario);
         void eliminarRespuesta(int id);
         map<int, Comentario*>& getRespuestas();
-
         vector<Comentario> cargarComentariosDesdeCSV(const string& nombreArchivo);
 };
 
