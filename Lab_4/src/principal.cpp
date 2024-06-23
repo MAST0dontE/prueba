@@ -562,18 +562,37 @@ do {
 				cout << "Ingrese un anio valido:" << endl;
 				cin >> anioProm;
 			}
-			cout << "Ingrese el mes" << endl;
-			cin >> mesProm;
-			while (mesProm > 12 || mesProm < 1 || mesProm < mes){
-				cout << "Ingrese un mes valido:" << endl;
-				cin >> mesProm;
+			if(anioProm==anio){ //si el anio es igual, pido mes >=
+				cout<<"Ingrese el mes"<<endl;
+				cin>>mesProm;
+				while(mesProm>12 || mesProm<1||mesProm<mes){
+					cout<<"Ingrese un mes valido:"<<endl;
+					cin>>mesProm;
+				}
+			}else{//si el anio ya es mas grande me sirve cualquier mes
+				cout<<"Ingrese el mes"<<endl;
+				cin>>mesProm;
+				while(mesProm>12 || mesProm<1){
+					cout<<"Ingrese un mes valido:"<<endl;
+					cin>>mesProm;
+				}
 			}
-			cout << "Ingrese el dia" << endl;
-			cin >> diaProm;
-			int cantDiasMesProm = diasMes(mesProm, anioProm);
-			while (diaProm > cantDiasMesProm || diaProm < 1 || diaProm <= dia){
-				cout << "Ingrese un dia valido:" << endl;
-				cin >> diaProm;
+			if(anioProm==anio && mesProm==mes){//si el anio y el mes sin iguales, pido dia >=
+				cout <<"Ingrese el dia"<<endl;
+				cin>>diaProm;
+				int cantDiasMesProm = diasMes(mesProm, anioProm);
+				while(diaProm>cantDiasMesProm || diaProm<1||diaProm<dia){
+					cout<<"Ingrese un dia valido:"<<endl;
+					cin>>diaProm;
+				}	
+			}else{//el anio o el mes ya es mas grande, me sirve cualquier dia
+				cout <<"Ingrese el dia"<<endl;
+				cin>>diaProm;
+				int cantDiasMesProm = diasMes(mesProm, anioProm);
+				while(diaProm>cantDiasMesProm || diaProm<1){
+					cout<<"Ingrese un dia valido:"<<endl;
+					cin>>diaProm;
+				}	
 			}
 			cout << "Ingrese el descuento de la promocion: " << endl;
 			float descuento;
