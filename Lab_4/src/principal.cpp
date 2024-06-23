@@ -349,26 +349,96 @@ controladorVentas->listarPromociones();
 cout<< "** CASO DE USO: Crear Promocion FIN**"<< endl;
 cout<< "-----------------------------------------------------"<< endl;
 // ** CASO DE USO: Crear Promocion FIN ** //
-
+/*
+US1 ana23 V 2,4,8,9
+US2 carlos78 V 1,3,6,10,11
+US3 diegom V 5,7,12,14
+US4 juan87
+US5 laura
+US6 maria01 V
+US7 natalia
+US8 pablo10
+US9 roberto
+US10 sofia25 V 13,15
+*/
 // ** CASO DE USO: Dejar Comentario INICIO ** //
 
 cout << "     ** CASO DE USO: Dejar Comentario INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
-controladorUsuarios->seleccionarUsuario_("Donatelo");
-controladorUsuarios->seleccionarProducto(11, "pepito");
-controladorUsuarios->nuevoComentario("Buenas", DTFecha(2024, 6, 23));
-controladorUsuarios->seleccionarUsuario_("pepito");
-controladorUsuarios->seleccionarProducto(11, "pepito");
-controladorUsuarios->seleccionarComentario(0, "Donatelo");
-controladorUsuarios->nuevaRespuesta("En que te ayudo pibe?", DTFecha(2024, 6, 23));
-controladorUsuarios->seleccionarUsuario_("Donatelo");
-controladorUsuarios->seleccionarProducto(11, "pepito");
-controladorUsuarios->seleccionarComentario(1, "pepito");
-controladorUsuarios->nuevaRespuesta("Ando mirando muchas gracias", DTFecha(2024, 6, 23));
-controladorUsuarios->seleccionarUsuario_("pepito");
-controladorUsuarios->seleccionarProducto(11, "pepito");
-controladorUsuarios->seleccionarComentario(2, "Donatelo");
-controladorUsuarios->nuevaRespuesta("...", DTFecha(2024, 6, 23));
+//CM5
+controladorUsuarios->seleccionarUsuario_("natalia");
+controladorUsuarios->seleccionarProducto(1, "carlos78");
+controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
+//CM6
+controladorUsuarios->seleccionarUsuario_("laura");
+controladorUsuarios->seleccionarProducto(2, "ana23");
+controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
+//CM7
+controladorUsuarios->seleccionarUsuario_("ana23");
+controladorUsuarios->seleccionarProducto(2, "ana23");
+controladorUsuarios->seleccionarComentario(5, "laura");
+controladorUsuarios->nuevaRespuesta("El televisor LED tiene una resolucion de 4K UHD.", DTFecha(02, 06, 2024));
+//CM8
+controladorUsuarios->seleccionarUsuario_("pablo10");
+controladorUsuarios->seleccionarProducto(2, "ana23");
+controladorUsuarios->nuevoComentario("¿Tiene soporte para HDR10?", DTFecha(03, 06, 2024));
+//CM9
+controladorUsuarios->seleccionarUsuario_("ana23");
+controladorUsuarios->seleccionarProducto(2, "ana23");
+controladorUsuarios->seleccionarComentario(7, "laura");
+controladorUsuarios->nuevaRespuesta("Si, soporta HDR10.", DTFecha(03, 06, 2024));
+//CM10
+controladorUsuarios->seleccionarUsuario_("natalia");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->nuevoComentario("¿La chaqueta de cuero es resistente al agua?", DTFecha(03, 06, 2024));
+//CM11
+controladorUsuarios->seleccionarUsuario_("carlos78");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->nuevaRespuesta("No, la chaqueta de cuero no es resistente al agua", DTFecha(03, 06, 2024));
+//CM12
+controladorUsuarios->seleccionarUsuario_("laura");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->nuevaRespuesta("¿Viene en otros colores?", DTFecha(04, 06, 2024));
+//CM13
+controladorUsuarios->seleccionarUsuario_("carlos78");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->seleccionarComentario(11, "laura");
+controladorUsuarios->nuevaRespuesta("Si, tambien esta disponible en marron.", DTFecha(04, 06, 2024));
+//CM14
+controladorUsuarios->seleccionarUsuario_("roberto");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->nuevaRespuesta("¿Es adecuada para climas frios?", DTFecha(04, 06, 2024));
+//CM15
+controladorUsuarios->seleccionarUsuario_("pablo10");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->nuevoComentario("¿El microondas digital tiene funcion de descongelacion rapida?", DTFecha(04, 06, 2024));
+//CM16 ==== ACA ====
+controladorUsuarios->seleccionarUsuario_("ana23");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->nuevaRespuesta("Si, el microondas digital incluye una funcion de descongelacion rapida.", DTFecha(04, 06, 2024));
+//CM17
+controladorUsuarios->seleccionarUsuario_("natalia");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->seleccionarComentario(14, "roberto");
+controladorUsuarios->nuevaRespuesta("¿Cuantos niveles de potencia tiene? ", DTFecha(05, 06, 2024));
+//CM18
+controladorUsuarios->seleccionarUsuario_("ana23");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->seleccionarComentario(16, "natalia");
+controladorUsuarios->nuevaRespuesta("Tiene 10 niveles de potencia.", DTFecha(05, 06, 2024));
+//CM19
+controladorUsuarios->seleccionarUsuario_("roberto");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->seleccionarComentario(14, "roberto");
+controladorUsuarios->nuevaRespuesta("¿Es facil de limpiar? ", DTFecha(05, 06, 2024));
+//CM20
+controladorUsuarios->seleccionarUsuario_("roberto");
+controladorUsuarios->seleccionarProducto(5, "diegom");
+controladorUsuarios->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?", DTFecha(05, 06, 2024));
 
 cout<< "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
@@ -378,8 +448,6 @@ cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
 cout << "     ** CASO DE USO: Eliminar Comentario INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
 
-Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(0, "pepito"); //no elimina nada porque el comentario id=0 es de Donatelo
-controladorUsuarios->eliminarComentarioRecursivo(comentarioAEliminar);
 
 cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Eliminar Comentario FIN **" << endl;
