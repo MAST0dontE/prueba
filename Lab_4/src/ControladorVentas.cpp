@@ -196,6 +196,19 @@ bool ControladorVentas::seleccionarCliente(string nickname){
     return encontrado;
 }
 
+int ControladorVentas::compararFechasPromociones(DTFecha fecha1){
+    int res = 0;
+    if ((fecha1.anio != this->fechaActual.anio) || (fecha1.mes != this->fechaActual.mes) || (fecha1.dia != this->fechaActual.dia)) {
+        if ((fecha1.anio < this->fechaActual.anio) || ((fecha1.anio == this->fechaActual.anio) && (fecha1.mes < this->fechaActual.mes)) ||
+            ((fecha1.anio == this->fechaActual.anio) && (fecha1.mes == this->fechaActual.mes) && (fecha1.dia < this->fechaActual.dia))) {
+            res = -1;
+        } else {
+            res = 1;
+        }
+    }
+    return res;
+}    
+
 void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     auto it = this->productos.find(codigo);
     auto codigoProducto = this->datosProductoCompra.find(codigo);
@@ -206,21 +219,15 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
              Producto* producto = it->second;
             if (cant > 0 && cant <= producto->getStock()){
                 if(producto->getEnPromocion()){
-                 
-                    bool productoEncontrado = false;
                     for (auto& promo : this->promociones) {
                         auto it2 = promo->getProductos().find(codigo);
                         if (it2 != promo->getProductos().end()) {
-                            productoEncontrado = true;
                             ProductoEnPromocion* p = it2->second;
-                            if (p->getCantMinima() <= cant) {
+                            if ((p->getCantMinima() <= cant)&& this->compararFechasPromociones(promo->getFechaDeVencimiento())!=-1) {
                                 this->productosEnPromo[codigo] = cant;
                             }
                             break;
                         }
-                    }
-                    if (!productoEncontrado) {
-                        cout << "El producto con el código " << codigo << " no está en promoción." << endl;
                     }
                 } 
                float precio = producto->getPrecio();
@@ -238,20 +245,9 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     } 
 }
 
-int ControladorVentas::compararFechasPromociones(DTFecha fecha1){
-    int res = 0;
-    if ((fecha1.anio != this->fechaActual.anio) || (fecha1.mes != this->fechaActual.mes) || (fecha1.dia != this->fechaActual.dia)) {
-        if ((fecha1.anio < this->fechaActual.anio) || ((fecha1.anio == this->fechaActual.anio) && (fecha1.mes < this->fechaActual.mes)) ||
-            ((fecha1.anio == this->fechaActual.anio) && (fecha1.mes == this->fechaActual.mes) && (fecha1.dia < this->fechaActual.dia))) {
-            res = -1;
-        } else {
-            res = 1;
-        }
-    }
-    return res;
-}    
 void ControladorVentas::procesarProductosEnPromo(){
-    while (!this->productosEnPromo.empty()) {
+
+    /*while (!this->productosEnPromo.empty()) {
         map<int, int>::iterator it;
         it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
@@ -317,7 +313,7 @@ void ControladorVentas::procesarProductosEnPromo(){
         else{
             this->productosEnPromo.erase(codigoProducto);
         }
-    }
+    }*/
 }
 
 
