@@ -206,32 +206,7 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
              Producto* producto = it->second;
             if (cant > 0 && cant <= producto->getStock()){
                 if(producto->getEnPromocion()){
-                   // auto it2 = this->promociones.begin();
-                /*     while((*it2)->getProductos().find(codigo) == (*it2)->getProductos().end()){
-                        cout << "aaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
-                        it2++;
-                    }
-                    ProductoEnPromocion* p = (*it2)->getProductos()[codigo];
-                     if(p->getCantMinima() <= cant){
-                        this->productosEnPromo[codigo] = cant;
-                     } */
-                 /*    bool productoEncontrado = false;
-                    while (it2 != this->promociones.end()) {
-                        cout << "aaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
-                        if ((*it2)->getProductos().find(codigo) != (*it2)->getProductos().end()) {
-                            cout << "bbbbbbbbbbbbbbbbbbbb" << endl;
-                            productoEncontrado = true;
-                            break;
-                        }
-                        it2++;
-                    }
-
-                    if (productoEncontrado) {
-                        ProductoEnPromocion* p = (*it2)->getProductos().at(codigo);
-                        if (p->getCantMinima() <= cant) {
-                            this->productosEnPromo[codigo] = cant;
-                        }
-                    } */
+                 
                     bool productoEncontrado = false;
                     for (auto& promo : this->promociones) {
                         auto it2 = promo->getProductos().find(codigo);
