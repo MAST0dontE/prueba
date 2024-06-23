@@ -309,6 +309,11 @@ controladorUsuarios->altaVendedor("carlos78", "asdfghj", DTFecha(18,6,1986), "35
 controladorUsuarios->altaVendedor("diegom", "zxcvbn", DTFecha(28,7,1993), "190123456789");
 controladorUsuarios->altaVendedor("maria01", "5tgb6yhn", DTFecha(25,3,1985), "321098765432");
 controladorUsuarios->altaVendedor("sofia25", "1234asdf", DTFecha(7,12,1983), "445678901234");
+controladorUsuarios->altaCliente("juan87", "1qaz2wsx", DTFecha(20,10,1992),DTDireccion("Av. 18 de Julio", 456), "Melo");
+controladorUsuarios->altaCliente("laura", "3edc4rfv", DTFecha(22,9,1979),DTDireccion("Rondeau", 1617), "Montevideo");
+controladorUsuarios->altaCliente("natalia", "poiuyt", DTFecha(14,4,1982),DTDireccion("Paysandú", 2021), "Salto");
+controladorUsuarios->altaCliente("pablo10", "lkjhgv", DTFecha(30,8,1990),DTDireccion("Av. Rivera ", 1819), "Mercedes");
+controladorUsuarios->altaCliente("roberto", "mnbvcx", DTFecha(12,11,1995),DTDireccion("Av. Brasil", 1011), "Montevideo");
 
 
 
