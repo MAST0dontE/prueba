@@ -137,12 +137,12 @@ void mostrarMenu()
 	cout << "║  6. 🔍 Consultar promoción             ║\n";
 	cout << "║  7. 🛒 Realizar compra                 ║\n";
 	cout << "║  8. 💬 Dejar comentario                ║\n";
-	cout << "║  9. 🗑️ Eliminar comentario             ║\n";
+	cout << "║  9. 🗑️  Eliminar comentario             ║\n";
 	cout << "║ 10. 📦 Enviar producto                 ║\n";
-	cout << "║ 11. 🗃️ Expediente de usuario           ║\n";
+	cout << "║ 11. 🗃️  Expediente de usuario           ║\n";
 	cout << "║ 12. 🔔 Suscribirse a notificaciones    ║\n";
 	cout << "║ 13. 🔍 Consultar notificaciones        ║\n";
-	cout << "║ 14. 🗑️ Eliminar suscripciones          ║\n";
+	cout << "║ 14. 🗑️  Eliminar suscripciones          ║\n";
 	cout << "║ 15. 🧪 Casos de prueba                 ║\n";
 	cout << "╚════════════════════════════════════════╝\n";
 }
