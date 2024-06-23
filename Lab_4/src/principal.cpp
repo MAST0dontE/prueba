@@ -236,187 +236,6 @@ int main()
 		cout << "Controlador Ventas ES SINGLETON" << endl;
 	}
 
-	// Vendedor* vendedor1 = new Vendedor("pepito", "contraV1", DTFecha(1,1,1), "123456789");
-	// Vendedor* vendedor2 = new Vendedor("tiranosaurioRex", "contraV2", DTFecha(1,1,1), "987654321");
-	// Vendedor* vendedor3 = new Vendedor("solitarioGamer", "contraV3", DTFecha(1,1,1), "32134834");
-
-	// Cliente* cliente1 = new Cliente("un cliente1", "contraC1", DTFecha(1,1,1), DTDireccion("calle1", 123) ,"ciudad1");
-	// Cliente* cliente2 = new Cliente("un cliente2", "contraC2", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad2");
-	// Cliente* cliente3 = new Cliente("un cliente3", "contraC3", DTFecha(1,1,1),DTDireccion("calle1", 123), "ciudad3");
-	/*
-	ControladorUsuarios ControladorUsuariosTrucho;
-	bool a=controladorUsuarios->altaVendedor("un vendedor1", "contra",DTFecha(1,1,1), "123");
-	bool b=controladorUsuarios->altaVendedor("un vendedor2", "contra",DTFecha(1,1,1), "123");
-	bool c=controladorUsuarios->altaVendedor("un vendedor3", "contra",DTFecha(1,1,1), "123");
-	controladorUsuarios->listaDeUsuarios_();
-	*/
-	controladorUsuarios->altaVendedor("pepito", "contraV1", DTFecha(1, 1, 1), "123456789");
-	controladorUsuarios->altaVendedor("tiranosaurioRex", "contraV2", DTFecha(1, 1, 1), "987654321");
-	controladorUsuarios->altaVendedor("solitarioGamer", "contraV3", DTFecha(1, 1, 1), "32134834");
-	controladorUsuarios->altaVendedor("DaVinci", "zzz123", DTFecha(15, 4, 1452), "45666544");
-
-	controladorUsuarios->altaCliente("Donatelo", "contraC1", DTFecha(1, 1, 1), DTDireccion("calle1", 123), "ciudad1");
-	controladorUsuarios->altaCliente("Leonardo", "contraC2", DTFecha(2, 2, 2), DTDireccion("calle2", 321), "ciudad2");
-	controladorUsuarios->altaCliente("Raphael", "contraC3", DTFecha(3, 3, 3), DTDireccion("calle3", 132), "ciudad3");
-
-	// ** CASO DE USO: Consultar Producto INICIO ** //
-	cout << "** CASO DE USO: Consultar Producto INICIO **" << endl;
-	cout << "-----------------------------------------------------" << endl;
-
-	Producto *productoPrueba1 = new Producto(1, 1, 1, "productoDePrueba1", "este es el producto de prueba 1", "pepito", ECategoria::otros, false);
-	Producto *productoPrueba2 = new Producto(2, 2, 2, "productoDePrueba2", "este es el producto de prueba 2", "tiranosaurioRex", ECategoria::ropa, false);
-	Producto *productoPrueba3 = new Producto(3, 3, 3, "productoDePrueba3", "este es el producto de prueba 3", "solitarioGamer", ECategoria::electrodomesticos, false);
-
-	controladorVentas->setProducto(productoPrueba1);
-	controladorVentas->setProducto(productoPrueba2);
-	controladorVentas->setProducto(productoPrueba3);
-
-	controladorVentas->listarProductos();
-	controladorVentas->consultarProducto(2);
-	controladorVentas->consultarProducto(4);
-
-	cout << "** CASO DE USO: Consultar Producto FIN **" << endl;
-	cout << "-----------------------------------------------------" << endl;
-	// ** CASO DE USO: Consultar Producto FIN ** //
-
-	// ** CASO DE USO: Consultar Promocion INICIO ** //
-	cout << "** CASO DE USO: Consultar Promocion INICIO ** **" << endl;
-	cout << "-----------------------------------------------------" << endl;
-
-	ProductoEnPromocion *productoEnPromocion1 = new ProductoEnPromocion(productoPrueba1, 0.5, 2);
-	ProductoEnPromocion *productoEnPromocion2 = new ProductoEnPromocion(productoPrueba2, 0.3, 4);
-	ProductoEnPromocion *productoEnPromocion3 = new ProductoEnPromocion(productoPrueba3, 0.1, 3);
-
-	Promocion *promocionPrueba1 = new Promocion("promocionDePrueba1", "esta es la promocion de prueba 1", DTFecha(1, 1, 2021));
-	Promocion *promocionPrueba2 = new Promocion("promocionDePrueba2", "esta es la promocion de prueba 2", DTFecha(2, 2, 2022));
-
-	controladorVentas->setPromocion(promocionPrueba1);
-	controladorVentas->setPromocion(promocionPrueba2);
-
-	promocionPrueba1->agregarProductoPromocion(productoEnPromocion1);
-	promocionPrueba1->agregarProductoPromocion(productoEnPromocion2);
-	promocionPrueba2->agregarProductoPromocion(productoEnPromocion3);
-
-	controladorVentas->listarPromociones();
-
-	controladorVentas->consultarPromocion("promocionDePrueba1");
-	controladorVentas->consultarPromocion("promocionDePrueba3");
-
-	cout << "** CASO DE USO: Consultar Promocion FIN ** **" << endl;
-	cout << "-----------------------------------------------------" << endl;
-	// ** CASO DE USO: Consultar Promocion FIN ** //
-
-	// ** CASO DE USO: Realizar compra INICIO ** //
-	cout << "** CASO DE USO: Realizar compra INICIO **" << endl;
-	cout << "-----------------------------------------------------" << endl;
-
-	cout << "\nClientes: \n"
-		 << endl;
-	controladorVentas->listarNicknamesClientes();
-
-	cout << "\nListado de productos: \n"
-		 << endl;
-	controladorVentas->seleccionarCliente("un cliente1");
-
-	cout << "** CASO DE USO: Realizar compra FIN**" << endl;
-	cout << "-----------------------------------------------------" << endl;
-	// ** CASO DE USO: Realizar compra FIN ** //
-
-	// ** CASO DE USO: Alta Producto INICIO ** //
-	cout << "** CASO DE USO: Alta Producto INICIO **" << endl;
-	cout << "-----------------------------------------------------" << endl;
-
-	controladorVentas->cargarNuevoProducto("pepito", 11, "productoPepito1", 1, 1, "el producto de pepito uno", ECategoria::otros, false);
-	controladorVentas->cargarNuevoProducto("pepito", 12, "productoPepito2", 2, 2, "el producto de pepito dos", ECategoria::ropa, false);
-	controladorVentas->cargarNuevoProducto("pepito", 13, "productoPepito2", 3, 3, "el producto de pepito tres", ECategoria::electrodomesticos, false);
-
-	controladorVentas->cargarNuevoProducto("tiranosaurioRex", 321, "productoTiranosaurio1", 1, 100, "el producto de Tiranosaurio uno", ECategoria::otros, false);
-	controladorVentas->cargarNuevoProducto("tiranosaurioRex", 322, "productoTiranosaurio2", 2, 200, "el producto de Tiranosaurio dos", ECategoria::ropa, false);
-	controladorVentas->cargarNuevoProducto("tiranosaurioRex", 323, "productoTiranosaurio2", 3, 300, "el producto de Tiranosaurio dos", ECategoria::ropa, false);
-
-	cout << "** CASO DE USO: Alta Producto FIN**" << endl;
-	cout << "-----------------------------------------------------" << endl;
-	// ** CASO DE USO: Alta Producto FIN ** //
-
-	// ** CASO DE USO: Crear Promocion INICIO ** //
-	cout << "** CASO DE USO: Crear Promocion INICIO **" << endl;
-	cout << "-----------------------------------------------------" << endl;
-
-	controladorVentas->altaPromocion("promocionZZZ", "sdfhjahsdga", DTFecha(1, 2, 3), 50);
-	controladorVentas->seleccionarVendedor("pepito");
-	controladorVentas->agregarProductoPromo(11, 21);
-	controladorVentas->agregarProductoPromo(12, 22);
-	controladorVentas->ingresarPromocion();
-	controladorVentas->consultarPromocion("promocionZZZ");
-
-	controladorVentas->altaPromocion("promocionVACIA", "sdfhjahsdgaaaaazzz", DTFecha(1, 2, 3), 25);
-	controladorVentas->seleccionarVendedor("solitarioGamer");
-	controladorVentas->agregarProductoPromo(13, 2);
-	controladorVentas->ingresarPromocion();
-	controladorVentas->consultarPromocion("promocionVACIA");
-	/*
-	controladorVentas->altaPromocion("promocionTIRA", "kkkkkkkkkkkk", DTFecha(1,2,3), 0.5);
-	controladorVentas->seleccionarVendedor("tiranosaurioRex");
-	controladorVentas->agregarProductoPromo(321,3);
-	controladorVentas->ingresarPromocion();
-	controladorVentas->listarPromociones();
-	*/
-	cout << "** CASO DE USO: Crear Promocion FIN**" << endl;
-	cout << "-----------------------------------------------------" << endl;
-	// ** CASO DE USO: Crear Promocion FIN ** //
-	/*
-	US1 ana23 V 2,4,8,9
-	US2 carlos78 V 1,3,6,10,11
-	US3 diegom V 5,7,12,14
-	US4 juan87
-	US5 laura
-	US6 maria01 V
-	US7 natalia
-	US8 pablo10
-	US9 roberto
-	US10 sofia25 V 13,15
-	*/
-	// ** CASO DE USO: Dejar Comentario INICIO ** //
-
-	cout << "     ** CASO DE USO: Dejar Comentario INICIO **" << endl;
-	cout << "````````````````````````````````````````````````````" << endl;
-
-
-
-cout<< "````````````````````````````````````````````````````" << endl;
-cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
-
-
-
-cout << "     ** CASO DE USO: Eliminar Comentario INICIO **" << endl;
-cout << "````````````````````````````````````````````````````" << endl;
-
-
-cout << "````````````````````````````````````````````````````" << endl;
-cout << "     ** CASO DE USO: Eliminar Comentario FIN **" << endl;
-
-// ** CASO DE USO: Dejar Comentario FIN ** //
-
-// ** CASO DE USO: Suscribirse INICIO ** //
-
-cout << "     ** CASO DE USO: Suscribirse INICIO **" << endl;
-cout << "````````````````````````````````````````````````````" << endl;
-
-
-//controladorUsuarios->imprimirListaDeVendedores();
-controladorUsuarios->imprimirSuscripcionesDisponiblesPara("Donatelo");
-controladorUsuarios->suscribirmeA("tiranosaurioRex");
-controladorUsuarios->imprimirSuscripcionesDisponiblesPara("Donatelo");
-controladorUsuarios->suscribirmeA("tiranosaurioRex");
-controladorVentas->altaPromocion("promocionTIRA", "kkkkkkkkkkkk", DTFecha(25,6,2024), 50);
-controladorVentas->seleccionarVendedor("tiranosaurioRex");
-controladorVentas->agregarProductoPromo(321,1);
-controladorVentas->agregarProductoPromo(322,1);
-controladorVentas->agregarProductoPromo(323,1);
-controladorVentas->ingresarPromocion();
-
-controladorUsuarios->consultarNotificaciones("Donatelo");
-controladorUsuarios->consultarNotificaciones("Donatelo");
 
 cout << "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
@@ -479,7 +298,7 @@ controladorVentas->agregarProductoPromo(14, 1);
 controladorVentas->ingresarPromocion();
 
 	//Datos de Comentarios:
-
+//=========================CASO PRODUCTO 1 CARLOS78===================================================
 //CM1
 controladorUsuarios->seleccionarUsuario_("juan87");
 controladorUsuarios->seleccionarProducto(1, "carlos78");
@@ -503,10 +322,12 @@ controladorUsuarios->nuevaRespuesta("He comprado antes y la calidad es buena.", 
 controladorUsuarios->seleccionarUsuario_("natalia");
 controladorUsuarios->seleccionarProducto(1, "carlos78");
 controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
+// ======================================================================================================
+//==============================CASO PRODUCTO 2 ANA23====================================================
 //CM6
 controladorUsuarios->seleccionarUsuario_("laura");
 controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
+controladorUsuarios->nuevoComentario("¿Cual es la resolucion del Televisor LED?", DTFecha(02,06,2024));
 //CM7
 controladorUsuarios->seleccionarUsuario_("ana23");
 controladorUsuarios->seleccionarProducto(2, "ana23");
@@ -519,8 +340,10 @@ controladorUsuarios->nuevoComentario("¿Tiene soporte para HDR10?", DTFecha(03, 
 //CM9
 controladorUsuarios->seleccionarUsuario_("ana23");
 controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->seleccionarComentario(7, "laura");
+controladorUsuarios->seleccionarComentario(7, "pablo10");
 controladorUsuarios->nuevaRespuesta("Si, soporta HDR10.", DTFecha(03, 06, 2024));
+//========================================================================================================
+//=============================CASO PRODUCTO 3 CARLOS78===================================================
 //CM10
 controladorUsuarios->seleccionarUsuario_("natalia");
 controladorUsuarios->seleccionarProducto(3, "carlos78");
@@ -545,6 +368,8 @@ controladorUsuarios->seleccionarUsuario_("roberto");
 controladorUsuarios->seleccionarProducto(3, "carlos78");
 controladorUsuarios->seleccionarComentario(9, "natalia");
 controladorUsuarios->nuevaRespuesta("¿Es adecuada para climas frios?", DTFecha(04, 06, 2024));
+//====================================================================================================
+//==================================CASO PRODUCTO 4 ANA23=============================================
 //CM15
 controladorUsuarios->seleccionarUsuario_("pablo10");
 controladorUsuarios->seleccionarProducto(4, "ana23");
@@ -552,12 +377,12 @@ controladorUsuarios->nuevoComentario("¿El microondas digital tiene funcion de d
 //CM16 ==== ACA ====
 controladorUsuarios->seleccionarUsuario_("ana23");
 controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->seleccionarComentario(14, "pablo10");
 controladorUsuarios->nuevaRespuesta("Si, el microondas digital incluye una funcion de descongelacion rapida.", DTFecha(04, 06, 2024));
 //CM17
 controladorUsuarios->seleccionarUsuario_("natalia");
 controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(14, "roberto");
+controladorUsuarios->seleccionarComentario(14, "pablo10");
 controladorUsuarios->nuevaRespuesta("¿Cuantos niveles de potencia tiene? ", DTFecha(05, 06, 2024));
 //CM18
 controladorUsuarios->seleccionarUsuario_("ana23");
@@ -567,16 +392,18 @@ controladorUsuarios->nuevaRespuesta("Tiene 10 niveles de potencia.", DTFecha(05,
 //CM19
 controladorUsuarios->seleccionarUsuario_("roberto");
 controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(14, "roberto");
+controladorUsuarios->seleccionarComentario(14, "pablo10");
 controladorUsuarios->nuevaRespuesta("¿Es facil de limpiar? ", DTFecha(05, 06, 2024));
+//==========================================================================================
+//===========================CASO PRODUCTO 5 DIEGOM=========================================
 //CM20
 controladorUsuarios->seleccionarUsuario_("roberto");
 controladorUsuarios->seleccionarProducto(5, "diegom");
 controladorUsuarios->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?", DTFecha(05, 06, 2024));
 //CM21
 controladorUsuarios->seleccionarUsuario_("diegom");
-controladorUsuarios->seleccionarProducto(5, "roberto");
-controladorUsuarios->seleccionarComentario(19, "diegom");
+controladorUsuarios->seleccionarProducto(5, "diegom");
+controladorUsuarios->seleccionarComentario(19, "roberto");
 controladorUsuarios->nuevaRespuesta("Si, la luz LED se puede controlar a traves de una aplicacion movil", DTFecha(5, 6, 2024));
 //CM22 ==ACA==
 controladorUsuarios->seleccionarUsuario_("pablo10");
@@ -1007,39 +834,34 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			cin.ignore(); // Ignorar el carácter de nueva línea residual
 			string respuesta;
 			cout << "¿Desea dejar un comentario nuevo (C) o responder uno ya existente (R)? ";
-			do
+			getline(cin, respuesta);
+			if (respuesta == "c" || respuesta == "C"){
+				string comentario;
+				cout << "Escriba el comentario: ";
+				getline(cin, comentario);
+				controladorUsuarios->nuevoComentario(comentario, DTFecha(dia, mes, anio));
+				cout << "El comentario fue agregado" << endl;
+			}
+			else if (respuesta == "r" || respuesta == "R")
 			{
-				getline(cin, respuesta);
-				if (respuesta == "c" || respuesta == "C")
-				{
-					string comentario;
-					cout << "Escriba el comentario: ";
-					getline(cin, comentario);
-					controladorUsuarios->nuevoComentario(comentario, DTFecha(dia, mes, anio));
-					cout << "El comentario fue agregado" << endl;
-				}
-				else if (respuesta == "r" || respuesta == "R")
-				{
-					controladorUsuarios->listarComentarios(CodigoProducto);
-					int id;
-					cout << "Escriba el ID del comentario al que desea responder: ";
-					cin >> id;
-					string comentador;
-					cout << "Escriba el nombre del autor del comentario al que desea responder: ";
-					cin >> comentador;
-					controladorUsuarios->seleccionarComentario(id, comentador);
-					cin.ignore(); // Ignorar el carácter de nueva línea residual
-					string comentario;
-					cout << "Escriba el comentario: ";
-					getline(cin, comentario);
-					controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1, 1, 1));
-					cout << "El comentario fue agregado" << endl;
-				}
-				else
-				{
-					cout << "Opcion invalida. \n";
-				}
-			} while (respuesta != "C" || respuesta != "c" || respuesta != "R" || respuesta != "r");
+				controladorUsuarios->listarComentarios(CodigoProducto);
+				int id;
+				cout << "Escriba el ID del comentario al que desea responder: ";
+				cin >> id;
+				string comentador;
+				cout << "Escriba el nombre del autor del comentario al que desea responder: ";
+				cin >> comentador;
+				controladorUsuarios->seleccionarComentario(id, comentador);
+				cin.ignore(); // Ignorar el carácter de nueva línea residual
+				string comentario;
+				cout << "Escriba el comentario: ";
+				getline(cin, comentario);
+				controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1, 1, 1));
+				cout << "El comentario fue agregado" << endl;
+			}
+			else{
+				cout << "Opcion invalida. \n";
+			}
 			break;
 		}
 		case 9:
@@ -1263,14 +1085,6 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 };*/
 
 	// ** SE LIBERA LA MEMORIA ** //
-	delete productoEnPromocion1;
-	delete productoEnPromocion2;
-	delete productoEnPromocion3;
-	delete promocionPrueba1;
-	delete promocionPrueba2;
-	delete productoPrueba1;
-	delete productoPrueba2;
-	delete productoPrueba3;
 
 	return 0;
 }
