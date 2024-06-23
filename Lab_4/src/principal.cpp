@@ -441,19 +441,30 @@ controladorUsuarios->seleccionarUsuario_("roberto");
 controladorUsuarios->seleccionarProducto(5, "diegom");
 controladorUsuarios->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?", DTFecha(05, 06, 2024));
 //CM21
-ontroladorUsuarios->seleccionarUsuario_("diegom");
-controladorUsuarios->seleccionarProducto(5, "roberto");
-controladorUsuarios->seleccionarComentario(19, "diegom");
+controladorUsuarios->seleccionarUsuario_("diegom");
+controladorUsuarios->seleccionarProducto(5, "diegom");
+controladorUsuarios->seleccionarComentario(19, "roberto");
 controladorUsuarios->nuevaRespuesta("Si, la luz LED se puede controlar a traves de una aplicacion movil", DTFecha(5, 6, 2024));
-//CM22
-
+//CM22 ==ACA==
+controladorUsuarios->seleccionarUsuario_("pablo10");
+controladorUsuarios->seleccionarProducto(5, "diegom");
+controladorUsuarios->seleccionarComentario(19, "roberto");
+controladorUsuarios->nuevaRespuesta("¿Es compatible con Alexa o Google Home?", DTFecha(6, 6, 2024));
 //CM23
-
+controladorUsuarios->seleccionarUsuario_("diegom");
+controladorUsuarios->seleccionarProducto(5, "diegom");
+controladorUsuarios->seleccionarComentario(21, "pablo18");
+controladorUsuarios->nuevaRespuesta("Si, es compatible con ambos.", DTFecha(6, 6, 2024));
 //CM24
-
+controladorUsuarios->seleccionarUsuario_("natalia");
+controladorUsuarios->seleccionarProducto(5, "diegom");
+controladorUsuarios->seleccionarComentario(19, "roberto");
+controladorUsuarios->nuevaRespuesta("¿Cuanto dura la bateria?", DTFecha(6, 6, 2024));
 //CM25
-
-
+controladorUsuarios->seleccionarUsuario_("pablo10");
+controladorUsuarios->seleccionarProducto(5, "diegom");
+controladorUsuarios->seleccionarComentario(19, "roberto");
+controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", DTFecha(7, 6, 2024));
 
 cout<< "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
