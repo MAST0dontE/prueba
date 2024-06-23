@@ -550,6 +550,56 @@ controladorVentas->seleccionarVendedor("diegom");
 controladorVentas->agregarProductoPromo(14, 1);
 controladorVentas->ingresarPromocion();
 
+	//Datos de Comentarios:
+
+controladorUsuarios->seleccionarUsuario_("juan87");
+controladorUsuarios->seleccionarProducto(1, "carlos78");
+controladorUsuarios->nuevoComentario("¿La camiseta azul esta disponible en talla M?", DTFecha(1, 6, 2024));
+
+controladorUsuarios->seleccionarUsuario_("carlos78");
+controladorUsuarios->seleccionarProducto(1, "carlos78");
+controladorUsuarios->seleccionarComentario(0, "juan87");
+controladorUsuarios->nuevaRespuesta("Si, tenemos la camiseta azul en talla M.", DTFecha(1, 6, 2024));
+
+controladorUsuarios->seleccionarUsuario_("laura");
+controladorUsuarios->seleccionarProducto(1, "carlos78");
+controladorUsuarios->seleccionarComentario(1, "carlos78");
+controladorUsuarios->nuevaRespuesta("¿Es de buen material? Me preocupa la durabilidad.", DTFecha(1, 6, 2024));
+
+controladorUsuarios->seleccionarUsuario_("juan87");
+controladorUsuarios->seleccionarProducto(1, "carlos78");
+controladorUsuarios->seleccionarComentario(2, "laura");
+controladorUsuarios->nuevaRespuesta("He comprado antes y la calidad es buena.", DTFecha(1, 6, 2024));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //----------------------**MENU INTERACTIVO**----------------------//
 
