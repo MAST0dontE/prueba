@@ -115,7 +115,8 @@ void mostrarMenu() {
     cout << "╔════════════════════════════════════════╗\n";
     cout << "║           Menú Principal               ║\n";
     cout << "╠════════════════════════════════════════╣\n";
-    cout << "║  1. 📁 Alta de usuario                 ║\n";
+	cout << "║  0. ❌ Salir                           ║\n";
+	cout << "║  1. 📁 Alta de usuario                 ║\n";
     cout << "║  2. 📋 Listado de usuarios             ║\n";
     cout << "║  3. 📁 Alta de producto                ║\n";
     cout << "║  4. 🔍 Consultar producto              ║\n";
