@@ -129,7 +129,7 @@ void mostrarMenu() {
     cout << "║ 12. 🔔 Suscribirse a notificaciones    ║\n";
     cout << "║ 13. 🔍 Consultar notificaciones        ║\n";
     cout << "║ 14. 🗑️ Eliminar suscripciones          ║\n";
-    cout << "║ 15. 🧪 Casos de prueba                  ║\n";
+    cout << "║ 15. 🧪 Casos de prueba                 ║\n";
     cout << "╚════════════════════════════════════════╝\n";
 }
 
@@ -381,7 +381,7 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 
 //---------------------Casos de prueba tarea 4---------------------//
-	//Tabla 1: Datos básicos de usuarios:
+	//Datos básicos de usuarios:
 controladorUsuarios->altaVendedor("ana23", "qwer1234", DTFecha(15,5,1988), "212345678001");
 controladorUsuarios->altaVendedor("carlos78", "asdfghj", DTFecha(18,6,1986), "356789012345");
 controladorUsuarios->altaVendedor("diegom", "zxcvbn", DTFecha(28,7,1993), "190123456789");
@@ -392,8 +392,29 @@ controladorUsuarios->altaCliente("laura", "3edc4rfv", DTFecha(22,9,1979),DTDirec
 controladorUsuarios->altaCliente("natalia", "poiuyt", DTFecha(14,4,1982),DTDireccion("Paysandú", 2021), "Salto");
 controladorUsuarios->altaCliente("pablo10", "lkjhgv", DTFecha(30,8,1990),DTDireccion("Av. Rivera ", 1819), "Mercedes");
 controladorUsuarios->altaCliente("roberto", "mnbvcx", DTFecha(12,11,1995),DTDireccion("Av. Brasil", 1011), "Montevideo");
+	//Datos de prodcutos:
 
+controladorVentas->cargarNuevoProducto("carlos78", 1, "Camiseta Azul", 1400, 50, "Camiseta de poliéster, color azul", ropa, false);
+controladorVentas->cargarNuevoProducto("ana23", 2, "Televisor LED", 40500, 30, "Televisor LED 55 pulgadas", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("carlos78", 3, "Chaqueta de Cuero", 699.99, 20, "Chaqueta de cuero, color negro", ropa, false);
+controladorVentas->cargarNuevoProducto("ana23", 4, "Microondas Digital", 1199.99, 15, "Microondas digital, 30L", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("diegom", 5, "Luz LED", 599.99, 40, "Luz Bluetooth LED", otros, false);
+controladorVentas->cargarNuevoProducto("carlos78", 6, "Pantalones Vaqueros", 60, 25, "Pantalones vaqueros, talla 32", ropa, false);
+controladorVentas->cargarNuevoProducto("diegom", 7, "Auriculares Bluetooth", 199.99, 35, "Auriculares bluetooth para celular", otros, false);
+controladorVentas->cargarNuevoProducto("ana23", 8, "Refrigerador", 15499, 10, "Refrigerador de doble puerta", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("ana23", 9, "Cafetera", 23000, 50, "Cafetera de goteo programable", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("carlos78", 10, "Zapatillas Deportivas", 5500, 20, "Zapatillas para correr, talla 42", ropa, false);
+controladorVentas->cargarNuevoProducto("carlos78", 11, "Mochila", 9000, 30, "Mochila de viaje, 40L", otros, false);
+controladorVentas->cargarNuevoProducto("diegom", 12, "Plancha de Ropa", 2534, 25, "Plancha a vapor, 1500W", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("sofia25", 13, "Gorra", 200, 50, "Gorra para deportes, color rojo", ropa, false);
+controladorVentas->cargarNuevoProducto("diegom", 14, "Tablet", 15000, 15, "Tablet Android de 10 pulgadas", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("sofia25", 15, "Reloj de Pared", 150.50, 20, "Reloj de pared vintage", otros, false);
 
+	//Datos de promociones:
+controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
+controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
+controladorVentas->altaPromocion("Domotica", "Para modernizar tu casa", DTFecha(26, 10, 2024), 10);
+controladorVentas->altaPromocion("Liquidacion", "Hasta agotar stock", DTFecha(26, 3, 2024), 10);
 
 //----------------------**MENU INTERACTIVO**----------------------//
 
@@ -413,8 +434,8 @@ cout << "\nFecha actual establecida: " << setw(2) << setfill('0') << dia << "/"
 
 esperarTecla(); // Espera a que el usuario presione Enter
     
-    int opcion;
-    char tecla;
+int opcion;
+
 do {
     mostrarMenu();
     cout << "Ingrese la opción deseada: ";
@@ -549,18 +570,37 @@ do {
 				cout << "Ingrese un anio valido:" << endl;
 				cin >> anioProm;
 			}
-			cout << "Ingrese el mes" << endl;
-			cin >> mesProm;
-			while (mesProm > 12 || mesProm < 1 || mesProm < mes){
-				cout << "Ingrese un mes valido:" << endl;
-				cin >> mesProm;
+			if(anioProm==anio){ //si el anio es igual, pido mes >=
+				cout<<"Ingrese el mes"<<endl;
+				cin>>mesProm;
+				while(mesProm>12 || mesProm<1||mesProm<mes){
+					cout<<"Ingrese un mes valido:"<<endl;
+					cin>>mesProm;
+				}
+			}else{//si el anio ya es mas grande me sirve cualquier mes
+				cout<<"Ingrese el mes"<<endl;
+				cin>>mesProm;
+				while(mesProm>12 || mesProm<1){
+					cout<<"Ingrese un mes valido:"<<endl;
+					cin>>mesProm;
+				}
 			}
-			cout << "Ingrese el dia" << endl;
-			cin >> diaProm;
-			int cantDiasMesProm = diasMes(mesProm, anioProm);
-			while (diaProm > cantDiasMesProm || diaProm < 1 || diaProm <= dia){
-				cout << "Ingrese un dia valido:" << endl;
-				cin >> diaProm;
+			if(anioProm==anio && mesProm==mes){//si el anio y el mes sin iguales, pido dia >=
+				cout <<"Ingrese el dia"<<endl;
+				cin>>diaProm;
+				int cantDiasMesProm = diasMes(mesProm, anioProm);
+				while(diaProm>cantDiasMesProm || diaProm<1||diaProm<dia){
+					cout<<"Ingrese un dia valido:"<<endl;
+					cin>>diaProm;
+				}	
+			}else{//el anio o el mes ya es mas grande, me sirve cualquier dia
+				cout <<"Ingrese el dia"<<endl;
+				cin>>diaProm;
+				int cantDiasMesProm = diasMes(mesProm, anioProm);
+				while(diaProm>cantDiasMesProm || diaProm<1){
+					cout<<"Ingrese un dia valido:"<<endl;
+					cin>>diaProm;
+				}	
 			}
 			cout << "Ingrese el descuento de la promocion: " << endl;
 			float descuento;
@@ -881,8 +921,7 @@ do {
 			cout << "Opción inválida. Por favor, ingrese una opción válida.\n";
 			break;
         }
-        
-    } while (opcion != 0);
+	} while (opcion != 0);
     /*cout<<"¿Desea realizar otra operación?"<<endl;
 	cout <<"¿En que lo podemos asistir?"<<endl;
 	cout <<"Digite 1 para Alta de usuario."<<endl;
