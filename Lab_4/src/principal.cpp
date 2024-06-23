@@ -392,9 +392,22 @@ controladorUsuarios->altaCliente("natalia", "poiuyt", DTFecha(14,4,1982),DTDirec
 controladorUsuarios->altaCliente("pablo10", "lkjhgv", DTFecha(30,8,1990),DTDireccion("Av. Rivera ", 1819), "Mercedes");
 controladorUsuarios->altaCliente("roberto", "mnbvcx", DTFecha(12,11,1995),DTDireccion("Av. Brasil", 1011), "Montevideo");
 	//Datos de prodcutos:
-controladorVentas->cargarNuevoProducto("carlos78",1,"Camiseta Azul", 1400 ,50 ,"Camiseta de poliester, color azul", ropa, false);
-controladorVentas->cargarNuevoProducto("ana23",2,"Televisor LED", 40500 ,30 ,"Televisor LED 55 pulgadas", electrodomesticos, false);
 
+controladorVentas->cargarNuevoProducto("carlos78", 1, "Camiseta Azul", 1400, 50, "Camiseta de poliéster, color azul", ropa, false);
+controladorVentas->cargarNuevoProducto("ana23", 2, "Televisor LED", 40500, 30, "Televisor LED 55 pulgadas", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("carlos78", 3, "Chaqueta de Cuero", 699.99, 20, "Chaqueta de cuero, color negro", ropa, false);
+controladorVentas->cargarNuevoProducto("ana23", 4, "Microondas Digital", 1199.99, 15, "Microondas digital, 30L", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("diegom", 5, "Luz LED", 599.99, 40, "Luz Bluetooth LED", otros, false);
+controladorVentas->cargarNuevoProducto("carlos78", 6, "Pantalones Vaqueros", 60, 25, "Pantalones vaqueros, talla 32", ropa, false);
+controladorVentas->cargarNuevoProducto("diegom", 7, "Auriculares Bluetooth", 199.99, 35, "Auriculares bluetooth para celular", otros, false);
+controladorVentas->cargarNuevoProducto("ana23", 8, "Refrigerador", 15499, 10, "Refrigerador de doble puerta", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("ana23", 9, "Cafetera", 23000, 50, "Cafetera de goteo programable", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("carlos78", 10, "Zapatillas Deportivas", 5500, 20, "Zapatillas para correr, talla 42", ropa, false);
+controladorVentas->cargarNuevoProducto("carlos78", 11, "Mochila", 9000, 30, "Mochila de viaje, 40L", otros, false);
+controladorVentas->cargarNuevoProducto("diegom", 12, "Plancha de Ropa", 2534, 25, "Plancha a vapor, 1500W", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("sofia25", 13, "Gorra", 200, 50, "Gorra para deportes, color rojo", ropa, false);
+controladorVentas->cargarNuevoProducto("diegom", 14, "Tablet", 15000, 15, "Tablet Android de 10 pulgadas", electrodomesticos, false);
+controladorVentas->cargarNuevoProducto("sofia25", 15, "Reloj de Pared", 150.50, 20, "Reloj de pared vintage", otros, false);
 
 //----------------------**MENU INTERACTIVO**----------------------//
 
