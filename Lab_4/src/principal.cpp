@@ -452,8 +452,19 @@ controladorVentas->ingresarPromocion();
 
 //controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
 controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
+controladorVentas->seleccionarVendedor("carlos78");
+controladorVentas->agregarProductoPromo(6, 3);
+controladorVentas->agregarProductoPromo(3, 2);
+controladorVentas->ingresarPromocion();
 controladorVentas->altaPromocion("Domotica", "Para modernizar tu casa", DTFecha(26, 10, 2024), 10);
+controladorVentas->seleccionarVendedor("diegom");
+controladorVentas->agregarProductoPromo(5, 2);
+controladorVentas->ingresarPromocion();
 controladorVentas->altaPromocion("Liquidacion", "Hasta agotar stock", DTFecha(26, 3, 2024), 10);
+controladorVentas->seleccionarVendedor("diegom");
+controladorVentas->agregarProductoPromo(14, 1);
+controladorVentas->ingresarPromocion();
+
 
 //----------------------**MENU INTERACTIVO**----------------------//
 

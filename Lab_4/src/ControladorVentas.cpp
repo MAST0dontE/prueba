@@ -280,7 +280,7 @@ void ControladorVentas::procesarProductosEnPromo(){
         map<int, int>::iterator it;
         it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
-        int cantidad = it->second;
+        //int cantidad = it->second;
         //this->productosEnPromo.erase(it);
 
         Promocion* promo = nullptr;
