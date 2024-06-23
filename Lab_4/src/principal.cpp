@@ -432,8 +432,8 @@ cout << "\nFecha actual establecida: " << setw(2) << setfill('0') << dia << "/"
 
 esperarTecla(); // Espera a que el usuario presione Enter
     
-    int opcion;
-    char tecla;
+int opcion;
+
 do {
     mostrarMenu();
     cout << "Ingrese la opción deseada: ";
