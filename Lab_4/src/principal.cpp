@@ -2,7 +2,8 @@
 #include <vector>
 #include <map>
 #include <string>
-
+#include <iomanip> // Para setw
+#include <limits>  // Para numeric_limits
 #include <fstream> // Para manejar archivos
 #include <sstream> //Para manipular flujos de cadenas de texto 
 #include <filesystem>  // Para manejar directorios y archivos
@@ -100,6 +101,82 @@ int diasMes(int mes, int anio){
         default: printf("Numero de mes invalido."); 
     }
     return cantDias;
+}
+
+void mostrarBienvenida() {
+    cout << "\033[2J\033[1;1H"; // Secuencia de escape ANSI para limpiar la pantalla
+    cout << "╔════════════════════════════════════════════════════╗\n";
+    cout << "║           ¡Bienvenido a Mercado Finger!            ║\n";
+    cout << "╚════════════════════════════════════════════════════╝\n\n";
+}
+
+
+void mostrarMenu() {
+    cout << "╔════════════════════════════════════════╗\n";
+    cout << "║           Menú Principal               ║\n";
+    cout << "╠════════════════════════════════════════╣\n";
+    cout << "║  1. 📁 Alta de usuario                 ║\n";
+    cout << "║  2. 📋 Listado de usuarios             ║\n";
+    cout << "║  3. 📁 Alta de producto                ║\n";
+    cout << "║  4. 🔍 Consultar producto              ║\n";
+    cout << "║  5. 🎁 Crear promoción                 ║\n";
+    cout << "║  6. 🔍 Consultar promoción             ║\n";
+    cout << "║  7. 🛒 Realizar compra                 ║\n";
+    cout << "║  8. 💬 Dejar comentario                ║\n";
+    cout << "║  9. 🗑️ Eliminar comentario             ║\n";
+    cout << "║ 10. 📦 Enviar producto                 ║\n";
+    cout << "║ 11. 🗃️ Expediente de usuario           ║\n";
+    cout << "║ 12. 🔔 Suscribirse a notificaciones    ║\n";
+    cout << "║ 13. 🔍 Consultar notificaciones        ║\n";
+    cout << "║ 14. 🗑️ Eliminar suscripciones          ║\n";
+    cout << "║ 15. 🧪 Casos de prueba                  ║\n";
+    cout << "╚════════════════════════════════════════╝\n";
+}
+
+void pedirFechaActual(int& anio, int& mes, int& dia) {
+    cout << "Antes de comenzar, por favor indique la fecha actual:\n";
+    cout << "Ingrese el año: ";
+    cin >> anio;
+
+    cout << "Ingrese el mes: ";
+    cin >> mes;
+    while (mes > 12 || mes < 1) {
+        cout << "Ingrese un mes válido: ";
+        cin >> mes;
+    }
+
+    int cantDiasMes = 31; // Valor por defecto para establecer un límite inicial seguro
+    switch (mes) {
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            cantDiasMes = 30;
+            break;
+        case 2:
+            if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) {
+                cantDiasMes = 29;
+            } else {
+                cantDiasMes = 28;
+            }
+            break;
+        default:
+            cantDiasMes = 31;
+            break;
+    }
+
+    cout << "Ingrese el día: ";
+    cin >> dia;
+    while (dia > cantDiasMes || dia < 1) {
+        cout << "Ingrese un día válido: ";
+        cin >> dia;
+    }
+}
+
+void esperarTecla() {
+    cout << "\nPresione Enter para continuar...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignorar cualquier entrada previa
+    cin.get(); // Espera a que el usuario presione Enter
 }
 
 int main() {
@@ -310,83 +387,59 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 //----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
 
-cout <<"               	-----    	¡Bienvenido a Mercado Finger!   	-----"<<endl;
-cout <<" "<<endl;
-cout <<"Antes de comenzar, por favor indique la fecha actual:"<<endl;
-int anio=0;
-int mes =0;
-int dia=0;
-cout <<"Ingrese el año"<<endl;
-cin>>anio;
-cout <<"Ingrese el mes"<<endl;
-cin>>mes;
-while(mes>12 || mes<1){
-	cout<<"Ingrese un mes valido:"<<endl;
-	cin>>mes;
-}
-cout <<"Ingrese el dia"<<endl;
-cin>>dia;
-int cantDiasMes = diasMes(mes, anio);
-while(dia>cantDiasMes || dia<1){
-	cout<<"Ingrese un dia valido:"<<endl;
-	cin>>dia;
-}
-DTFecha fechaSistema(dia,mes,anio);
-controladorVentas->setFechaActual(fechaSistema);
+int anio = 0;
+int mes = 0;
+int dia = 0;
 
-cout <<"¿En que lo podemos asistir?"<<endl;
-cout <<"Digite 1 para Alta de usuario."<<endl;
-cout <<"Digite 2 para Listado de usuarios."<<endl;
-cout <<"Digite 3 para Alta de producto."<<endl;
-cout <<"Digite 4 para Consultar producto."<<endl;
-cout <<"Digite 5 para Crear promocion."<<endl;
-cout <<"Digite 6 para Consultar promocion."<<endl;
-cout <<"Digite 7 para Realizar compra."<<endl;
-cout <<"Digite 8 para Dejar comentario."<<endl;
-cout <<"Digite 9 para Eliminar comentario."<<endl;
-cout <<"Digite 10 para Enviar producto."<<endl;
-cout <<"Digite 11 para Expediente de usuario."<<endl;
-cout <<"Digite 12 para Suscribirse a notificaciones."<<endl;
-cout <<"Digite 13 para Consultar notificaciones"<<endl;
-cout <<"Digite 14 para Eliminar suscripciones."<<endl;
-cout <<"Digite 15 para los casos de prueba "<<endl;
+mostrarBienvenida();
+pedirFechaActual(anio, mes, dia);
 
+    // Creación de la fecha actual
+cout << "\nFecha actual establecida: " << setw(2) << setfill('0') << dia << "/" 
+     << setw(2) << setfill('0') << mes << "/" << anio << endl;
 
-int entradaConsola;
-cin>>entradaConsola;
-while (entradaConsola != 0){
-	switch (entradaConsola){
-    	case 1:{
-        	string nombreUsuario;
-        	cout << "Indique Nombre del Usuario nuevo"<<endl;
-        	cin>>nombreUsuario;
+    // Aquí podrías continuar con la lógica de tu programa
+
+esperarTecla(); // Espera a que el usuario presione Enter
+    
+    int opcion;
+    char tecla;
+do {
+    mostrarMenu();
+    cout << "Ingrese la opción deseada: ";
+    cin >> opcion;
+    switch (opcion) {
+        case 1:{
+			string nombreUsuario;
+			cout << "Indique Nombre del Usuario nuevo"<<endl;
+			cin>>nombreUsuario;
 			while(controladorUsuarios->existeNickname(nombreUsuario)){
 				cout<<"El nickname ya se encuentra registrado, por favor ingrese otro."<<endl;
 				cin>>nombreUsuario;
+				cout << "Ha seleccionado Alta de usuario.\n";
 			}
-        	string contra;
-        	cout << "Indique contraseña del Usuario nuevo"<<endl;
-        	cin>>contra;
-        	int ano;
-        	cout << "Indique año de nacimiento"<<endl;
-        	cin>>ano;
-        	int mes;
-        	cout << "Indique mes de nacimiento"<<endl;
-        	cin>>mes;
-        	int dia;
-        	cout << "Indique dia de nacimiento"<<endl;
-        	cin>>dia;
-        	cout <<"¿Desea registrar un vendedor o un cliente?" <<endl;
-        	//cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        	char c;
-        	while (cin.get(c) && c != '\n');
-
-        	string respuesta2;
-        	getline(cin,respuesta2);
-        	if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
-            	cout << "Indique ciudad del cliente:"<<endl;
-            	string ciudad;
-            	getline(cin,ciudad);
+			string contra;
+			cout << "Indique contraseña del Usuario nuevo"<<endl;
+			cin>>contra;
+			int ano;
+			cout << "Indique año de nacimiento"<<endl;
+			cin>>ano;
+			int mes;
+			cout << "Indique mes de nacimiento"<<endl;
+			cin>>mes;
+			int dia;
+			cout << "Indique dia de nacimiento"<<endl;
+			cin>>dia;
+			cout <<"¿Desea registrar un vendedor o un cliente?" <<endl;
+			//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			char c;
+			while (cin.get(c) && c != '\n');
+			string respuesta2;
+			getline(cin,respuesta2);
+			if (respuesta2 == "Cliente" || respuesta2 == "cliente" ){
+				cout << "Indique ciudad del cliente:"<<endl;
+				string ciudad;
+				getline(cin,ciudad);
 				cout << "A continuación indique su dirección:"<<endl;
 				cout << "Indique calle:"<<endl;
 				string calle;
@@ -394,30 +447,30 @@ while (entradaConsola != 0){
 				cout << "Indique número de puerta:"<<endl;
 				int numPuerta;
 				cin>>numPuerta;
-            	bool a=controladorUsuarios->altaCliente(nombreUsuario, contra, DTFecha(dia,mes,ano),DTDireccion(calle, numPuerta), ciudad);
-            	if (a) {
-					cout <<"Su cliente fue creado"<<endl;
-					break;
+				bool a=controladorUsuarios->altaCliente(nombreUsuario, contra, DTFecha(dia,mes,ano),DTDireccion(calle, numPuerta), ciudad);
+					if (a) {
+						cout <<"Su cliente fue creado"<<endl;
+						break;
 					}
-				else {
-					cout <<"No fue posible crear el cliente."<<endl;
-
+					else {
+						cout <<"No fue posible crear el cliente."<<endl;
+					}
+				} else if(respuesta2 == "Vendedor" || respuesta2 == "vendedor" ){
+				string codigoRut;
+				cout << "Indique codigo Rut del vendedor"<<endl;
+				getline(cin,codigoRut);
+					if (controladorUsuarios->altaVendedor(nombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){
+						cout <<"Su vendedor fue creado"<<endl;}
+				} else {
+				break;
 				}
-        	} else if(respuesta2 == "Vendedor" || respuesta2 == "vendedor" ){
-            	string codigoRut;
-            	cout << "Indique codigo Rut del vendedor"<<endl;
-            	getline(cin,codigoRut);
-            	if (controladorUsuarios->altaVendedor(nombreUsuario,contra, DTFecha(dia,mes,ano), codigoRut)){cout <<"Su vendedor fue creado"<<endl;}
-        	} else {
-            	break;
-				}
-        	break;
-        	}
-    	case 2:{
-        	controladorUsuarios->listaDeUsuarios_();
             break;
+		}
+        case 2:{
+        	controladorUsuarios->listaDeUsuarios_();
+        break;
     	}
-    	case 3:{
+        case 3:{
         	cout <<"Elija el nombre de un vendedor para asignarle el producto: "<<endl;
 
         	controladorUsuarios->listaDeVendedores();
@@ -453,138 +506,137 @@ while (entradaConsola != 0){
         	ECategoria categoriaEnum = static_cast<ECategoria>(categoria-1); 	 
        	    controladorVentas->cargarNuevoProducto(nombreVendedor,codigo,nombreProducto, precio ,stock ,descripcion, categoriaEnum, false);
             break;
-    	}  
+    	}
 		case 4:{
-        	controladorVentas->listarProductos();
-        	cout << "Desea consultar algun producto en especifico? Y/N ?" <<endl;
-        	char respuesta1;
-        	cin>> respuesta1;
-        	if (respuesta1 == 'Y' || respuesta1 == 'y' ){
-            	cout << "Indique el codigo del producto que desea consultar:" <<endl;
-            	int codigo;
-            	cin>> codigo;
-            	controladorVentas->consultarProducto(codigo);
-        	}
-            break;
-        }
+			controladorVentas->listarProductos();
+			cout << "Desea consultar algun producto en especifico? Y/N ?" << endl;
+			char respuesta1;
+			cin >> respuesta1;
+			if (respuesta1 == 'Y' || respuesta1 == 'y'){
+				cout << "Indique el codigo del producto que desea consultar:" << endl;
+				int codigo;
+				cin >> codigo;
+				controladorVentas->consultarProducto(codigo);
+			}
+			break;
+		}
 		case 5:{
-			cout << "Ingrese el nombre de la promocion" <<endl;
+			cout << "Ingrese el nombre de la promocion" << endl;
 			cin.ignore();
 			string nombrePromo;
 			getline(cin, nombrePromo);
-			cout << "Ingrese la descripcion de la promocion" <<endl;
+			cout << "Ingrese la descripcion de la promocion" << endl;
 			string descPromo;
 			getline(cin, descPromo);
-			cout <<"A continuacion ingrese la fecha de vencimiento de su promo:"<<endl;
-			int anioProm=0;
-			int mesProm =0;
-			int diaProm=0;
-			cout <<"Ingrese el anio"<<endl;
-			cin>>anioProm;
-			while(anioProm<anio){
-				cout<<"Ingrese un anio valido:"<<endl;
-				cin>>anioProm;
+			cout << "A continuacion ingrese la fecha de vencimiento de su promo:" << endl;
+			int anioProm = 0;
+			int mesProm = 0;
+			int diaProm = 0;
+			cout << "Ingrese el anio" << endl;
+			cin >> anioProm;
+			while (anioProm < anio){
+				cout << "Ingrese un anio valido:" << endl;
+				cin >> anioProm;
 			}
-			cout<<"Ingrese el mes"<<endl;
-			cin>>mesProm;
-			while(mesProm>12 || mesProm<1||mesProm<mes){
-				cout<<"Ingrese un mes valido:"<<endl;
-				cin>>mesProm;
+			cout << "Ingrese el mes" << endl;
+			cin >> mesProm;
+			while (mesProm > 12 || mesProm < 1 || mesProm < mes){
+				cout << "Ingrese un mes valido:" << endl;
+				cin >> mesProm;
 			}
-			cout <<"Ingrese el dia"<<endl;
-			cin>>diaProm;
+			cout << "Ingrese el dia" << endl;
+			cin >> diaProm;
 			int cantDiasMesProm = diasMes(mesProm, anioProm);
-			while(diaProm>cantDiasMesProm || diaProm<1||diaProm<=dia){
-				cout<<"Ingrese un dia valido:"<<endl;
-				cin>>diaProm;
+			while (diaProm > cantDiasMesProm || diaProm < 1 || diaProm <= dia){
+				cout << "Ingrese un dia valido:" << endl;
+				cin >> diaProm;
 			}
-			cout <<"Ingrese el descuento de la promocion: "<<endl;
+			cout << "Ingrese el descuento de la promocion: " << endl;
 			float descuento;
-			cin>>descuento;
-			while(descuento<0){
-				cout<<"Ingrese un descuento valido:"<<endl;
-				cin>>descuento;
+			cin >> descuento;
+			while (descuento < 0){
+				cout << "Ingrese un descuento valido:" << endl;
+				cin >> descuento;
 			}
-			controladorVentas->altaPromocion(nombrePromo, descPromo, DTFecha(diaProm,mesProm,anioProm), descuento);
+			controladorVentas->altaPromocion(nombrePromo, descPromo, DTFecha(diaProm, mesProm, anioProm), descuento);
 			string nombreVendedor;
-			cin>> nombreVendedor;
-			while(!(controladorUsuarios->existeNickname(nombreVendedor)&&controladorUsuarios->esVendedor(nombreVendedor))){
-				cout<<"Ingrese un vendedor valido: "<<endl;
+			cin >> nombreVendedor;
+			while (!(controladorUsuarios->existeNickname(nombreVendedor) && controladorUsuarios->esVendedor(nombreVendedor))){
+				cout << "Ingrese un vendedor valido: " << endl;
 			}
-			while(!controladorVentas->vendedorTieneProductos(nombreVendedor)){
-				cout<<"En este momento "<<nombreVendedor<<" no posee ningun producto asociado, vuelva a intentar con otro:"<<endl;
-				cin>>nombreVendedor;
+			while (!controladorVentas->vendedorTieneProductos(nombreVendedor)){
+				cout << "En este momento " << nombreVendedor << " no posee ningun producto asociado, vuelva a intentar con otro:" << endl;
+				cin >> nombreVendedor;
 			}
-				controladorVentas->seleccionarVendedor(nombreVendedor);
-				while(!controladorVentas->alMenosUnProductoPromo()){
-					cout<<"Ingrese el codigo del producto que desea agregar:"<<endl;
+			controladorVentas->seleccionarVendedor(nombreVendedor);
+			while (!controladorVentas->alMenosUnProductoPromo()){
+				cout << "Ingrese el codigo del producto que desea agregar:" << endl;
+				int codigoProd;
+				cin >> codigoProd;
+				cout << "Ingrese la cantidad minima del producto seleccionado:" << endl;
+				int cantProd;
+				cin >> cantProd;
+				controladorVentas->agregarProductoPromo(codigoProd, cantProd);
+			}
+			cout << "Desea agregar otro producto a la promocion? Y/N" << endl;
+			char masProds;
+			cin >> masProds;
+			if (masProds == 'Y' || masProds == 'y'){
+				while (masProds == 'Y' || masProds == 'y')
+				{
+					cout << "Ingrese el codigo del producto que desea agregar:" << endl;
 					int codigoProd;
-					cin>> codigoProd;
-					cout<<"Ingrese la cantidad minima del producto seleccionado:"<<endl;
+					cin >> codigoProd;
+					cout << "Ingrese la cantidad minima del producto seleccionado:" << endl;
 					int cantProd;
-					cin>> cantProd;
-					controladorVentas->agregarProductoPromo(codigoProd,cantProd);
+					cin >> cantProd;
+					controladorVentas->agregarProductoPromo(codigoProd, cantProd);
+					cout << "Desea agregar otro producto a la promocion? Y/N" << endl;
+					cin >> masProds;
 				}
-				cout<<"Desea agregar otro producto a la promocion? Y/N"<<endl;
-				char masProds;
-				cin>> masProds;
-				if(masProds == 'Y' || masProds == 'y'){
-					while(masProds == 'Y' || masProds == 'y'){
-					cout<<"Ingrese el codigo del producto que desea agregar:"<<endl;
-					int codigoProd;
-					cin>> codigoProd;
-					cout<<"Ingrese la cantidad minima del producto seleccionado:"<<endl;
-					int cantProd;
-					cin>> cantProd;
-					controladorVentas->agregarProductoPromo(codigoProd,cantProd);
-					cout<<"Desea agregar otro producto a la promocion? Y/N"<<endl;
-					cin>>masProds;
-					}
-				}
-				controladorVentas->ingresarPromocion(); 
-				break;
+			}
+			controladorVentas->ingresarPromocion();
+			break;
 		}
 		case 6:{
-        	controladorVentas->listarPromociones();
-        	cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
-        	char respuesta5;
-        	cin>> respuesta5;
-        	if (respuesta5 == 'Y' || respuesta5 == 'y' ){
-            	cout << "Indique el nombre de la promocion que desea consultar:" <<endl;
-            	string nombrePromocion;
-            	cin>> nombrePromocion;
-            	controladorVentas->consultarPromocion(nombrePromocion);
-        	}
-            break;
-			/*controladorVentas->listarPromociones();
-        	cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
-        	char respuesta5;
-        	cin>> respuesta5;
-        	if (respuesta5 == 'Y' || respuesta5 == 'y' ){
-            	cout << "Indique el nombre de la promocion que desea consultar:" <<endl;
-            	string nombrePromocion;
-            	cin>> nombrePromocion;
-            	controladorVentas->consultarPromocion(nombrePromocion);
-        	}*/
-    	}
-    	case 7:{
+			controladorVentas->listarPromociones();
+			cout << "Desea consultar alguna promocion en especifico? Y/N ?" << endl;
+			char respuesta5;
+			cin >> respuesta5;
+			if (respuesta5 == 'Y' || respuesta5 == 'y'){
+				cout << "Indique el nombre de la promocion que desea consultar:" << endl;
+				string nombrePromocion;
+				cin >> nombrePromocion;
+				controladorVentas->consultarPromocion(nombrePromocion);
+			}
+			break;
+		}
+		/* case 6
+		controladorVentas->listarPromociones();
+		cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
+		char respuesta5;
+		cin>> respuesta5;
+		if (respuesta5 == 'Y' || respuesta5 == 'y' ){
+			cout << "Indique el nombre de la promocion que desea consultar:" <<endl;
+			string nombrePromocion;
+			cin>> nombrePromocion;
+			controladorVentas->consultarPromocion(nombrePromocion);
+		}*/
+		case 7:{
 			cout << "Clientes: " << endl;
         	controladorVentas->listarNicknamesClientes();
         	cout << "Indique el nickname del cliente: "<<endl;
         	string nicknameCliente;
 			cin.ignore();
         	getline(cin,nicknameCliente);
-			
 			while(!controladorVentas->seleccionarCliente(nicknameCliente)){
 				cout << "Nickname inválido. Intente nuevamente ingresando un nickname valido" << endl;
 				getline(cin,nicknameCliente);
 			}
-
         	string respuesta3 = "Y";
         	while (respuesta3 != "N" && respuesta3 != "n"){
             	cout << "Desea agregar un producto a la compra? Y/N"<<endl;
             	getline(cin,respuesta3);
-
             	if (respuesta3 == "Y" || respuesta3 == "y"){
                 	cout << "Indique el codigo y cantidad del producto a agregar en la compra" <<endl;
                 	int codigo;
@@ -593,7 +645,6 @@ while (entradaConsola != 0){
                 	cin>>cantidad;
                 	controladorVentas->agregarProductoCompra(codigo, cantidad);
 					cin.ignore();
-               	 
             	} else if (respuesta3 == "N" || respuesta3 == "n"){
                 	break;
             	} else {
@@ -601,11 +652,9 @@ while (entradaConsola != 0){
             	}
         	}
         	controladorVentas->mostrarDetallesCompra();
-
         	cout << "Desea confirmar la compra? Y/N" <<endl;
         	string respuesta4;
         	getline(cin,respuesta4);
-
         	if (respuesta4 == "Y" || respuesta4 == "y"){
             	controladorVentas->registrarCompra();
             	cout << "Compra realizada con éxito." <<endl;
@@ -614,9 +663,7 @@ while (entradaConsola != 0){
         	} else {
             	cout << "Opción no válida." <<endl;
         	}
-
 			controladorVentas->liberarMemoriaRealizarCompra();
-			
             break;
     	}
 		case 8: {
@@ -663,7 +710,7 @@ while (entradaConsola != 0){
 			}
 			break;
 		}
-    	case 9:{
+		case 9:{
 			controladorUsuarios->imprimirListaDeUsuarios();
 			string NombreUsuario;
 			cout << "Indique Nombre del Usuario al que desea eliminar un comentario: ";
@@ -686,8 +733,7 @@ while (entradaConsola != 0){
 			cout <<"Indique el nickname de vendedor:" << endl;
 			string nickname;
 			cin >> nickname;
-			if (controladorVentas->listarProductosPendientes(nickname) == 1)
-			{
+			if (controladorVentas->listarProductosPendientes(nickname) == 1){
 				cout <<"Indique el codigo del producto deseado:" << endl;
 				int producto;
 				cin>>producto;
@@ -750,6 +796,9 @@ while (entradaConsola != 0){
 			}
             break;
 		}
+		case 12:
+			cout << "Ha seleccionado Suscribirse a notificaciones.\n";
+			break;
 		case 13:{
 			cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
@@ -771,14 +820,13 @@ while (entradaConsola != 0){
 				string nicknameVendedor;
 				getline(cin, nicknameVendedor);
 				controladorUsuarios->eliminarSuscripciones(nicknameVendedor);
-				
 				cout << "Desea eliminar otra suscripción? Y/N" << endl;
 				getline(cin, respuesta6);
 				if (respuesta6 == "N" || respuesta6 == "n") {
 					break;
 				} 
 			} while (respuesta6 == "Y" || respuesta6 == "y");
-
+			break;
 		} 
 		/*case 15: {
 			string carpeta = "data"; // Carpeta donde están los CSV
@@ -801,21 +849,26 @@ while (entradaConsola != 0){
         	std::cerr << "Selección inválida." << std::endl;
         	return 1;
     	}
-
     	std::vector<CasoPrueba> casos = leerCSV(archivosCSV[seleccion - 1]);
-
     	// Imprimir los datos leídos
     	for (const auto& caso : casos) {
         	std::cout << "ID: " << caso.id << ", Nombre: " << caso.nombre << ", Edad: " << caso.edad << std::endl;
     	}
-
-
 		} */
-    	default:
+    	/*default:
         	cout <<"Opción no válida." <<endl;
         	break;
-	}
-    cout<<"¿Desea realizar otra operación?"<<endl;
+	}*/
+		case 0:
+			cout << "Saliendo del programa...\n";
+			break;
+		default:
+			cout << "Opción inválida. Por favor, ingrese una opción válida.\n";
+			break;
+        }
+        
+    } while (opcion != 0);
+    /*cout<<"¿Desea realizar otra operación?"<<endl;
 	cout <<"¿En que lo podemos asistir?"<<endl;
 	cout <<"Digite 1 para Alta de usuario."<<endl;
 	cout <<"Digite 2 para Listado de usuarios."<<endl;
@@ -832,7 +885,7 @@ while (entradaConsola != 0){
 	cout <<"Digite 13 para Consultar notificaciones"<<endl;
 	cout <<"Digite 14 para Eliminar suscripciones."<<endl;
     cin>>entradaConsola;
-};
+};*/
 
 
 
