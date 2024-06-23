@@ -316,7 +316,7 @@ cout <<"Antes de comenzar, por favor indique la fecha actual:"<<endl;
 int anio=0;
 int mes =0;
 int dia=0;
-cout <<"Ingrese el anio"<<endl;
+cout <<"Ingrese el año"<<endl;
 cin>>anio;
 cout <<"Ingrese el mes"<<endl;
 cin>>mes;
@@ -642,7 +642,7 @@ while (entradaConsola != 0){
 				string comentario;
 				cout << "Escriba el comentario: ";
 				getline(cin, comentario);
-				controladorUsuarios->nuevoComentario(comentario, DTFecha(1, 1, 1));
+				controladorUsuarios->nuevoComentario(comentario, DTFecha(dia, mes, anio));
 				cout << "El comentario fue agregado" << endl;
 			}
 			else if (respuesta == "r"){
