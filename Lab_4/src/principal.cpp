@@ -534,6 +534,7 @@ while (entradaConsola != 0){
 			int CodigoProducto;
 			cout << "Escriba el código del producto al que desea ingresar un comentario: ";
 			cin >> CodigoProducto;
+			cin.ignore();
 			string NombreVendedor;
 			cout << "Escriba el nombre del vendedor que publico el producto: ";
 			cin >> NombreVendedor;
@@ -542,14 +543,14 @@ while (entradaConsola != 0){
 			string respuesta;
 			cout << "¿Desea dejar un comentario nuevo o responder uno ya existente? ";
 			getline(cin, respuesta);
-			if (respuesta == "Dejar un comentario"){
+			if (respuesta == "c"){
 				string comentario;
 				cout << "Escriba el comentario: ";
 				getline(cin, comentario);
 				controladorUsuarios->nuevoComentario(comentario, DTFecha(1, 1, 1));
 				cout << "El comentario fue agregado" << endl;
 			}
-			else if (respuesta == "Responder uno ya existente"){
+			else if (respuesta == "r"){
 				controladorUsuarios->listarComentarios(CodigoProducto);
 				int id;
 				cout << "Escriba el ID del comentario al que desea responder: ";

@@ -31,7 +31,7 @@ class Cliente : public Usuario, public iSuscriptor{
         void borrarNotificaciones();
         vector<Comentario> listarComentarios(string) override;
         void agregarComentario (Comentario*);
-        map<int, Comentario *> getComentarios();
+        map<int, Comentario*>& getComentarios();
         void agregarCompra(Compra* compra);
         void eliminarComentario(int id);
 };

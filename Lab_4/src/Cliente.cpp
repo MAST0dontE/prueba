@@ -1,8 +1,9 @@
 #include "Cliente.h"
 
-
 Cliente::Cliente(string nickname, string contrasenia, DTFecha fechaDeNacimiento, DTDireccion direccion, string ciudadResidencia)
-    : Usuario(nickname,contrasenia, fechaDeNacimiento), direccion(direccion), ciudadResidencia(ciudadResidencia) {}
+    : Usuario(nickname, contrasenia, fechaDeNacimiento), direccion(direccion), ciudadResidencia(ciudadResidencia) {
+    this->comentarios = map<int, Comentario*>();
+    }
 
 DTDireccion Cliente::getDireccion()
 {
@@ -51,10 +52,10 @@ void Cliente::eliminarSuscripcion()
 
 void Cliente::agregarComentario(Comentario *comentario)
 {
-    this->comentarios[comentario->getId()] = comentario;
+    this->comentarios.emplace(comentario->getId(), comentario);
 }
 
-map<int, Comentario*> Cliente::getComentarios(){
+map<int, Comentario*>& Cliente::getComentarios(){
     return comentarios;
 }
 
@@ -66,6 +67,9 @@ string Cliente::getNicknameSuscriptor(){
     return this->getNickname();
 }
 
-void Cliente::eliminarComentario(int id){
-    comentarios.erase(id);
+void Cliente::eliminarComentario(int idComentario) {
+    map<int, Comentario*>::iterator it = comentarios.find(idComentario);
+    if (it != comentarios.end()) {
+        comentarios.erase(it->first);
+    }
 }

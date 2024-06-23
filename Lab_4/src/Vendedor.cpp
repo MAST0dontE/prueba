@@ -1,8 +1,9 @@
 #include "Vendedor.h"
 
-
-Vendedor::Vendedor(string nickname,string contrasenia, DTFecha fechaDeNacimiento, string codigoRUT) \
-    : Usuario(nickname,contrasenia, fechaDeNacimiento), codigoRUT(codigoRUT) {}
+Vendedor::Vendedor(string nickname, string contrasenia, DTFecha fechaDeNacimiento, string codigoRUT)
+    : Usuario(nickname, contrasenia, fechaDeNacimiento), codigoRUT(codigoRUT){
+    this->comentarios = map<int, Comentario*>();
+    }
 
 string Vendedor::getCodigoRUT(){
     return this->codigoRUT;
@@ -62,11 +63,11 @@ void Vendedor::listarProductosVendedor(){
         } 
 }
 
-void Vendedor::agregarComentario(Comentario *comentario){
-    this->comentarios[comentario->getId()] = comentario;
+void Vendedor::agregarComentario(Comentario* comentario){
+    this->comentarios.emplace(comentario->getId(), comentario);
 }
 
-map<int, Comentario *> Vendedor::getComentarios()
+map<int, Comentario*>& Vendedor::getComentarios()
 {
     return comentarios;
 }
@@ -102,6 +103,10 @@ void Vendedor::notificar(DTNotificacion notificacion){
     }
 }
 
-void Vendedor::eliminarComentario(int id){
-    comentarios.erase(id);
+void Vendedor::eliminarComentario(int idComentario) {
+    map<int, Comentario*>::iterator it = comentarios.find(idComentario);
+    if (it != comentarios.end()) {
+        comentarios.erase(it->first);
+        cout << "Comentario con ID: " << idComentario << " eliminado de Vendedor.\n";
+    } 
 }
