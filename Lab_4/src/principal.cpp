@@ -366,93 +366,6 @@ US10 sofia25 V 13,15
 cout << "     ** CASO DE USO: Dejar Comentario INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
 
-//CM5
-controladorUsuarios->seleccionarUsuario_("natalia");
-controladorUsuarios->seleccionarProducto(1, "carlos78");
-controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
-//CM6
-controladorUsuarios->seleccionarUsuario_("laura");
-controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
-//CM7
-controladorUsuarios->seleccionarUsuario_("ana23");
-controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->seleccionarComentario(5, "laura");
-controladorUsuarios->nuevaRespuesta("El televisor LED tiene una resolucion de 4K UHD.", DTFecha(02, 06, 2024));
-//CM8
-controladorUsuarios->seleccionarUsuario_("pablo10");
-controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->nuevoComentario("¿Tiene soporte para HDR10?", DTFecha(03, 06, 2024));
-//CM9
-controladorUsuarios->seleccionarUsuario_("ana23");
-controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->seleccionarComentario(7, "laura");
-controladorUsuarios->nuevaRespuesta("Si, soporta HDR10.", DTFecha(03, 06, 2024));
-//CM10
-controladorUsuarios->seleccionarUsuario_("natalia");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->nuevoComentario("¿La chaqueta de cuero es resistente al agua?", DTFecha(03, 06, 2024));
-//CM11
-controladorUsuarios->seleccionarUsuario_("carlos78");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->seleccionarComentario(9, "natalia");
-controladorUsuarios->nuevaRespuesta("No, la chaqueta de cuero no es resistente al agua", DTFecha(03, 06, 2024));
-//CM12
-controladorUsuarios->seleccionarUsuario_("laura");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->seleccionarComentario(9, "natalia");
-controladorUsuarios->nuevaRespuesta("¿Viene en otros colores?", DTFecha(04, 06, 2024));
-//CM13
-controladorUsuarios->seleccionarUsuario_("carlos78");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->seleccionarComentario(11, "laura");
-controladorUsuarios->nuevaRespuesta("Si, tambien esta disponible en marron.", DTFecha(04, 06, 2024));
-//CM14
-controladorUsuarios->seleccionarUsuario_("roberto");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->seleccionarComentario(9, "natalia");
-controladorUsuarios->nuevaRespuesta("¿Es adecuada para climas frios?", DTFecha(04, 06, 2024));
-//CM15
-controladorUsuarios->seleccionarUsuario_("pablo10");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->nuevoComentario("¿El microondas digital tiene funcion de descongelacion rapida?", DTFecha(04, 06, 2024));
-//CM16 ==== ACA ====
-controladorUsuarios->seleccionarUsuario_("ana23");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(9, "natalia");
-controladorUsuarios->nuevaRespuesta("Si, el microondas digital incluye una funcion de descongelacion rapida.", DTFecha(04, 06, 2024));
-//CM17
-controladorUsuarios->seleccionarUsuario_("natalia");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(14, "roberto");
-controladorUsuarios->nuevaRespuesta("¿Cuantos niveles de potencia tiene? ", DTFecha(05, 06, 2024));
-//CM18
-controladorUsuarios->seleccionarUsuario_("ana23");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(16, "natalia");
-controladorUsuarios->nuevaRespuesta("Tiene 10 niveles de potencia.", DTFecha(05, 06, 2024));
-//CM19
-controladorUsuarios->seleccionarUsuario_("roberto");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(14, "roberto");
-controladorUsuarios->nuevaRespuesta("¿Es facil de limpiar? ", DTFecha(05, 06, 2024));
-//CM20
-controladorUsuarios->seleccionarUsuario_("roberto");
-controladorUsuarios->seleccionarProducto(5, "diegom");
-controladorUsuarios->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?", DTFecha(05, 06, 2024));
-//CM21
-ontroladorUsuarios->seleccionarUsuario_("diegom");
-controladorUsuarios->seleccionarProducto(5, "roberto");
-controladorUsuarios->seleccionarComentario(19, "diegom");
-controladorUsuarios->nuevaRespuesta("Si, la luz LED se puede controlar a traves de una aplicacion movil", DTFecha(5, 6, 2024));
-//CM22
-
-//CM23
-
-//CM24
-
-//CM25
-
 
 
 cout<< "````````````````````````````````````````````````````" << endl;
@@ -552,24 +465,112 @@ controladorVentas->ingresarPromocion();
 
 	//Datos de Comentarios:
 
+//CM1
 controladorUsuarios->seleccionarUsuario_("juan87");
 controladorUsuarios->seleccionarProducto(1, "carlos78");
 controladorUsuarios->nuevoComentario("¿La camiseta azul esta disponible en talla M?", DTFecha(1, 6, 2024));
-
+//CM2
 controladorUsuarios->seleccionarUsuario_("carlos78");
 controladorUsuarios->seleccionarProducto(1, "carlos78");
 controladorUsuarios->seleccionarComentario(0, "juan87");
 controladorUsuarios->nuevaRespuesta("Si, tenemos la camiseta azul en talla M.", DTFecha(1, 6, 2024));
-
+//CM3
 controladorUsuarios->seleccionarUsuario_("laura");
 controladorUsuarios->seleccionarProducto(1, "carlos78");
 controladorUsuarios->seleccionarComentario(1, "carlos78");
 controladorUsuarios->nuevaRespuesta("¿Es de buen material? Me preocupa la durabilidad.", DTFecha(1, 6, 2024));
-
+//CM4
 controladorUsuarios->seleccionarUsuario_("juan87");
 controladorUsuarios->seleccionarProducto(1, "carlos78");
 controladorUsuarios->seleccionarComentario(2, "laura");
 controladorUsuarios->nuevaRespuesta("He comprado antes y la calidad es buena.", DTFecha(1, 6, 2024));
+//CM5
+controladorUsuarios->seleccionarUsuario_("natalia");
+controladorUsuarios->seleccionarProducto(1, "carlos78");
+controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
+//CM6
+controladorUsuarios->seleccionarUsuario_("laura");
+controladorUsuarios->seleccionarProducto(2, "ana23");
+controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
+//CM7
+controladorUsuarios->seleccionarUsuario_("ana23");
+controladorUsuarios->seleccionarProducto(2, "ana23");
+controladorUsuarios->seleccionarComentario(5, "laura");
+controladorUsuarios->nuevaRespuesta("El televisor LED tiene una resolucion de 4K UHD.", DTFecha(02, 06, 2024));
+//CM8
+controladorUsuarios->seleccionarUsuario_("pablo10");
+controladorUsuarios->seleccionarProducto(2, "ana23");
+controladorUsuarios->nuevoComentario("¿Tiene soporte para HDR10?", DTFecha(03, 06, 2024));
+//CM9
+controladorUsuarios->seleccionarUsuario_("ana23");
+controladorUsuarios->seleccionarProducto(2, "ana23");
+controladorUsuarios->seleccionarComentario(7, "laura");
+controladorUsuarios->nuevaRespuesta("Si, soporta HDR10.", DTFecha(03, 06, 2024));
+//CM10
+controladorUsuarios->seleccionarUsuario_("natalia");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->nuevoComentario("¿La chaqueta de cuero es resistente al agua?", DTFecha(03, 06, 2024));
+//CM11
+controladorUsuarios->seleccionarUsuario_("carlos78");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->nuevaRespuesta("No, la chaqueta de cuero no es resistente al agua", DTFecha(03, 06, 2024));
+//CM12
+controladorUsuarios->seleccionarUsuario_("laura");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->nuevaRespuesta("¿Viene en otros colores?", DTFecha(04, 06, 2024));
+//CM13
+controladorUsuarios->seleccionarUsuario_("carlos78");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->seleccionarComentario(11, "laura");
+controladorUsuarios->nuevaRespuesta("Si, tambien esta disponible en marron.", DTFecha(04, 06, 2024));
+//CM14
+controladorUsuarios->seleccionarUsuario_("roberto");
+controladorUsuarios->seleccionarProducto(3, "carlos78");
+controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->nuevaRespuesta("¿Es adecuada para climas frios?", DTFecha(04, 06, 2024));
+//CM15
+controladorUsuarios->seleccionarUsuario_("pablo10");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->nuevoComentario("¿El microondas digital tiene funcion de descongelacion rapida?", DTFecha(04, 06, 2024));
+//CM16 ==== ACA ====
+controladorUsuarios->seleccionarUsuario_("ana23");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->seleccionarComentario(9, "natalia");
+controladorUsuarios->nuevaRespuesta("Si, el microondas digital incluye una funcion de descongelacion rapida.", DTFecha(04, 06, 2024));
+//CM17
+controladorUsuarios->seleccionarUsuario_("natalia");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->seleccionarComentario(14, "roberto");
+controladorUsuarios->nuevaRespuesta("¿Cuantos niveles de potencia tiene? ", DTFecha(05, 06, 2024));
+//CM18
+controladorUsuarios->seleccionarUsuario_("ana23");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->seleccionarComentario(16, "natalia");
+controladorUsuarios->nuevaRespuesta("Tiene 10 niveles de potencia.", DTFecha(05, 06, 2024));
+//CM19
+controladorUsuarios->seleccionarUsuario_("roberto");
+controladorUsuarios->seleccionarProducto(4, "ana23");
+controladorUsuarios->seleccionarComentario(14, "roberto");
+controladorUsuarios->nuevaRespuesta("¿Es facil de limpiar? ", DTFecha(05, 06, 2024));
+//CM20
+controladorUsuarios->seleccionarUsuario_("roberto");
+controladorUsuarios->seleccionarProducto(5, "diegom");
+controladorUsuarios->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?", DTFecha(05, 06, 2024));
+//CM21
+ontroladorUsuarios->seleccionarUsuario_("diegom");
+controladorUsuarios->seleccionarProducto(5, "roberto");
+controladorUsuarios->seleccionarComentario(19, "diegom");
+controladorUsuarios->nuevaRespuesta("Si, la luz LED se puede controlar a traves de una aplicacion movil", DTFecha(5, 6, 2024));
+//CM22
+
+//CM23
+
+//CM24
+
+//CM25
+
 
 
 
