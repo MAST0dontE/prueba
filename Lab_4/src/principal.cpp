@@ -875,8 +875,8 @@ do {
 			cout << "Opción inválida. Por favor, ingrese una opción válida.\n";
 			break;
         }
-        
-    } while (opcion != 0);
+		cout << "\033[2J\033[1;1H";
+	} while (opcion != 0);
     /*cout<<"¿Desea realizar otra operación?"<<endl;
 	cout <<"¿En que lo podemos asistir?"<<endl;
 	cout <<"Digite 1 para Alta de usuario."<<endl;
