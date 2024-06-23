@@ -15,7 +15,7 @@ public:
     DTNotificacion(string nicknameVendedor, string nombrePromo, map<int, DTInfoProducto> productos);
     string getNicknameVendedor();
     string getNombrePromo();
-    string getDTInfoProducto();
+    string getDTInfoProductoNotificacion();
 };
 
 #endif // DTNOTIFICACION_H

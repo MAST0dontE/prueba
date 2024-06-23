@@ -49,7 +49,7 @@ class ControladorVentas : public iControladorVentas{
         
     public:
         static ControladorVentas * getControladorVentas();
-        void agregarProducto(int codigo, int cantMinima, float descuento);
+        //void agregarProducto(int codigo, int cantMinima, float descuento);
         void listarNicknamesClientes();
         bool seleccionarCliente(string nickname);
         void mostrarDetallesCompra();
@@ -70,26 +70,25 @@ class ControladorVentas : public iControladorVentas{
         void consultarProducto(int codigo);
         vector<DTInfoPromocion> crearSetDTInfoPromocion();
         void listarPromociones();
-
         void consultarPromocion(string nombre);
         void cargarNuevoProducto(string nicknameVendedor,int codigo, string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
         void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento, float descuentoPromo);
         void seleccionarVendedor(string nickname);
-        void agregarProducto(int codigo, int cantMinima);
+        //void agregarProducto(int codigo, int cantMinima);
         void infoVendedor(string nickname);
         void listarNicknamesVendedor();
         void agregarProductoCompra(int codigo, int cantMinima);
         void agregarProductoPromo(int codigo, int cantMinima);
         void liberarMemoriaRealizarCompra();
         void ingresarPromocion();
-        void notificar(DTNotificacion);
         int listarProductosPendientes(string nickname); //devuelve 1 si existian productos pendientes
         int listarComprasAEnviar(Producto* producto); //devuelve 1 si existen compras pendientes de envio con ese producto
         void compraEnviada(int idCompra, int idProducto, string nickname);
-       
         int compararFechasPromociones(DTFecha fecha);
         void procesarProductosEnPromo();
-
+        bool existeCodigo(int codigo);
+        bool vendedorTieneProductos(string nickname);
+        bool alMenosUnProductoPromo();
 };
 
 #endif // CONTROLADORVENTAS_H

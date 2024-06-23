@@ -93,9 +93,14 @@ void Producto::setStock(int stock){
 void Producto::eliminarComentario(int idComentario) {
     map<int, Comentario*>::iterator it = comentarios.find(idComentario);
     if (it != comentarios.end()) {
-        comentarios.erase(it);
+        comentarios.erase(it->first);
         cout << "Comentario con ID: " << idComentario << " eliminado de Producto.\n";
     } else {
         cout << "Comentario con ID: " << idComentario << " no encontrado en Producto.\n";
     }
+}
+
+void Producto::ahoraEstaEnPromo()
+{
+    this->enPromocion = true;
 }
