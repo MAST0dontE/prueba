@@ -889,9 +889,31 @@ do {
 			}
             break;
 		}
-		case 12:
-			cout << "Ha seleccionado Suscribirse a notificaciones.\n";
+		case 12:{
+			cout << "Usted ha seleccionado suscribirse a notificaciones:"<<endl;
+			cout <<"Desea ver un listado con los posibles suscriptores? Y/N"<<endl;
+			char resp;
+			cin>>resp;
+			if (resp == 'Y' || resp == 'y'){
+				controladorUsuarios->imprimirListaDeClientes();
+			}
+			cout<<"Indique el nombre del nuevo suscriptor"<<endl;
+			string suscriptorNuevo;
+			cin>>suscriptorNuevo;
+			controladorUsuarios->imprimirSuscripcionesDisponiblesPara(suscriptorNuevo);
+			cout<<"Desea registrar una nueva suscripcion entre las disponibles? Y/N"<<endl;
+			char resp2;
+			cin>>resp2;
+			while(resp2!='n'&& resp2!='N'){
+			cout<<"Indique a quien desea suscribirse para empezar a recibir sus notificaciones: "<<endl;
+			string creadorDeContenido;
+			cin>>creadorDeContenido;
+			controladorUsuarios->suscribirmeA(creadorDeContenido);
+			cout<<"Desea ingresar otra suscripcion? Y/N"<<endl;
+			cin>>resp2;
+			}
 			break;
+		}
 		case 13:{
 			cout<<"Indique el nombre del cliente"<<endl;
         	string NombreCliente;
