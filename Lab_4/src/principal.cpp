@@ -836,10 +836,9 @@ do {
 					Producto* ptrProducto = controladorVentas->getProductos().find(producto)->second;
 					if (controladorVentas->listarComprasAEnviar(ptrProducto) == 1)
 					{
-						cout << "Seleccione la compra a enviar:" << endl;
+						cout << "Seleccione el numero de compra a enviar:" << endl;
 						int idCompra;
-						string nickVendedor;
-						cin >> idCompra >> nickVendedor;
+						cin >> idCompra;
 
 						controladorVentas->compraEnviada(idCompra, producto, nickname);
 						cout << "La compra ha sido modificada correctamente" << endl;
