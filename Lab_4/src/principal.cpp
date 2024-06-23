@@ -443,7 +443,14 @@ controladorVentas->cargarNuevoProducto("diegom", 14, "Tablet", 15000, 15, "Table
 controladorVentas->cargarNuevoProducto("sofia25", 15, "Reloj de Pared", 150.50, 20, "Reloj de pared vintage", otros, false);
 
 	//Datos de promociones:
+
+
 controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
+controladorVentas->seleccionarVendedor("ana23");
+controladorVentas->agregarProductoPromo(2, 1);
+controladorVentas->ingresarPromocion();
+
+//controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
 controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
 controladorVentas->altaPromocion("Domotica", "Para modernizar tu casa", DTFecha(26, 10, 2024), 10);
 controladorVentas->altaPromocion("Liquidacion", "Hasta agotar stock", DTFecha(26, 3, 2024), 10);
