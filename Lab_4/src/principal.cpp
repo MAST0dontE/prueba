@@ -636,7 +636,7 @@ while (entradaConsola != 0){
 			controladorUsuarios->seleccionarProducto(CodigoProducto, NombreVendedor);
 			cin.ignore(); // Ignorar el carácter de nueva línea residual
 			string respuesta;
-			cout << "¿Desea dejar un comentario nuevo o responder uno ya existente? ";
+			cout << "¿Desea dejar un comentario nuevo (c) o responder uno ya existente (r)? ";
 			getline(cin, respuesta);
 			if (respuesta == "c"){
 				string comentario;
