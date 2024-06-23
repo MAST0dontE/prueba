@@ -125,8 +125,11 @@ void ControladorUsuarios::listarProductos(){
 }
 
 void ControladorUsuarios::seleccionarProducto(int codigo, string nickname){
+	if(esVendedor(nickname)){
 	this->codigoSeleccionado = codigo;
 	this->vendedorProductoSeleccionado = nickname;
+	}else{cout<<"el nombre seleccionado no corresponde a un vendedor, ingrese otro"<<endl;}
+
 }
 
 void ControladorUsuarios::tipoComentario(){
