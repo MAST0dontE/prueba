@@ -770,31 +770,38 @@ do {
 			controladorUsuarios->seleccionarProducto(CodigoProducto, NombreVendedor);
 			cin.ignore(); // Ignorar el carácter de nueva línea residual
 			string respuesta;
-			cout << "¿Desea dejar un comentario nuevo (c) o responder uno ya existente (r)? ";
-			getline(cin, respuesta);
-			if (respuesta == "c"){
-				string comentario;
-				cout << "Escriba el comentario: ";
-				getline(cin, comentario);
-				controladorUsuarios->nuevoComentario(comentario, DTFecha(dia, mes, anio));
-				cout << "El comentario fue agregado" << endl;
-			}
-			else if (respuesta == "r"){
-				controladorUsuarios->listarComentarios(CodigoProducto);
-				int id;
-				cout << "Escriba el ID del comentario al que desea responder: ";
-				cin >> id;
-				string comentador;
-				cout << "Escriba el nombre del autor del comentario al que desea responder: ";
-				cin >> comentador;
-				controladorUsuarios->seleccionarComentario(id, comentador);
-				cin.ignore(); // Ignorar el carácter de nueva línea residual
-				string comentario;
-				cout << "Escriba el comentario: ";
-				getline(cin, comentario);
-				controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1, 1, 1));
-				cout << "El comentario fue agregado" << endl;
-			}
+			cout << "¿Desea dejar un comentario nuevo (C) o responder uno ya existente (R)? ";
+			do{
+				getline(cin, respuesta);
+				if (respuesta == "c" || respuesta == "C")
+				{
+					string comentario;
+					cout << "Escriba el comentario: ";
+					getline(cin, comentario);
+					controladorUsuarios->nuevoComentario(comentario, DTFecha(dia, mes, anio));
+					cout << "El comentario fue agregado" << endl;
+				}
+				else if (respuesta == "r" || respuesta == "R")
+				{
+					controladorUsuarios->listarComentarios(CodigoProducto);
+					int id;
+					cout << "Escriba el ID del comentario al que desea responder: ";
+					cin >> id;
+					string comentador;
+					cout << "Escriba el nombre del autor del comentario al que desea responder: ";
+					cin >> comentador;
+					controladorUsuarios->seleccionarComentario(id, comentador);
+					cin.ignore(); // Ignorar el carácter de nueva línea residual
+					string comentario;
+					cout << "Escriba el comentario: ";
+					getline(cin, comentario);
+					controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1, 1, 1));
+					cout << "El comentario fue agregado" << endl;
+				}
+				else{
+					cout << "Opcion invalida. \n";
+				}
+			} while (respuesta != "C" || respuesta != "c" || respuesta != "R" || respuesta != "r");
 			break;
 		}
 		case 9:{
