@@ -302,13 +302,13 @@ cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
 
 
 
-// ** CASO DE USO: Suscribirse FIN ** //
+//---------------------Casos de prueba tarea 4---------------------//
+	//Tabla 1: Datos básicos de usuarios:
+controladorUsuarios->altaVendedor("ana23", "qwer1234", DTFecha(15,5,1988), "212345678001");
 
-//**FUNCIONES PARA FECHA**//
 
 
-
-//----------------------**PRUEBA DE MENU INTERACTIVO**----------------------//
+//----------------------**MENU INTERACTIVO**----------------------//
 
 cout <<"               	-----    	¡Bienvenido a Mercado Finger!   	-----"<<endl;
 cout <<" "<<endl;
