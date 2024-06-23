@@ -206,14 +206,47 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
              Producto* producto = it->second;
             if (cant > 0 && cant <= producto->getStock()){
                 if(producto->getEnPromocion()){
-                    auto it2 = this->promociones.begin();
-                    while((*it2)->getProductos().find(codigo) == (*it2)->getProductos().end()){
+                   // auto it2 = this->promociones.begin();
+                /*     while((*it2)->getProductos().find(codigo) == (*it2)->getProductos().end()){
+                        cout << "aaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
                         it2++;
                     }
                     ProductoEnPromocion* p = (*it2)->getProductos()[codigo];
                      if(p->getCantMinima() <= cant){
                         this->productosEnPromo[codigo] = cant;
-                     }
+                     } */
+                 /*    bool productoEncontrado = false;
+                    while (it2 != this->promociones.end()) {
+                        cout << "aaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
+                        if ((*it2)->getProductos().find(codigo) != (*it2)->getProductos().end()) {
+                            cout << "bbbbbbbbbbbbbbbbbbbb" << endl;
+                            productoEncontrado = true;
+                            break;
+                        }
+                        it2++;
+                    }
+
+                    if (productoEncontrado) {
+                        ProductoEnPromocion* p = (*it2)->getProductos().at(codigo);
+                        if (p->getCantMinima() <= cant) {
+                            this->productosEnPromo[codigo] = cant;
+                        }
+                    } */
+                    bool productoEncontrado = false;
+                    for (auto& promo : this->promociones) {
+                        auto it2 = promo->getProductos().find(codigo);
+                        if (it2 != promo->getProductos().end()) {
+                            productoEncontrado = true;
+                            ProductoEnPromocion* p = it2->second;
+                            if (p->getCantMinima() <= cant) {
+                                this->productosEnPromo[codigo] = cant;
+                            }
+                            break;
+                        }
+                    }
+                    if (!productoEncontrado) {
+                        cout << "El producto con el código " << codigo << " no está en promoción." << endl;
+                    }
                 } 
                float precio = producto->getPrecio();
                this->montoTotalCompra += precio * cant;     
@@ -242,9 +275,7 @@ int ControladorVentas::compararFechasPromociones(DTFecha fecha1){
     }
     return res;
 }    
-
-void ControladorVentas::procesarProductosEnPromo()
-{
+void ControladorVentas::procesarProductosEnPromo(){
     while (!this->productosEnPromo.empty()) {
         auto it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
@@ -260,7 +291,7 @@ void ControladorVentas::procesarProductosEnPromo()
                 break;
             }
         }
-        if (promo != nullptr && (compararFechasPromociones(promo->getFechaDeVencimiento()) == -1|| compararFechasPromociones(promo->getFechaDeVencimiento()) == 0)){
+        if (promo != nullptr && (compararFechasPromociones(promo->getFechaDeVencimiento()) == 1|| compararFechasPromociones(promo->getFechaDeVencimiento()) == 0)){
             map<int, ProductoEnPromocion*> productosEnPromo = promo->getProductos();
             bool todosProductosEnPromo = true;
             map<int, DTProductoCompra> productosCompra;
@@ -308,8 +339,11 @@ void ControladorVentas::procesarProductosEnPromo()
     }
 }
 
+
 void ControladorVentas::mostrarDetallesCompra(){
+    cout << "aaaaaaaaaaaaaaaaaaaaa" <<endl;
     this->procesarProductosEnPromo();
+    cout << "bbbbbbbbbbbbbbbbbb" <<endl;
     cout << "Detalles de la compra: " << endl;
 
     for (const auto& par : this->datosProductoCompra) {
@@ -433,6 +467,7 @@ void ControladorVentas::ingresarPromocion(){
         //(*it)->setPromocion(promo);
     vendedor->notificar(DTNotificacion(this->nicknameVendedorPromo,this->nombrePromo, productosPromoDT));
     this->setPromocion(promo);
+    //this->promociones.insert(promo);
     this->productosPromo.clear();
     cout<<"La Promocion se ha ingresado correctamente: "<<endl;
     //Se crea la notificacion asociada a esta promo:

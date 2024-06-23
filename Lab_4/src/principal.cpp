@@ -171,6 +171,7 @@ void pedirFechaActual(int& anio, int& mes, int& dia) {
         cout << "Ingrese un día válido: ";
         cin >> dia;
     }
+
 }
 
 void esperarTecla() {
@@ -407,6 +408,7 @@ pedirFechaActual(anio, mes, dia);
 cout << "\nFecha actual establecida: " << setw(2) << setfill('0') << dia << "/" 
      << setw(2) << setfill('0') << mes << "/" << anio << endl;
 
+  controladorVentas->setFechaActual(DTFecha(dia,mes,anio));
     // Aquí podrías continuar con la lógica de tu programa
 
 esperarTecla(); // Espera a que el usuario presione Enter
@@ -643,10 +645,12 @@ do {
 				getline(cin,nicknameCliente);
 			}
         	string respuesta3 = "Y";
+			bool flag = false;
         	while (respuesta3 != "N" && respuesta3 != "n"){
             	cout << "Desea agregar un producto a la compra? Y/N"<<endl;
             	getline(cin,respuesta3);
             	if (respuesta3 == "Y" || respuesta3 == "y"){
+					flag = true;
                 	cout << "Indique el codigo y cantidad del producto a agregar en la compra" <<endl;
                 	int codigo;
                 	cin>>codigo;
@@ -660,6 +664,7 @@ do {
                 	cout << "Opción no válida." <<endl;
             	}
         	}
+			if (flag){
         	controladorVentas->mostrarDetallesCompra();
         	cout << "Desea confirmar la compra? Y/N" <<endl;
         	string respuesta4;
@@ -672,6 +677,7 @@ do {
         	} else {
             	cout << "Opción no válida." <<endl;
         	}
+			}
 			controladorVentas->liberarMemoriaRealizarCompra();
             break;
     	}
