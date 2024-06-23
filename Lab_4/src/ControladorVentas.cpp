@@ -532,11 +532,16 @@ static void imprimirPromoVendedor(string nickname, Promocion* promocion) {
     cout << "Promocion: " << promocion->getNombre() << endl;
     cout << "Descripcion: " << promocion->getDescripcion() << "\n" << endl;
     cout << "Productos en Promocion: " << endl;
-    for (auto productos = promocion->getProductos().begin(); productos != promocion->getProductos().end(); ++productos) {
-        ProductoEnPromocion* productoActual = productos->second;
-        cout << "-> Producto: " << productoActual->getProducto()->getCodigo() << endl;
-        cout << "    Descuento: " << productoActual->getDescuento() << endl;
-        cout << "    Cantidad Minima: " << productoActual->getCantMinima() << endl;
+    map<int,ProductoEnPromocion*>::iterator prodsIt; 
+    map<int,ProductoEnPromocion*> prods = promocion->getProductos(); 
+ 
+    for (prodsIt = prods.begin(); prodsIt != prods.end(); ++prodsIt) {
+        ProductoEnPromocion* productoActual = prodsIt->second;
+        if (productoActual) {
+            cout << "->Producto: " << productoActual->getProducto()->getCodigo() << endl;
+            cout << "    Descuento: " << productoActual->getDescuento() << endl;
+            cout << "    Cantidad Minima: " << productoActual->getCantMinima() << endl;
+        }
     }
 }
 
