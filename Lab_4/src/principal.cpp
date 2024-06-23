@@ -365,6 +365,7 @@ US10 sofia25 V 13,15
 
 cout << "     ** CASO DE USO: Dejar Comentario INICIO **" << endl;
 cout << "````````````````````````````````````````````````````" << endl;
+
 //CM5
 controladorUsuarios->seleccionarUsuario_("natalia");
 controladorUsuarios->seleccionarProducto(1, "carlos78");
@@ -439,6 +440,20 @@ controladorUsuarios->nuevaRespuesta("¿Es facil de limpiar? ", DTFecha(05, 06, 2
 controladorUsuarios->seleccionarUsuario_("roberto");
 controladorUsuarios->seleccionarProducto(5, "diegom");
 controladorUsuarios->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?", DTFecha(05, 06, 2024));
+//CM21
+ontroladorUsuarios->seleccionarUsuario_("diegom");
+controladorUsuarios->seleccionarProducto(5, "roberto");
+controladorUsuarios->seleccionarComentario(19, "diegom");
+controladorUsuarios->nuevaRespuesta("Si, la luz LED se puede controlar a traves de una aplicacion movil", DTFecha(5, 6, 2024));
+//CM22
+
+//CM23
+
+//CM24
+
+//CM25
+
+
 
 cout<< "````````````````````````````````````````````````````" << endl;
 cout << "     ** CASO DE USO: Dejar Comentario FIN **" << endl;
