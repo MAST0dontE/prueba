@@ -1,5 +1,5 @@
 #include "Fabrica.h"
-/*
+
 Fabrica * Fabrica::fabricaInst = NULL;
 
 Fabrica::Fabrica(){
@@ -13,14 +13,10 @@ Fabrica* Fabrica::getFabrica(){
     return fabricaInst;
 }
 
-iControladorUsuarios *Fabrica::getiControladorUsuarios(){
-    return ControladorUsuarios.getControladorUsuarios();
+iControladorUsuarios* Fabrica::getControladorUsuarios(){
+    return this->controladorUsuariosInst->getControladorUsuarios();
 }
 
-iControladorVentas *Fabrica::getiControladorVentas(){
-    if(this->controladorVentasInst == NULL){
-        this->controladorVentasInst = new ControladorVentas;
-    }
-    return this->controladorVentasInst;
+iControladorVentas* Fabrica::getControladorVentas(){
+    return this->controladorVentasInst->getControladorVentas();
 }
-*/

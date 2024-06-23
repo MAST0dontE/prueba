@@ -183,19 +183,26 @@ void esperarTecla() {
 int main() {
 
 // ** FABRICA CREACION Y GET iCONTROLADORES** //
-/*
+cout<<"SE CREA LA FABRICA"<<endl;
 Fabrica * factoria;
-factoria = Fabrica::getFabrica();
-factoria->getiControladorUsuarios();
-factoria->getiControladorVentas();
+factoria = factoria->getFabrica();
+Fabrica * factoriaFake;
+factoriaFake = factoriaFake->getFabrica();
+
+if(factoria==factoriaFake){
+	cout<<"LA FABRICA ES SINGLETON"<<endl;
+}
+else cout<<"ANDA COMO EL ORTOOOOOOOOOOO"<<endl;
+
 // ----------------------------------------------- //
-*/
 
-iControladorUsuarios* controladorUsuarios = ControladorUsuarios::getControladorUsuarios();
-iControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
 
-ControladorUsuarios* controladorUsuarios2 = ControladorUsuarios::getControladorUsuarios();
-ControladorVentas* controladorVentas2 = ControladorVentas::getControladorVentas();
+
+iControladorUsuarios* controladorUsuarios = factoria->getControladorUsuarios();
+iControladorVentas* controladorVentas = factoria->getControladorVentas();
+
+iControladorUsuarios* controladorUsuarios2 = factoria->getControladorUsuarios();
+iControladorVentas* controladorVentas2 = factoria->getControladorVentas();
 
 if(controladorUsuarios==controladorUsuarios2){
     cout<<"Controlador Ususarios ES SINGLETON"<<endl;
