@@ -479,13 +479,13 @@ void ControladorVentas::compraEnviada(int idCompra, int idProducto, string nickn
     productoEnviado->setestadoDeEnvio(EEnvio::enviado);
 }
 
-void ControladorVentas::agregarProducto(int codigo, int cantMinima){
+//void ControladorVentas::agregarProducto(int codigo, int cantMinima){
 
     // DTInfoProducto:: DTInfoProducto(codigo,"nombre", 0, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
     // datosProductosPromo.insert(make_pair(codigo, this->datosProducto));
 
 
-}
+//}
 
 static void imprimirPromoVendedor(string nickname, Promocion* promocion) {
     cout << "Promocion: " << promocion->getNombre() << endl;

@@ -113,8 +113,8 @@ factoria->getiControladorVentas();
 // ----------------------------------------------- //
 */
 
-ControladorUsuarios* controladorUsuarios = ControladorUsuarios::getControladorUsuarios();
-ControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
+iControladorUsuarios* controladorUsuarios = ControladorUsuarios::getControladorUsuarios();
+iControladorVentas* controladorVentas = ControladorVentas::getControladorVentas();
 
 ControladorUsuarios* controladorUsuarios2 = ControladorUsuarios::getControladorUsuarios();
 ControladorVentas* controladorVentas2 = ControladorVentas::getControladorVentas();
