@@ -246,6 +246,58 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
 }
 
 void ControladorVentas::procesarProductosEnPromo(){
+    while (!this->productosEnPromo.empty()) {
+        map<int, int>::iterator it;
+        it = this->productosEnPromo.begin();
+
+        Promocion* promo;
+        // encontrar la promoción que contiene el producto
+        set<Promocion*>::iterator it1;
+        for (it1 = this->promociones.begin(); it1 != this->promociones.end(); ++it1) {
+            if ((*it1)->getProductos().find(it->first) != (*it1)->getProductos().end()) {
+                promo = *it1;
+                break;
+            }
+        }
+        map<int, ProductoEnPromocion*> productosEnPromoMap = promo->getProductos();
+        bool todosProductosEnPromo = true;
+        map<int, DTProductoCompra> productosCompra;
+
+        map<int, ProductoEnPromocion*>::iterator it2;
+        for(it2 = productosEnPromoMap.begin(); it2 != productosEnPromoMap.end(); ++it2){
+            int codigoProdPromo = it2->first;
+            ProductoEnPromocion* prodEnPromo = it2->second;
+
+            auto itProdEnPromo = this->productosEnPromo.find(codigoProdPromo);
+            
+            if (itProdEnPromo != this->productosEnPromo.end()) {
+                // Producto está en productosEnPromo y cumple con la cantidad mínima
+                    int cantidadSolicitada = itProdEnPromo->second;
+                    float precioConDescuento = prodEnPromo->getProducto()->getPrecio() * (1 - prodEnPromo->getDescuento() / 100.0);
+                    productosCompra.emplace(codigoProdPromo, DTProductoCompra(codigoProdPromo, precioConDescuento, cantidadSolicitada));
+                    this->productosEnPromo.erase(itProdEnPromo);
+            }else {
+                todosProductosEnPromo = false;
+            } 
+        }
+         if (todosProductosEnPromo){// Aplica la promocion 
+                for (const auto& par : productosCompra) {
+                    auto it = this->productos.find(par.first);
+                    Producto* producto = it->second;
+                    float precioOriginal = producto->getPrecio();
+
+                    //resto el precio que habia sumado previamente y sumo el precio con descuento al monto total
+                    this->montoTotalCompra -= precioOriginal * par.second.cant; 
+                    this->montoTotalCompra += par.second.precio * par.second.cant; 
+                    //Borro el producto que agregue si descuento en agregarProductoCompra y pongo el nuevo con descuento
+                    this->datosProductoCompra.erase(par.first);
+                    this->datosProductoCompra.emplace(par.first, par.second);
+                }
+            } 
+
+    }
+
+}
 
     /*while (!this->productosEnPromo.empty()) {
         map<int, int>::iterator it;
@@ -314,7 +366,7 @@ void ControladorVentas::procesarProductosEnPromo(){
             this->productosEnPromo.erase(codigoProducto);
         }
     }*/
-}
+
 
 
 void ControladorVentas::mostrarDetallesCompra(){
