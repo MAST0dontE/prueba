@@ -262,6 +262,7 @@ void ControladorVentas::procesarProductosEnPromo(){
         map<int, ProductoEnPromocion*> productosEnPromoMap = promo->getProductos();
         bool todosProductosEnPromo = true;
         map<int, DTProductoCompra> productosCompra;
+        map<int, int> auxiliar;
 
         map<int, ProductoEnPromocion*>::iterator it2;
         for(it2 = productosEnPromoMap.begin(); it2 != productosEnPromoMap.end(); ++it2){
@@ -275,11 +276,20 @@ void ControladorVentas::procesarProductosEnPromo(){
                     int cantidadSolicitada = itProdEnPromo->second;
                     float precioConDescuento = prodEnPromo->getProducto()->getPrecio() * (1 - prodEnPromo->getDescuento() / 100.0);
                     productosCompra.emplace(codigoProdPromo, DTProductoCompra(codigoProdPromo, precioConDescuento, cantidadSolicitada));
-                    this->productosEnPromo.erase(itProdEnPromo);
+                    //this->productosEnPromo.erase(itProdEnPromo);
+                    auxiliar[codigoProdPromo] = cantidadSolicitada;
+
             }else {
                 todosProductosEnPromo = false;
+                //break;
             } 
         }
+        
+        for(auto it3 = auxiliar.begin(); it3 != auxiliar.end(); ++it3){
+            this->productosEnPromo.erase(it3->first);
+        }
+        
+
          if (todosProductosEnPromo){// Aplica la promocion 
                 for (const auto& par : productosCompra) {
                     auto it = this->productos.find(par.first);
