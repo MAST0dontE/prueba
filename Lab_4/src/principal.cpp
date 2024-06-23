@@ -393,6 +393,7 @@ controladorUsuarios->altaCliente("pablo10", "lkjhgv", DTFecha(30,8,1990),DTDirec
 controladorUsuarios->altaCliente("roberto", "mnbvcx", DTFecha(12,11,1995),DTDireccion("Av. Brasil", 1011), "Montevideo");
 	//Datos de prodcutos:
 controladorVentas->cargarNuevoProducto("carlos78",1,"Camiseta Azul", 1400 ,50 ,"Camiseta de poliester, color azul", ropa, false);
+controladorVentas->cargarNuevoProducto("ana23",2,"Televisor LED", 40500 ,30 ,"Televisor LED 55 pulgadas", electrodomesticos, false);
 
 
 //----------------------**MENU INTERACTIVO**----------------------//
