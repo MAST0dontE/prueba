@@ -467,6 +467,83 @@ while (entradaConsola != 0){
         	}
             break;
         }
+		case 5:{
+			cout << "Ingrese el nombre de la promocion" <<endl;
+			cin.ignore();
+			string nombrePromo;
+			getline(cin, nombrePromo);
+			cout << "Ingrese la descripcion de la promocion" <<endl;
+			string descPromo;
+			getline(cin, descPromo);
+			cout <<"A continuacion ingrese la fecha de vencimiento de su promo:"<<endl;
+			int anioProm=0;
+			int mesProm =0;
+			int diaProm=0;
+			cout <<"Ingrese el anio"<<endl;
+			cin>>anioProm;
+			while(anioProm<anio){
+				cout<<"Ingrese un anio valido:"<<endl;
+				cin>>anioProm;
+			}
+			cout<<"Ingrese el mes"<<endl;
+			cin>>mesProm;
+			while(mesProm>12 || mesProm<1||mesProm<mes){
+				cout<<"Ingrese un mes valido:"<<endl;
+				cin>>mesProm;
+			}
+			cout <<"Ingrese el dia"<<endl;
+			cin>>diaProm;
+			int cantDiasMesProm = diasMes(mesProm, anioProm);
+			while(diaProm>cantDiasMesProm || diaProm<1||diaProm<=dia){
+				cout<<"Ingrese un dia valido:"<<endl;
+				cin>>diaProm;
+			}
+			cout <<"Ingrese el descuento de la promocion: "<<endl;
+			float descuento;
+			cin>>descuento;
+			while(descuento<0){
+				cout<<"Ingrese un descuento valido:"<<endl;
+				cin>>descuento;
+			}
+			controladorVentas->altaPromocion(nombrePromo, descPromo, DTFecha(diaProm,mesProm,anioProm), descuento);
+			string nombreVendedor;
+			cin>> nombreVendedor;
+			while(!(controladorUsuarios->existeNickname(nombreVendedor)&&controladorUsuarios->esVendedor(nombreVendedor))){
+				cout<<"Ingrese un vendedor valido: "<<endl;
+			}
+			while(!controladorVentas->vendedorTieneProductos(nombreVendedor)){
+				cout<<"En este momento "<<nombreVendedor<<" no posee ningun producto asociado, vuelva a intentar con otro:"<<endl;
+				cin>>nombreVendedor;
+			}
+				controladorVentas->seleccionarVendedor(nombreVendedor);
+				while(!controladorVentas->alMenosUnProductoPromo()){
+					cout<<"Ingrese el codigo del producto que desea agregar:"<<endl;
+					int codigoProd;
+					cin>> codigoProd;
+					cout<<"Ingrese la cantidad minima del producto seleccionado:"<<endl;
+					int cantProd;
+					cin>> cantProd;
+					controladorVentas->agregarProductoPromo(codigoProd,cantProd);
+				}
+				cout<<"Desea agregar otro producto a la promocion? Y/N"<<endl;
+				char masProds;
+				cin>> masProds;
+				if(masProds == 'Y' || masProds == 'y'){
+					while(masProds == 'Y' || masProds == 'y'){
+					cout<<"Ingrese el codigo del producto que desea agregar:"<<endl;
+					int codigoProd;
+					cin>> codigoProd;
+					cout<<"Ingrese la cantidad minima del producto seleccionado:"<<endl;
+					int cantProd;
+					cin>> cantProd;
+					controladorVentas->agregarProductoPromo(codigoProd,cantProd);
+					cout<<"Desea agregar otro producto a la promocion? Y/N"<<endl;
+					cin>>masProds;
+					}
+				}
+				controladorVentas->ingresarPromocion(); 
+				break;
+		}
 		case 6:{
         	controladorVentas->listarPromociones();
         	cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;

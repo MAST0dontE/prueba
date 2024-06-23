@@ -93,3 +93,7 @@ void Producto::setStock(int stock){
 void Producto::eliminarComentario(int id){
     comentarios.erase(id);
 }
+
+void Producto::ahoraEstaEnPromo(){
+    this->enPromocion=true;
+}

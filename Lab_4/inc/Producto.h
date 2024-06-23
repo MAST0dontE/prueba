@@ -44,6 +44,7 @@ class Producto{
         void agregarComentario(Comentario* comentario);
         void eliminarComentario(int id);
         void setStock(int stock);
+        void ahoraEstaEnPromo();
         
 };
 

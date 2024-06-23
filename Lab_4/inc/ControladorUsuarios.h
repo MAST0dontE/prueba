@@ -76,6 +76,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void getComentarios(Usuario* usuario);
         Comentario* buscarComentario(int id, string nickname);
         // void nuevaSuscripcion(string nickname);
+        bool esVendedor(string nickname);
 };
 
 

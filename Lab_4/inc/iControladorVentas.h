@@ -59,6 +59,8 @@ class iControladorVentas{
         virtual int compararFechasPromociones(DTFecha fecha)= 0 ;
         virtual void procesarProductosEnPromo()= 0 ;
         virtual bool existeCodigo(int codigo)= 0 ;
+        virtual bool vendedorTieneProductos(string nickname) = 0;
+        virtual bool alMenosUnProductoPromo() = 0;
 };
 
 #endif // ICONTROLADORVENTAS_H

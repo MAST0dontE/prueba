@@ -35,6 +35,7 @@ class Vendedor : public Usuario{
         set<string> listarProductoPendientes(string nickname);
         void notificar(DTNotificacion notificacion);
         void eliminarComentario(int id);
+        bool tieneProductos();
 };
 
 #endif // VENDEDOR_H

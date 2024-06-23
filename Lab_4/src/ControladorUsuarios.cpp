@@ -562,3 +562,7 @@ bool ControladorUsuarios::existenUsuariosRegistrados()
 	}
 	
 }
+
+bool ControladorUsuarios::esVendedor(string nickname){
+	return this->usuarios[nickname]->esVendedor();
+}

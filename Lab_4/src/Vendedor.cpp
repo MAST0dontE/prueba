@@ -105,3 +105,7 @@ void Vendedor::notificar(DTNotificacion notificacion){
 void Vendedor::eliminarComentario(int id){
     comentarios.erase(id);
 }
+
+bool Vendedor::tieneProductos(){
+   return !(this->productosVendedor.empty());
+}

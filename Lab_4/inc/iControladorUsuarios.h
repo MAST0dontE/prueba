@@ -53,7 +53,8 @@ class iControladorUsuarios{
         virtual bool existeNickname(string nickname)= 0 ;
         //virtual void getComentarios(Usuario* usuario)= 0 ;
         virtual Comentario* buscarComentario(int id, string nickname)= 0 ;
-        // void nuevaSuscripcion(string nickname)= 0 ;
+        // void nuevaSuscripcion(string nickname)= 0 ;'
+        virtual bool esVendedor(string nickname)=0 ;
 };
 
 #endif // ICONTROLADORUSUARIOS_H

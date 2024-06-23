@@ -87,6 +87,8 @@ class ControladorVentas : public iControladorVentas{
         int compararFechasPromociones(DTFecha fecha);
         void procesarProductosEnPromo();
         bool existeCodigo(int codigo);
+        bool vendedorTieneProductos(string nickname);
+        bool alMenosUnProductoPromo();
 };
 
 #endif // CONTROLADORVENTAS_H

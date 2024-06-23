@@ -390,6 +390,11 @@ void ControladorVentas::altaPromocion(string nombre, string descripcion, DTFecha
     }
 }
 
+bool ControladorVentas::vendedorTieneProductos(string nickname){
+    Vendedor* vendedor = this->vendedores[nickname];
+    return (vendedor->tieneProductos());
+}
+
 void ControladorVentas::seleccionarVendedor(string nickname){
     this->nicknameVendedorPromo = nickname;
     Vendedor* vendedor = this->vendedores[nickname];
@@ -401,6 +406,7 @@ void ControladorVentas::agregarProductoPromo(int codigo, int cantMinima){
     if(producto!=NULL && !producto->getEnPromocion() && producto->getNombreVendedor()==this->nicknameVendedorPromo){
         ProductoEnPromocion* produPromo = new ProductoEnPromocion(producto, this->descuentoPromo, cantMinima);
         this->productosPromo.insert(produPromo);
+        producto->ahoraEstaEnPromo();
         cout<< "El producto es valido y se agregara correctamente a la promo: "<<endl;
     }
     else cout<< "El producto NO es valido para agregarse correctamente a la promo: "<<endl;
@@ -531,4 +537,8 @@ bool ControladorVentas::existeCodigo(int codigo){
         return true;
     }
 	else return false;
+}
+
+bool ControladorVentas::alMenosUnProductoPromo(){
+    return !(this->productosPromo.empty());
 }
