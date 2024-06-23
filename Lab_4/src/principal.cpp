@@ -129,7 +129,7 @@ void mostrarMenu() {
     cout << "║ 12. 🔔 Suscribirse a notificaciones    ║\n";
     cout << "║ 13. 🔍 Consultar notificaciones        ║\n";
     cout << "║ 14. 🗑️ Eliminar suscripciones          ║\n";
-    cout << "║ 15. 🧪 Casos de prueba                  ║\n";
+    cout << "║ 15. 🧪 Casos de prueba                 ║\n";
     cout << "╚════════════════════════════════════════╝\n";
 }
 
@@ -909,7 +909,6 @@ do {
 			cout << "Opción inválida. Por favor, ingrese una opción válida.\n";
 			break;
         }
-		cout << "\033[2J\033[1;1H";
 	} while (opcion != 0);
     /*cout<<"¿Desea realizar otra operación?"<<endl;
 	cout <<"¿En que lo podemos asistir?"<<endl;
