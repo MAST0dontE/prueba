@@ -373,7 +373,6 @@ void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
         }
     }
     Comentario* comentarioPadre = comentario->getComentarioPadre();
-	cout << "dios.\n";
 	if (comentarioPadre) {
         cout << "Eliminando referencia del comentario con ID: " << comentario->getId() << " del comentario padre con ID: " << comentarioPadre->getId() << "\n";
         comentarioPadre->getRespuestas().erase(comentario->getId());
