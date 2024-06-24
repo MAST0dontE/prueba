@@ -200,7 +200,7 @@ void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeCome
 void ControladorUsuarios::nuevaRespuesta(string comentario, DTFecha fechaDeComentario) {
     map<string, Usuario*>::iterator it = usuarios.find(comentador); // Este es el autor del comentario al que responde
     if (it == usuarios.end()) {
-        cout << "Usuario comentador no encontrado.\n";
+        cout << "Usuario no encontrado.\n";
         return;
     }
     map<string, Usuario *>::iterator itU = usuarios.find(usuarioSeleccionado); // Este es el usuario que va a dejar el comentario nuevo
@@ -358,7 +358,6 @@ void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
         }
     }
     Comentario* comentarioPadre = comentario->getComentarioPadre();
-
 	if (comentarioPadre) {
         comentarioPadre->getRespuestas().erase(comentario->getId());
     } else {
