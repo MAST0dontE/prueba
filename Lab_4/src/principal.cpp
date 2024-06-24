@@ -914,7 +914,7 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 							cout << "Seleccione el numero de compra a enviar:" << endl;
 							int idCompra;
 							cin >> idCompra;
-							if (1==1)
+							if (controladorVentas->existeCompraRealizada(nickCliente, idCompra))
 							{
 								controladorVentas->compraEnviada(idCompra, producto, nickCliente);
 								cout << "La compra ha sido modificada correctamente" << endl;
