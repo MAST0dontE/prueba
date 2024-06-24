@@ -837,7 +837,7 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			cin.ignore(); // Ignorar el carácter de nueva línea residual
 			string respuesta;
 			cout << "¿Desea dejar un comentario nuevo (C) o responder uno ya existente (R)? ";
-			getline(cin, respuesta);
+			cin >> respuesta;
 			if (respuesta == "c" || respuesta == "C"){
 				string comentario;
 				cout << "Escriba el comentario: ";
