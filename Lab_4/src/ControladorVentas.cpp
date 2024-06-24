@@ -220,87 +220,56 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     } 
 }
 
-void ControladorVentas::procesarProductosEnPromo()
-{
-    // Iterar hasta que no queden productos en promoción por procesar
-    while (!this->productosEnPromo.empty())
-    {
+void ControladorVentas::procesarProductosEnPromo(){
+    while (!this->productosEnPromo.empty()){
         auto it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
         Promocion *promo = nullptr;
-
-        // Encontrar la promoción que contiene el producto
-        for (auto &promocion : this->promociones)
-        {
+        for (auto &promocion : this->promociones){
             auto productosPromocion = promocion->getProductos();
             auto it2 = productosPromocion.find(codigoProducto);
-            if (it2 != productosPromocion.end())
-            {
+            if (it2 != productosPromocion.end()){
                 promo = promocion;
                 break;
             }
         }
-
-        // Verificar si se encontró una promoción para el producto
-        if (promo)
-        {
+        if (promo){
             auto productosPromocion = promo->getProductos();
             bool todosProductosEnPromo = true;
             map<int, int> encontrados;
-
-            // Verificar si todos los productos de la promoción están en productosEnPromo
-            for (auto it2 = productosPromocion.begin(); it2 != productosPromocion.end(); ++it2)
-            {
+            for (auto it2 = productosPromocion.begin(); it2 != productosPromocion.end(); ++it2){
                 int codigoProdPromo = it2->first;
-                if (this->productosEnPromo.find(codigoProdPromo) != this->productosEnPromo.end())
-                {
+                if (this->productosEnPromo.find(codigoProdPromo) != this->productosEnPromo.end()){
                     encontrados[codigoProdPromo] = this->productosEnPromo[codigoProdPromo];
                 }
-                else
-                {
+                else{
                     todosProductosEnPromo = false;
                     break;
                 }
             }
-
-            // Aplicar la promoción si todos los productos están en la promoción
-            if (todosProductosEnPromo)
-            {
-                for (const auto &par : encontrados)
-                {
+            if (todosProductosEnPromo){
+                for (const auto &par : encontrados){
                     int codigoProductoPromo = par.first;
                     int cantidadPromo = par.second;
-
                     auto itProducto = this->productos.find(codigoProductoPromo);
                     Producto *producto = itProducto->second;
                     float precioOriginal = producto->getPrecio();
                     float descuento = productosPromocion.find(codigoProductoPromo)->second->getDescuento();
                     float precioConDescuento = precioOriginal * (1 - descuento / 100.0);
-
-                    // Actualizar el monto total de la compra
                     this->montoTotalCompra -= precioOriginal * cantidadPromo;
                     this->montoTotalCompra += precioConDescuento * cantidadPromo;
-
-                    // Actualizar los datos del producto en la compra
                     this->datosProductoCompra.erase(codigoProductoPromo);
                     this->datosProductoCompra.emplace(codigoProductoPromo, DTProductoCompra(codigoProductoPromo, precioConDescuento, cantidadPromo));
                 }
-
-                // Eliminar los productos de productosEnPromo que ya fueron procesados
             }
-            else
-            {
-                // Si no se procesó ninguna promoción, avanzar el iterador para evitar bucles infinitos
+            else{
                 ++it;
             }
-            for (const auto &par : encontrados)
-                {
+            for (const auto &par : encontrados){
                     this->productosEnPromo.erase(par.first);
                 }
         }
-        else
-        {
-            // Si no se encontró una promoción para el producto, avanzar al siguiente producto
+        else{
             ++it;
         }
     }

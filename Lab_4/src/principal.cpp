@@ -844,6 +844,8 @@ int main()
 			controladorVentas->seleccionarVendedor("carlos78");
 			controladorVentas->agregarProductoPromo(6, 1);
 			controladorVentas->agregarProductoPromo(3, 2);
+			controladorVentas->agregarProductoPromo(6, 1);
+			//controladorVentas->agregarProductoPromo(10, 1);
 			controladorVentas->ingresarPromocion();
 
 			controladorVentas->altaPromocion("Domotica", "Para modernizar tu casa", DTFecha(26, 10, 2024), 10);
