@@ -34,6 +34,7 @@ class Cliente : public Usuario, public iSuscriptor{
         map<int, Comentario*>& getComentarios();
         void agregarCompra(Compra* compra);
         void eliminarComentario(int id);
+       // bool existeCompra(int id);
 };
 
 #endif // CLIENTE_H

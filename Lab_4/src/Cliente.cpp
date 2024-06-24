@@ -73,3 +73,8 @@ void Cliente::eliminarComentario(int idComentario) {
         comentarios.erase(it->first);
     }
 }
+
+/*bool Cliente::existeCompra(int id)
+{
+    return (getComprasRealizadas().find(id) != getComprasRealizadas.end())
+}*/

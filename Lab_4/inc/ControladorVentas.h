@@ -87,6 +87,7 @@ class ControladorVentas : public iControladorVentas{
         bool existeCodigo(int codigo);
         bool vendedorTieneProductos(string nickname);
         bool alMenosUnProductoPromo();
+        /*bool existeCompraRealizada(string nicknameCliente, int id);*/
 };
 
 #endif // CONTROLADORVENTAS_H

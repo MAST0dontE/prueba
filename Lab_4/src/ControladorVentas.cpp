@@ -531,3 +531,9 @@ bool ControladorVentas::existeCodigo(int codigo){
 bool ControladorVentas::alMenosUnProductoPromo(){
     return !(this->productosPromo.empty());
 }
+
+/*bool ControladorVentas::existeCompraRealizada(string nicknameCliente, int id){
+    Cliente* cliente = clientes.find(nicknameCliente)->second;
+    Compra* compra = cliente->getComprasRealizadas().find(id);
+    return (compra != cliente->getComprasRealizadas().end());
+}*/
