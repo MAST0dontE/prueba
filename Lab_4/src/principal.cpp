@@ -225,15 +225,31 @@ int main()
 				cout<<"La contrasenia debe tener al menos 6 caracteres de largo, por favor intente nuevamente:"<<endl;
 				cin>>contra;
 			}
-			int ano;
-			cout << "Indique año de nacimiento" << endl;
-			cin >> ano;
-			int mes;
-			cout << "Indique mes de nacimiento" << endl;
-			cin >> mes;
-			int dia;
-			cout << "Indique dia de nacimiento" << endl;
-			cin >> dia;
+			cout << "Ingrese el anio de nacimiento:" << endl;
+			int anioAlta;
+			cin >> anioAlta;
+			while (anioAlta < 1900 || anioAlta > 2006)
+			{
+				cout << "Ingrese un anio valido:" << endl;
+				cin >> anioAlta;
+			}
+			int mesAlta;
+			cout << "Ingrese el mes de nacimiento:" << endl;
+			cin >> mesAlta;
+			while (mesAlta > 12 || mesAlta < 1)
+			{
+				cout << "Ingrese un mes valido:" << endl;
+				cin >> mesAlta;
+			}
+			int diaAlta;
+			cout << "Ingrese el dia de nacimiento:" << endl;
+			cin >> diaAlta;
+			int cantDiasMesAlta = diasMes(mesAlta, anioAlta);
+			while (diaAlta > cantDiasMesAlta || diaAlta < 1)
+			{
+				cout << "Ingrese un dia valido:" << endl;
+				cin >> diaAlta;
+			}
 			cout << "¿Desea registrar un vendedor o un cliente?" << endl;
 			// cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			char c;
@@ -253,25 +269,40 @@ int main()
 				cout << "Indique número de puerta:" << endl;
 				int numPuerta;
 				cin >> numPuerta;
-				bool a = controladorUsuarios->altaCliente(nombreUsuario, contra, DTFecha(dia, mes, ano), DTDireccion(calle, numPuerta), ciudad);
-				if (a)
-				{
-					cout << "Su cliente fue creado" << endl;
-					break;
-				}
-				else
-				{
-					cout << "No fue posible crear el cliente." << endl;
+				cout << "¿Desea confirmar el alta del cliente? Y/N" << endl;
+				string respuesta;
+				cin >> respuesta;
+				if (respuesta == "y" || respuesta == "Y") {
+					bool a = controladorUsuarios->altaCliente(nombreUsuario, contra, DTFecha(diaAlta, mesAlta, anioAlta), DTDireccion(calle, numPuerta), ciudad);
+					if (a)
+					{
+						cout << "Su cliente fue creado" << endl;
+						break;
+					}
+					else
+					{
+						cout << "No fue posible crear el cliente." << endl;
+					}
 				}
 			}
 			else if (respuesta2 == "Vendedor" || respuesta2 == "vendedor")
 			{
 				string codigoRut;
-				cout << "Indique codigo Rut del vendedor" << endl;
+				cout << "Indique codigo Rut del vendedor:" << endl;
 				getline(cin, codigoRut);
-				if (controladorUsuarios->altaVendedor(nombreUsuario, contra, DTFecha(dia, mes, ano), codigoRut))
+				while (!controladorUsuarios->esRutValido(codigoRut))
 				{
-					cout << "Su vendedor fue creado" << endl;
+					cout << "Indique un codigo de RUT valido." << endl;
+					getline(cin, codigoRut);
+				}
+				cout << "¿Desea confirmar el alta del vendedor? Y/N" << endl;
+				string respuesta;
+				cin >> respuesta;
+				if (respuesta == "y" || respuesta == "Y")
+				{
+					if (controladorUsuarios->altaVendedor(nombreUsuario, contra, DTFecha(diaAlta, mesAlta, anioAlta), codigoRut)){
+						cout << "Su vendedor fue creado" << endl;
+					}
 				}
 			}
 			else

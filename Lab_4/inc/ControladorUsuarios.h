@@ -74,6 +74,7 @@ class ControladorUsuarios : public iControladorUsuarios{
         void imprimirComentarioYRespuestas(Comentario* comentario, set<int>& comentariosImpresos);
         Comentario* buscarComentario(int id, string nickname);
         bool esVendedor(string nickname);
+        bool esRutValido(string codigoRUT);
 };
 
 

@@ -533,3 +533,15 @@ bool ControladorUsuarios::existenUsuariosRegistrados()
 bool ControladorUsuarios::esVendedor(string nickname){
 	return this->usuarios[nickname]->esVendedor();
 }
+
+bool ControladorUsuarios::esRutValido(string codigoRUT){ 
+   if (codigoRUT.size() != 12) {
+        return false;
+    }
+    for (char c : codigoRUT) {
+        if (!isdigit(c)) {
+            return false;
+        }
+    }
+    return true;
+}
