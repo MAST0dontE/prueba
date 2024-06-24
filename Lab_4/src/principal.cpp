@@ -812,7 +812,6 @@ int main()
 			controladorVentas->agregarProductoPromo(8, 1);
 			controladorVentas->ingresarPromocion();
 
-			//controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
 			controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
 			controladorVentas->seleccionarVendedor("carlos78");
 			controladorVentas->agregarProductoPromo(6, 3);
@@ -828,6 +827,22 @@ int main()
 			controladorVentas->seleccionarVendedor("diegom");
 			controladorVentas->agregarProductoPromo(14, 1);
 			controladorVentas->ingresarPromocion();
+
+				//Datos compras:
+
+
+			controladorVentas->seleccionarCliente("juan87");	
+			controladorVentas->agregarProductoCompra(2, 2);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();
+		
+			controladorVentas->seleccionarCliente("juan87");
+			controladorVentas->agregarProductoCompra(5, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();
+		
 
 				//Datos de Comentarios:
 			//=========================CASO PRODUCTO 1 CARLOS78===================================================
