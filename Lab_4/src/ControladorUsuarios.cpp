@@ -335,14 +335,12 @@ Comentario* ControladorUsuarios::buscarComentario(int id, string nickname){
 
 void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
     if (!comentario) {
-        cout << "Comentario es nullptr, nada que eliminar.\n";
+        cout << "No existe el comentario.\n";
         return;
     }
-    cout << "Eliminando comentario con ID: " << comentario->getId() << "\n";
     map<int, Comentario*>& respuestas = comentario->getRespuestas();
     while (!respuestas.empty()) {
         map<int, Comentario*>::iterator it = respuestas.begin();
-        cout << "Eliminando respuesta con ID: " << it->second->getId() << "\n";
         eliminarComentarioRecursivo(it->second);
     }
     for (map<string, Usuario*>::iterator it = usuarios.begin(); it != usuarios.end(); ++it) {
@@ -362,12 +360,10 @@ void ControladorUsuarios::eliminarComentarioRecursivo(Comentario* comentario) {
     Comentario* comentarioPadre = comentario->getComentarioPadre();
 
 	if (comentarioPadre) {
-        cout << "Eliminando referencia del comentario con ID: " << comentario->getId() << " del comentario padre con ID: " << comentarioPadre->getId() << "\n";
         comentarioPadre->getRespuestas().erase(comentario->getId());
     } else {
         Producto* producto = comentario->getProducto();
         if (producto) {
-            cout << "Eliminando referencia del comentario con ID: " << comentario->getId() << " del producto.\n";
             producto->eliminarComentario(comentario->getId());
         }
     }
