@@ -251,7 +251,6 @@ void ControladorVentas::procesarProductosEnPromo(){
     {
         auto it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
-        int cantidad = it->second;
         Promocion *promo = nullptr;
 
         // Encontrar la promoción que contiene el producto
