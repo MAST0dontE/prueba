@@ -430,7 +430,8 @@ void ControladorUsuarios::eliminarSuscripciones(string nicknameVendedor, string 
 void ControladorUsuarios::listarSuscripciones(string nickname){
 	map<string, Vendedor*>::iterator it;
 	this->nombreNuevoSuscriptor = nickname;
-	cout<<"Las suscripciones disponibles para "<< nickname <<" son:"<<endl;
+	
+	cout<<"Las suscripciones de "<<nickname<<" son:"<<endl;
 	for (it= vendedores.begin(); it!=vendedores.end(); ++it){
 		bool suscripto = it->second->estaSuscripto(nickname);
 		if(suscripto){
