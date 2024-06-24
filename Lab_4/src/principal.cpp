@@ -413,7 +413,7 @@ controladorUsuarios->nuevaRespuesta("¿Es compatible con Alexa o Google Home?", 
 //CM23
 controladorUsuarios->seleccionarUsuario_("diegom");
 controladorUsuarios->seleccionarProducto(5, "diegom");
-controladorUsuarios->seleccionarComentario(21, "pablo18");
+controladorUsuarios->seleccionarComentario(21, "pablo10");
 controladorUsuarios->nuevaRespuesta("Si, es compatible con ambos.", DTFecha(6, 6, 2024));
 //CM24
 controladorUsuarios->seleccionarUsuario_("natalia");
