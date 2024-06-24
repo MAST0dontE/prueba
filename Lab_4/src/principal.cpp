@@ -205,8 +205,7 @@ int main()
 		mostrarMenu();
 		cout << "Ingrese la opción deseada: ";
 		cin >> opcion;
-		switch (opcion)
-		{
+		switch (opcion){
 		case 1:
 		{
 			string nombreUsuario;

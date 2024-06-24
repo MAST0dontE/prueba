@@ -426,17 +426,17 @@ void ControladorVentas::ingresarPromocion(){
 
 int ControladorVentas::listarProductosPendientes(string nickname){
     int existenProductosPendientes = 0;
-    for (auto  compraIt = compras.begin(); compraIt != compras.end(); ++compraIt)
-    {
-        Compra* compraActual = compraIt->second; 
-        for (auto compraPorProducto = compraActual->getProductos().begin() ; compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto)
-        {
-          CompraPorProducto* productoActual = compraPorProducto->second;
-          if ((productoActual->getVendedor() == nickname) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente))
-          {
-            cout << "Producto pendiente de envio: " << productoActual->getCodigoProducto() << endl;
-            existenProductosPendientes = 1;
-          }
+    set<int> productosListados;
+    for (auto compraIt = compras.begin(); compraIt != compras.end(); ++compraIt) {
+        Compra* compraActual = compraIt->second;
+        for (auto compraPorProducto = compraActual->getProductos().begin(); compraPorProducto != compraActual->getProductos().end(); ++compraPorProducto) {
+            CompraPorProducto* productoActual = compraPorProducto->second;
+            int codigoProducto = productoActual->getCodigoProducto();
+            if ((productoActual->getVendedor() == nickname) && (productoActual->getestadoDeEnvio() == EEnvio::pendiente) && (productosListados.find(codigoProducto) == productosListados.end())) {
+                cout << "Producto pendiente de envio: " << codigoProducto << endl;
+                productosListados.insert(codigoProducto);
+                existenProductosPendientes = 1;
+            }
         }
     }
     return existenProductosPendientes;
