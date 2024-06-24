@@ -18,11 +18,6 @@ DTInfoCompra Producto::getDatosCompra()
     // Implementación
     return DTInfoCompra(DTFecha(1,1,1), 0);
 }
-
-void Producto::agregarProducto(int stock, int cantidad)
-{
-    // Implementación
-}
    
 DTInfoProducto Producto::getInfoProducto(){
     return DTInfoProducto(this->getCodigo(), this->getNombre(), this->getPrecio(), this->getStock(), this->getDescripcion(),  this->getCategoria(),this->getNombreVendedor());

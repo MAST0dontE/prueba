@@ -111,6 +111,7 @@ void Vendedor::eliminarComentario(int idComentario) {
     } 
 }
 
-bool Vendedor::tieneProductos(){
-   return !(this->productosVendedor.empty());
+bool Vendedor::tieneProductos()
+{
+    return !(this->productosVendedor.empty());
 }

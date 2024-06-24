@@ -38,7 +38,6 @@ class ControladorUsuarios : public iControladorUsuarios{
     char respuestaSeleccionada;
     string usuarioSeleccionado; //seleccionarUsuario
     string nombreNuevoSuscriptor;
-    //string nicknameClienteEliminarSuscripcion;
 
     public:
         static ControladorUsuarios* getControladorUsuarios();

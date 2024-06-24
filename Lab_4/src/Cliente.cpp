@@ -20,10 +20,6 @@ const map<int, Compra*> &Cliente::getComprasRealizadas() const
     return this->comprasRealizadas;
 }
 
-void Cliente::agregarSuscripcion(){
-    //Implementacion
-}
-
 void Cliente::notificar(DTNotificacion notificacion){
     int key = this->contadorNotificaciones;
     this->notificaciones.emplace(key,notificacion);
@@ -43,11 +39,6 @@ void Cliente::borrarNotificaciones(){
 vector<Comentario> Cliente::listarComentarios(string)
 {
     return vector<Comentario>();
-}
-
-void Cliente::eliminarSuscripcion()
-{
-    // Implementación
 }
 
 void Cliente::agregarComentario(Comentario *comentario)

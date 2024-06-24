@@ -1008,9 +1008,16 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 				cout << "Indique a quien desea suscribirse para empezar a recibir sus notificaciones: " << endl;
 				string creadorDeContenido;
 				cin >> creadorDeContenido;
-				controladorUsuarios->suscribirmeA(creadorDeContenido);
-				cout << "Desea ingresar otra suscripcion? Y/N" << endl;
-				cin >> resp2;
+				if(controladorUsuarios->existeNickname(creadorDeContenido)&&controladorUsuarios->esVendedor(creadorDeContenido)){
+					controladorUsuarios->suscribirmeA(creadorDeContenido);
+					cout << "Desea ingresar otra suscripcion? Y/N" << endl;
+					cin >> resp2;
+				}
+				else{ 
+					cout<<"Nickname invalido, por favor ingrese un nickname que le corresponda a un vendedor: "<<endl;
+					cout << "Desea ingresar otra suscripcion? Y/N" << endl;
+					cin >> resp2;
+				}
 			}
 			break;
 		}
