@@ -553,6 +553,7 @@ int main()
 			cin >> respuesta;
 			if (respuesta == "c" || respuesta == "C"){
 				string comentario;
+				cin.ignore();
 				cout << "Escriba el comentario: ";
 				getline(cin, comentario);
 				controladorUsuarios->nuevoComentario(comentario, DTFecha(dia, mes, anio));
