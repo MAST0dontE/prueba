@@ -615,14 +615,17 @@ int main()
 						cout << "Indique el cliente a la cual pertenece:" << endl;
 						string nickCliente;
 						cin>>nickCliente;
-						cout << "Seleccione el numero de compra a enviar:" << endl;
-						int idCompra;
-						cin >> idCompra;
-						if (controladorUsuarios->existeNickname(nickCliente) && !controladorUsuarios->esVendedor(nickCliente)){
+						if (controladorUsuarios->existeNickname(nickCliente) && !controladorUsuarios->esVendedor(nickCliente))
+						{
+							cout << "Seleccione el numero de compra a enviar:" << endl;
+							int idCompra;
+							cin >> idCompra;
 							controladorVentas->compraEnviada(idCompra, producto, nickCliente);
+							cout << "La compra ha sido modificada correctamente" << endl;
 						}
-						cout << "La compra ha sido modificada correctamente" << endl;
-						
+						else {
+							cout <<"Cliente inválido." << endl;
+						}
 					}
 					else
 					{
