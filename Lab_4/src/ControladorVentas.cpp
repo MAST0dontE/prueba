@@ -245,12 +245,14 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
     } 
 }
 
-void ControladorVentas::procesarProductosEnPromo(){
+void ControladorVentas::procesarProductosEnPromo()
+{
     // Iterar hasta que no queden productos en promoción por procesar
     while (!this->productosEnPromo.empty())
     {
         auto it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
+        int cantidad = it->second;
         Promocion *promo = nullptr;
 
         // Encontrar la promoción que contiene el producto
@@ -311,16 +313,16 @@ void ControladorVentas::procesarProductosEnPromo(){
                 }
 
                 // Eliminar los productos de productosEnPromo que ya fueron procesados
-                for (const auto &par : encontrados)
-                {
-                    this->productosEnPromo.erase(par.first);
-                }
             }
             else
             {
                 // Si no se procesó ninguna promoción, avanzar el iterador para evitar bucles infinitos
                 ++it;
             }
+            for (const auto &par : encontrados)
+                {
+                    this->productosEnPromo.erase(par.first);
+                }
         }
         else
         {
@@ -329,7 +331,6 @@ void ControladorVentas::procesarProductosEnPromo(){
         }
     }
 }
-
 
 void ControladorVentas::mostrarDetallesCompra(){
     this->procesarProductosEnPromo();
@@ -489,18 +490,20 @@ int ControladorVentas::listarComprasAEnviar(Producto *producto){
 
 
 void ControladorVentas::compraEnviada(int idCompra, int idProducto, string nickname) {
-    Cliente* cliente = clientes.find(nickname)->second;
+    Cliente* cliente = clientes.find(nickname)->second;   
     map<int, Compra*> compras = cliente->getComprasRealizadas();    
-        cout << "entreeeeeeeee3" << endl;
-
-    Compra* compra = compras.find(idCompra)->second;
+    cout << "entreeeeeeeee3" << endl;
+    map<int, Compra*>::iterator compra = compras.find(idCompra);
         cout << "entreeeeeeeee4" << endl;
+    if (!(compra != compras.end()))
+    {
+        map<int, CompraPorProducto*> prods = compra->second->getProductos();
+        cout << "entreeeeeeeee5" << endl;
+        CompraPorProducto* productoEnviado = prods.find(idProducto)->second;
+        productoEnviado->setestadoDeEnvio(EEnvio::enviado);    
+    }
+}   
 
-    map<int, CompraPorProducto*> prods = compra->getProductos();
-    cout << "entreeeeeeeee5" << endl;
-    CompraPorProducto* productoEnviado = prods.find(idProducto)->second;
-    productoEnviado->setestadoDeEnvio(EEnvio::enviado);
-}
 
 //void ControladorVentas::agregarProducto(int codigo, int cantMinima){
 
