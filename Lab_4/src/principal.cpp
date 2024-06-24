@@ -277,7 +277,10 @@ controladorVentas->cargarNuevoProducto("sofia25", 15, "Reloj de Pared", 150.50, 
 
 controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
 controladorVentas->seleccionarVendedor("ana23");
+
 controladorVentas->agregarProductoPromo(2, 1);
+controladorVentas->agregarProductoPromo(4, 1);
+controladorVentas->agregarProductoPromo(8, 1);
 controladorVentas->ingresarPromocion();
 
 //controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);

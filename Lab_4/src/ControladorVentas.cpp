@@ -246,149 +246,94 @@ void ControladorVentas::agregarProductoCompra(int codigo, int cant){
 }
 
 void ControladorVentas::procesarProductosEnPromo(){
-    while (!this->productosEnPromo.empty()) {
-        for(auto it = this->productosEnPromo.begin();it!=this->productosEnPromo.end();++it){
-            cout<<(*it).first<<endl;
-        }
-        map<int, int>::iterator it;
-        it = this->productosEnPromo.begin();
-
-        Promocion* promo;
-        // encontrar la promoción que contiene el producto
-        set<Promocion*>::iterator it1;
-        for (it1 = this->promociones.begin(); it1 != this->promociones.end(); ++it1) {
-            if ((*it1)->getProductos().find(it->first) != (*it1)->getProductos().end()) {
-                promo = *it1;
-                break;
-            }
-        }
-        map<int, ProductoEnPromocion*> productosPromocion = promo->getProductos();
-        bool todosProductosEnPromo = true;
-        map<int, int> encontrados;
-        map<int, ProductoEnPromocion*>::iterator it2;
-        for(it2 = productosPromocion.begin(); it2 != productosPromocion.end(); ++it2){
-            int codigoProdPromo = it2->first;
-            //ProductoEnPromocion* prodEnPromo = it2->second;
-
-            //auto itProdEnPromo = this->productosEnPromo.find(codigoProdPromo);
-            
-            if (this->productosEnPromo.find(codigoProdPromo) != this->productosEnPromo.end()){
-                // Producto está en productosEnPromo y cumple con la cantidad mínima
-                    encontrados[codigoProdPromo] = this->productosEnPromo.find(codigoProdPromo)->second;
-            }else {
-                todosProductosEnPromo = false;
-                //break;
-            } 
-        }
-        
-        for(auto it3 = auxiliar.begin(); it3 != auxiliar.end(); ++it3){
-            this->productosEnPromo.erase(it3->first);
-        }
-        
-
-         if (todosProductosEnPromo){// Aplica la promocion 
-                for (const auto& par : encontrados) {
-                    auto it = this->productos.find(par.first);
-                    Producto* producto = it->second;
-                    float precioOriginal = producto->getPrecio();
-                    float descuento = productosPromocion.find(par.first)->second->getDescuento();
-                    float precioConDescuento = precioOriginal * (1 - descuento / 100.0);
-                    //resto el precio que habia sumado previamente y sumo el precio con descuento al monto total
-                    this->montoTotalCompra -= precioOriginal * par.second; 
-                    this->montoTotalCompra += precioConDescuento * par.second; 
-                    //Borro el producto que agregue si descuento en agregarProductoCompra y pongo el nuevo con descuento
-                    this->datosProductoCompra.erase(par.first);
-                    this->datosProductoCompra.emplace(par.first, DTProductoCompra(par.first, precioConDescuento, par.second));
-                }
-        }
-        map<int, int>::iterator it3;
-        for(it3=encontrados.begin();it3!=encontrados.end();++it3){
-            productosEnPromo.erase((*it3).first);
-        } 
-        encontrados.clear();
-    }
-/*
-                     int cantidadSolicitada = itProdEnPromo->second;
-                    float precioConDescuento = prodEnPromo->getProducto()->getPrecio() * (1 - prodEnPromo->getDescuento() / 100.0);
-                    productosCompra.emplace(codigoProdPromo, DTProductoCompra(codigoProdPromo, precioConDescuento, cantidadSolicitada));
-                    this->productosEnPromo.erase(itProdEnPromo);
-*/
-}
-
-    /*while (!this->productosEnPromo.empty()) {
-        map<int, int>::iterator it;
-        it = this->productosEnPromo.begin();
+    // Iterar hasta que no queden productos en promoción por procesar
+    while (!this->productosEnPromo.empty())
+    {
+        auto it = this->productosEnPromo.begin();
         int codigoProducto = it->first;
-        //int cantidad = it->second;
-        //this->productosEnPromo.erase(it);
+        int cantidad = it->second;
+        Promocion *promo = nullptr;
 
-        Promocion* promo = nullptr;
-
-        // encontrar la promoción que contiene el producto
-        
-        set<Promocion*>::iterator it1;
-        for (it1 = this->promociones.begin(); it1 != this->promociones.end(); ++it1) {
-            if ((*it1)->getProductos().find(codigoProducto) != (*it1)->getProductos().end()) {
-                promo = *it1;
+        // Encontrar la promoción que contiene el producto
+        for (auto &promocion : this->promociones)
+        {
+            auto productosPromocion = promocion->getProductos();
+            auto it2 = productosPromocion.find(codigoProducto);
+            if (it2 != productosPromocion.end())
+            {
+                promo = promocion;
                 break;
             }
         }
-        if (promo != nullptr && (compararFechasPromociones(promo->getFechaDeVencimiento()) == 1||
-            compararFechasPromociones(promo->getFechaDeVencimiento()) == 0)){
-            map<int, ProductoEnPromocion*> productosEnPromoMap = promo->getProductos();
+
+        // Verificar si se encontró una promoción para el producto
+        if (promo)
+        {
+            auto productosPromocion = promo->getProductos();
             bool todosProductosEnPromo = true;
-            map<int, DTProductoCompra> productosCompra;
+            map<int, int> encontrados;
 
-            for (const auto& par : productosEnPromoMap) {
-                int codigoProdPromo = par.first;
-                ProductoEnPromocion* prodEnPromo = par.second;
-
-                auto itProdEnPromo = this->productosEnPromo.find(codigoProdPromo);
-
-                if (itProdEnPromo != this->productosEnPromo.end()) {
-                    // Producto está en productosEnPromo y cumple con la cantidad mínima
-                    int cantidadSolicitada = itProdEnPromo->second;
-                    if (cantidadSolicitada >= prodEnPromo->getCantMinima()) {
-                        float precioConDescuento = prodEnPromo->getProducto()->getPrecio() * (1 - prodEnPromo->getDescuento() / 100.0);
-                        productosCompra.emplace(codigoProdPromo, DTProductoCompra(codigoProdPromo, precioConDescuento, cantidadSolicitada));
-                       // productosCompra[codigoProdPromo] = DTProductoCompra(codigoProdPromo, precioConDescuento, cantidadSolicitada);
-                        this->productosEnPromo.erase(itProdEnPromo);
-                    }else {
-                        todosProductosEnPromo = false;
-                        break;
-                    } 
-                } else {
+            // Verificar si todos los productos de la promoción están en productosEnPromo
+            for (auto it2 = productosPromocion.begin(); it2 != productosPromocion.end(); ++it2)
+            {
+                int codigoProdPromo = it2->first;
+                if (this->productosEnPromo.find(codigoProdPromo) != this->productosEnPromo.end())
+                {
+                    encontrados[codigoProdPromo] = this->productosEnPromo[codigoProdPromo];
+                }
+                else
+                {
                     todosProductosEnPromo = false;
                     break;
                 }
             }
-            
-            if (todosProductosEnPromo){// Aplica la promocion 
-                for (const auto& par : productosCompra) {
-                    auto it = this->productos.find(par.first);
-                    Producto* producto = it->second;
-                    float precioOriginal = producto->getPrecio();
 
-                    //resto el precio que habia sumado previamente y sumo el precio con descuento al monto total
-                    this->montoTotalCompra -= precioOriginal * par.second.cant; 
-                    this->montoTotalCompra += par.second.precio * par.second.cant; 
-                    //Borro el producto que agregue si descuento en agregarProductoCompra y pongo el nuevo con descuento
-                    this->datosProductoCompra.erase(par.first);
-                    this->datosProductoCompra.emplace(par.first, par.second);
+            // Aplicar la promoción si todos los productos están en la promoción
+            if (todosProductosEnPromo)
+            {
+                for (const auto &par : encontrados)
+                {
+                    int codigoProductoPromo = par.first;
+                    int cantidadPromo = par.second;
+
+                    auto itProducto = this->productos.find(codigoProductoPromo);
+                    Producto *producto = itProducto->second;
+                    float precioOriginal = producto->getPrecio();
+                    float descuento = productosPromocion.find(codigoProductoPromo)->second->getDescuento();
+                    float precioConDescuento = precioOriginal * (1 - descuento / 100.0);
+
+                    // Actualizar el monto total de la compra
+                    this->montoTotalCompra -= precioOriginal * cantidadPromo;
+                    this->montoTotalCompra += precioConDescuento * cantidadPromo;
+
+                    // Actualizar los datos del producto en la compra
+                    this->datosProductoCompra.erase(codigoProductoPromo);
+                    this->datosProductoCompra.emplace(codigoProductoPromo, DTProductoCompra(codigoProductoPromo, precioConDescuento, cantidadPromo));
+                }
+
+                // Eliminar los productos de productosEnPromo que ya fueron procesados
+                for (const auto &par : encontrados)
+                {
+                    this->productosEnPromo.erase(par.first);
                 }
             }
+            else
+            {
+                // Si no se procesó ninguna promoción, avanzar el iterador para evitar bucles infinitos
+                ++it;
+            }
         }
-        else{
-            this->productosEnPromo.erase(codigoProducto);
+        else
+        {
+            // Si no se encontró una promoción para el producto, avanzar al siguiente producto
+            ++it;
         }
-    }*/
-
+    }
+}
 
 
 void ControladorVentas::mostrarDetallesCompra(){
-    cout << "aaaaaaaaaaaaaaaaaaaaa" <<endl;
     this->procesarProductosEnPromo();
-    cout << "bbbbbbbbbbbbbbbbbb" <<endl;
     cout << "Detalles de la compra: " << endl;
 
     for (const auto& par : this->datosProductoCompra) {
@@ -398,21 +343,6 @@ void ControladorVentas::mostrarDetallesCompra(){
     cout << "Monto total de la compra: " << this->montoTotalCompra << endl;
     
 } 
-/*Chequea que la compra no sea vacía.
-Registra la compra en el sistema si el parámetro es verdadero, lo que significa que:
-1. Crea una instancia de Compra y le asocia la fecha actual al atributo fechaDeCompra y a montoTotal el monto guardado calculado en mostrarDetallesCompra().
-2.Crea tantas instancias de tipo CompraPorProducto como la cantidad de productos que se hayan guardado anteriormente, le asocia la cantidad a cantidadSolicitada e inicializa el estadoDeEnvío en pendiente.
-
-PostCondiciones:
-1. Debe quedar creada una nueva instancia de Compra en el sistema.
-2. Debe quedar liberada la memoria auxiliar utilizada para guardar previamente:
-- codigo y cantidad guardados por agregarProducto
-- nickname guardado por seleccionarCliente
--monto calculado por mostrarDetallesCompra
-3. Deben quedar creados los links entre Compra y el Cliente.
-4. Deben quedar creados los links entre Compra y Producto.
-
- */
 
 void ControladorVentas::registrarCompra(){
     map<int, CompraPorProducto*> productosCompra;
