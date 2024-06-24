@@ -447,14 +447,17 @@ void ControladorUsuarios::listaDeUsuarios_(){
 	} else{
 		cout<<"A continuacion se listan los usuarios registrados actualmente en el sistema:"<<endl;
 		for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
-			printf( "(%s)\n", it1->first.c_str() );
-			printf( "(%s)\n", it1->second->getFecha().c_str() );
-			printf( "(%s)\n", it1->second->getCiudadResidencia().c_str() );
+			cout<<"Nickname: "<<it1->first<<endl;
+			cout<<"Fecha de nacimiento: "<<it1->second->getFecha()<<endl;
+			cout<<"Ciudad de residencia: "<<it1->second->getCiudadResidencia()<<endl;
+			cout<<"Direccion: "<<it1->second->getDireccion()<<endl;
+			cout<<"\n"<<endl;
 		}
 		for (it2= vendedores.begin(); it2!=vendedores.end(); ++it2){
-			printf( "(%s)\n", it2->first.c_str() );
-			printf( "(%s)\n", it2->second->getFecha().c_str() );
-			printf( "(%s)\n", it2->second->getCodigoRUT().c_str() );
+			cout<<"Nickname: "<<it2->first<<endl;
+			cout<<"Fecha de nacimiento: "<<it2->second->getFecha()<<endl;
+			cout<<"Codigo RUT: "<<it2->second->getCodigoRUT()<<endl;
+			cout<<"\n"<<endl;
 		}
 	}
 	/*for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
