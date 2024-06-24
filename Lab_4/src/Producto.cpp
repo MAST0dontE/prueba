@@ -25,15 +25,6 @@ void Producto::agregarProducto(int stock, int cantidad)
 }
    
 DTInfoProducto Producto::getInfoProducto(){
-    // Implementación
-   /*  DTInfoProducto result;
-    result.cantStock = this->getStock();
-    result.descripcion = this->getDescripcion();
-    result.precio = this->getPrecio();
-    result.categoria = this->getCategoria();
-    DTInfoProducto::DTInfoProducto(this->getCodigo(), this->getNombre(), this->getPrecio(), this->getStock(), this->getDescripcion(),  this->getCategoria,this->getVendedor())
-
- */
     return DTInfoProducto(this->getCodigo(), this->getNombre(), this->getPrecio(), this->getStock(), this->getDescripcion(),  this->getCategoria(),this->getNombreVendedor());
      
 }

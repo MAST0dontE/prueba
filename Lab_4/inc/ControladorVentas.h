@@ -49,7 +49,6 @@ class ControladorVentas : public iControladorVentas{
         
     public:
         static ControladorVentas * getControladorVentas();
-        //void agregarProducto(int codigo, int cantMinima, float descuento);
         void listarNicknamesClientes();
         bool seleccionarCliente(string nickname);
         void mostrarDetallesCompra();
@@ -74,7 +73,6 @@ class ControladorVentas : public iControladorVentas{
         void cargarNuevoProducto(string nicknameVendedor,int codigo, string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion);
         void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento, float descuentoPromo);
         void seleccionarVendedor(string nickname);
-        //void agregarProducto(int codigo, int cantMinima);
         void infoVendedor(string nickname);
         void listarNicknamesVendedor();
         void agregarProductoCompra(int codigo, int cantMinima);

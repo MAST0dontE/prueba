@@ -13,7 +13,3 @@ string Usuario::getFecha()
     return this->fechaDeNacimiento.toString();
 
 }
-/*string Usuario::getFecha()
-{
-    return this->fechaDeNacimiento.toString();
-}*/

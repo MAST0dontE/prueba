@@ -384,12 +384,6 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 	return nullptr;
 }
 
-/*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
-{
-	// Implementación
-}*/
-
-
 void ControladorUsuarios::consultarNotificaciones(string nickname){
 	map<string, Cliente*>::iterator itt;
 	bool Existe=false;
@@ -447,27 +441,21 @@ void ControladorUsuarios::listaDeUsuarios_(){
 		cout<<"En este momento no existe ningun usario registrado en el sistema."<<endl;
 	} else{
 		cout<<"A continuacion se listan los usuarios registrados actualmente en el sistema:"<<endl;
+		cout<<"\n"<<endl;
 		for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
-			printf( "(%s)\n", it1->first.c_str() );
-			printf( "(%s)\n", it1->second->getFecha().c_str() );
-			printf( "(%s)\n", it1->second->getCiudadResidencia().c_str() );
+			cout<<"Nickname: "<<it1->first<<endl;
+			cout<<"Fecha de nacimiento: "<<it1->second->getFecha()<<endl;
+			cout<<"Ciudad de residencia: "<<it1->second->getCiudadResidencia()<<endl;
+			cout<<"Direccion: "<<it1->second->getDireccion()<<endl;
+			cout<<"\n"<<endl;
 		}
 		for (it2= vendedores.begin(); it2!=vendedores.end(); ++it2){
-			printf( "(%s)\n", it2->first.c_str() );
-			printf( "(%s)\n", it2->second->getFecha().c_str() );
-			printf( "(%s)\n", it2->second->getCodigoRUT().c_str() );
+			cout<<"Nickname: "<<it2->first<<endl;
+			cout<<"Fecha de nacimiento: "<<it2->second->getFecha()<<endl;
+			cout<<"Codigo RUT: "<<it2->second->getCodigoRUT()<<endl;
+			cout<<"\n"<<endl;
 		}
 	}
-	/*for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
-		printf( "(%s)\n", (*it)->getNickname().c_str() );
-		printf( "(%s)\n", (*it)->getFecha().c_str() );
-		printf( "(%s)\n", (*it)->getCodigoRUT().c_str() );
-	}
-	for (vector<Cliente*>::iterator it = Clientes.begin(); it != Clientes.end(); ++it) {
-		printf( "(%s)\n", (*it)->getNickname().c_str() );
-		printf( "(%s)\n", (*it)->getFecha().c_str() );
-		printf( "(%s)\n", (*it)->getCiudadResidencia().c_str() );
-	}	*/
 }
 
 //Imprime el producto y la cantidad de una instancia CompraPorProducto

@@ -22,7 +22,6 @@ class Usuario {
         string getFecha();
         virtual bool esVendedor() const = 0;
         virtual vector<Comentario> listarComentarios(string) = 0;
-        //virtual string tostring() = 0;
 };
 
 #endif // USUARIO_H

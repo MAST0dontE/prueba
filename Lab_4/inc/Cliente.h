@@ -18,7 +18,7 @@ class Cliente : public Usuario, public iSuscriptor{
 
     public:
         // GETTERS
-        DTDireccion getDireccion();
+        string getDireccion();
         string getCiudadResidencia();
         const map<int, Compra*>& getComprasRealizadas() const;
         Cliente(string contrasenia, string nickname, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);

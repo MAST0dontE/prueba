@@ -501,6 +501,10 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			string contra;
 			cout << "Indique contraseña del Usuario nuevo" << endl;
 			cin >> contra;
+			while(contra.size()<6){
+				cout<<"La contrasenia debe tener al menos 6 caracteres de largo, por favor intente nuevamente:"<<endl;
+				cin>>contra;
+			}
 			int ano;
 			cout << "Indique año de nacimiento" << endl;
 			cin >> ano;
@@ -905,14 +909,17 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 						cout << "Indique el cliente a la cual pertenece:" << endl;
 						string nickCliente;
 						cin>>nickCliente;
-						cout << "Seleccione el numero de compra a enviar:" << endl;
-						int idCompra;
-						cin >> idCompra;
-						if (controladorUsuarios->existeNickname(nickCliente) && !controladorUsuarios->esVendedor(nickCliente)){
+						if (controladorUsuarios->existeNickname(nickCliente) && !controladorUsuarios->esVendedor(nickCliente))
+						{
+							cout << "Seleccione el numero de compra a enviar:" << endl;
+							int idCompra;
+							cin >> idCompra;
 							controladorVentas->compraEnviada(idCompra, producto, nickCliente);
 							cout << "La compra ha sido modificada correctamente" << endl;
 						}
-						
+						else {
+							cout <<"Cliente inválido." << endl;
+						}
 					}
 					else
 					{

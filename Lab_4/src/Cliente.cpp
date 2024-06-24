@@ -5,9 +5,9 @@ Cliente::Cliente(string nickname, string contrasenia, DTFecha fechaDeNacimiento,
     this->comentarios = map<int, Comentario*>();
     }
 
-DTDireccion Cliente::getDireccion()
+string Cliente::getDireccion()
 {
-    return this->direccion;
+    return "Calle: " +this->direccion.calle+ "\n" + "Numero de puerta: " + to_string(this->direccion.numeroDePuerta) ;
 }
 
 string Cliente::getCiudadResidencia()
