@@ -40,7 +40,6 @@ class Comentario{
         void agregarRespuesta (Comentario* comentario);
         void eliminarRespuesta(int id);
         map<int, Comentario*>& getRespuestas();
-        vector<Comentario> cargarComentariosDesdeCSV(const string& nombreArchivo);
 };
 
 #endif // COMENTARIO_H

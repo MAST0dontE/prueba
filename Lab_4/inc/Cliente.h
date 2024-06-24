@@ -22,8 +22,6 @@ class Cliente : public Usuario, public iSuscriptor{
         string getCiudadResidencia();
         const map<int, Compra*>& getComprasRealizadas() const;
         Cliente(string contrasenia, string nickname, DTFecha fecha, DTDireccion direccion, string ciudadResidencia);
-        void agregarSuscripcion() override ;
-        void eliminarSuscripcion() override ;
         void notificar(DTNotificacion notificacion) override ;
         string getNicknameSuscriptor() override ;
         bool esVendedor() const override{return false;} 

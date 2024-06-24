@@ -392,7 +392,7 @@ void ControladorUsuarios::consultarNotificaciones(string nickname){
 		if(itt->first==nickname){Existe=true;}
 	}
 	if (this->clientes.empty() || !Existe){
-		cout<<"No hay clientes registrados"<<endl;
+		cout<<"No hay clientes registrados con el nickname: "<<nickname<<endl;
 	} else{
 		Cliente *cliente = clientes[nickname];
 		map<int, DTNotificacion> notificaciones = cliente->getNotificaciones();
@@ -403,12 +403,6 @@ void ControladorUsuarios::consultarNotificaciones(string nickname){
 		else{	
 			for(it=notificaciones.begin();it!=notificaciones.end();++it){
 				cout<<it->second.getDTInfoProductoNotificacion()<<endl;
-				//cout<<"Vendedor: "<<it->second.getNicknameVendedor()<<<<it->second.getNombrePromo()<<endl;
-				//map<int, DTInfoProducto>::iterator itProds;
-				//map<int, DTInfoProducto> productos = it->second.productos;
-				//for(itProds= productos.begin(); itProds!=productos.end(); ++itProds){
-					//cout<<itProds->second.getDTInfoProducto()<<endl;
-				//}
 		}
 		cliente->borrarNotificaciones();
 		}
