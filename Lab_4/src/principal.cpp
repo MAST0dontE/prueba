@@ -888,6 +888,33 @@ int main()
 			controladorVentas->registrarCompra();
 			controladorVentas->liberarMemoriaRealizarCompra();
 
+			controladorVentas->seleccionarCliente("laura");
+			controladorVentas->agregarProductoCompra(1, 2);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();
+
+			controladorVentas->seleccionarCliente("natalia");
+			controladorVentas->agregarProductoCompra(1, 3);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();
+
+			controladorVentas->seleccionarCliente("pablo10");
+			controladorVentas->agregarProductoCompra(1, 4);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();
+
+			controladorVentas->seleccionarCliente("roberto");
+			controladorVentas->agregarProductoCompra(1, 5);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();		
+		
+
+			
+
 				//Datos de Comentarios:
 			//=========================CASO PRODUCTO 1 CARLOS78===================================================
 			//CM1
