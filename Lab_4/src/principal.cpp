@@ -878,10 +878,7 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			int IdComentario;
 			cout << "Indique ID del comentario que desea eliminar: ";
 			cin >> IdComentario;
-			string NombreAutor;
-			cout << "Indique nombre del autor del comentario que desea eliminar: ";
-			cin >> NombreAutor;
-			Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(IdComentario, NombreAutor);
+			Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(IdComentario, NombreUsuario);
 			controladorUsuarios->eliminarComentarioRecursivo(comentarioAEliminar);
 			break;
 		}
