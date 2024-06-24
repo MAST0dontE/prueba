@@ -187,12 +187,12 @@ void ControladorUsuarios::nuevoComentario(string comentario, DTFecha fechaDeCome
 		if (usuarioActual->esVendedor()){
 			Vendedor *vendedorActual = dynamic_cast<Vendedor *>(usuarioActual);
 			vendedorActual->agregarComentario(nuevoComentario);
-			cout << "Respuesta agregada correctamente.\n";
+			cout << "El comentario fue agregado" << endl;
 		}
 		else{
 			Cliente *clienteActual = dynamic_cast<Cliente *>(usuarioActual);
 			clienteActual->agregarComentario(nuevoComentario);
-			cout << "Respuesta agregada correctamente.\n";
+			cout << "El comentario fue agregado" << endl;
 		}
 	}
 }

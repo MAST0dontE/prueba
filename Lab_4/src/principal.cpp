@@ -587,7 +587,6 @@ int main()
 				cout << "Escriba el comentario: ";
 				getline(cin, comentario);
 				controladorUsuarios->nuevoComentario(comentario, DTFecha(dia, mes, anio));
-				cout << "El comentario fue agregado" << endl;
 			}
 			else if (respuesta == "r" || respuesta == "R")
 			{
@@ -604,7 +603,6 @@ int main()
 				cout << "Escriba el comentario: ";
 				getline(cin, comentario);
 				controladorUsuarios->nuevaRespuesta(comentario, DTFecha(1, 1, 1));
-				cout << "El comentario fue agregado" << endl;
 			}
 			else{
 				cout << "Opcion invalida. \n";
