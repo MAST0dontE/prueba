@@ -800,7 +800,9 @@ int main()
 		}
 		case 15: {
 			//---------------------Casos de prueba tarea 4---------------------//
-				//Datos básicos de usuarios:
+				
+			//Datos básicos de usuarios:
+			
 			controladorUsuarios->altaVendedor("ana23", "qwer1234", DTFecha(15,5,1988), "212345678001");
 			controladorUsuarios->altaVendedor("carlos78", "asdfghj", DTFecha(18,6,1986), "356789012345");
 			controladorUsuarios->altaVendedor("diegom", "zxcvbn", DTFecha(28,7,1993), "190123456789");
@@ -811,7 +813,8 @@ int main()
 			controladorUsuarios->altaCliente("natalia", "poiuyt", DTFecha(14,4,1982),DTDireccion("Paysandú", 2021), "Salto");
 			controladorUsuarios->altaCliente("pablo10", "lkjhgv", DTFecha(30,8,1990),DTDireccion("Av. Rivera ", 1819), "Mercedes");
 			controladorUsuarios->altaCliente("roberto", "mnbvcx", DTFecha(12,11,1995),DTDireccion("Av. Brasil", 1011), "Montevideo");
-				//Datos de prodcutos:
+			
+			//Datos de prodcutos:
 
 			controladorVentas->cargarNuevoProducto("carlos78", 1, "Camiseta Azul", 1400, 50, "Camiseta de poliéster, color azul", ropa, false);
 			controladorVentas->cargarNuevoProducto("ana23", 2, "Televisor LED", 40500, 30, "Televisor LED 55 pulgadas", electrodomesticos, false);
@@ -829,12 +832,11 @@ int main()
 			controladorVentas->cargarNuevoProducto("diegom", 14, "Tablet", 15000, 15, "Tablet Android de 10 pulgadas", electrodomesticos, false);
 			controladorVentas->cargarNuevoProducto("sofia25", 15, "Reloj de Pared", 150.50, 20, "Reloj de pared vintage", otros, false);
 
-				//Datos de promociones:
+			//Datos de promociones:
 
 
 			controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
 			controladorVentas->seleccionarVendedor("ana23");
-
 			controladorVentas->agregarProductoPromo(2, 1);
 			controladorVentas->agregarProductoPromo(4, 1);
 			controladorVentas->agregarProductoPromo(8, 1);
@@ -927,8 +929,10 @@ int main()
 
 			
 
-				//Datos de Comentarios:
+			//Datos de Comentarios:
+				
 			//=========================CASO PRODUCTO 1 CARLOS78===================================================
+			
 			//CM1
 			controladorUsuarios->seleccionarUsuario_("juan87");
 			controladorUsuarios->seleccionarProducto(1, "carlos78");
@@ -952,8 +956,11 @@ int main()
 			controladorUsuarios->seleccionarUsuario_("natalia");
 			controladorUsuarios->seleccionarProducto(1, "carlos78");
 			controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
+			
 			// ======================================================================================================
+			
 			//==============================CASO PRODUCTO 2 ANA23====================================================
+			
 			//CM6
 			controladorUsuarios->seleccionarUsuario_("laura");
 			controladorUsuarios->seleccionarProducto(2, "ana23");
@@ -972,8 +979,11 @@ int main()
 			controladorUsuarios->seleccionarProducto(2, "ana23");
 			controladorUsuarios->seleccionarComentario(7, "pablo10");
 			controladorUsuarios->nuevaRespuesta("Si, soporta HDR10.", DTFecha(03, 06, 2024));
+			
 			//========================================================================================================
+			
 			//=============================CASO PRODUCTO 3 CARLOS78===================================================
+			
 			//CM10
 			controladorUsuarios->seleccionarUsuario_("natalia");
 			controladorUsuarios->seleccionarProducto(3, "carlos78");
@@ -998,13 +1008,16 @@ int main()
 			controladorUsuarios->seleccionarProducto(3, "carlos78");
 			controladorUsuarios->seleccionarComentario(9, "natalia");
 			controladorUsuarios->nuevaRespuesta("¿Es adecuada para climas frios?", DTFecha(04, 06, 2024));
+			
 			//====================================================================================================
+			
 			//==================================CASO PRODUCTO 4 ANA23=============================================
+			
 			//CM15
 			controladorUsuarios->seleccionarUsuario_("pablo10");
 			controladorUsuarios->seleccionarProducto(4, "ana23");
 			controladorUsuarios->nuevoComentario("¿El microondas digital tiene funcion de descongelacion rapida?", DTFecha(04, 06, 2024));
-			//CM16 ==== ACA ====
+			//CM16
 			controladorUsuarios->seleccionarUsuario_("ana23");
 			controladorUsuarios->seleccionarProducto(4, "ana23");
 			controladorUsuarios->seleccionarComentario(14, "pablo10");
@@ -1024,8 +1037,11 @@ int main()
 			controladorUsuarios->seleccionarProducto(4, "ana23");
 			controladorUsuarios->seleccionarComentario(14, "pablo10");
 			controladorUsuarios->nuevaRespuesta("¿Es facil de limpiar? ", DTFecha(05, 06, 2024));
+			
 			//==========================================================================================
+			
 			//===========================CASO PRODUCTO 5 DIEGOM=========================================
+			
 			//CM20
 			controladorUsuarios->seleccionarUsuario_("roberto");
 			controladorUsuarios->seleccionarProducto(5, "diegom");
@@ -1035,7 +1051,7 @@ int main()
 			controladorUsuarios->seleccionarProducto(5, "diegom");
 			controladorUsuarios->seleccionarComentario(19, "roberto");
 			controladorUsuarios->nuevaRespuesta("Si, la luz LED se puede controlar a traves de una aplicacion movil", DTFecha(5, 6, 2024));
-			//CM22 ==ACA==
+			//CM22
 			controladorUsuarios->seleccionarUsuario_("pablo10");
 			controladorUsuarios->seleccionarProducto(5, "diegom");
 			controladorUsuarios->seleccionarComentario(19, "roberto");
@@ -1055,7 +1071,7 @@ int main()
 			controladorUsuarios->seleccionarProducto(5, "diegom");
 			controladorUsuarios->seleccionarComentario(19, "roberto");
 			controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", DTFecha(7, 6, 2024));
-						break;
+			break;
 		}
 		case 0:
 			cout << "Saliendo del programa...\n";
