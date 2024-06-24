@@ -30,7 +30,6 @@ class Producto{
         //getters y setters:
         DTProductoCompra getDatosProducto();
         DTInfoCompra getDatosCompra();
-        void agregarProducto(int stock, int cantidad);
         DTInfoProducto getInfoProducto();
         int getCodigo();
         int getStock();

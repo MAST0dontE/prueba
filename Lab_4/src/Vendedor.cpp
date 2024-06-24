@@ -110,7 +110,3 @@ void Vendedor::eliminarComentario(int idComentario) {
         cout << "Comentario con ID: " << idComentario << " eliminado de Vendedor.\n";
     } 
 }
-
-bool Vendedor::tieneProductos(){
-   return !(this->productosVendedor.empty());
-}
