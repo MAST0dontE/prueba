@@ -614,9 +614,10 @@ int main()
 						cout << "Seleccione el numero de compra a enviar:" << endl;
 						int idCompra;
 						cin >> idCompra;
-						if (controladorUsuarios->existeNickname(nickCliente) && !controladorUsuarios->esVendedor(nickCliente))
+						if (controladorUsuarios->existeNickname(nickCliente) && !controladorUsuarios->esVendedor(nickCliente)){
 							controladorVentas->compraEnviada(idCompra, producto, nickCliente);
-							cout << "La compra ha sido modificada correctamente" << endl;
+						}
+						cout << "La compra ha sido modificada correctamente" << endl;
 						
 					}
 					else
