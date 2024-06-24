@@ -446,6 +446,7 @@ void ControladorUsuarios::listaDeUsuarios_(){
 		cout<<"En este momento no existe ningun usario registrado en el sistema."<<endl;
 	} else{
 		cout<<"A continuacion se listan los usuarios registrados actualmente en el sistema:"<<endl;
+		cout<<"\n"<<endl;
 		for (it1= clientes.begin(); it1!=clientes.end(); ++it1){
 			cout<<"Nickname: "<<it1->first<<endl;
 			cout<<"Fecha de nacimiento: "<<it1->second->getFecha()<<endl;
