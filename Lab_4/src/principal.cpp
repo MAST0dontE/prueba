@@ -836,6 +836,16 @@ int main()
 			controladorVentas->mostrarDetallesCompra();
 			controladorVentas->registrarCompra();
 			controladorVentas->liberarMemoriaRealizarCompra();
+			controladorVentas->seleccionarCliente("juan87");	
+			controladorVentas->agregarProductoCompra(4, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();
+			controladorVentas->seleccionarCliente("juan87");	
+			controladorVentas->agregarProductoCompra(8, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();
 		
 			controladorVentas->seleccionarCliente("juan87");
 			controladorVentas->agregarProductoCompra(5, 1);
@@ -847,7 +857,26 @@ int main()
 			controladorVentas->agregarProductoCompra(14, 10);
 			controladorVentas->mostrarDetallesCompra();
 			controladorVentas->registrarCompra();
-			controladorVentas->liberarMemoriaRealizarCompra();		
+			controladorVentas->liberarMemoriaRealizarCompra();	
+
+			controladorVentas->seleccionarCliente("natalia");
+			controladorVentas->agregarProductoCompra(11, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();	
+
+			controladorVentas->seleccionarCliente("natalia");
+			controladorVentas->agregarProductoCompra(12, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();	
+
+			controladorVentas->seleccionarCliente("natalia");
+			controladorVentas->agregarProductoCompra(13, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();	
+
 
 				//Datos de Comentarios:
 			//=========================CASO PRODUCTO 1 CARLOS78===================================================
