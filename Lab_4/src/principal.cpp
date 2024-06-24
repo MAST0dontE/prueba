@@ -902,12 +902,16 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 					Producto *ptrProducto = controladorVentas->getProductos().find(producto)->second;
 					if (controladorVentas->listarComprasAEnviar(ptrProducto) == 1)
 					{
+						cout << "Indique el cliente a la cual pertenece:" << endl;
+						string nickCliente;
+						cin>>nickCliente;
 						cout << "Seleccione el numero de compra a enviar:" << endl;
 						int idCompra;
 						cin >> idCompra;
-
-						controladorVentas->compraEnviada(idCompra, producto, nickname);
-						cout << "La compra ha sido modificada correctamente" << endl;
+						if (controladorUsuarios->existeNickname(nickCliente) && !controladorUsuarios->esVendedor(nickCliente))
+							controladorVentas->compraEnviada(idCompra, producto, nickCliente);
+							cout << "La compra ha sido modificada correctamente" << endl;
+						
 					}
 					else
 					{
