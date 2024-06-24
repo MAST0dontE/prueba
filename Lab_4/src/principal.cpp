@@ -842,7 +842,7 @@ int main()
 
 			controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
 			controladorVentas->seleccionarVendedor("carlos78");
-			controladorVentas->agregarProductoPromo(6, 3);
+			controladorVentas->agregarProductoPromo(6, 1);
 			controladorVentas->agregarProductoPromo(3, 2);
 			controladorVentas->ingresarPromocion();
 
@@ -895,7 +895,7 @@ controladorVentas->liberarMemoriaRealizarCompra();
 
 controladorVentas->seleccionarCliente("juan87");
 controladorVentas->agregarProductoCompra(3, 2);
-controladorVentas->agregarProductoCompra(6, 3);
+controladorVentas->agregarProductoCompra(6, 1);
 controladorVentas->mostrarDetallesCompra();
 controladorVentas->registrarCompra();
 controladorVentas->compraEnviada(5,6,"juan87");
