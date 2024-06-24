@@ -25,7 +25,6 @@ class iControladorUsuarios{
         virtual bool altaVendedor(string nickname, string contrasenia, DTFecha fechaNacimiento, string codigoRUT)= 0 ;
         virtual set<string> listaDeUsuarios()= 0 ;
         virtual void listaDeVendedores()= 0 ;
-        //set<DTcomentario> listarComentarios(string nickname)= 0 ;
         virtual void consultarNotificaciones(string nickname)= 0 ; 
         virtual void eliminarSuscripciones(string nicknameVendedor, string nicknameCliente)= 0 ;
         virtual void listarSuscripciones(string nickname)= 0 ;
@@ -39,8 +38,6 @@ class iControladorUsuarios{
         virtual void nuevoComentario(string comentario, DTFecha fechaDeComentario)= 0 ;
         virtual void nuevaRespuesta(string comentario, DTFecha fechaDeComentario)= 0 ;
         virtual void listarComentariosUsuario(string nickname)= 0 ;
-        //void listarComentariosVendedor(string nickname)= 0 ;
-        //void setDTComentario(DTcomentario *comentario)= 0 ;
         virtual void eliminarComentarioRecursivo(Comentario *comentario)= 0 ;
         virtual void listaDeUsuarios_()= 0 ;
         virtual void infoCliente(string nickname)= 0 ;
@@ -51,9 +48,7 @@ class iControladorUsuarios{
         virtual void suscribirmeA(string nickname)= 0 ;
         virtual bool existenUsuariosRegistrados()= 0 ;
         virtual bool existeNickname(string nickname)= 0 ;
-        //virtual void getComentarios(Usuario* usuario)= 0 ;
         virtual Comentario* buscarComentario(int id, string nickname)= 0 ;
-        // void nuevaSuscripcion(string nickname)= 0 ;'
         virtual bool esVendedor(string nickname)=0 ;
 };
 

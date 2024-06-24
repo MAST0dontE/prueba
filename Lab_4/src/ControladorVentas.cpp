@@ -60,15 +60,6 @@ void ControladorVentas::setProducto(Producto *producto){
 }
 
 void ControladorVentas::listarProductos(){
-
-/* set<Producto*> productos = this->getProductos();
-    cout<< "Se muestran los productos: \n" << endl;
-    for (auto it = productos.begin(); it != productos.end(); ++it) {
-        DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
-        string resultado = DTproductoPrueba.toString();
-        cout << resultado << "\n"<< endl;
-} 
- */
     map<int, Producto*> productos = this->getProductos();
         cout<< "Se muestran los productos: \n" << endl;
         for (auto it = productos.begin(); it != productos.end(); ++it) {
@@ -80,22 +71,6 @@ void ControladorVentas::listarProductos(){
 }
 
 void ControladorVentas::consultarProducto(int codigo){
-/*     set<Producto*> productos = this->getProductos();
-    bool encontrado = false;
-        for (auto it = productos.begin(); it != productos.end(); ++it) {
-            if ((*it)->getCodigo() == codigo){
-                DTInfoProducto DTproductoPrueba = (*it)->getInfoProducto();
-                string resultado = DTproductoPrueba.imprimirInfoRestante();
-                cout<< "Producto consultado: " << nombre <<"\n" << endl;
-                cout << resultado << "\n"<< endl;
-                encontrado = true;
-            }
-        
-        }
-    if(!encontrado){
-        cout << "No existe ningun producto registrado con el codigo consultado: " << codigo << " \n "<< endl;
-    } */
-
     map<int, Producto*> productos = this->getProductos();
     bool encontrado = false;
     auto it = productos.find(codigo);
@@ -502,15 +477,6 @@ void ControladorVentas::compraEnviada(int idCompra, int idProducto, string nickn
         productoEnviado->setestadoDeEnvio(EEnvio::enviado);    
     }
 }   
-
-
-//void ControladorVentas::agregarProducto(int codigo, int cantMinima){
-
-    // DTInfoProducto:: DTInfoProducto(codigo,"nombre", 0, int cantStock, string descripcion,  ECategoria categoria, string vendedor);
-    // datosProductosPromo.insert(make_pair(codigo, this->datosProducto));
-
-
-//}
 
 static void imprimirPromoVendedor(string nickname, Promocion* promocion) {
     cout << "Promocion: " << promocion->getNombre() << endl;

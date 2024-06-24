@@ -20,13 +20,10 @@ using namespace std;
 class iControladorVentas{
     public:
         virtual ~iControladorVentas() = default ;
-               // static ControladorVentas * getControladorVentas()= 0 ;
-        //void agregarProducto(int codigo, int cantMinima, float descuento)= 0 ;
         virtual void listarNicknamesClientes()= 0 ;
         virtual bool seleccionarCliente(string nickname)= 0 ;
         virtual void mostrarDetallesCompra()= 0 ;
         virtual void registrarCompra()= 0 ;
-        //setters y getters INICIO
         virtual void setCliente(Cliente *cliente)= 0 ;
         virtual void setVendedor(Vendedor *vendedor)= 0 ;
         virtual void setPromocion(Promocion *promocion)= 0 ;
@@ -37,7 +34,6 @@ class iControladorVentas{
         virtual map<string, Cliente*> getClientes()= 0 ;
         virtual void setFechaPromo(DTFecha fechaPromocion)= 0 ;
         virtual void setFechaActual(DTFecha fechaSistema)= 0 ;
-        //setters y getters FIN
         virtual void listarProductos()= 0 ;
         virtual void consultarProducto(int codigo)= 0 ;
         virtual vector<DTInfoPromocion> crearSetDTInfoPromocion()= 0 ;
@@ -46,7 +42,6 @@ class iControladorVentas{
         virtual void cargarNuevoProducto(string nicknameVendedor,int codigo, string  nombreProd,float  precio , int stock , string  descripcion, ECategoria  categoria, bool enPromocion)= 0 ;
         virtual void altaPromocion(string nombre, string descripcion, DTFecha fechaDeVencimiento, float descuentoPromo)= 0 ;
         virtual void seleccionarVendedor(string nickname)= 0 ;
-        //void agregarProducto(int codigo, int cantMinima)= 0 ;
         virtual void infoVendedor(string nickname)= 0 ;
         virtual void listarNicknamesVendedor()= 0 ;
         virtual void agregarProductoCompra(int codigo, int cantMinima)= 0 ;

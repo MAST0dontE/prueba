@@ -384,12 +384,6 @@ Usuario *ControladorUsuarios::seleccionarUsuario(string nickname)
 	return nullptr;
 }
 
-/*void ControladorUsuarios::setDTComentario(DTcomentario *comentario)
-{
-	// Implementación
-}*/
-
-
 void ControladorUsuarios::consultarNotificaciones(string nickname){
 	map<string, Cliente*>::iterator itt;
 	bool Existe=false;
@@ -461,16 +455,6 @@ void ControladorUsuarios::listaDeUsuarios_(){
 			cout<<"\n"<<endl;
 		}
 	}
-	/*for (vector<Vendedor*>::iterator it = Vendedores.begin(); it != Vendedores.end(); ++it) {
-		printf( "(%s)\n", (*it)->getNickname().c_str() );
-		printf( "(%s)\n", (*it)->getFecha().c_str() );
-		printf( "(%s)\n", (*it)->getCodigoRUT().c_str() );
-	}
-	for (vector<Cliente*>::iterator it = Clientes.begin(); it != Clientes.end(); ++it) {
-		printf( "(%s)\n", (*it)->getNickname().c_str() );
-		printf( "(%s)\n", (*it)->getFecha().c_str() );
-		printf( "(%s)\n", (*it)->getCiudadResidencia().c_str() );
-	}	*/
 }
 
 //Imprime el producto y la cantidad de una instancia CompraPorProducto

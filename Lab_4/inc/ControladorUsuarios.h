@@ -48,7 +48,6 @@ class ControladorUsuarios : public iControladorUsuarios{
         bool altaVendedor(string nickname, string contrasenia, DTFecha fechaNacimiento, string codigoRUT);
         set<string> listaDeUsuarios();
         void listaDeVendedores();
-        //set<DTcomentario> listarComentarios(string nickname);
         void consultarNotificaciones(string nickname); 
         void eliminarSuscripciones(string nicknameVendedor, string nicknameCliente);
         void listarSuscripciones(string nickname);
@@ -62,8 +61,6 @@ class ControladorUsuarios : public iControladorUsuarios{
         void nuevoComentario(string comentario, DTFecha fechaDeComentario);
         void nuevaRespuesta(string comentario, DTFecha fechaDeComentario);
         void listarComentariosUsuario(string nickname);
-        //void listarComentariosVendedor(string nickname);
-        //void setDTComentario(DTcomentario *comentario);
         void eliminarComentarioRecursivo(Comentario *comentario);
         void listaDeUsuarios_();
         void infoCliente(string nickname);
@@ -77,7 +74,6 @@ class ControladorUsuarios : public iControladorUsuarios{
         void getComentarios(Usuario* usuario);
         void imprimirComentarioYRespuestas(Comentario* comentario, set<int>& comentariosImpresos);
         Comentario* buscarComentario(int id, string nickname);
-        // void nuevaSuscripcion(string nickname);
         bool esVendedor(string nickname);
 };
 
