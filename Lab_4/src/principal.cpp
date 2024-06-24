@@ -1035,22 +1035,32 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			cout << "Indique su nickname: " << endl;
 			string nicknameCliente;
 			cin>> nicknameCliente;
+			if(controladorUsuarios->existeNickname(nicknameCliente) && !controladorUsuarios->esVendedor(nicknameCliente)){
 				controladorUsuarios->listarSuscripciones(nicknameCliente);
+
 				string respuesta6 = "Y";
 					do{
-						cout << "Desea eliminar una suscripción? Y/N" << endl;
-						cin>> respuesta6;
 						cout << "Indique el nickname del vendedor al que desea eliminar la suscripción: " << endl;
 						string nicknameVendedor;
 						cin>> nicknameVendedor;
-						controladorUsuarios->eliminarSuscripciones(nicknameVendedor, nicknameCliente);
+						if(controladorUsuarios->existeNickname(nicknameVendedor) && controladorUsuarios->esVendedor(nicknameVendedor)){
+							controladorUsuarios->eliminarSuscripciones(nicknameVendedor, nicknameCliente);
+						}
+						else{
+							cout<<"Nickname de vendedor no registrado"<<endl;
+						}
 						
 						if (respuesta6 == "N" || respuesta6 == "n"){
 							break;
 						}
+						cout << "Desea eliminar otra suscripción? Y/N" << endl;
+						cin>> respuesta6;
 					} while (respuesta6 == "Y" || respuesta6 == "y");
 			
-			
+			}
+			else{
+				cout<<"Nickname invalido "<<endl;
+			}
 			break;
 		}
 		/*case 15: {
