@@ -842,7 +842,12 @@ int main()
 			controladorVentas->mostrarDetallesCompra();
 			controladorVentas->registrarCompra();
 			controladorVentas->liberarMemoriaRealizarCompra();
-		
+
+			controladorVentas->seleccionarCliente("laura");
+			controladorVentas->agregarProductoCompra(14, 10);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			controladorVentas->liberarMemoriaRealizarCompra();		
 
 				//Datos de Comentarios:
 			//=========================CASO PRODUCTO 1 CARLOS78===================================================
