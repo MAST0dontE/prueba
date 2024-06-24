@@ -19,62 +19,6 @@
 #include <stdlib.h>
 
 using namespace std;
-/* namespace fs = std::filesystem;
-
-// Estructura para almacenar los datos de cada fila del CSV
-struct CasoPrueba {
-	int id;
-	std::string nombre;
-	int edad;
-};
-
-// Función para leer un archivo CSV y almacenar los datos en un vector de estructuras CasoPrueba
-std::vector<CasoPrueba> leerCSV(const std::string& nombreArchivo) {
-	std::vector<CasoPrueba> casos;
-	std::ifstream archivo(nombreArchivo);
-	std::string linea;
-
-	// Verificar si el archivo se abrió correctamente
-	if (!archivo.is_open()) {
-		std::cerr << "No se pudo abrir el archivo: " << nombreArchivo << std::endl;
-		return casos;
-	}
-
-	// Leer la primera línea (encabezados) y descartarla
-	std::getline(archivo, linea);
-
-	// Leer el archivo línea por línea
-	while (std::getline(archivo, linea)) {
-		std::istringstream ss(linea);
-		std::string dato;
-		CasoPrueba caso;
-
-		// Leer y asignar los datos de cada columna a la estructura CasoPrueba
-		std::getline(ss, dato, ',');
-		caso.id = std::stoi(dato);
-		std::getline(ss, caso.nombre, ',');
-		std::getline(ss, dato, ',');
-		caso.edad = std::stoi(dato);
-
-		// Agregar el caso leído al vector de casos
-		casos.push_back(caso);
-	}
-
-	archivo.close();
-	return casos;
-}
-
-vector<string> listarArchivosCSV(const string& carpeta) {
-	vector<string> archivosCSV;
-
-	for (const auto& entry : fs::directory_iterator(carpeta)) {
-		if (entry.path().extension() == ".csv") {
-			archivosCSV.push_back(entry.path().string());
-		}
-	}
-
-	return archivosCSV;
-} */
 
 bool esBisiesto(int anio)
 {
@@ -216,7 +160,7 @@ int main()
 		cout << "LA FABRICA ES SINGLETON" << endl;
 	}
 	else
-		cout << "ANDA COMO EL ORTOOOOOOOOOOO" << endl;
+		cout << "ANDA MAL" << endl;
 
 	// ----------------------------------------------- //
 
@@ -235,230 +179,6 @@ int main()
 	{
 		cout << "Controlador Ventas ES SINGLETON" << endl;
 	}
-
-
-cout << "````````````````````````````````````````````````````" << endl;
-cout << "     ** CASO DE USO: Suscribirse FIN **" << endl;
-
-
-
-//---------------------Casos de prueba tarea 4---------------------//
-	//Datos básicos de usuarios:
-controladorUsuarios->altaVendedor("ana23", "qwer1234", DTFecha(15,5,1988), "212345678001");
-controladorUsuarios->altaVendedor("carlos78", "asdfghj", DTFecha(18,6,1986), "356789012345");
-controladorUsuarios->altaVendedor("diegom", "zxcvbn", DTFecha(28,7,1993), "190123456789");
-controladorUsuarios->altaVendedor("maria01", "5tgb6yhn", DTFecha(25,3,1985), "321098765432");
-controladorUsuarios->altaVendedor("sofia25", "1234asdf", DTFecha(7,12,1983), "445678901234");
-controladorUsuarios->altaCliente("juan87", "1qaz2wsx", DTFecha(20,10,1992),DTDireccion("Av. 18 de Julio", 456), "Melo");
-controladorUsuarios->altaCliente("laura", "3edc4rfv", DTFecha(22,9,1979),DTDireccion("Rondeau", 1617), "Montevideo");
-controladorUsuarios->altaCliente("natalia", "poiuyt", DTFecha(14,4,1982),DTDireccion("Paysandú", 2021), "Salto");
-controladorUsuarios->altaCliente("pablo10", "lkjhgv", DTFecha(30,8,1990),DTDireccion("Av. Rivera ", 1819), "Mercedes");
-controladorUsuarios->altaCliente("roberto", "mnbvcx", DTFecha(12,11,1995),DTDireccion("Av. Brasil", 1011), "Montevideo");
-	//Datos de prodcutos:
-
-controladorVentas->cargarNuevoProducto("carlos78", 1, "Camiseta Azul", 1400, 50, "Camiseta de poliéster, color azul", ropa, false);
-controladorVentas->cargarNuevoProducto("ana23", 2, "Televisor LED", 40500, 30, "Televisor LED 55 pulgadas", electrodomesticos, false);
-controladorVentas->cargarNuevoProducto("carlos78", 3, "Chaqueta de Cuero", 699.99, 20, "Chaqueta de cuero, color negro", ropa, false);
-controladorVentas->cargarNuevoProducto("ana23", 4, "Microondas Digital", 1199.99, 15, "Microondas digital, 30L", electrodomesticos, false);
-controladorVentas->cargarNuevoProducto("diegom", 5, "Luz LED", 599.99, 40, "Luz Bluetooth LED", otros, false);
-controladorVentas->cargarNuevoProducto("carlos78", 6, "Pantalones Vaqueros", 60, 25, "Pantalones vaqueros, talla 32", ropa, false);
-controladorVentas->cargarNuevoProducto("diegom", 7, "Auriculares Bluetooth", 199.99, 35, "Auriculares bluetooth para celular", otros, false);
-controladorVentas->cargarNuevoProducto("ana23", 8, "Refrigerador", 15499, 10, "Refrigerador de doble puerta", electrodomesticos, false);
-controladorVentas->cargarNuevoProducto("ana23", 9, "Cafetera", 23000, 50, "Cafetera de goteo programable", electrodomesticos, false);
-controladorVentas->cargarNuevoProducto("carlos78", 10, "Zapatillas Deportivas", 5500, 20, "Zapatillas para correr, talla 42", ropa, false);
-controladorVentas->cargarNuevoProducto("carlos78", 11, "Mochila", 9000, 30, "Mochila de viaje, 40L", otros, false);
-controladorVentas->cargarNuevoProducto("diegom", 12, "Plancha de Ropa", 2534, 25, "Plancha a vapor, 1500W", electrodomesticos, false);
-controladorVentas->cargarNuevoProducto("sofia25", 13, "Gorra", 200, 50, "Gorra para deportes, color rojo", ropa, false);
-controladorVentas->cargarNuevoProducto("diegom", 14, "Tablet", 15000, 15, "Tablet Android de 10 pulgadas", electrodomesticos, false);
-controladorVentas->cargarNuevoProducto("sofia25", 15, "Reloj de Pared", 150.50, 20, "Reloj de pared vintage", otros, false);
-
-	//Datos de promociones:
-
-
-controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
-controladorVentas->seleccionarVendedor("ana23");
-
-controladorVentas->agregarProductoPromo(2, 1);
-controladorVentas->agregarProductoPromo(4, 1);
-controladorVentas->agregarProductoPromo(8, 1);
-controladorVentas->ingresarPromocion();
-
-//controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
-controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
-controladorVentas->seleccionarVendedor("carlos78");
-controladorVentas->agregarProductoPromo(6, 3);
-controladorVentas->agregarProductoPromo(3, 2);
-controladorVentas->ingresarPromocion();
-
-controladorVentas->altaPromocion("Domotica", "Para modernizar tu casa", DTFecha(26, 10, 2024), 10);
-controladorVentas->seleccionarVendedor("diegom");
-controladorVentas->agregarProductoPromo(5, 2);
-controladorVentas->ingresarPromocion();
-
-controladorVentas->altaPromocion("Liquidacion", "Hasta agotar stock", DTFecha(26, 3, 2024), 10);
-controladorVentas->seleccionarVendedor("diegom");
-controladorVentas->agregarProductoPromo(14, 1);
-controladorVentas->ingresarPromocion();
-
-	//Datos de Comentarios:
-//=========================CASO PRODUCTO 1 CARLOS78===================================================
-//CM1
-controladorUsuarios->seleccionarUsuario_("juan87");
-controladorUsuarios->seleccionarProducto(1, "carlos78");
-controladorUsuarios->nuevoComentario("¿La camiseta azul esta disponible en talla M?", DTFecha(1, 6, 2024));
-//CM2
-controladorUsuarios->seleccionarUsuario_("carlos78");
-controladorUsuarios->seleccionarProducto(1, "carlos78");
-controladorUsuarios->seleccionarComentario(0, "juan87");
-controladorUsuarios->nuevaRespuesta("Si, tenemos la camiseta azul en talla M.", DTFecha(1, 6, 2024));
-//CM3
-controladorUsuarios->seleccionarUsuario_("laura");
-controladorUsuarios->seleccionarProducto(1, "carlos78");
-controladorUsuarios->seleccionarComentario(1, "carlos78");
-controladorUsuarios->nuevaRespuesta("¿Es de buen material? Me preocupa la durabilidad.", DTFecha(1, 6, 2024));
-//CM4
-controladorUsuarios->seleccionarUsuario_("juan87");
-controladorUsuarios->seleccionarProducto(1, "carlos78");
-controladorUsuarios->seleccionarComentario(2, "laura");
-controladorUsuarios->nuevaRespuesta("He comprado antes y la calidad es buena.", DTFecha(1, 6, 2024));
-//CM5
-controladorUsuarios->seleccionarUsuario_("natalia");
-controladorUsuarios->seleccionarProducto(1, "carlos78");
-controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
-// ======================================================================================================
-//==============================CASO PRODUCTO 2 ANA23====================================================
-//CM6
-controladorUsuarios->seleccionarUsuario_("laura");
-controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->nuevoComentario("¿Cual es la resolucion del Televisor LED?", DTFecha(02,06,2024));
-//CM7
-controladorUsuarios->seleccionarUsuario_("ana23");
-controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->seleccionarComentario(5, "laura");
-controladorUsuarios->nuevaRespuesta("El televisor LED tiene una resolucion de 4K UHD.", DTFecha(02, 06, 2024));
-//CM8
-controladorUsuarios->seleccionarUsuario_("pablo10");
-controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->nuevoComentario("¿Tiene soporte para HDR10?", DTFecha(03, 06, 2024));
-//CM9
-controladorUsuarios->seleccionarUsuario_("ana23");
-controladorUsuarios->seleccionarProducto(2, "ana23");
-controladorUsuarios->seleccionarComentario(7, "pablo10");
-controladorUsuarios->nuevaRespuesta("Si, soporta HDR10.", DTFecha(03, 06, 2024));
-//========================================================================================================
-//=============================CASO PRODUCTO 3 CARLOS78===================================================
-//CM10
-controladorUsuarios->seleccionarUsuario_("natalia");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->nuevoComentario("¿La chaqueta de cuero es resistente al agua?", DTFecha(03, 06, 2024));
-//CM11
-controladorUsuarios->seleccionarUsuario_("carlos78");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->seleccionarComentario(9, "natalia");
-controladorUsuarios->nuevaRespuesta("No, la chaqueta de cuero no es resistente al agua", DTFecha(03, 06, 2024));
-//CM12
-controladorUsuarios->seleccionarUsuario_("laura");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->seleccionarComentario(9, "natalia");
-controladorUsuarios->nuevaRespuesta("¿Viene en otros colores?", DTFecha(04, 06, 2024));
-//CM13
-controladorUsuarios->seleccionarUsuario_("carlos78");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->seleccionarComentario(11, "laura");
-controladorUsuarios->nuevaRespuesta("Si, tambien esta disponible en marron.", DTFecha(04, 06, 2024));
-//CM14
-controladorUsuarios->seleccionarUsuario_("roberto");
-controladorUsuarios->seleccionarProducto(3, "carlos78");
-controladorUsuarios->seleccionarComentario(9, "natalia");
-controladorUsuarios->nuevaRespuesta("¿Es adecuada para climas frios?", DTFecha(04, 06, 2024));
-//====================================================================================================
-//==================================CASO PRODUCTO 4 ANA23=============================================
-//CM15
-controladorUsuarios->seleccionarUsuario_("pablo10");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->nuevoComentario("¿El microondas digital tiene funcion de descongelacion rapida?", DTFecha(04, 06, 2024));
-//CM16 ==== ACA ====
-controladorUsuarios->seleccionarUsuario_("ana23");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(14, "pablo10");
-controladorUsuarios->nuevaRespuesta("Si, el microondas digital incluye una funcion de descongelacion rapida.", DTFecha(04, 06, 2024));
-//CM17
-controladorUsuarios->seleccionarUsuario_("natalia");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(14, "pablo10");
-controladorUsuarios->nuevaRespuesta("¿Cuantos niveles de potencia tiene? ", DTFecha(05, 06, 2024));
-//CM18
-controladorUsuarios->seleccionarUsuario_("ana23");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(16, "natalia");
-controladorUsuarios->nuevaRespuesta("Tiene 10 niveles de potencia.", DTFecha(05, 06, 2024));
-//CM19
-controladorUsuarios->seleccionarUsuario_("roberto");
-controladorUsuarios->seleccionarProducto(4, "ana23");
-controladorUsuarios->seleccionarComentario(14, "pablo10");
-controladorUsuarios->nuevaRespuesta("¿Es facil de limpiar? ", DTFecha(05, 06, 2024));
-//==========================================================================================
-//===========================CASO PRODUCTO 5 DIEGOM=========================================
-//CM20
-controladorUsuarios->seleccionarUsuario_("roberto");
-controladorUsuarios->seleccionarProducto(5, "diegom");
-controladorUsuarios->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?", DTFecha(05, 06, 2024));
-//CM21
-controladorUsuarios->seleccionarUsuario_("diegom");
-controladorUsuarios->seleccionarProducto(5, "diegom");
-controladorUsuarios->seleccionarComentario(19, "roberto");
-controladorUsuarios->nuevaRespuesta("Si, la luz LED se puede controlar a traves de una aplicacion movil", DTFecha(5, 6, 2024));
-//CM22 ==ACA==
-controladorUsuarios->seleccionarUsuario_("pablo10");
-controladorUsuarios->seleccionarProducto(5, "diegom");
-controladorUsuarios->seleccionarComentario(19, "roberto");
-controladorUsuarios->nuevaRespuesta("¿Es compatible con Alexa o Google Home?", DTFecha(6, 6, 2024));
-//CM23
-controladorUsuarios->seleccionarUsuario_("diegom");
-controladorUsuarios->seleccionarProducto(5, "diegom");
-controladorUsuarios->seleccionarComentario(21, "pablo10");
-controladorUsuarios->nuevaRespuesta("Si, es compatible con ambos.", DTFecha(6, 6, 2024));
-//CM24
-controladorUsuarios->seleccionarUsuario_("natalia");
-controladorUsuarios->seleccionarProducto(5, "diegom");
-controladorUsuarios->seleccionarComentario(19, "roberto");
-controladorUsuarios->nuevaRespuesta("¿Cuanto dura la bateria?", DTFecha(6, 6, 2024));
-//CM25
-controladorUsuarios->seleccionarUsuario_("pablo10");
-controladorUsuarios->seleccionarProducto(5, "diegom");
-controladorUsuarios->seleccionarComentario(19, "roberto");
-controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", DTFecha(7, 6, 2024));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	//----------------------**MENU INTERACTIVO**----------------------//
 
@@ -745,17 +465,6 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			}
 			break;
 		}
-		/* case 6
-		controladorVentas->listarPromociones();
-		cout << "Desea consultar alguna promocion en especifico? Y/N ?" <<endl;
-		char respuesta5;
-		cin>> respuesta5;
-		if (respuesta5 == 'Y' || respuesta5 == 'y' ){
-			cout << "Indique el nombre de la promocion que desea consultar:" <<endl;
-			string nombrePromocion;
-			cin>> nombrePromocion;
-			controladorVentas->consultarPromocion(nombrePromocion);
-		}*/
 		case 7:
 		{
 			cout << "Clientes: " << endl;
@@ -837,7 +546,7 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			cin.ignore(); // Ignorar el carácter de nueva línea residual
 			string respuesta;
 			cout << "¿Desea dejar un comentario nuevo (C) o responder uno ya existente (R)? ";
-			getline(cin, respuesta);
+			cin >> respuesta;
 			if (respuesta == "c" || respuesta == "C"){
 				string comentario;
 				cout << "Escriba el comentario: ";
@@ -878,10 +587,7 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			int IdComentario;
 			cout << "Indique ID del comentario que desea eliminar: ";
 			cin >> IdComentario;
-			string NombreAutor;
-			cout << "Indique nombre del autor del comentario que desea eliminar: ";
-			cin >> NombreAutor;
-			Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(IdComentario, NombreAutor);
+			Comentario *comentarioAEliminar = controladorUsuarios->buscarComentario(IdComentario, NombreUsuario);
 			controladorUsuarios->eliminarComentarioRecursivo(comentarioAEliminar);
 			break;
 		}
@@ -1031,37 +737,195 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			} while (respuesta6 == "Y" || respuesta6 == "y");
 			break;
 		}
-		/*case 15: {
-			string carpeta = "data"; // Carpeta donde están los CSV
-			vector<string> archivosCSV = listarArchivosCSV(carpeta);
+		case 15: {
+			//---------------------Casos de prueba tarea 4---------------------//
+				//Datos básicos de usuarios:
+			controladorUsuarios->altaVendedor("ana23", "qwer1234", DTFecha(15,5,1988), "212345678001");
+			controladorUsuarios->altaVendedor("carlos78", "asdfghj", DTFecha(18,6,1986), "356789012345");
+			controladorUsuarios->altaVendedor("diegom", "zxcvbn", DTFecha(28,7,1993), "190123456789");
+			controladorUsuarios->altaVendedor("maria01", "5tgb6yhn", DTFecha(25,3,1985), "321098765432");
+			controladorUsuarios->altaVendedor("sofia25", "1234asdf", DTFecha(7,12,1983), "445678901234");
+			controladorUsuarios->altaCliente("juan87", "1qaz2wsx", DTFecha(20,10,1992),DTDireccion("Av. 18 de Julio", 456), "Melo");
+			controladorUsuarios->altaCliente("laura", "3edc4rfv", DTFecha(22,9,1979),DTDireccion("Rondeau", 1617), "Montevideo");
+			controladorUsuarios->altaCliente("natalia", "poiuyt", DTFecha(14,4,1982),DTDireccion("Paysandú", 2021), "Salto");
+			controladorUsuarios->altaCliente("pablo10", "lkjhgv", DTFecha(30,8,1990),DTDireccion("Av. Rivera ", 1819), "Mercedes");
+			controladorUsuarios->altaCliente("roberto", "mnbvcx", DTFecha(12,11,1995),DTDireccion("Av. Brasil", 1011), "Montevideo");
+				//Datos de prodcutos:
 
-			if (archivosCSV.empty()) {
-				std::cerr << "No se encontraron archivos CSV en la carpeta especificada." << std::endl;
-				return 1;
+			controladorVentas->cargarNuevoProducto("carlos78", 1, "Camiseta Azul", 1400, 50, "Camiseta de poliéster, color azul", ropa, false);
+			controladorVentas->cargarNuevoProducto("ana23", 2, "Televisor LED", 40500, 30, "Televisor LED 55 pulgadas", electrodomesticos, false);
+			controladorVentas->cargarNuevoProducto("carlos78", 3, "Chaqueta de Cuero", 699.99, 20, "Chaqueta de cuero, color negro", ropa, false);
+			controladorVentas->cargarNuevoProducto("ana23", 4, "Microondas Digital", 1199.99, 15, "Microondas digital, 30L", electrodomesticos, false);
+			controladorVentas->cargarNuevoProducto("diegom", 5, "Luz LED", 599.99, 40, "Luz Bluetooth LED", otros, false);
+			controladorVentas->cargarNuevoProducto("carlos78", 6, "Pantalones Vaqueros", 60, 25, "Pantalones vaqueros, talla 32", ropa, false);
+			controladorVentas->cargarNuevoProducto("diegom", 7, "Auriculares Bluetooth", 199.99, 35, "Auriculares bluetooth para celular", otros, false);
+			controladorVentas->cargarNuevoProducto("ana23", 8, "Refrigerador", 15499, 10, "Refrigerador de doble puerta", electrodomesticos, false);
+			controladorVentas->cargarNuevoProducto("ana23", 9, "Cafetera", 23000, 50, "Cafetera de goteo programable", electrodomesticos, false);
+			controladorVentas->cargarNuevoProducto("carlos78", 10, "Zapatillas Deportivas", 5500, 20, "Zapatillas para correr, talla 42", ropa, false);
+			controladorVentas->cargarNuevoProducto("carlos78", 11, "Mochila", 9000, 30, "Mochila de viaje, 40L", otros, false);
+			controladorVentas->cargarNuevoProducto("diegom", 12, "Plancha de Ropa", 2534, 25, "Plancha a vapor, 1500W", electrodomesticos, false);
+			controladorVentas->cargarNuevoProducto("sofia25", 13, "Gorra", 200, 50, "Gorra para deportes, color rojo", ropa, false);
+			controladorVentas->cargarNuevoProducto("diegom", 14, "Tablet", 15000, 15, "Tablet Android de 10 pulgadas", electrodomesticos, false);
+			controladorVentas->cargarNuevoProducto("sofia25", 15, "Reloj de Pared", 150.50, 20, "Reloj de pared vintage", otros, false);
 
-			}
-			cout << "Archivos CSV disponibles:" << endl;
-			for (size_t i = 0; i < archivosCSV.size(); ++i) {
-				cout << i + 1 << ". " << archivosCSV[i] << endl;
-			}
-			std::cout << "Seleccione el número del archivo CSV que desea procesar: ";
-			size_t seleccion;
-			std::cin >> seleccion;
+				//Datos de promociones:
 
-		if (seleccion < 1 || seleccion > archivosCSV.size()) {
-			std::cerr << "Selección inválida." << std::endl;
-			return 1;
+
+			controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
+			controladorVentas->seleccionarVendedor("ana23");
+
+			controladorVentas->agregarProductoPromo(2, 1);
+			controladorVentas->agregarProductoPromo(4, 1);
+			controladorVentas->agregarProductoPromo(8, 1);
+			controladorVentas->ingresarPromocion();
+
+			//controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
+			controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
+			controladorVentas->seleccionarVendedor("carlos78");
+			controladorVentas->agregarProductoPromo(6, 3);
+			controladorVentas->agregarProductoPromo(3, 2);
+			controladorVentas->ingresarPromocion();
+
+			controladorVentas->altaPromocion("Domotica", "Para modernizar tu casa", DTFecha(26, 10, 2024), 10);
+			controladorVentas->seleccionarVendedor("diegom");
+			controladorVentas->agregarProductoPromo(5, 2);
+			controladorVentas->ingresarPromocion();
+
+			controladorVentas->altaPromocion("Liquidacion", "Hasta agotar stock", DTFecha(26, 3, 2024), 10);
+			controladorVentas->seleccionarVendedor("diegom");
+			controladorVentas->agregarProductoPromo(14, 1);
+			controladorVentas->ingresarPromocion();
+
+				//Datos de Comentarios:
+			//=========================CASO PRODUCTO 1 CARLOS78===================================================
+			//CM1
+			controladorUsuarios->seleccionarUsuario_("juan87");
+			controladorUsuarios->seleccionarProducto(1, "carlos78");
+			controladorUsuarios->nuevoComentario("¿La camiseta azul esta disponible en talla M?", DTFecha(1, 6, 2024));
+			//CM2
+			controladorUsuarios->seleccionarUsuario_("carlos78");
+			controladorUsuarios->seleccionarProducto(1, "carlos78");
+			controladorUsuarios->seleccionarComentario(0, "juan87");
+			controladorUsuarios->nuevaRespuesta("Si, tenemos la camiseta azul en talla M.", DTFecha(1, 6, 2024));
+			//CM3
+			controladorUsuarios->seleccionarUsuario_("laura");
+			controladorUsuarios->seleccionarProducto(1, "carlos78");
+			controladorUsuarios->seleccionarComentario(1, "carlos78");
+			controladorUsuarios->nuevaRespuesta("¿Es de buen material? Me preocupa la durabilidad.", DTFecha(1, 6, 2024));
+			//CM4
+			controladorUsuarios->seleccionarUsuario_("juan87");
+			controladorUsuarios->seleccionarProducto(1, "carlos78");
+			controladorUsuarios->seleccionarComentario(2, "laura");
+			controladorUsuarios->nuevaRespuesta("He comprado antes y la calidad es buena.", DTFecha(1, 6, 2024));
+			//CM5
+			controladorUsuarios->seleccionarUsuario_("natalia");
+			controladorUsuarios->seleccionarProducto(1, "carlos78");
+			controladorUsuarios->nuevoComentario("¿Como es el ajuste? ¿Es ajustada o holgada?", DTFecha(02,06,2024));
+			// ======================================================================================================
+			//==============================CASO PRODUCTO 2 ANA23====================================================
+			//CM6
+			controladorUsuarios->seleccionarUsuario_("laura");
+			controladorUsuarios->seleccionarProducto(2, "ana23");
+			controladorUsuarios->nuevoComentario("¿Cual es la resolucion del Televisor LED?", DTFecha(02,06,2024));
+			//CM7
+			controladorUsuarios->seleccionarUsuario_("ana23");
+			controladorUsuarios->seleccionarProducto(2, "ana23");
+			controladorUsuarios->seleccionarComentario(5, "laura");
+			controladorUsuarios->nuevaRespuesta("El televisor LED tiene una resolucion de 4K UHD.", DTFecha(02, 06, 2024));
+			//CM8
+			controladorUsuarios->seleccionarUsuario_("pablo10");
+			controladorUsuarios->seleccionarProducto(2, "ana23");
+			controladorUsuarios->nuevoComentario("¿Tiene soporte para HDR10?", DTFecha(03, 06, 2024));
+			//CM9
+			controladorUsuarios->seleccionarUsuario_("ana23");
+			controladorUsuarios->seleccionarProducto(2, "ana23");
+			controladorUsuarios->seleccionarComentario(7, "pablo10");
+			controladorUsuarios->nuevaRespuesta("Si, soporta HDR10.", DTFecha(03, 06, 2024));
+			//========================================================================================================
+			//=============================CASO PRODUCTO 3 CARLOS78===================================================
+			//CM10
+			controladorUsuarios->seleccionarUsuario_("natalia");
+			controladorUsuarios->seleccionarProducto(3, "carlos78");
+			controladorUsuarios->nuevoComentario("¿La chaqueta de cuero es resistente al agua?", DTFecha(03, 06, 2024));
+			//CM11
+			controladorUsuarios->seleccionarUsuario_("carlos78");
+			controladorUsuarios->seleccionarProducto(3, "carlos78");
+			controladorUsuarios->seleccionarComentario(9, "natalia");
+			controladorUsuarios->nuevaRespuesta("No, la chaqueta de cuero no es resistente al agua", DTFecha(03, 06, 2024));
+			//CM12
+			controladorUsuarios->seleccionarUsuario_("laura");
+			controladorUsuarios->seleccionarProducto(3, "carlos78");
+			controladorUsuarios->seleccionarComentario(9, "natalia");
+			controladorUsuarios->nuevaRespuesta("¿Viene en otros colores?", DTFecha(04, 06, 2024));
+			//CM13
+			controladorUsuarios->seleccionarUsuario_("carlos78");
+			controladorUsuarios->seleccionarProducto(3, "carlos78");
+			controladorUsuarios->seleccionarComentario(11, "laura");
+			controladorUsuarios->nuevaRespuesta("Si, tambien esta disponible en marron.", DTFecha(04, 06, 2024));
+			//CM14
+			controladorUsuarios->seleccionarUsuario_("roberto");
+			controladorUsuarios->seleccionarProducto(3, "carlos78");
+			controladorUsuarios->seleccionarComentario(9, "natalia");
+			controladorUsuarios->nuevaRespuesta("¿Es adecuada para climas frios?", DTFecha(04, 06, 2024));
+			//====================================================================================================
+			//==================================CASO PRODUCTO 4 ANA23=============================================
+			//CM15
+			controladorUsuarios->seleccionarUsuario_("pablo10");
+			controladorUsuarios->seleccionarProducto(4, "ana23");
+			controladorUsuarios->nuevoComentario("¿El microondas digital tiene funcion de descongelacion rapida?", DTFecha(04, 06, 2024));
+			//CM16 ==== ACA ====
+			controladorUsuarios->seleccionarUsuario_("ana23");
+			controladorUsuarios->seleccionarProducto(4, "ana23");
+			controladorUsuarios->seleccionarComentario(14, "pablo10");
+			controladorUsuarios->nuevaRespuesta("Si, el microondas digital incluye una funcion de descongelacion rapida.", DTFecha(04, 06, 2024));
+			//CM17
+			controladorUsuarios->seleccionarUsuario_("natalia");
+			controladorUsuarios->seleccionarProducto(4, "ana23");
+			controladorUsuarios->seleccionarComentario(14, "pablo10");
+			controladorUsuarios->nuevaRespuesta("¿Cuantos niveles de potencia tiene? ", DTFecha(05, 06, 2024));
+			//CM18
+			controladorUsuarios->seleccionarUsuario_("ana23");
+			controladorUsuarios->seleccionarProducto(4, "ana23");
+			controladorUsuarios->seleccionarComentario(16, "natalia");
+			controladorUsuarios->nuevaRespuesta("Tiene 10 niveles de potencia.", DTFecha(05, 06, 2024));
+			//CM19
+			controladorUsuarios->seleccionarUsuario_("roberto");
+			controladorUsuarios->seleccionarProducto(4, "ana23");
+			controladorUsuarios->seleccionarComentario(14, "pablo10");
+			controladorUsuarios->nuevaRespuesta("¿Es facil de limpiar? ", DTFecha(05, 06, 2024));
+			//==========================================================================================
+			//===========================CASO PRODUCTO 5 DIEGOM=========================================
+			//CM20
+			controladorUsuarios->seleccionarUsuario_("roberto");
+			controladorUsuarios->seleccionarProducto(5, "diegom");
+			controladorUsuarios->nuevoComentario("¿La luz LED se puede controlar con una aplicacion movil?", DTFecha(05, 06, 2024));
+			//CM21
+			controladorUsuarios->seleccionarUsuario_("diegom");
+			controladorUsuarios->seleccionarProducto(5, "diegom");
+			controladorUsuarios->seleccionarComentario(19, "roberto");
+			controladorUsuarios->nuevaRespuesta("Si, la luz LED se puede controlar a traves de una aplicacion movil", DTFecha(5, 6, 2024));
+			//CM22 ==ACA==
+			controladorUsuarios->seleccionarUsuario_("pablo10");
+			controladorUsuarios->seleccionarProducto(5, "diegom");
+			controladorUsuarios->seleccionarComentario(19, "roberto");
+			controladorUsuarios->nuevaRespuesta("¿Es compatible con Alexa o Google Home?", DTFecha(6, 6, 2024));
+			//CM23
+			controladorUsuarios->seleccionarUsuario_("diegom");
+			controladorUsuarios->seleccionarProducto(5, "diegom");
+			controladorUsuarios->seleccionarComentario(21, "pablo10");
+			controladorUsuarios->nuevaRespuesta("Si, es compatible con ambos.", DTFecha(6, 6, 2024));
+			//CM24
+			controladorUsuarios->seleccionarUsuario_("natalia");
+			controladorUsuarios->seleccionarProducto(5, "diegom");
+			controladorUsuarios->seleccionarComentario(19, "roberto");
+			controladorUsuarios->nuevaRespuesta("¿Cuanto dura la bateria?", DTFecha(6, 6, 2024));
+			//CM25
+			controladorUsuarios->seleccionarUsuario_("pablo10");
+			controladorUsuarios->seleccionarProducto(5, "diegom");
+			controladorUsuarios->seleccionarComentario(19, "roberto");
+			controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", DTFecha(7, 6, 2024));
+						break;
 		}
-		std::vector<CasoPrueba> casos = leerCSV(archivosCSV[seleccion - 1]);
-		// Imprimir los datos leídos
-		for (const auto& caso : casos) {
-			std::cout << "ID: " << caso.id << ", Nombre: " << caso.nombre << ", Edad: " << caso.edad << std::endl;
-		}
-		} */
-		/*default:
-			cout <<"Opción no válida." <<endl;
-			break;
-	}*/
 		case 0:
 			cout << "Saliendo del programa...\n";
 			break;
@@ -1070,24 +934,6 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			break;
 		}
 	} while (opcion != 0);
-	/*cout<<"¿Desea realizar otra operación?"<<endl;
-	cout <<"¿En que lo podemos asistir?"<<endl;
-	cout <<"Digite 1 para Alta de usuario."<<endl;
-	cout <<"Digite 2 para Listado de usuarios."<<endl;
-	cout <<"Digite 3 para Alta de producto."<<endl;
-	cout <<"Digite 4 para Consultar producto."<<endl;
-	cout <<"Digite 5 para Crear promocion."<<endl;
-	cout <<"Digite 6 para Consultar promocion."<<endl;
-	cout <<"Digite 7 para Realizar compra."<<endl;
-	cout <<"Digite 8 para Dejar comentario."<<endl;
-	cout <<"Digite 9 para Eliminar comentario."<<endl;
-	cout <<"Digite 10 para Enviar producto."<<endl;
-	cout <<"Digite 11 para Expediente de usuario."<<endl;
-	cout <<"Digite 12 para Suscribirse a notificaciones."<<endl;
-	cout <<"Digite 13 para Consultar notificaciones"<<endl;
-	cout <<"Digite 14 para Eliminar suscripciones."<<endl;
-	cin>>entradaConsola;
-};*/
 
 	// ** SE LIBERA LA MEMORIA ** //
 
