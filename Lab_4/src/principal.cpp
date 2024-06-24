@@ -584,6 +584,7 @@ int main()
 			cin >> respuesta;
 			if (respuesta == "c" || respuesta == "C"){
 				string comentario;
+				cin.ignore();
 				cout << "Escriba el comentario: ";
 				getline(cin, comentario);
 				controladorUsuarios->nuevoComentario(comentario, DTFecha(dia, mes, anio));
@@ -842,7 +843,6 @@ int main()
 			controladorVentas->agregarProductoPromo(8, 1);
 			controladorVentas->ingresarPromocion();
 
-			//controladorVentas->altaPromocion("Casa nueva", "Para que puedas ahorrar en la casa nueva", DTFecha(25, 10, 2024), 30);
 			controladorVentas->altaPromocion("Fiesta", "Para que no te quedes sin ropa para las fiestas", DTFecha(26, 10, 2024), 20);
 			controladorVentas->seleccionarVendedor("carlos78");
 			controladorVentas->agregarProductoPromo(6, 3);
@@ -858,6 +858,93 @@ int main()
 			controladorVentas->seleccionarVendedor("diegom");
 			controladorVentas->agregarProductoPromo(14, 1);
 			controladorVentas->ingresarPromocion();
+
+				//Datos compras:
+
+
+			controladorVentas->seleccionarCliente("juan87");	
+			controladorVentas->agregarProductoCompra(2, 2);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+			controladorVentas->seleccionarCliente("juan87");	
+			controladorVentas->agregarProductoCompra(4, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+			controladorVentas->seleccionarCliente("juan87");	
+			controladorVentas->agregarProductoCompra(8, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+		
+			controladorVentas->seleccionarCliente("juan87");
+			controladorVentas->agregarProductoCompra(5, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+
+			controladorVentas->seleccionarCliente("laura");
+			controladorVentas->agregarProductoCompra(14, 10);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();	
+
+			controladorVentas->seleccionarCliente("natalia");
+			controladorVentas->agregarProductoCompra(11, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();	
+
+			controladorVentas->seleccionarCliente("natalia");
+			controladorVentas->agregarProductoCompra(12, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();	
+
+			controladorVentas->seleccionarCliente("natalia");
+			controladorVentas->agregarProductoCompra(13, 1);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();	
+
+			controladorVentas->seleccionarCliente("juan87");
+			controladorVentas->agregarProductoCompra(3, 2);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+			controladorVentas->seleccionarCliente("juan87");
+			controladorVentas->agregarProductoCompra(6, 3);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+
+			controladorVentas->seleccionarCliente("laura");
+			controladorVentas->agregarProductoCompra(1, 2);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+
+			controladorVentas->seleccionarCliente("natalia");
+			controladorVentas->agregarProductoCompra(1, 3);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+
+			controladorVentas->seleccionarCliente("pablo10");
+			controladorVentas->agregarProductoCompra(1, 4);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();
+
+			controladorVentas->seleccionarCliente("roberto");
+			controladorVentas->agregarProductoCompra(1, 5);
+			controladorVentas->mostrarDetallesCompra();
+			controladorVentas->registrarCompra();
+			//controladorVentas->liberarMemoriaRealizarCompra();		
+		
+
+			
 
 				//Datos de Comentarios:
 			//=========================CASO PRODUCTO 1 CARLOS78===================================================
