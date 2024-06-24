@@ -421,8 +421,9 @@ void ControladorUsuarios::consultarNotificaciones(string nickname){
 	}
 }
 
-void ControladorUsuarios::eliminarSuscripciones(string nicknameCliente){
-	Vendedor* vendedor = this->vendedores[nicknameCliente];
+void ControladorUsuarios::eliminarSuscripciones(string nicknameVendedor, string nicknameCliente){
+	Vendedor* vendedor = this->vendedores[nicknameVendedor];
+
 	vendedor->removerSuscriptor(this->clientes[nicknameCliente]);
 }
 

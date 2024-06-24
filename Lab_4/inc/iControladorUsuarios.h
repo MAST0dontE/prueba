@@ -27,7 +27,7 @@ class iControladorUsuarios{
         virtual void listaDeVendedores()= 0 ;
         //set<DTcomentario> listarComentarios(string nickname)= 0 ;
         virtual void consultarNotificaciones(string nickname)= 0 ; 
-        virtual void eliminarSuscripciones(string nicknameCliente)= 0 ;
+        virtual void eliminarSuscripciones(string nicknameVendedor, string nicknameCliente)= 0 ;
         virtual void listarSuscripciones(string nickname)= 0 ;
         virtual void tipoComentario()= 0 ;
         virtual void seleccionarUsuario_(string nickname)= 0 ;

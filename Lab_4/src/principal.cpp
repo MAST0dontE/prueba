@@ -1006,7 +1006,6 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			string NombreCliente;
 			// cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cin >> NombreCliente;
-			cout << NombreCliente << endl;
 			controladorUsuarios->consultarNotificaciones(NombreCliente);
 			break;
 		}
@@ -1014,7 +1013,7 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 		{
 			cout << "Indique su nickname: " << endl;
 			string nicknameCliente;
-			getline(cin, nicknameCliente);
+			cin>> nicknameCliente;
 			cout << "Suscripciones de " << nicknameCliente << ":" << endl;
 			controladorUsuarios->listarSuscripciones(nicknameCliente);
 			string respuesta6 = "Y";
@@ -1022,12 +1021,11 @@ controladorUsuarios->nuevaRespuesta("¿La aplicacion movil es facil de usar?", D
 			{
 				cout << "Indique el nickname del vendedor al que desea eliminar la suscripción: " << endl;
 				string nicknameVendedor;
-				getline(cin, nicknameVendedor);
-				controladorUsuarios->eliminarSuscripciones(nicknameVendedor);
+				cin>> nicknameVendedor;
+				controladorUsuarios->eliminarSuscripciones(nicknameVendedor, nicknameCliente);
 				cout << "Desea eliminar otra suscripción? Y/N" << endl;
-				getline(cin, respuesta6);
-				if (respuesta6 == "N" || respuesta6 == "n")
-				{
+				cin>> respuesta6;
+				if (respuesta6 == "N" || respuesta6 == "n"){
 					break;
 				}
 			} while (respuesta6 == "Y" || respuesta6 == "y");
