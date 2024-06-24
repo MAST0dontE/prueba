@@ -56,6 +56,8 @@ class iControladorVentas{
         virtual bool existeCodigo(int codigo)= 0 ;
         virtual bool vendedorTieneProductos(string nickname) = 0;
         virtual bool alMenosUnProductoPromo() = 0;
+        virtual bool existeCompraRealizada(string nickname, int idCompra) = 0;
+
 };
 
 #endif // ICONTROLADORVENTAS_H

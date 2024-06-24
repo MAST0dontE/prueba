@@ -466,13 +466,10 @@ int ControladorVentas::listarComprasAEnviar(Producto *producto){
 void ControladorVentas::compraEnviada(int idCompra, int idProducto, string nickname) {
     Cliente* cliente = clientes.find(nickname)->second;   
     map<int, Compra*> compras = cliente->getComprasRealizadas();    
-    cout << "entreeeeeeeee3" << endl;
     map<int, Compra*>::iterator compra = compras.find(idCompra);
-        cout << "entreeeeeeeee4" << endl;
     if (!(compra != compras.end()))
     {
         map<int, CompraPorProducto*> prods = compra->second->getProductos();
-        cout << "entreeeeeeeee5" << endl;
         CompraPorProducto* productoEnviado = prods.find(idProducto)->second;
         productoEnviado->setestadoDeEnvio(EEnvio::enviado);    
     }
@@ -532,8 +529,12 @@ bool ControladorVentas::alMenosUnProductoPromo(){
     return !(this->productosPromo.empty());
 }
 
-/*bool ControladorVentas::existeCompraRealizada(string nicknameCliente, int id){
-    Cliente* cliente = clientes.find(nicknameCliente)->second;
-    Compra* compra = cliente->getComprasRealizadas().find(id);
-    return (compra != cliente->getComprasRealizadas().end());
-}*/
+bool ControladorVentas::existeCompraRealizada(string nickname, int idCompra) {
+    map<string, Cliente*>::iterator itCliente = this->clientes.find(nickname);
+    if (itCliente != this->clientes.end()) {
+        map<int, Compra*> compras = itCliente->second->getComprasRealizadas();        
+        map<int, Compra*>::iterator itCompra = compras.find(idCompra);
+        return itCompra != compras.end();
+    }
+    return false;
+}
